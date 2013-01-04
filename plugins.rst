@@ -1692,8 +1692,6 @@ this example, someone will CTCP you the message "SHOWFILE <filename>".
 Functions
 ---------
 
---------------
-
 hexchat\_hook\_command ()
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
