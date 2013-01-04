@@ -4,6 +4,11 @@ How to Help
 Translation
 -----------
 
+Translation is handled by `Transifex <https://www.transifex.com/projects/p/hexchat/>`_. Simply register on the site and apply for membership to a translation team for your language. Approval may take some time.
+
+.. NOTE::
+   Your Transifex email will be public in the created files.
+
 Documentation
 -------------
 
@@ -24,6 +29,11 @@ For more complex additions I direct you to documentation for the projects we use
 
 Bug Reports
 -----------
+
+We use `Github Issues <https://github.com/hexchat/hexchat/issues>`_ for our bug reports. Be sure to search on there for similar issues before posting your own, if it already exists pointing out you also have the issue never hurts. With the bug report include at minimum the information from *help -> about*.
+
+.. NOTE::
+   Issues is not a forum for asking questions, please direct those to IRC for now.
 
 IRC Support
 -----------
