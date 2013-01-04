@@ -4,21 +4,28 @@ Getting Started
 Quick Start
 -----------
 
-Getting Help
-------------
+Downloading
+~~~~~~~~~~~
 
-Changelog
----------
+Installing
+~~~~~~~~~~
 
-.. toctree::
-   :maxdepth: 1
+Connecting
+~~~~~~~~~~
 
-   changelog
 
 Frequently Asked Questions
 --------------------------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    faq
+
+Changelog
+---------
+
+.. toctree::
+   :maxdepth: 2
+
+   changelog
