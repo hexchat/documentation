@@ -12,7 +12,7 @@ Translation is handled by `Transifex <https://www.transifex.com/projects/p/hexch
 Documentation
 -------------
 
-For simple edits of the documentation just go to the page and click *Show on Github* on the left side, fork the repo, edit it, and submit a pull request.
+For simple edits of the documentation just go to the page and click *Show/Edit on Github* on the left side, fork the repo, edit it, and submit a pull request.
 
 For more complex additions I direct you to documentation for the projects we use:
 
