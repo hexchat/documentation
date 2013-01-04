@@ -83,7 +83,7 @@ If everything went fine, the resulting binaries will be found in
 it?
 
 Unix
------
+----
 
 First of all, you have to install the build dependencies just like you
 would for an XChat compilation. Package names differ across distros, so
@@ -105,7 +105,7 @@ This will compile with defaults. See *./configure --help* for more info
 about flags.
 
 Mac
------
+---
 
 Install Homebrew_, then install all
 the build dependencies of HexChat such as GTK+. Be creative and check
