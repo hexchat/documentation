@@ -2,7 +2,7 @@ Getting Started
 ===============
 
 Quick Start
-----------
+-----------
 
 Getting Help
 ------------
