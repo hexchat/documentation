@@ -13,8 +13,7 @@ HexChat ChangeLog
 -  fix error message for busy servers
 -  fix filename encoding errors
 -  fix Fedora spec file
--  fix Raw Log content being impossible to copy when auto-copy is
-   disabled
+-  fix Raw Log content being impossible to copy when auto-copy is disabled
 -  fix rough icon rendering in most windows on Windows
 -  fix config folder when specified with -d argument
 -  add built-in support for SASL authentication via CAP
@@ -24,10 +23,8 @@ HexChat ChangeLog
 -  add option to change update check frequency and delay for first check
 -  add option to change GUI language on Windows
 -  add Ignore entry to userlist popup
--  add Afrikaans, Asturian, Danish, Gujarati, Indonesian, Kinyarwanda
-   and Malayalam translations
--  add ChangeLog and ReadMe links to Start Menu during installation on
-   Windows
+-  add Afrikaans, Asturian, Danish, Gujarati, Indonesian, Kinyarwanda and Malayalam translations
+-  add ChangeLog and ReadMe links to Start Menu during installation on Windows
 -  add manual page on Unix
 -  add icon support for 3 levels above op user mode
 -  change default colors, text events and user list/channel tree icons
@@ -35,8 +32,7 @@ HexChat ChangeLog
 -  use Consolas as the default font where available
 -  open dialog window for double-clicking in the user list by default
 -  variable separation, cleanup and renaming
--  check in the installers whether Windows release is supported by
-   HexChat
+-  check in the installers whether Windows release is supported by HexChat
 -  display previous value after /SET
 -  reorganize the Settings menu and add new options
 -  redesign the About dialog
@@ -74,11 +70,9 @@ HexChat ChangeLog
 -  fix desktop notification icons on Unix
 -  fix URL grabber saving an unlimited number of URLs by default
 -  fix URL grabber memory leaks under certain circumstances
--  fix URL grabber trying to export URL lists to system folders by
-   default
+-  fix URL grabber trying to export URL lists to system folders by default
 -  fix opening URLs without http(s)://
--  add support for regenerating text events during compilation on
-   Windows
+-  add support for regenerating text events during compilation on Windows
 -  add support for the theme manager on Unix
 -  add Unifont to the default list of alternative fonts
 -  add option to retain colors in the topic
@@ -112,8 +106,7 @@ HexChat ChangeLog
 -  use better compression for Windows installers
 -  switch to GTK+ file dialogs on Windows
 -  restructure the Preferences window
--  use the addons subfolder of the config folder for auto-loading
-   plugins/scripts
+-  use the addons subfolder of the config folder for auto-loading plugins/scripts
 -  improve the dialog used for opening plugins/scripts
 -  remember user limits in channel list between sessions
 -  remember last search pattern during sessions
@@ -617,4 +610,3 @@ HexChat ChangeLog
 -----------------
 
 -  initial release
-
