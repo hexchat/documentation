@@ -1,6 +1,3 @@
-Welcome to HexChat's documentation!
-===================================
-
 Client Documentation
 --------------------
 
