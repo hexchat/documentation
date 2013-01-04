@@ -10,6 +10,7 @@ Client Documentation
    getting_started
    settings
    commands
+   appearance
    addons
 
 Contributor Documentation

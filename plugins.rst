@@ -1,8 +1,4 @@
-.. role:: math(raw)
-   :format: html latex
-..
-
-HexChat Plugin Interface
+Plugin Interface
 ========================
 
 Introduction
