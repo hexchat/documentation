@@ -5,14 +5,12 @@ Developers
    :maxdepth: 2
 
    building
-
-.. toctree::
-   :maxdepth: 1
-
    plugins
 
 Scripting
 ---------
+
+There are multiple scripting languages supported by HexChat but currently only Python (2.7) and Perl (5.16) are official supported.
 
 .. toctree::
    :maxdepth: 1
