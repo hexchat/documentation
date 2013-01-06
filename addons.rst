@@ -1,7 +1,7 @@
 Addons
 ======
 
-HexChat ships with a handful of useful plugins that extend the functionality of the client. In order to auto-load custom ones you just place them in an :file:`addons` subdir within your `config folder <settings.html#config-files>`_ or manually with :command:`/load` and :command:`/unload`.
+HexChat ships with a handful of useful plugins that extend the functionality of the client. In order to auto-load custom ones you just place them in an :file:`addons` subdir within your `config folder <settings.html#config-files>`_, manually with :command:`/load` and :command:`/unload`, or with :menuselection:`Window --> Plugins and Scripts`.
 
 With the included scripting interfaces you can also use easier to create but equally powerful scripts in languages such as Python. These are loaded/unloaded in the same manner as plugins.
 
@@ -38,7 +38,7 @@ Then you let your fellow chatters know this password. Once they also set the pas
 Update Checker
 --------------
 
-Automatically checks for updates available. Can be manually checked via *Help -> Check for Updates* or by the command:
+Automatically checks for updates available. Can be manually checked via :menuselection:`Help --> Check for Updates` or by the command:
 
 :command:`/updcheck`
 
@@ -46,7 +46,7 @@ Automatically checks for updates available. Can be manually checked via *Help ->
 Sysinfo
 -------
 
-Prints out basic system information on both Windows and Unix. You can either activate in *Window -> Display System Info* or type:
+Prints out basic system information on both Windows and Unix. You can either activate in :menuselection:`Window --> Display System Info` or type:
 
 :command:`/sysinfo`
 
