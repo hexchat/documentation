@@ -32,6 +32,20 @@ Auto Replace
 Set Command
 -----------
 
+The set command can be used to change options. The usage is:
+
+:command:`/set option_name <number|string>`
+
+Togglable options take *1* for on and *0* for off but as an alternative you can type:
+
+:command:`/set toggle_option on`
+
+Some options such as *gui_tray* require running this after changing:
+
+:command:`/gui apply`
+
+This can be avoided by using the preferences window instead, which is recommended, also using the gui will warn if a setting requires restart.
+
 List of Settings
 ----------------
 
