@@ -1,6 +1,10 @@
 Addons
 ======
 
+HexChat ships with a handful of useful plugins that extend the functionality of the client. In order to auto-load custom ones you just place them in an :file:`addons` subdir within your `config folder <settings.html#config-files>`_ or manually with :command:`/load` and :command:`/unload`.
+
+With the included scripting interfaces you can also use easier to create but equally powerful scripts in languages such as Python. These are loaded/unloaded in the same manner as plugins.
+
 Do At
 -----
 
