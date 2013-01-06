@@ -37,3 +37,5 @@ We use `Github Issues <https://github.com/hexchat/hexchat/issues>`_ for our bug 
 
 IRC Support
 -----------
+
+Anybody who enjoys helping others and understands much of whats on this site is welcome to help new users in our official irc channel on freenode, `#hexchat <irc://chat.freenode.net/hexchat>`_.
