@@ -17,6 +17,40 @@ On Windows there is a portable mode option which makes HexChat store settings in
 Network List
 ------------
 
+The network list contains a list of networks, basic user information, and per network settings. It can be accessed in :menuselection:`HexChat --> Network List` or by the keyboard shortcut :kbd:`Control-s`.
+
+User Information
+~~~~~~~~~~~~~~~~
+
+This is where basic information is set for the user such as nicknames, these will be used as defaults for networks but can be overridden. The Realname field is entirely optional. The username is often used for options like Server and SASL password.
+
+Networks
+~~~~~~~~
+
+HexChat comes with a list of default networks but you can easily add your own or edit existing ones. The sorting and names of networks do matter as some commands reference the network by the name here, e.g. :command:`/newserver`. The order they are sorted in this list also determines the order of auto-connecting. To edit the order just select one and hit :kbd:`Shift-up` or :kbd:`Shift-down`.
+
+
+Servers
+^^^^^^^
+
+Per network you can maintain a list of servers in case of one fails. The syntax for these servers *hostname/port*. The port is entirely optional and can be prefixed by *+* to signify SSL. If no port is given the default port used is 6667 and 6697 for SSL.
+
+Your Details
+^^^^^^^^^^^^
+
+Unticking *Use global user information* allows unique nicknames or usernames between networks.
+
+Connecting
+^^^^^^^^^^
+
+Ticking *Auto connect to this network at startup* combined with *Favorite channels* will allow you to quickly connect and join chats. 
+
+.. SEEALSO::
+	See the `FAQ <faq.html#why-does-hexchat-join-channels-before-identifying>`_ if you have trouble identifying before join.
+
+Channel Options
+---------------
+
 Preferences
 -----------
 
