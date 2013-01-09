@@ -22,7 +22,7 @@ in the Network list (2.9.4+).
 How do I connect through a proxy?
 ---------------------------------
 
-Go to the menus, *Settings* ``->`` *Preferences* ``->`` *Network Setup*
+Go to the menus, :menuselection:`Settings --> Preferences --> Network Setup`
 and fill in the requested information there. Authentication (using a
 username and password) is only supported for HTTP and Socks5.
 
@@ -86,8 +86,7 @@ Right-click on the tab you want to change. In the submenu of the channel
 name, there's a toggle-item "Show join/part messages", simply turn this
 off.
 
-If you want to turn this option on globally go to *Preferences* ``->``
-*Advanced*.
+If you want to turn this option on globally go to :menuselection:`Settings --> Preferences --> Advanced`.
 
 Then all channels you join **after** setting this will start with "Show
 join/part messages" turned off.
@@ -102,8 +101,8 @@ and must be translated.
 When offering a DCC file, HexChat will tell the receiver your address.
 If it says 192.168.0.1, the receiver will not be able to connect. One
 way to make it send your "real" address is to enable the "Get my IP from
-IRC Server" option in HexChat. This option is available in *Preferences*
-``->`` *File Transfers*. When you turn it ON, you will have to re-login
+IRC Server" option in HexChat. This option is available in :menuselection:`Settings --> Preferences -->
+File Transfers`. When you turn it ON, you will have to re-login
 to the server before it'll take effect.
 
 You will also need to forward some ports for use in DCC send. You may
@@ -151,7 +150,7 @@ means the plugin for running those scripts isn't loaded.
 How do I play sound files on certain events?
 --------------------------------------------
 
-In the menus, go to: *Settings* ``->`` *Preferences* ``->`` *Sound*.
+In the menus, go to: :menuselection:`Settings --> Preferences --> Sound`.
 Select the event you want to make a sound on, then type in a sound
 filename (or use the Browse button).
 
@@ -187,7 +186,7 @@ For minimizing to tray on minimize:
 
     /set gui\_tray\_minimize on
 
-Alerts for this tray are in *Preferences* ``->`` *Alerts*.
+Alerts for this tray are in :menuselection:`Settings --> Preferences --> Alerts`.
 
 The other option is Windows only, called HexTray. It is included with
 the installer. Right click on the tray icon for its options.
@@ -209,7 +208,7 @@ How do I rotate log files every so often?
 By default settings, no rotation occurs, your log files will just keep
 getting larger.
 
-Go to *Settings* ``->`` *Preferences* ``->`` *Logging* and change the
+Go to :menuselection:`Settings --> Preferences --> Logging` and change the
 log filename to any one of these:
 
     %Y-%m-%d/%n-%c.log ->2006-12-30/FreeNode-#channel.log
