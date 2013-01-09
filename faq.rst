@@ -14,8 +14,7 @@ Why does HexChat join channels before identifying?
 --------------------------------------------------
 
 When using the nickserv password HexChat waits a short time before
-joining. To change this value (which is in seconds) by running: > /set
-irc\_join\_delay number
+joining. To change this value (which is in seconds) edit it in :menuselection:`Settings --> Preferences --> Advanced`
 
 The other option is SASL which is network dependent and can be enabled
 in the Network list (2.9.4+).
@@ -33,16 +32,16 @@ How do I show @ and + in front of nicknames that are Op and Voice when they talk
 To display @ and + characters next to nicknames as they talk, do the
 following:
 
-In the menus, open up *Settings* ``->`` *Text Events*. Find the *Channel
+In the menus, open up :menuselection:`Settings --> Text Events`. Find the *Channel
 Message* event in the list. The $3 code can be inserted to print the
 user's mode-character (e.g. @ or +). For example, you might want to
 change the default:
 
-    %C18%H<%H$4\ :math:`1%H>%H%O`\ t$2
+    %C18%H<%H$4$1%H>%H%O$t$2
 
 To
 
-    %C18%H<%H$4$3\ :math:`1%H>%H%O`\ t$2
+    %C18%H<%H$4$3$1%H>%H%O$t$2
 
 Don't forget to **press Enter**, so the changes take effect in the list
 at the top of the window.
