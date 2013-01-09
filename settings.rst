@@ -51,6 +51,8 @@ Ticking *Auto connect to this network at startup* combined with *Favorite channe
 Channel Options
 ---------------
 
+Some options can be specific to channels. To access these you can right click on any tab or use the command :command:`/chanopt`. Any option other than *0* or *1* is considered *unset* and will use the globally set defaults.
+
 Preferences
 -----------
 
