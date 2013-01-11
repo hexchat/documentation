@@ -9,6 +9,7 @@ Client Documentation
    commands
    appearance
    addons
+   tips
 
 Contributor Documentation
 -------------------------
