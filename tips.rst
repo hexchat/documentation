@@ -12,6 +12,6 @@ Tor
 
 4. Setup the network in :menuselection:`HexChat --> Network List`. Note the ip from `freenode`_'s site (which may change) and for freenode SASL is required. Example:
 
-.. image:: http://i.imgur.com/q3ACx.png
+.. image:: http://i.imgur.com/EMNx2.png
 
 .. _freenode: http://freenode.net/irc_servers.shtml
