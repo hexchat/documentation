@@ -1,6 +1,21 @@
 Tips & Tricks
 =============
 
+Spell Check
+-----------
+
+Localization
+------------
+
+Special Glyphs
+--------------
+
+Custom Certificates
+-------------------
+
+Notice Placement
+----------------
+
 Tor
 ---
 

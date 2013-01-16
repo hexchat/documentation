@@ -4,16 +4,6 @@ Getting Started
 Quick Start
 -----------
 
-Downloading
-~~~~~~~~~~~
-
-Installing
-~~~~~~~~~~
-
-Connecting
-~~~~~~~~~~
-
-
 Frequently Asked Questions
 --------------------------
 
