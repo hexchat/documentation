@@ -98,7 +98,8 @@ basically:
  git clone https://github.com/hexchat/hexchat.git 
  cd hexchat 
  ./autogen.sh 
- ./configure make 
+ ./configure 
+ make 
  ./src/fe-gtk/hexchat
 
 This will compile with defaults. See *./configure --help* for more info
