@@ -104,6 +104,12 @@ basically:
 This will compile with defaults. See *./configure --help* for more info
 about flags.
 
+For updating:
+
+.. code-block:: none 
+
+ git pull origin
+
 Mac
 ---
 
