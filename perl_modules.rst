@@ -1,13 +1,12 @@
 Building Perl modules on Windows
 ================================
 
-Since version 2.9.5 on Windows you need to use specific Perl build for Hexchat for perl plugin to work. But this build doesn't have PPM and cpan doesn't work so if your perl script needs specific module to work you need to build it manually.
-
+Since version 2.9.5 on Windows you need to use specific Perl build for Hexchat for Perl plugin to work. But this build doesn't have PPM and CPAN doesn't work so if your Perl script needs specific module to work you need to build it manually.
 
 Software
 --------
 
-To start building perl modules you need to download and install this software (in their default install paths):
+To start building Perl modules you need to download and install this software (in their default install paths):
 
 - `MozillaBuild`_ or `direct link`_ 
 - `Visual Studio 2010 Professional Trial`_ 
@@ -18,7 +17,6 @@ To start building perl modules you need to download and install this software (i
 .. _Visual Studio 2010 Professional Trial: http://www.microsoft.com/en-us/download/details.aspx?id=16057
 .. _x86: https://github.com/downloads/hexchat/hexchat/Perl%205.16.2%20x86.msi
 .. _x64: https://github.com/downloads/hexchat/hexchat/Perl%205.16.2%20x64.msi
-
 
 Downloading and Extracting
 --------------------------
@@ -33,9 +31,9 @@ Type:
 
 (we will work in *perl* directory). 
 
-All Perl modules can be downloaded from `cpan`_ site.
+All Perl modules can be downloaded from `CPAN`_ site.
 
-.. _cpan: http://search.cpan.org/
+.. _CPAN: http://search.cpan.org/
 
 Now we can download the module which can be done using *wget http://link* command. 
 Later we extract it using *tar -zxvf module.tar.gz*. 
@@ -49,17 +47,15 @@ In this guide we will build Net::Telnet module. So we are downloading it and ext
 
 Type *cd Net-Telnet-3.03* and we can start building.
 
-
 Note on Perl module dependencies
 --------------------------------
 
 This building method isn't perfect so if you're building modue which depends on other module, you need to build it before repeating all steps in this guide.
 
-
 Building
 --------
 
-Fist thing we must do is to configure module and point it to our perl installation using:
+Fist thing we must do is to configure module and point it to our Perl installation using:
 
 .. code-block:: none
 
@@ -88,8 +84,7 @@ After it we can install module using:
 
  nmake install
 
-Now if you didn't get any error you should have perl module installed and it can be used with perl script in Hexchat.
-
+Now if you didn't get any error you should have Perl module installed and it can be used with Perl script in Hexchat.
 
 Whole operation should look like this:
 
