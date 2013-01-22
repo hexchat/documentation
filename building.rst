@@ -123,7 +123,8 @@ following commands:
 .. code-block:: none
 
  cd hexchat 
- ./configure --disable-nls --disable-xlib --disable-perl make 
+ ./configure --disable-nls --disable-xlib --disable-perl 
+ make 
  ./src/fe-gtk/hexchat 
 
 See *./configure --help* for more info about flags.
