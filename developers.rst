@@ -17,3 +17,11 @@ There are multiple scripting languages supported by HexChat but currently only P
    :glob:
 
    script*
+
+Building Perl modules on Windows
+--------------------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   perl_modules
