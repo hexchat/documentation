@@ -10,7 +10,7 @@ To start building Perl modules you need to download and install this software (i
 
 - `MozillaBuild`_ or `direct link`_ 
 - `Visual Studio 2010 Professional Trial`_ 
-- Perl `x86`_ or `x64`_ (Perl **MUST** be installed to C:\Perl)
+- Perl `x86`_ or `x64`_ (Perl **MUST** be installed to C:\\Perl)
 
 .. _MozillaBuild: https://wiki.mozilla.org/MozillaBuild
 .. _direct link: http://ftp.mozilla.org/pub/mozilla.org/mozilla/libraries/win32/MozillaBuildSetup-Latest.exe
@@ -21,7 +21,7 @@ To start building Perl modules you need to download and install this software (i
 Downloading and Extracting
 --------------------------
 
-Start MozillaBuild console (it's in C:\mozilla-build) *start-msvc10.bat* (if you're using Hexchat x86) or *start-msvc10-x64.bat* (if you're using Hexchat x64). 
+Start MozillaBuild console (it's in C:\\mozilla-build) *start-msvc10.bat* (if you're using Hexchat x86) or *start-msvc10-x64.bat* (if you're using Hexchat x64). 
 
 Type: 
 
