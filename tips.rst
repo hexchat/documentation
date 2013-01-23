@@ -60,6 +60,20 @@ Please bear in mind that for some reason certain fonts that can display a certai
 Custom Certificates
 -------------------
 
+Custom Certificates allows you to identify to networks services using a certificate. Please do not mistake it for server certificate which allows you to connect to network with invalid certificate, right now Hexchat can't do it.
+
+To use custom certificates you need to put your certificate file inside *certs* directory in Hexchat config dir which can be found here:
+
+- Windows: %APPDATA%\HexChat
+- Unix: ~/.config/hexchat
+
+Certificate should be named after the network where it will be used, for example if you want to use it on *Rizon*, certificate file should look like this: *Rizon.pem*.
+
+Note on Custom Server Certificates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+On Windows it is possible to edit *cert.pem* file in Hexchat main installation directory and add custom certificate there. But this method isn't very effective as *cert.pem* is overwritten each time Hexchat installer is used.
+
 Notice Placement
 ----------------
 
