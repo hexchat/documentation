@@ -13,7 +13,7 @@ HexChat for Windows uses MySpell for spelling via the Enchant library. The requi
 
 If you want to have spelling, do the following:
 
-    1. Download the `Spelling Dictionaries <http://hexchat.org/>`_ self-extracting archive
+    1. Download the `Spelling Dictionaries <http://hexchat.org/downloads.html>`_ self-extracting archive
     2. Specify the languages you wish to have spelling for in :menuselection:`Settings --> Preferences --> Interface --> Input box`. You need to specify their language codes, see :file:`%LOCALAPPDATA%\\enchant\\myspell` for hints. By default, HexChat uses the LC_ALL environmental variable, or if it's unset, it falls back to en_US.
 
 .. NOTE::
