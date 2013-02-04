@@ -48,7 +48,7 @@ with the *YourDepsPath* property. Download:
 
 Extract them to *YourDepsPath*. After that, your deps folder should look
 like
-`this <http://www.hexchat.org/developers/building/deps.png?attredirects=0>`_.
+`this <http://i.imgur.com/MtqdWLr.png>`_.
 
 .. SEEALSO::
    If you would like to build gtk yourself read this `guide <http://gtk.hexchat.org>`_.
