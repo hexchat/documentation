@@ -45,7 +45,9 @@ Unticking *Use global user information* allows unique nicknames or usernames bet
 Connecting
 ^^^^^^^^^^
 
-Ticking *Auto connect to this network at startup* combined with *Favorite channels* will allow you to quickly connect and join chats. 
+Ticking *Auto connect to this network at startup* combined with *Favorite channels* will allow you to quickly connect and join chats.
+
+The password fields allow you to login to a password protected server or services. They take the syntax *username:password* or just the password if username has been set as mentioned above.
 
 .. SEEALSO::
 	See the `FAQ <faq.html#why-does-hexchat-join-channels-before-identifying>`_ if you have trouble identifying before join.
