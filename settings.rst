@@ -82,6 +82,9 @@ For Example:
 
 This will replace that arrow with a green unicode arrow upon pressing enter or space. The keys that check for replace are defined in :menuselection:`Settings --> Keyboard Shortcuts`. A trick to avoid replacing it :kbd:`Shift-Space` since that is not defined by default.
 
+CTCP Replies
+~~~~~~~~~~~~
+
 Set Command
 -----------
 
