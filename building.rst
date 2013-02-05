@@ -20,8 +20,8 @@ Download and install (in their default install paths):
 .. _Inno Setup 5.5 Unicode: http://www.jrsoftware.org/isdl.php
 .. _ISSkin 3: http://isskin.codejock.com/
 .. _7-Zip x64: http://7-zip.org/
-.. _gendef: https://github.com/downloads/hexchat/hexchat/gendef-20111031.7z
-.. _msgfmt: https://github.com/downloads/hexchat/hexchat/msgfmt-0.18.1.7z
+.. _gendef: http://dl.hexchat.org/gtk-win32/gendef-20111031.7z
+.. _msgfmt: http://dl.hexchat.org/gtk-win32/msgfmt-0.18.1.7z
     
 
 Source code
@@ -43,8 +43,8 @@ with the *YourDepsPath* property. Download:
 -  `GTK+ x86 bundle`_ 
 -  `GTK+ x64 bundle`_ 
 
-.. _GTK+ x86 bundle: https://github.com/downloads/hexchat/gtk-win32/gtk-x86.7z
-.. _GTK+ x64 bundle: https://github.com/downloads/hexchat/gtk-win32/gtk-x64.7z
+.. _GTK+ x86 bundle: http://dl.hexchat.org/gtk-win32/gtk-x86.7z
+.. _GTK+ x64 bundle: http://dl.hexchat.org/gtk-win32/gtk-x64.7z
 
 Extract them to *YourDepsPath*. After that, your deps folder should look
 like
@@ -66,8 +66,8 @@ Download:
 -  `Perl 5.16 x64`_ (extract to *c:\\mozilla-build\\perl-5.16\\x64*)
 -  Python_ 2.7 x64 (install to *c:\\mozilla-build\\python-2.7\\x64*)
 
-.. _Perl 5.16 x86: https://github.com/downloads/hexchat/hexchat/perl-5.16.2-x86.7z
-.. _Perl 5.16 x64: https://github.com/downloads/hexchat/hexchat/perl-5.16.2-x64.7z
+.. _Perl 5.16 x86: http://dl.hexchat.org/misc/Perl%205.16.2%20x86.msi
+.. _Perl 5.16 x64: http://dl.hexchat.org/misc/Perl%205.16.2%20x64.msi
 .. _Python: http://www.python.org/download/
 
 You can use other paths, but then you must update the related properties
@@ -121,7 +121,7 @@ Download the `testing package`_ which is prepared for Homebrew compilation (basi
 HEAD with *./autogen.sh* ran on Debian 6). Extract it and run the
 following commands:
 
-.. _testing package: https://github.com/downloads/hexchat/hexchat/hexchat-mac.tar.gz
+.. _testing package: http://dl.hexchat.org/hexchat/hexchat-mac.tar.gz
 
 .. code-block:: none
 

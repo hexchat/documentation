@@ -15,8 +15,8 @@ To start building Perl modules you need to download and install this software (i
 .. _MozillaBuild: https://wiki.mozilla.org/MozillaBuild
 .. _direct link: http://ftp.mozilla.org/pub/mozilla.org/mozilla/libraries/win32/MozillaBuildSetup-Latest.exe
 .. _Visual Studio 2010 Professional Trial: http://www.microsoft.com/en-us/download/details.aspx?id=16057
-.. _x86: https://github.com/downloads/hexchat/hexchat/Perl%205.16.2%20x86.msi
-.. _x64: https://github.com/downloads/hexchat/hexchat/Perl%205.16.2%20x64.msi
+.. _x86: http://dl.hexchat.org/misc/Perl%205.16.2%20x86.msi
+.. _x64: http://dl.hexchat.org/misc/Perl%205.16.2%20x64.msi
 
 Downloading and Extracting
 --------------------------
