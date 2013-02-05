@@ -69,6 +69,19 @@ Url Handlers
 Auto Replace
 ~~~~~~~~~~~~
 
+Located in :menuselection:`Settings --> Auto Replace` this setting allows you to replace text while typing. The Text column is what it is to detect and the Replace with column is what will replace it. This colum accepts color codes:
+
+- Bold: %B
+- Color: %C<fg>,<bg> (get these numbers from :menuselection:`Settings --> Preferences --> Colors`)
+- Underline: %U
+- Normal: %O
+
+For Example:
+
+	text: -->  replace: %C8→%O
+
+This will replace that arrow with a green unicode arrow upon pressing enter or space. The keys that check for replace are defined in :menuselection:`Settings --> Keyboard Shortcuts`. A trick to avoid replacing it :kbd:`Shift-Space` since that is not defined by default.
+
 Set Command
 -----------
 
