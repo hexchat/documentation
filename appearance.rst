@@ -69,7 +69,7 @@ The Command column can take any `command <commands.html>`_ with text formatted u
 - **%s** selected nickname
 - **%t** time/date
 
-As a sidenote the **gui_ulist_doubleclick** setting can customize the command ran when double-clicking a nick in the userlist.
+As a sidenote the **gui_ulist_doubleclick** setting can run a command using these codes when double-clicking a nick in the userlist.
 
 Userlist Buttons
 ~~~~~~~~~~~~~~~~
