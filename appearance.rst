@@ -59,7 +59,7 @@ Popups are shown when you right click on a nickname, either in the userlist or i
 
 The Name column can take either the name of the entry (_ characters represent keyboard shortcuts), *SUB*/*ENDSUB* for submenus, or *SEP* for separators.
 
-The Command column can take any `command <commands.html>`_ and formatted using the same codes as `text events <appearance.html#text-events>`_ and on top of that they also have their own codes:
+The Command column can take any `command <commands.html>`_ with text formatted using the same codes as `text events <appearance.html#text-events>`_ and on top of that they also have their own codes:
 
 - **%a** all selected nicks
 - **%c** current channel
