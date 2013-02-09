@@ -1,6 +1,19 @@
 Appearance
 ==========
 
+Theme Manager
+-------------
+
+The theme manager is a simple external application, which is included with the installer on Windows and buildable on Linux, that helps install themes.
+
+.. image:: http://i.imgur.com/iwDcvLL.png
+   :align: center
+   
+The themes are distributed as :file:`.htc` files. These are just simply ZIP archives that you can extract manually. Some themes can be found `here <http://dl.hexchat.org/themes/>`_.
+
+.. NOTE::
+	.NET 4 is required to run the theme manager; You can download it `here <http://www.microsoft.com/en-us/download/details.aspx?id=17113>`_
+
 Theming
 -------
 
