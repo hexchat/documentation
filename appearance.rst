@@ -76,7 +76,7 @@ Userlist Popup
 
 Popups are shown when you right click on a nickname, either in the userlist or in the main chat itself. These can be edited in :menuselection:`Settings --> Userlist Popup`
 
-The Name column can take either the name of the entry (_ characters represent keyboard shortcuts), *SUB*/*ENDSUB* for submenus, or *SEP* for separators.
+The Name column can take either just the name of the entry (_ characters represent keyboard shortcuts), *SUB*/*ENDSUB* for submenus, *SEP* for separators, and *TOGGLE* for toggleable options.
 
 The Command column can take any `command <commands.html>`_ with text formatted using the same codes as `text events <appearance.html#text-events>`_ and on top of that they also have their own codes:
 
@@ -98,5 +98,5 @@ Buttons are shown below the userlist, can be edited in :menuselection:`Settings 
 Usermenu
 ~~~~~~~~
 
-In order to add custom entries to your menu you need to first enable the usermenu with the command :command:`/set gui_usermenu on` which may require a restart. Once this is enabled you can go to :menuselection:`Usermenu --> Edit this Menu` to add any `command <commands.html>`_  you would like.
+In order to add custom entries to your menu you need to first enable the usermenu with the command :command:`/set gui_usermenu on` which may require a restart. Once this is enabled you can go to :menuselection:`Usermenu --> Edit this Menu` to add any `command <commands.html>`_  you would like. For menu entries it supports the same as `Userlist Popups <appearance.html#userlist-popup>`_.
 
