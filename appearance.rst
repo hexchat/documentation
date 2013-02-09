@@ -23,6 +23,19 @@ Colors
 Text Events
 ~~~~~~~~~~~
 
+Text events control the look of every event you see. They can be customized in :menuselection:`Settings --> Text Events` using these codes to format it:
+
+- **%C<fg>,<bg>** Color code
+- **%U** Underlined text
+- **%B** Bold text
+- **%H** Hide text
+- **%O** Normal text
+- **$t** Text separator
+- **$<num>** Event information
+
+.. NOTE::
+	Always hit enter after editing a field.
+
 Icons
 ~~~~~
 
