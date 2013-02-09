@@ -69,12 +69,7 @@ Url Handlers
 Auto Replace
 ~~~~~~~~~~~~
 
-Located in :menuselection:`Settings --> Auto Replace` this setting allows you to replace text while typing. The Text column is what it is to detect and the Replace with column is what will replace it. This column accepts color codes:
-
-- Bold: %B
-- Color: %C<fg>,<bg> (get these numbers from :menuselection:`Settings --> Preferences --> Colors`)
-- Underline: %U
-- Normal: %O
+Located in :menuselection:`Settings --> Auto Replace` this setting allows you to replace text while typing. The Text column is what it is to detect and the Replace with column is what will replace it. This column accepts color codes from `Text Events <appearance.html#text-events>`_
 
 For Example:
 
