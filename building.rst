@@ -96,7 +96,7 @@ HexChat has its source code hosted using `Git <http://git-scm.com/>`_, so you ha
 well. When it's ready, you can start the actual compilation, which is
 basically:
 
-.. code-block:: none 
+.. code-block:: bash 
 
  git clone https://github.com/hexchat/hexchat.git 
  cd hexchat 
@@ -107,6 +107,17 @@ basically:
 
 This will compile with defaults. See *./configure --help* for more info
 about flags.
+
+Building Theme Manager
+~~~~~~~~~~~~~~~~~~~~~~
+
+The theme manager isn't built by default on Unix. To do so install MonoDevelop with your package manager of choice then run this:
+
+.. code-block:: bash
+
+	cd hexchat/src/htm
+	mdtool --verbose build htm-mono.csproj
+	mono thememan.exe
 
 Mac
 ---
@@ -123,7 +134,7 @@ following commands:
 
 .. _testing package: http://dl.hexchat.org/hexchat/hexchat-mac.tar.gz
 
-.. code-block:: none
+.. code-block:: bash
 
  cd hexchat 
  ./configure --disable-nls --disable-xlib --disable-perl 
@@ -131,3 +142,4 @@ following commands:
  ./src/fe-gtk/hexchat 
 
 See *./configure --help* for more info about flags.
+

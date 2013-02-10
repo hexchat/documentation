@@ -4,7 +4,7 @@ Appearance
 Theme Manager
 -------------
 
-The theme manager is a simple external application, which is included with the installer on Windows and buildable on Linux, that helps install themes.
+The theme manager is a simple external application, which is included with the `installer <http://hexchat.org/downloads.html>`_ on Windows and `buildable <building.html#building-theme-manager>`_ on Unix, that helps install themes.
 
 .. image:: http://i.imgur.com/iwDcvLL.png
    :align: center
