@@ -78,15 +78,13 @@ Hello world
 
 Here is the traditional *hello world* example.
 
-.. raw:: html
+.. code-block:: python
 
-   <pre>
    __module_name__ = "helloworld"
    __module_version__ = "1.0"
    __module_description__ = "Python module example"
 
    print "Hello world!"
-   </pre>
 
 This module will print "Hello world!" in the HexChat console, and sleep
 forever until it's unloaded. It's a simple module, but already
@@ -100,12 +98,10 @@ xchat module
 The xchat module is your passport to every HexChat functionality offered
 by the Python plugin interface. Here's a simple example:
 
-.. raw:: html
+.. code-block:: python
 
-   <pre>
    import xchat
    xchat.prnt("Hi everyone!")
-   </pre>
 
 The following functions are available in the xchat module.
 
@@ -131,11 +127,9 @@ check which events are available, and the number and meaning of
 arguments, have a look at the ``Settings > Lists > Text Events`` window.
 Here is one example:
 
-.. raw:: html
+.. code-block:: python
 
-   <pre>
    xchat.emit_print("Channel Message", "John", "Hi there", "@")
-   </pre>
 
 xchat.command(string)
 ^^^^^^^^^^^^^^^^^^^^^
@@ -144,11 +138,9 @@ Execute the given command in the current context. This has the same
 results as executing a command in the HexChat window, but notice that
 the ``/`` prefix is not used. Here is an example:
 
-.. raw:: html
+.. code-block:: python
 
-   <pre>
    xchat.command("server irc.openprojects.net")
-   </pre>
 
 xchat.nickcmp(s1, s2)
 ^^^^^^^^^^^^^^^^^^^^^
@@ -159,12 +151,10 @@ returns an integer less than, equal to, or greater than zero if ``s1``
 is found, respectively, to be less than, to match, or be greater than
 ``s2``. For example:
 
-.. raw:: html
+.. code-block:: python
 
-   <pre>
    if xchat.nickcmp(nick, "mynick") == 0:
-       print "They are the same!"
-   </pre>
+       xchat.prnt("They are the same!")
 
 Information retreiving functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -197,12 +187,10 @@ are available to be queried:
 
 Example:
 
-.. raw:: html
+.. code-block:: python
 
-   <pre>
-   if xchat.get_info("server") is None:
-       print "Not connected!"
-   </pre>
+   if xchat.get_info("server") == 'freenode':
+       xchat.prnt('connected!')
 
 xchat.get\_prefs(name)
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -210,11 +198,9 @@ xchat.get\_prefs(name)
 Retrieve the HexChat setting information specified by the ``name``
 string, as available by the ``/set`` command. For example:
 
-.. raw:: html
+.. code-block:: python
 
-   <pre>
    print "Current preferred nick:", xchat.get_prefs("irc_nick1")
-   </pre>
 
 xchat.get\_list(type)
 ^^^^^^^^^^^^^^^^^^^^^
@@ -229,16 +215,14 @@ plugin API documentation. It prints a list of every DCC transfer
 happening at the moment. Notice how similar the interface is to the C
 API provided by HexChat.
 
-.. raw:: html
+.. code-block:: python
 
-   <pre>
    list = xchat.get_list("dcc")
    if list:
        print "--- DCC LIST ------------------"
        print "File  To/From   KB/s   Position"
        for i in list:
            print "%6s %10s %.2f  %d" % (i.file, i.nick, i.cps/1024, i.pos)
-   </pre>
 
 Below you will find what each list type has to offer.
 
@@ -417,9 +401,8 @@ which will be shown when ``/help name`` is executed. This function
 returns a hook handler which may be used in the ``xchat.unhook()``
 function. For example:
 
-.. raw:: html
+.. code-block:: python
 
-   <pre>
    def onotice_cb(word, word_eol, userdata):
        if len(word) < 2:
            print "Second arg must be the message!"
@@ -428,7 +411,6 @@ function. For example:
        return xchat.EAT_ALL
 
    xchat.hook_command("ONOTICE", onotice_cb, help="/ONOTICE <message> Sends a notice to all ops")
-   </pre>
 
 You may return one of ``EAT_*`` constants in the callback, to control
 HexChat's behavior, as explained above.
@@ -442,15 +424,13 @@ Parameters ``userdata`` and ``priority`` have their meanings explained
 above. This function returns a hook handler which may be used in the
 ``xchat.unhook()`` function. For example:
 
-.. raw:: html
+.. code-block:: python
 
-   <pre>
    def youpart_cb(word, word_eol, userdata):
        print "You have left channel", word[2]
        return xchat.EAT_XCHAT # Don't let HexChat do its normal printing
 
    xchat.hook_print("You Part", youpart_cb)
-   </pre>
 
 You may return one of ``EAT_*`` constants in the callback, to control
 HexChat's behavior, as explained above.
@@ -465,16 +445,14 @@ certain server event occurs. You can use this to trap ``PRIVMSG``,
 a hook handler which may be used in the ``xchat.unhook()`` function. For
 example:
 
-.. raw:: html
+.. code-block:: python
 
-   <pre>
    def kick_cb(word, word_eol, userdata):
        print "%s was kicked from %s (%s)" % (word[3], word[2], word_eol[4])
        # Don't eat this event, let other plugins and HexChat see it too
        return xchat.EAT_NONE
 
    xchat.hook_server("KICK", kick_cb)
-   </pre>
 
 You may return one of ``EAT_*`` constants in the callback, to control
 HexChat's behavior, as explained above.
@@ -487,9 +465,8 @@ timeout milliseconds. Parameters userdata and priority have their
 meanings explained above. This function returns a hook handler which may
 be used in the ``xchat.unhook()`` function. For example:
 
-.. raw:: html
+.. code-block:: python
 
-   <pre>
    myhook = None
 
    def stop_cb(word, word_eol, userdata):
@@ -505,7 +482,6 @@ be used in the ``xchat.unhook()`` function. For example:
 
    myhook = xchat.hook_timer(5000, timeout_cb)
    xchat.hook_command("STOP", stop_cb)
-   </pre>
 
 If you return a true value from the callback, the timer will be keeped,
 otherwise it is removed.
@@ -519,14 +495,12 @@ have their meanings explained above. This function returns a hook
 handler which may be used in the ``xchat.unhook()`` function. For
 example:
 
-.. raw:: html
+.. code-block:: python
 
-   <pre>
    def unload_cb(userdata):
        print "We're being unloaded!"
 
    xchat.hook_unload(unload_cb)
-   </pre>
 
 xchat.unhook(handler)
 ^^^^^^^^^^^^^^^^^^^^^
@@ -614,17 +588,13 @@ Finds a context based on a channel and servername. If ``server`` is
 ``channel`` is ``None``, it finds the front-most tab/window of the given
 server. For example:
 
-.. raw:: html
+.. code-block:: python
 
-   <pre>
    cnc = xchat.find_context(channel='#conectiva')
    cnc.command('whois niemeyer')
-   </pre>
 
 --------------
 
 Original Author: Gustavo Niemeyer
 `gustavo@niemeyer.net <mailto:gustavo@niemeyer.net>`_
 
-For purty html:
-``pandoc --toc python.md -s --highlight-style haddock -o python.html``
