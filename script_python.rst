@@ -419,7 +419,7 @@ xchat.hook\_print(name, callback, userdata=None, priority=PRI\_NORM)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This function allows you to register a callback to trap any print
-events. The event names are available in the *Edit Event Texts* window.
+events. The event names are available in the :menuselection:`Settings --> Text Events` window.
 Parameters ``userdata`` and ``priority`` have their meanings explained
 above. This function returns a hook handler which may be used in the
 ``xchat.unhook()`` function. For example:
