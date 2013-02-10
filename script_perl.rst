@@ -115,7 +115,7 @@ data
 
 Additional data that is to be associated with the hook. For timer hooks
 this value can be provided either as Xchat::hook\_timer( $timeout,
-:math:`cb,{data=&gt;`\ data}) or Xchat::hook\_timer( $timeout, $cb,
+cb,{data=&gt; data}) or Xchat::hook\_timer( $timeout, $cb,
 $data ). However, this means that hook\_timer cannot be provided with a
 hash reference containing data as a key. example: my $options = { data
 => [@arrayOfStuff] }; Xchat::hook\_timer( $timeout, $cb, $options ); In
@@ -206,8 +206,7 @@ server hooks
 
    </td>   <td>
 
-a
-\ :math:`message</code> message is received from the server </td> </tr> <tr> <td>command hooks</td> <td>the <code>`\ command
+a message</code> message is received from the server </td> </tr> <tr> <td>command hooks</td> <td>the <code> command
 command is executed, either by the user or from a script
 
 .. raw:: html
@@ -222,8 +221,7 @@ print hooks
 
    </td> <td>
 
-X-Chat is about to print the message for the
-\ :math:`event</code> event </td> </tr> <tr> <td>timer hooks</td> <td>called every <code>`\ timeout
+X-Chat is about to print the message for the event</code> event </td> </tr> <tr> <td>timer hooks</td> <td>called every <code> timeout
 milliseconds (1000 millisecond is 1 second) the callback will be
 executed in the same context where the hook\_timer was called, if the
 context no longer exists then it will execute in a random context
@@ -397,9 +395,9 @@ the window manager
    </td>   <td>
 
 when text from a DCC Chat arrives.
-\ :math:`_[0]</code> will have these values<br /> <br /> <code>`\ *[0][0]
-- Address \ :math:`_[0][1]</code> - Port<br /> <code>`*\ [0][2] - Nick
-$\_[0][3] - Message
+$_[0] will have these values *$_[0][0]*
+- Address *$_[0][1]* - Port *$_[0][2]* - Nick
+*$_[0][3]* - Message
 
 .. raw:: html
 
@@ -413,10 +411,10 @@ $\_[0][3] - Message
 
    </td> <td>
 
-used for intercepting key presses $\ *[0][0] - key value $*\ [0][1] -
-state bitfield, 1 - shift, 4 - control, 8 - alt $\ *[0][2] - string
-version of the key which might be empty for unprintable keys $*\ [0][3]
-- length of the string in $\_[0][2]
+used for intercepting key presses $_[0][0] - key value *$_[0][1]* -
+state bitfield, 1 - shift, 4 - control, 8 - alt *$_[0][2]* - string
+version of the key which might be empty for unprintable keys *$_[0][3]*
+- length of the string in *$_[0][2]*
 
 .. raw:: html
 
