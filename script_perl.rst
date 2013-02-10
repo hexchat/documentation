@@ -1867,9 +1867,6 @@ Value
 
    </td>
       </tr>
-
-::
-
     <tr>
     <td>autojoins</td> <td>An object with the following methods:<br />
         <table>
@@ -1960,9 +1957,6 @@ Value
         <td>servers</td>
         <td>An array reference of hash references with a "host" and "port" key. If a port is not specified then 6667 will be used.</td>
     </tr>
-
-.. raw:: html
-
    </table>
 
 Xchat::user_info( [$nick] )
