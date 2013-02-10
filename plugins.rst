@@ -1045,144 +1045,16 @@ int
 
 "notify" - list of people on notify.
 
-.. raw:: html
-
-   <blockquote> <table border=1>
-   <tr bgcolor="#dddddd"><td>
-
-Name
-
-.. raw:: html
-
-   </td><td>
-
-Description
-
-.. raw:: html
-
-   </td><td>
-
-Type
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-networks
-
-.. raw:: html
-
-   </td><td>
-
-Networks to which this nick applies. Comma separated. May be NULL.
-(Added in version 2.6.8)
-
-.. raw:: html
-
-   </td><td>
-
-string
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-nick
-
-.. raw:: html
-
-   </td><td>
-
-Nickname
-
-.. raw:: html
-
-   </td><td>
-
-string
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-flags
-
-.. raw:: html
-
-   </td><td>
-
-Bit field of flags. 0=Is online.
-
-.. raw:: html
-
-   </td><td>
-
-int
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-on
-
-.. raw:: html
-
-   </td><td>
-
-Time when user came online.
-
-.. raw:: html
-
-   </td><td>
-
-time\_t
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-off
-
-.. raw:: html
-
-   </td><td>
-
-Time when user went offline.
-
-.. raw:: html
-
-   </td><td>
-
-time\_t
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-seen
-
-.. raw:: html
-
-   </td><td>
-
-Time when user the user was last verified still online.
-
-.. raw:: html
-
-   </td><td>
-
-time\_t
-
-.. raw:: html
-
-   </td></tr>
-   </table>
+======== ================================================================== =======
+Name     Description                                                        Type
+======== ================================================================== =======
+networks Networks to which this nick applies. Comma separated. May be NULL. string
+nick     Nickname                                                           string
+flags    Bit field of flags. 0=Is online.                                   int
+on       Time when user came online.                                        time\_t
+off      Time when user went offline.                                       time\_t
+seen     Time when user the user was last verified still online.            time\_t
+======== ================================================================== =======
 
 Fields are only valid for the context when hexchat\_list\_get() was
 called (i.e. you get information about the user ON THAT ONE SERVER
@@ -1195,169 +1067,17 @@ information for every server.
 
 "users" - list of users in the current channel.
 
-.. raw:: html
-
-   <blockquote> <table border=1>
-   <tr bgcolor="#dddddd"><td>
-
-Name
-
-.. raw:: html
-
-   </td><td>
-
-Description
-
-.. raw:: html
-
-   </td><td>
-
-Type
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-away
-
-.. raw:: html
-
-   </td><td>
-
-Away status (boolean)(Added in version 2.0.6. Older versions will return
--1)
-
-.. raw:: html
-
-   </td><td>
-
-int
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-lasttalk
-
-.. raw:: html
-
-   </td><td>
-
-Last time the user was seen talking(Added in version 2.4.2. Older
-versions will return -1)
-
-.. raw:: html
-
-   </td><td>
-
-time\_t
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-nick
-
-.. raw:: html
-
-   </td><td>
-
-Nick name
-
-.. raw:: html
-
-   </td><td>
-
-string
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-host
-
-.. raw:: html
-
-   </td><td>
-
-Host name in the form: user@host (or NULL if not known).
-
-.. raw:: html
-
-   </td><td>
-
-string
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-prefix
-
-.. raw:: html
-
-   </td><td>
-
-Prefix character, .e.g: @ or +. Points to a single char.
-
-.. raw:: html
-
-   </td><td>
-
-string
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-realname
-
-.. raw:: html
-
-   </td><td>
-
-Real name or NULL(Added in version 2.8.6)
-
-.. raw:: html
-
-   </td><td>
-
-string
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-selected
-
-.. raw:: html
-
-   </td><td>
-
-Selected status in the user list, only works for retrieving the user
-list of the focused tab(Added in version 2.6.1. Older versions will
-return -1)
-
-.. raw:: html
-
-   </td><td>
-
-int
-
-.. raw:: html
-
-   </td></tr>
-   </table>
-   </blockquote>
-
-   </blockquote>
+========== ============================================================================================ ========
+Name       Description                                                                                  Type
+========== ============================================================================================ ========
+away       Away status (boolean)                                                                        int
+lasttalk   Last time the user was seen talking                                                          time\_t
+nick       Nick name                                                                                    string
+host       Host name in the form: user@host (or NULL if not known).                                     string
+prefix     Prefix character, .e.g: @ or +. Points to a single char.                                     string
+realname   Real name or NULL                                                                            string
+selected   Selected status in the user list, only works for retrieving the user list of the focused tab int
+========== ============================================================================================ ========
 
 Example:
 
@@ -1515,64 +1235,15 @@ Here is an example of Radio items:
 You can also change menus other than the main one (i.e popup menus).
 Currently they are:
 
-.. raw:: html
-
-   <blockquote>
-   <table border=1 cellpadding=4 rules=all>
-   <tr bgcolor="#999999"><td>
-
-Root Name
-
-.. raw:: html
-
-   </td><td>
-
-Menu
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-:math:`TAB</td><td>Tab menu (right click a channel/query tab or treeview row)</td></tr> <tr><td>`\ TRAY
-
-.. raw:: html
-
-   </td><td>
-
-System Tray menu
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-:math:`URL</td><td>URL link menu</td></tr> <tr><td>`\ NICK
-
-.. raw:: html
-
-   </td><td>
-
-Userlist nick-name popup menu
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-$CHAN
-
-.. raw:: html
-
-   </td><td>
-
-Menu when clicking a channel in the text area (since 2.8.4)
-
-.. raw:: html
-
-   </td></tr>
-   </table>
-   </blockquote>
+============ ============================================================
+Root Name    Menu                                                        
+============ ============================================================
+$TAB         Tab menu (right click a channel/query tab or treeview row)
+$TRAY        System Tray menu
+$URL         URL link menu
+$NICK        Userlist nick-name popup menu
+$CHAN        Menu when clicking a channel in the text area
+============ ============================================================
 
 Example:
 
