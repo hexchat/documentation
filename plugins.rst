@@ -1,7 +1,3 @@
-.. role:: math(raw)
-   :format: html latex
-..
-
 Plugin Interface
 ================
 
