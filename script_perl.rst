@@ -1011,9 +1011,8 @@ MODE lines if the request doesn't fit on one.
 
 Example:
 
-.. raw:: html
+.. code-block:: perl
 
-   <pre>
    use strict;
    use warning;
    use Xchat qw(:all);
@@ -1028,7 +1027,6 @@ Example:
       }
       return EAT_XCHAT;
    });
-   </pre>
 
 Xchat::nickcmp( $nick1, $nick2 )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1998,9 +1996,8 @@ get\_list( "channels" ) and searching through the result.
 
 Example:
 
-.. raw:: html
+.. code-block:: perl
 
-   <pre>
    use strict;
    use warnings;
    use Xchat qw(:all); # imports all the functions documented on this page
@@ -2012,7 +2009,6 @@ Example:
       prnt "There are " . context_info()->{users} . " users in this channel.";
       return EAT_XCHAT;
    }
-   </pre>
 
 Xchat::strip_code( $string )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2031,9 +2027,8 @@ Examples
 Asynchronous DNS resolution with hook\_fd
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. raw:: html
+.. code-block:: perl
 
-   <pre>
    use strict;
    use warnings;
    use Xchat qw(:all);
@@ -2069,7 +2064,6 @@ Asynchronous DNS resolution with hook\_fd
 
       return EAT_XCHAT;
    });
-   </pre>
 
 Contact Information
 -------------------
