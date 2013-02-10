@@ -1,5 +1,5 @@
-.. role:: math(raw)	  	
-   :format: html latex	  	
+.. role:: math(raw)
+   :format: html latex
 ..
 
 Plugin Interface
@@ -40,9 +40,8 @@ feature ON or OFF. Every HexChat plugin must define an
 *hexchat\_plugin\_init* function, this is the normal entry point.
 *hexchat\_plugin\_deinit* is optional.
 
-.. raw:: html
+.. code-block:: c
 
-   <pre>
    #include "hexchat-plugin.h"
 
    #define PNAME "AutoOp"
@@ -108,7 +107,6 @@ feature ON or OFF. Every HexChat plugin must define an
 
        return 1;       /* return 1 for success */
    }
-   </pre>
 
 What's *word* and *word\_eol*?
 ------------------------------
@@ -1363,9 +1361,8 @@ int
 
 Example:
 
-.. raw:: html
+.. code-block:: c
 
-   <pre>
        list = hexchat_list_get (ph, "dcc");
 
        if (list)
@@ -1383,7 +1380,6 @@ Example:
 
            hexchat_list_free (ph, list);
        }
-   </pre>
 
 Plugins on Windows (Win32)
 --------------------------
@@ -1628,9 +1624,8 @@ characters.
 Here are examples on how to do this conversion on Unix and Windows. In
 this example, someone will CTCP you the message "SHOWFILE <filename>".
 
-.. raw:: html
+.. code-block:: c
 
-   <pre>
    static int
    ctcp_cb (char *word[], char *word_eol[], void *userdata)
    {
@@ -1691,7 +1686,6 @@ this example, someone will CTCP you the message "SHOWFILE <filename>".
            fclose (fp);
        }
    }
-   </pre>
 
 Functions
 ---------
@@ -1726,9 +1720,8 @@ and */HELP -l*.
 
 **Example:**
 
-.. raw:: html
+.. code-block:: c
 
-   <pre>
    static int
    onotice_cb (char *word[], char *word_eol[], void *userdata)
    {
@@ -1743,7 +1736,6 @@ and */HELP -l*.
    }
 
    hexchat_hook_command (ph, "ONOTICE", HEXCHAT_PRI_NORM, onotice_cb, "Usage: ONOTICE &lt;message> Sends a notice to all ops", NULL);
-   </pre>
 
 --------------
 
@@ -1826,9 +1818,8 @@ function. Currently they are:
 
 **Example:**
 
-.. raw:: html
+.. code-block:: c
 
-   <pre>
    static int
    youpart_cb (char *word[], void *userdata)
    {
@@ -1837,7 +1828,6 @@ function. Currently they are:
    }
 
    hexchat_hook_print (ph, "You Part", HEXCHAT_PRI_NORM, youpart_cb, NULL);
-   </pre>
 
 --------------
 
@@ -1866,9 +1856,8 @@ IRC server, you may use the special name of *RAW LINE*.
 
 **Example:**
 
-.. raw:: html
+.. code-block:: c
 
-   <pre>
    static int
    kick_cb (char *word[], char *word_eol[], void *userdata)
    {
@@ -1877,7 +1866,6 @@ IRC server, you may use the special name of *RAW LINE*.
    }
 
    hexchat_hook_server (ph, "KICK", HEXCHAT_PRI_NORM, kick_cb, NULL);
-   </pre>
 
 --------------
 
@@ -1902,9 +1890,8 @@ milliseconds.
 
 **Example:**
 
-.. raw:: html
+.. code-block:: c
 
-   <pre>
    static hexchat_hook *myhook;
 
    static int
@@ -1929,7 +1916,6 @@ milliseconds.
 
    myhook = hexchat_hook_timer (ph, 5000, timeout_cb, NULL);
    hexchat_hook_command (ph, "STOP", HEXCHAT_PRI_NORM, stop_cb, NULL, NULL);
-   </pre>
 
 --------------
 
@@ -2040,11 +2026,9 @@ hexchat\_hook\_print), as not to cause endless recursion.
 
 **Example:**
 
-.. raw:: html
+.. code-block:: c
 
-   <pre>
    hexchat_emit_print (ph, "Channel Message", "John", "Hi there", "@", NULL);
-   </pre>
 
 --------------
 
@@ -2073,12 +2057,10 @@ This function should only be called while in a channel context.
 
 **Example:** (Ops the three names given)
 
-.. raw:: html
+.. code-block:: c
 
-   <pre>
    const char *names_to_Op[] = {"John", "Jack", "Jill"};
    hexchat_send_modes (ph, names_to_Op, 3, 0, '+', 'o');
-   </pre>
 
 --------------
 
@@ -2201,9 +2183,8 @@ are available that don't appear in the */SET* list, currently they are:
 
 **Example:**
 
-.. raw:: html
+.. code-block:: c
 
-   <pre>
    {
        int i;
        const char *str;
@@ -2213,7 +2194,6 @@ are available that don't appear in the */SET* list, currently they are:
            hexchat_printf (ph, "Current nickname setting: %s\n", str);
        }
    }
-   </pre>
 
 --------------
 
@@ -2291,9 +2271,8 @@ this string with *hexchat\_free ()*.
 
 **Example:**
 
-.. raw:: html
+.. code-block:: c
 
-   <pre>
    {
        char *new_text;
 
@@ -2307,7 +2286,6 @@ this string with *hexchat\_free ()*.
            hexchat_free (ph, new_text);
        }
    }
-   </pre>
 
 --------------
 
@@ -2348,9 +2326,8 @@ plugin-specific config file.
 
 **Example:**
 
-.. raw:: html
+.. code-block:: c
 
-   <pre>
    int
    hexchat_plugin_init (hexchat_plugin *plugin_handle, char **plugin_name, char **plugin_desc, char **plugin_version, char *arg)
    {
@@ -2364,7 +2341,6 @@ plugin-specific config file.
 
        return 1;       /* return 1 for success */
    }
-   </pre>
 
 In the example above, the settings will be saved to the
 plugin\_tester\_thingie.conf file, and its content will be: >myvar1 = I
@@ -2419,9 +2395,8 @@ plugin-specific config file.
 
 **Example:**
 
-.. raw:: html
+.. code-block:: c
 
-   <pre>
    static int
    saveint_cb (char *word[], char *word_eol[], void *user_data)
    {
@@ -2445,7 +2420,6 @@ plugin-specific config file.
 
        return HEXCHAT_EAT_HEXCHAT;
    }
-   </pre>
 
 You only need such complex checks if you're saving user input, which can
 be non-numeric.
@@ -2516,9 +2490,8 @@ settings from a plugin-specific config file.
 
 **Example:**
 
-.. raw:: html
+.. code-block:: c
 
-   <pre>
    static void
    list_settings ()
    {
@@ -2537,7 +2510,6 @@ settings from a plugin-specific config file.
            token = strtok (NULL, ",");
        }
    }
-   </pre>
 
 In the example above we query the list of currently stored settings,
 then print them one by one with their respective values. We always use
