@@ -14,44 +14,44 @@ Constants
 Priorities
 ~~~~~~~~~~
 
--  **``Xchat::PRI_HIGHEST``**
--  **``Xchat::PRI_HIGH``**
--  **``Xchat::PRI_NORM``**
--  **``Xchat::PRI_LOW``**
--  **``Xchat::PRI_LOWEST``**
+-  **Xchat::PRI_HIGHEST**
+-  **Xchat::PRI_HIGH**
+-  **Xchat::PRI_NORM**
+-  **Xchat::PRI_LOW**
+-  **Xchat::PRI_LOWEST**
 
 Return values
 ~~~~~~~~~~~~~
 
--  **``Xchat::EAT_NONE``** - pass the event along
--  **``Xchat::EAT_XCHAT``** - don't let HexChat see this event
--  **``Xchat::EAT_PLUGIN``** - don't let other scripts and plugins see
+-  **Xchat::EAT_NONE** - pass the event along
+-  **Xchat::EAT_XCHAT** - don't let HexChat see this event
+-  **Xchat::EAT_PLUGIN** - don't let other scripts and plugins see
    this event but xchat will still see it
--  **``Xchat::EAT_ALL``** - don't let anything else see this event
+-  **Xchat::EAT_ALL** - don't let anything else see this event
 
 Timer and fd hooks
 ^^^^^^^^^^^^^^^^^^
 
--  **``Xchat::KEEP``** - keep the timer going or hook watching the
+-  **Xchat::KEEP** - keep the timer going or hook watching the
    handle
--  **``Xchat::REMOVE``** - remove the timer or hook watching the handle
+-  **Xchat::REMOVE** - remove the timer or hook watching the handle
 
 hook\_fd flags
 ~~~~~~~~~~~~~~
 
--  **``Xchat::FD_READ``** - invoke the callback when the handle is ready
+-  **Xchat::FD_READ** - invoke the callback when the handle is ready
    for reading
--  **``Xchat::FD_WRITE``** - invoke the callback when the handle is
+-  **Xchat::FD_WRITE** - invoke the callback when the handle is
    ready for writing
--  **``Xchat::FD_EXCEPTION``** - invoke the callback if an exception
+-  **Xchat::FD_EXCEPTION** - invoke the callback if an exception
    occurs
--  **``Xchat::FD_NOTSOCKET``** - indicate that the handle being hooked
+-  **Xchat::FD_NOTSOCKET** - indicate that the handle being hooked
    is not a socket
 
 Functions
 ---------
 
-``Xchat::register( $name, $version, [$description,[$callback]] )``
+Xchat::register( $name, $version, [$description,[$callback]] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  ``$name`` - The name of this script
@@ -63,19 +63,19 @@ Functions
 
 This is the first thing to call in every script.
 
-``Xchat::hook_server( $message, $callback, [\%options] )``
+Xchat::hook_server( $message, $callback, [\%options] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``Xchat::hook_command( $command, $callback, [\%options] )``
+Xchat::hook_command( $command, $callback, [\%options] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``Xchat::hook_print( $event,$callback, [\%options] )``
+Xchat::hook_print( $event,$callback, [\%options] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``Xchat::hook_timer( $timeout,$callback, [\%options | $data] )``
+Xchat::hook_timer( $timeout,$callback, [\%options | $data] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``Xchat::hook_fd( $handle, $callback, [ \%options ] )``
+Xchat::hook_fd( $handle, $callback, [ \%options ] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 These functions can be to intercept various events. hook\_server can be
@@ -85,19 +85,19 @@ doesn't currently exist then a new one is created. hook\_print can be
 used to intercept any of the events listed in *Setttings* ``->`` *Text
 Events*. hook\_timer can be used to create a new timer
 
--  **``$message``** - server message to hook such as PRIVMSG
--  **``$command``** - command to intercept, without the leading /
--  **``$event``** - one of the events listed in *Settings* ``->`` *Text
+-  **$message** - server message to hook such as PRIVMSG
+-  **$command** - command to intercept, without the leading /
+-  **$event** - one of the events listed in *Settings* ``->`` *Text
    Events*
--  **``$timeout``** - timeout in milliseconds
--  **``$handle``** - the I/O handle you want to monitor with hook\_fd.
+-  **$timeout** - timeout in milliseconds
+-  **$handle** - the I/O handle you want to monitor with hook\_fd.
    This must be something that has a fileno. See perldoc -f fileno or
    `fileno <http://perldoc.perl.org/functions/fileno.html>`_
--  **``$callback``** - callback function, this is called whenever the
+-  **$callback** - callback function, this is called whenever the
    hooked event is trigged, the following are the conditions that will
    trigger the different hooks. This can be either a reference to a
    function or an anonymous sub reference.
--  **``\%options``** - a hash reference containing addional options for
+-  **\%options** - a hash reference containing addional options for
    the hooks
 
 Valid keys for %options:
@@ -298,7 +298,7 @@ Callback return values
 ^^^^^^^^^^^^^^^^^^^^^^
 
 All server, command and print callbacks should return one of the
-``Xchat::EAT_*`` constants.
+Xchat::EAT_* constants.
 Timer callbacks can return ``Xchat::REMOVE`` to remove the timer or
 ``Xchat::KEEP`` to keep it going.
 
@@ -424,87 +424,87 @@ version of the key which might be empty for unprintable keys $*\ [0][3]
       </tr>
    </table>
 
-``Xchat::unhook( $hook )``
+Xchat::unhook( $hook )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``$hook`` - the hook that was previously returned by one of the
-   ``Xchat::hook_*`` functions**
+-  **$hook** - the hook that was previously returned by one of the
+   Xchat::hook_* functions
 
 This function is used to removed a hook previously added with one of the
-``Xchat::hook_*`` functions.
+Xchat::hook_* functions.
 
-It returns the data that was passed to the ``Xchat::hook_*`` function
+It returns the data that was passed to the Xchat::hook_* function
 when the hook was added.
 
-``Xchat::print( $text | \@lines, [$channel,[$server]] )``
+Xchat::print( $text | \@lines, [$channel,[$server]] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``$text`` - the text to print**
--  **``\@lines`` - array reference containing lines of text to be
-   printed all the elements will be joined together before printing**
--  **``$channel`` - channel or tab with the given name where ``$text``
-   will be printed**
--  **``$server`` - specifies that the text will be printed in a channel
-   or tab that is associated with ``$server``**
+-  **$text** - the text to print
+-  **\@lines** - array reference containing lines of text to be
+   printed all the elements will be joined together before printing
+-  **$channel** - channel or tab with the given name where ``$text``
+   will be printed
+-  **$server** - specifies that the text will be printed in a channel
+   or tab that is associated with ``$server``
 
 The first argument can either be a string or an array reference of
 strings. Either or both of ``$channel`` and ``$server`` can be undef.
 
-If called as ``Xchat::print( $text )``, it will always return true. If
+If called as Xchat::print( $text ), it will always return true. If
 called with either the channel or the channel and the server specified
 then it will return true if a context is found and false otherwise. The
 text will not be printed if the context is not found. The meaning of
 setting ``$channel`` or ``$server`` to undef is the same as
 find\_context.
 
-``Xchat::printf( $format, LIST )``
+Xchat::printf( $format, LIST )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``$format`` - a format string, see "perldoc -f
+-  **$format** - a format string, see "perldoc -f
    `sprintf <http://perldoc.perl.org/functions/sprintf.html>`_" for
-   further details**
--  **``LIST`` - list of values for the format fields**
+   further details
+-  **LIST** - list of values for the format fields
 
-``Xchat::command( $command | \@commands, [$channel,[$server]] )``
+Xchat::command( $command | \@commands, [$channel,[$server]] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``$command`` - the command to execute, without the leading /**
--  **``\@commands`` - array reference containing a list of commands to
-   execute**
--  **``$channel`` - channel or tab with the given name where
-   ``$command`` will be executed**
--  **``$server`` - specifies that the command will be executed in a
-   channel or tab that is associated with ``$server``**
+-  **$command** - the command to execute, without the leading /
+-  **\@commands** - array reference containing a list of commands to
+   execute
+-  **$channel** - channel or tab with the given name where
+   ``$command`` will be executed
+-  **$server** - specifies that the command will be executed in a
+   channel or tab that is associated with ``$server``
 
 The first argument can either be a string or an array reference of
 strings. Either or both of ``$channel`` and ``$server`` can be undef.
 
-If called as ``Xchat::command( $command )``, it will always return true.
+If called as Xchat::command( $command ), it will always return true.
 If called with either the channel or the channel and the server
 specified then it will return true if a context is found and false
 otherwise. The command will not be executed if the context is not found.
 The meaning of setting ``$channel`` or ``$server`` to undef is the same
 as find\_context.
 
-``Xchat::commandf( $format, LIST )``
+Xchat::commandf( $format, LIST )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``$format`` - a format string, see "perldoc -f
+-  **$format** - a format string, see "perldoc -f
    `sprintf <http://perldoc.perl.org/functions/sprintf.html>`_" for
-   further details**
--  **``LIST`` - list of values for the format fields**
+   further details
+-  **LIST** - list of values for the format fields
 
-``Xchat::find_context( [$channel, [$server]] )``
+Xchat::find_context( [$channel, [$server]] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``$channel`` - name of a channel**
--  **``$server`` - name of a server**
+-  **$channel** - name of a channel
+-  **$server** - name of a server
 
 Either or both of ``$channel`` and ``$server`` can be undef. Calling
-``Xchat::find_context()`` is the same as calling
-``Xchat::find_context( undef, undef)`` and
-``Xchat::find_context( $channel )`` is the same as
-``Xchat::find_context( $channel, undef )``.
+Xchat::find_context() is the same as calling
+Xchat::find_context( undef, undef) and
+Xchat::find_context( $channel ) is the same as
+Xchat::find_context( $channel, undef ).
 
 If ``$server`` is undef, find any channel named ``$channel``. If
 ``$channel`` is undef, find the front most window or tab named
@@ -514,28 +514,28 @@ currently focused tab or window.
 Return the context found for one of the above situations or undef if
 such a context cannot be found.
 
-``Xchat::get_context()``
+Xchat::get_context()
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Returns the current context.
 
-``Xchat::set_context( $context | $channel,[$server] )``
+Xchat::set_context( $context | $channel,[$server] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``$context`` - context value as returned from ``get_context``,
+-  **$context** - context value as returned from ``get_context``,
    ``find_context`` or one of the fields in the list of hashrefs
-   returned by ``list_get``**
--  **``$channel`` - name of a channel you want to switch context to**
--  **``$server`` - name of a server you want to switch context to**
+   returned by ``list_get``
+-  **$channel** - name of a channel you want to switch context to
+-  **$server** - name of a server you want to switch context to
 
 See ``find_context`` for more details on ``$channel`` and ``$server``.
 
 Returns true on success, false on failure.
 
-``Xchat::get_info( $id )``
+Xchat::get_info( $id )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``$id`` - one of the following case sensitive values**
+-  **$id** - one of the following case sensitive values
 
 .. raw:: html
 
@@ -966,23 +966,23 @@ This function is used to retrieve certain information about the current
 context. If there is an associated command then that command can be used
 to change the value for a particular ID.
 
-``Xchat::get_prefs( $name )``
+Xchat::get_prefs( $name )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``$name`` - name of a HexChat setting (available through the /set
-   command)**
+-  **$name** - name of a HexChat setting (available through the /set
+   command)
 
 This function provides a way to retrieve HexChat's setting information.
 
 Returns ``undef`` if there is no setting called called ``$name``.
 
-``Xchat::emit_print( $event, LIST )``
+Xchat::emit_print( $event, LIST )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``$event`` - name from the Event column in *Settings* ``->`` *Text
-   Events***
--  **``LIST`` - this depends on the Description column on the bottom of
-   *Settings* ``->`` *Text Events***
+-  **$event** - name from the Event column in *Settings* ``->`` *Text
+   Events*
+-  **LIST** - this depends on the Description column on the bottom of
+   *Settings* ``->`` *Text Events*
 
 This functions is used to generate one of the events listed under
 *Settings* ``->`` *Text Events*.
@@ -993,18 +993,18 @@ the second is the one you emit.
 
 Returns true on success, false on failure.
 
-``Xchat::send_modes( $target | \@targets, $sign, $mode, [ $modes_per_line ] )``
+Xchat::send_modes( $target | \@targets, $sign, $mode, [ $modes_per_line ] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``$target`` - a single nick to set the mode on**
--  **``\@targets`` - an array reference of the nicks to set the mode
-   on**
--  **``$sign`` - the mode sign, either '+' or '-'**
--  **``$mode`` - the mode character such as 'o' and 'v', this can only
-   be one character long**
--  **``$modes_per_line`` - an optional argument maximum number of modes
+-  **$target** - a single nick to set the mode on
+-  **\@targets** - an array reference of the nicks to set the mode
+   on
+-  **$sign** - the mode sign, either '+' or '-'
+-  **$mode** - the mode character such as 'o' and 'v', this can only
+   be one character long
+-  **$modes_per_line** - an optional argument maximum number of modes
    to send per at once, pass 0 use the current server's maximum
-   (default)**
+   (default)
 
 Send multiple mode changes for the current channel. It may send multiple
 MODE lines if the request doesn't fit on one.
@@ -1030,11 +1030,11 @@ Example:
    });
    </pre>
 
-``Xchat::nickcmp( $nick1, $nick2 )``
+Xchat::nickcmp( $nick1, $nick2 )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``$nick1, $nick2`` - the two nicks or channel names that are to be
-   compared**
+-  **$nick1, $nick2** - the two nicks or channel names that are to be
+   compared
 
 The comparsion is based on the current server. Either an
 `RFC1459 <http://www.ietf.org/rfc/rfc1459.txt>`_ compliant string
@@ -1045,11 +1045,11 @@ Returns a number less than, equal to or greater than zero if ``$nick1``
 is found respectively, to be less than, to match, or be greater than
 ``$nick2``.
 
-``Xchat::get_list( $name )``
+Xchat::get_list( $name )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``$name`` - name of the list, one of the following: "channels",
-   "dcc", "ignore", "notify", "users"**
+-  **$name** - name of the list, one of the following: "channels",
+   "dcc", "ignore", "notify", "users"
 
 This function will return a list of hash references. The hash references
 will have different keys depend on the list. An empty list is returned
@@ -1967,11 +1967,11 @@ Value
 
    </table>
 
-``Xchat::user_info( [$nick] )``
+Xchat::user_info( [$nick] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``$nick`` - the nick to look for, if this is not given your own
-   nick will be used as default**
+-  **$nick** - the nick to look for, if this is not given your own
+   nick will be used as default
 
 This function is mainly intended to be used as a shortcut for when you
 need to retrieve some information about only one user in a channel.
@@ -1980,13 +1980,13 @@ reference containing the same keys as those in the "users" list of
 ``get_list`` is returned otherwise undef is returned. Since it relies on
 ``get_list`` this function can only be used in a channel context.
 
-``Xchat::context_info( [$context] )``
+Xchat::context_info( [$context] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``$context`` - context returned from ``get_context``,
+-  **$context** - context returned from ``get_context``,
    ``find_context`` and ``get_list``, this is the context that you want
    infomation about. If this is omitted, it will default to current
-   context.**
+   context.
 
 This function will return the information normally retrieved with
 ``get_info``, except this is for the context that is passed in. The
@@ -2014,10 +2014,10 @@ Example:
    }
    </pre>
 
-``Xchat::strip_code( $string )``
+Xchat::strip_code( $string )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``$string`` - string to remove codes from**
+-  **$string** - string to remove codes from
 
 This function will remove bold, color, beep, reset, reverse and
 underline codes from ``$string``. It will also remove ANSI escape codes
