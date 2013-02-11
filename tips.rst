@@ -62,10 +62,7 @@ Custom Certificates
 
 Custom Certificates allows you to identify to networks services using a certificate. Please do not mistake it for server certificate which allows you to connect to network with invalid certificate, right now Hexchat can't do it.
 
-To use custom certificates you need to put your certificate file inside *certs* directory in Hexchat config dir which can be found here:
-
-- Windows: %APPDATA%\HexChat
-- Unix: ~/.config/hexchat
+To use custom certificates you need to put your certificate file inside :file:`certs` directory in HexChat's `config folder <settings.html#config-files>`_.
 
 Certificate should be named after the network where it will be used, for example if you want to use it on *Rizon*, certificate file should look like this: *Rizon.pem*.
 
