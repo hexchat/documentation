@@ -43,15 +43,15 @@ with the *YourDepsPath* property. Download:
 -  `GTK+ x86 bundle`_ 
 -  `GTK+ x64 bundle`_ 
 
-.. _GTK+ x86 bundle: http://dl.hexchat.org/gtk-win32/gtk-x86.7z
-.. _GTK+ x64 bundle: http://dl.hexchat.org/gtk-win32/gtk-x64.7z
+.. _GTK+ x86 bundle: http://dl.hexchat.org/gtk-win32/vc10/x86/gtk-x86.7z
+.. _GTK+ x64 bundle: http://dl.hexchat.org/gtk-win32/vc10/x64/gtk-x64.7z
 
 Extract them to *YourDepsPath*. After that, your deps folder should look
 like
 `this <http://i.imgur.com/MtqdWLr.png>`_.
 
 .. SEEALSO::
-   If you would like to build gtk yourself read this `guide <http://gtk.hexchat.org>`_.
+   If you would like to build GTK+ yourself, read this `guide <http://gtk.hexchat.org>`_.
 
 Language interfaces
 ~~~~~~~~~~~~~~~~~~~
@@ -66,8 +66,8 @@ Download:
 -  `Perl 5.16 x64`_ (extract to *c:\\mozilla-build\\perl-5.16\\x64*)
 -  Python_ 2.7 x64 (install to *c:\\mozilla-build\\python-2.7\\x64*)
 
-.. _Perl 5.16 x86: http://dl.hexchat.org/misc/Perl%205.16.2%20x86.msi
-.. _Perl 5.16 x64: http://dl.hexchat.org/misc/Perl%205.16.2%20x64.msi
+.. _Perl 5.16 x86: http://dl.hexchat.org/misc/perl-5.16.2-x86.7z
+.. _Perl 5.16 x64: http://dl.hexchat.org/misc/perl-5.16.2-x64.7z
 .. _Python: http://www.python.org/download/
 
 You can use other paths, but then you must update the related properties
