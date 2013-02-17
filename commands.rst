@@ -21,6 +21,5 @@ For more complex commands you can use these codes:
 - **%<num>** Word
 - **&<num>** Word from end of line
 
-List of Commands
-----------------
+
 
