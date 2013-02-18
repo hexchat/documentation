@@ -973,76 +973,27 @@ int
    </table>
    </blockquote>
 
-"ignore" - current ignore list.
-
-.. raw:: html
-
-   <blockquote> <table border=1>
-   <tr bgcolor="#dddddd"><td>
-
-Name
-
-.. raw:: html
-
-   </td><td>
-
-Description
-
-.. raw:: html
-
-   </td><td>
-
-Type
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-mask
-
-.. raw:: html
-
-   </td><td>
-
-Ignore mask. .e.g: *!*\ @\*.aol.com
-
-.. raw:: html
-
-   </td><td>
-
-string
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-flags
-
-.. raw:: html
-
-   </td><td>
-
-Bit field of flags. 0=Private 1=Notice 2=Channel 3=Ctcp 4=Invite
-5=UnIgnore 6=NoSave 7=DCC
-
-.. raw:: html
-
-   </td><td>
-
-int
-
-.. raw:: html
-
-   </td></tr>
-   </table>
-   </blockquote>
-
-"notify" - list of people on notify.
++----------+----------------------------------------------+--------+
+| "ignore" | current ignore list                                   |
++----------+----------------------------------------------+--------+
+| Name     | Description                                  | Type   |
++==========+==============================================+========+
+| mask     | Ignore mask. .e.g. \*!\*@\*.aol.com          | string |
++----------+----------------------------------------------+--------+
+| flags    | - 0 = Private                                | int    |
+|          | - 1 = Notice                                 |        |
+|          | - 2 = Channel                                |        |
+|          | - 3 = CTCP                                   |        |
+|          | - 4 = Invite                                 |        |
+|          | - 5 = Unignore                               |        |
+|          | - 6 = NoSave                                 |        |
+|          | - 7 = DCC                                    |        |
++----------+----------------------------------------------+--------+
 
 ======== ================================================================== =======
-Name     Description                                                        Type
+"notify" list of people on notify                                                  
+-------- --------------------------------------------------------------------------
+Name     Description                                                        Type   
 ======== ================================================================== =======
 networks Networks to which this nick applies. Comma separated. May be NULL. string
 nick     Nickname                                                           string
@@ -1057,13 +1008,9 @@ called (i.e. you get information about the user ON THAT ONE SERVER
 ONLY). You may cycle through the "channels" list to find notify
 information for every server.
 
-.. raw:: html
-
-   </blockquote>
-
-"users" - list of users in the current channel.
-
 ========== ============================================================================================ ========
+"users"    list of users in the current channel
+---------- -----------------------------------------------------------------------------------------------------
 Name       Description                                                                                  Type
 ========== ============================================================================================ ========
 away       Away status (boolean)                                                                        int
