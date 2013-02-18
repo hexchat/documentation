@@ -140,13 +140,11 @@ types of lists and fields available are:
 
 .. raw:: html
 
-   <blockquote>
-
 "channels" - list of channels, querys and their servers.
 
 .. raw:: html
 
-   <blockquote><table border=1>
+   <table border=1>
    <tr bgcolor="#dddddd"><td>
 
 Name
@@ -678,300 +676,50 @@ int
 
    </td></tr>
    </table>
-   </blockquote>
 
-"dcc" - list of DCC file transfers. Fields:
 
-.. raw:: html
++------------+----------------------------------------------------------------------+--------+
+| "dcc"      | list of DCC file transfers                                                    |
++------------+----------------------------------------------------------------------+--------+
+| Name       | Description                                                          | Type   |
++============+======================================================================+========+
+| address32  | Address of the remote user (ipv4 address)                            | int    |
++------------+----------------------------------------------------------------------+--------+
+| cps        | Bytes per second (speed)                                             | int    |
++------------+----------------------------------------------------------------------+--------+
+| destfile   | Destination full pathname                                            | string |
++------------+----------------------------------------------------------------------+--------+
+| file       | File name                                                            | string |
++------------+----------------------------------------------------------------------+--------+
+| nick       | Nickname of person who the file is from/to                           | string |
++------------+----------------------------------------------------------------------+--------+
+| port       | TCP port number                                                      | int    |
++------------+----------------------------------------------------------------------+--------+
+| pos        | Bytes sent/received                                                  | int    |
++------------+----------------------------------------------------------------------+--------+
+| poshigh    | Bytes sent/received, high order 32 bits                              | int    |
++------------+----------------------------------------------------------------------+--------+
+| resume     | Point at which this file was resumed (or zero if it was not resumed) | int    |
++------------+----------------------------------------------------------------------+--------+
+| resumehigh | Point at which this file was resumed, high order 32 bits             | int    |
++------------+----------------------------------------------------------------------+--------+
+| size       | File size in bytes, low order 32 bits (cast it to unsigned)          | int    |
++------------+----------------------------------------------------------------------+--------+
+| sizehigh   | File size in bytes, high order 32 bits                               | int    |
++------------+----------------------------------------------------------------------+--------+
+| status     | - 0 = Queued                                                         | int    |
+|            | - 1 = Active                                                         |        |
+|            | - 2 = Failed                                                         |        |
+|            | - 3 = Done                                                           |        |
+|            | - 4 = Connecting                                                     |        |
+|            | - 5 = Aborted                                                        |        |
++------------+----------------------------------------------------------------------+--------+
+| type       | - 0 = Send                                                           | int    |
+|            | - 1 = Recieve                                                        |        |
+|            | - 1 = ChatRecv                                                       |        |
+|            | - 1 = ChatSend                                                       |        |
++------------+----------------------------------------------------------------------+--------+
 
-   <blockquote> <table border=1>
-   <tr bgcolor="#dddddd"><td>
-
-Name
-
-.. raw:: html
-
-   </td><td>
-
-Description
-
-.. raw:: html
-
-   </td><td>
-
-Type
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-address32
-
-.. raw:: html
-
-   </td><td>
-
-Address of the remote user (ipv4 address)
-
-.. raw:: html
-
-   </td><td>
-
-int
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-cps
-
-.. raw:: html
-
-   </td><td>
-
-Bytes per second (speed)
-
-.. raw:: html
-
-   </td><td>
-
-int
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-destfile
-
-.. raw:: html
-
-   </td><td>
-
-Destination full pathname
-
-.. raw:: html
-
-   </td><td>
-
-string
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-file
-
-.. raw:: html
-
-   </td><td>
-
-File name
-
-.. raw:: html
-
-   </td><td>
-
-string
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-nick
-
-.. raw:: html
-
-   </td><td>
-
-Nickname of person who the file is from/to
-
-.. raw:: html
-
-   </td><td>
-
-string
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-port
-
-.. raw:: html
-
-   </td><td>
-
-TCP port number
-
-.. raw:: html
-
-   </td><td>
-
-int
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-pos
-
-.. raw:: html
-
-   </td><td>
-
-Bytes sent/received
-
-.. raw:: html
-
-   </td><td>
-
-int
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-poshigh
-
-.. raw:: html
-
-   </td><td>
-
-Bytes sent/received, high order 32 bits
-
-.. raw:: html
-
-   </td><td>
-
-int
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-resume
-
-.. raw:: html
-
-   </td><td>
-
-Point at which this file was resumed (or zero if it was not resumed)
-
-.. raw:: html
-
-   </td><td>
-
-int
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-resumehigh
-
-.. raw:: html
-
-   </td><td>
-
-Point at which this file was resumed, high order 32 bits
-
-.. raw:: html
-
-   </td><td>
-
-int
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-size
-
-.. raw:: html
-
-   </td><td>
-
-File size in bytes, low order 32 bits (cast it to unsigned)
-
-.. raw:: html
-
-   </td><td>
-
-int
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-sizehigh
-
-.. raw:: html
-
-   </td><td>
-
-File size in bytes, high order 32 bits
-
-.. raw:: html
-
-   </td><td>
-
-int
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-status
-
-.. raw:: html
-
-   </td><td>
-
-DCC Status: 0-Queued 1-Active 2-Failed 3-Done 4-Connecting 5-Aborted
-
-.. raw:: html
-
-   </td><td>
-
-int
-
-.. raw:: html
-
-   </td></tr>
-   <tr><td>
-
-type
-
-.. raw:: html
-
-   </td><td>
-
-DCC Type: 0-Send 1-Receive 2-ChatRecv 3-ChatSend
-
-.. raw:: html
-
-   </td><td>
-
-int
-
-.. raw:: html
-
-   </td></tr>
-   </table>
-   </blockquote>
 
 +----------+----------------------------------------------+--------+
 | "ignore" | current ignore list                                   |
@@ -990,6 +738,7 @@ int
 |          | - 7 = DCC                                    |        |
 +----------+----------------------------------------------+--------+
 
+
 ======== ================================================================== =======
 "notify" list of people on notify                                                  
 -------- --------------------------------------------------------------------------
@@ -1003,10 +752,12 @@ off      Time when user went offline.                                       time
 seen     Time when user the user was last verified still online.            time\_t
 ======== ================================================================== =======
 
+
 Fields are only valid for the context when hexchat\_list\_get() was
 called (i.e. you get information about the user ON THAT ONE SERVER
 ONLY). You may cycle through the "channels" list to find notify
 information for every server.
+
 
 ========== ============================================================================================ ========
 "users"    list of users in the current channel
@@ -1021,6 +772,7 @@ prefix     Prefix character, .e.g: @ or +. Points to a single char.             
 realname   Real name or NULL                                                                            string
 selected   Selected status in the user list, only works for retrieving the user list of the focused tab int
 ========== ============================================================================================ ========
+
 
 Example:
 
