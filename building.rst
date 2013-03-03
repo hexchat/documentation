@@ -90,7 +90,11 @@ Unix
 
 First of all, you have to install the build dependencies just like you
 would for an XChat compilation. Package names differ across distros, so
-be creative and check your *configure* output if you get an error.
+be creative and check your *configure* output if you get an error. 
+Also most package-managers can get the dependancies for you:
+
+- yum: yum-builddep hexchat
+- apt: apt-get build-dep xchat
 
 HexChat has its source code hosted using `Git <http://git-scm.com/>`_, so you have to install Git as
 well. When it's ready, you can start the actual compilation, which is
