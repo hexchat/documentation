@@ -1,6 +1,46 @@
 HexChat ChangeLog
 =================
 
+2.9.5 (TBD)
+------------------
+
+- fix checksum plugin with dcc\_completed\_dir set
+- fix false positives with update checker
+- fix sound_dir on linux
+- fix loading custom icons
+- fix tray icon not reappearing if the tray crashes
+- fix tray restoring maximized windows
+- fix compilation on freebsd
+- fix tray menu not closing on windows
+- fix close dialog minimizing to tray before selection
+- fix python plugin compilation on ubuntu 13.04
+- fix htm crashing on readonly files
+- update translations
+- update network list
+- update default text events
+- update GTK+ to 2.24 on Windows
+- add auto-away support to tray
+- add tray option to disable blinking
+- add support for gnome 3.8's notification filters
+- add automatically switching to last activity to change-page keybinding
+- add ability to save divider position between combined userlist and chanlist
+- remove hextray in favor of built in tray
+- remove Lua, Tcl and Perl 5.12/5.14 (but not 5.16)
+- install svg icon on unix
+- install spelling dicts to %localappdata%
+- enable tray menu on windows
+- enable ipv6 by default on linux
+- enable irc\_whois\_front by default
+- make userlist icons slightly smaller
+- improve url and username detection in chat
+- /join will focus an existing channel
+- change default DCC download directory to $HOME/Downloads on Unix
+- allow plugin/script utility to be opened in a tab
+- only beep when window is not active
+- use the certs subfolder of the config folder for loading custom certificates 
+- rebuild every dependency with Visual C++ on Windows
+- stop using the WDK on Windows and depend on the Visual C++ Redistributable
+
 2.9.4 (2012-11-11)
 ------------------
 
