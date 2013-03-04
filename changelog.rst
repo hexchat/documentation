@@ -10,6 +10,7 @@ HexChat ChangeLog
 - fix loading custom icons
 - fix tray icon not reappearing if the tray crashes
 - fix tray restoring maximized windows
+- fix /query -nofocus
 - fix compilation on freebsd
 - fix tray menu not closing on windows
 - fix close dialog minimizing to tray before selection
