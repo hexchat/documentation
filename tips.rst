@@ -104,7 +104,7 @@ Tor
 ---
 
 1. Find a network that allows tor (most don't). Example: `freenode`_
-2. Get tor working, this isn't a tor tutorial. Browser bundle is an easy way to test.
+2. Get tor working. Refer to the tutorial from official tor website (instructions for `Windows <http://www.torproject.org.in/docs/tor-doc-windows.html.en>`_ and `Linux <http://www.torproject.org.in/docs/debian.html.en>`_). For windows -  Browser bundle is an easy way to test.
 3. Set up proxy in :menuselection:`Settings --> Preferences --> Network Setup`. Example (with defaults):
 
 .. image:: http://i.imgur.com/ohSfc.png
@@ -113,4 +113,4 @@ Tor
 
 .. image:: http://i.imgur.com/EMNx2.png
 
-.. _freenode: http://freenode.net/irc_servers.shtml
+.. _freenode: http://freenode.net/irc_servers.shtml#tor
