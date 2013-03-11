@@ -13,6 +13,7 @@ HexChat ChangeLog
 - fix /query -nofocus
 - fix reconnecting to channels with keys
 - fix compilation on freebsd
+- fix showing the join dialog when autojoining channels
 - fix tray menu not closing on windows
 - fix close dialog minimizing to tray before selection
 - fix python plugin compilation on ubuntu 13.04
