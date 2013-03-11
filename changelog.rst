@@ -11,6 +11,7 @@ HexChat ChangeLog
 - fix tray icon not reappearing if the tray crashes
 - fix tray restoring maximized windows
 - fix /query -nofocus
+- fix reconnecting to channels with keys
 - fix compilation on freebsd
 - fix tray menu not closing on windows
 - fix close dialog minimizing to tray before selection
