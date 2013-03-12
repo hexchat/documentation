@@ -66,8 +66,8 @@ Download:
 -  `Perl 5.16 x64`_ (extract to *c:\\mozilla-build\\perl-5.16\\x64*)
 -  Python_ 2.7 x64 (install to *c:\\mozilla-build\\python-2.7\\x64*)
 
-.. _Perl 5.16 x86: http://dl.hexchat.org/misc/perl-5.16.2-x86.7z
-.. _Perl 5.16 x64: http://dl.hexchat.org/misc/perl-5.16.2-x64.7z
+.. _Perl 5.16 x86: http://dl.hexchat.org/misc/perl/perl-5.16.3-x86.7z
+.. _Perl 5.16 x64: http://dl.hexchat.org/misc/perl/perl-5.16.3-x64.7z
 .. _Python: http://www.python.org/download/
 
 You can use other paths, but then you must update the related properties
