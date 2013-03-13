@@ -2060,9 +2060,8 @@ Asynchronous DNS resolution with hook\_fd
 Contact Information
 -------------------
 
-Contact Lian Wan Situ at <atmcmnky [at] yahoo.com> for questions,
-comments and corrections about this page or the Perl plugin itself. You
-can also find me in #xchat on freenode under the nick Khisanth.
+Feel free to pop into #hexchat on freenode if you have any 
+comments and corrections about this page or the Perl plugin itself.
 
 .. raw:: html
 
