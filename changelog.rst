@@ -24,6 +24,7 @@ HexChat ChangeLog
 - update GTK+ to 2.24 on Windows
 - add auto-away support to tray
 - add tray option to disable blinking
+- add an option to always show notices in front tab
 - add support for gnome 3.8's notification filters
 - add channel key support to urls
 - add automatically switching to last activity to change-page keybinding
