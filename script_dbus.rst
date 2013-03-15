@@ -2,8 +2,9 @@ HexChat D-Bus Interface
 =======================
 
 For more help you can see the HexChat `plugin interface
-documentation <https://github.com/hexchat/hexchat/blob/master/share/doc/plugins.md>`_.
-WARNING: The dbus interface may change in the future.
+documentation <plugins.html>`_ and see some examples in `Python <https://github.com/hexchat/hexchat/blob/master/src/common/dbus/example-gdbus.py>`_ and `C <https://github.com/hexchat/hexchat/blob/master/src/common/dbus/example.c>`_.
+
+.. WARNING:: The dbus interface may change in the future.
 
 You can use the "/org/hexchat/Remote" object with interface
 "org.hexchat.plugin", but his context can be changed by other clients at
