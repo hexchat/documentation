@@ -37,6 +37,7 @@ HexChat ChangeLog
 - enable ipv6 by default on linux
 - enable irc\_whois\_front by default
 - make userlist icons slightly smaller
+- close all utlity windows with ESC
 - improve url and username detection in chat
 - /join will focus an existing channel
 - change default DCC download directory to $HOME/Downloads on Unix
