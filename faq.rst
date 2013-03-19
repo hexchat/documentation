@@ -228,12 +228,13 @@ You can find more possibilities at
 Where did the Real Name field go?
 ---------------------------------
 
-The real name field is now removed from the Network List. This is in
-order to avoid alienating newcomers (some might be afraid of their
-personal data).
-
-The network-specific real name can still be set via the GUI. If you want
-to modify the global real name, just issue the following command:
+The Real name field used to be accessible via the Network List, which is the
+very first screen that a new user sees. Newcomers, who are not familiar with
+IRC terminology, might be afraid of their personal data. In order to avoid
+alienating such people, we decided to remove this setting from the Network
+List. Now you can access this setting under :menuselection:`Settings -->
+Preferences --> Advanced` instead, or if you prefer the command line, you can
+use the following command:
 
     /set irc\_real\_name Stewie Griffin
 
