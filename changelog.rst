@@ -36,6 +36,7 @@ HexChat ChangeLog
 - enable tray menu on windows
 - enable ipv6 by default on linux
 - enable irc\_whois\_front by default
+- redesigned banlist window to show invite/ban exemptions and quiets
 - make userlist icons slightly smaller
 - close all utlity windows with ESC
 - improve url and username detection in chat
