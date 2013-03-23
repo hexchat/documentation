@@ -258,7 +258,7 @@ How do I migrate my settings from XChat?
     1. Copy %APPDATA%\\X-Chat 2 to %APPDATA%\\HexChat
     2. Rename %APPDATA%\\HexChat\\xchat.conf to
        %APPDATA%\\HexChat\\hexchat.conf
-    3. Rename %APPDATA%\\HexChat\\servlist_.conf to
+    3. Rename %APPDATA%\\HexChat\\servlist\_.conf to
        %APPDATA%\\HexChat\\servlist.conf
     4. Rename %APPDATA%\\HexChat\\xchatlogs to %APPDATA%\\HexChat\\logs
     5. Move all your 3rd party addons to %APPDATA%\\HexChat\\addons
