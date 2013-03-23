@@ -18,6 +18,7 @@ HexChat ChangeLog
 - fix close dialog minimizing to tray before selection
 - fix python plugin compilation on ubuntu 13.04
 - fix htm crashing on readonly files
+- fix channel tree indentation without server tab or with icons
 - update translations
 - update network list
 - update default text events
