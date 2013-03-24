@@ -28,6 +28,7 @@ HexChat ChangeLog
 - add an option to always show notices in front tab
 - add support for gnome 3.8's notification filters
 - add channel key support to urls
+- add option to color userlist nicks the same as text_color_nicks does
 - add automatically switching to last activity to change-page keybinding
 - add ability to save divider position between combined userlist and chanlist
 - remove hextray in favor of built in tray
