@@ -63,20 +63,26 @@ Xchat::register( $name, $version, [$description,[$callback]] )
 
 This is the first thing to call in every script.
 
-Xchat::hook_server( $message, $callback, [\%options] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: none
 
-Xchat::hook_command( $command, $callback, [\%options] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Xchat::hook_server( $message, $callback, [\%options] )
 
-Xchat::hook_print( $event,$callback, [\%options] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: none
 
-Xchat::hook_timer( $timeout,$callback, [\%options | $data] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Xchat::hook_command( $command, $callback, [\%options] )
 
-Xchat::hook_fd( $handle, $callback, [ \%options ] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: none
+
+   Xchat::hook_print( $event,$callback, [\%options] )
+
+.. code-block:: none
+
+   Xchat::hook_timer( $timeout,$callback, [\%options | $data] )
+
+.. code-block:: none
+
+   Xchat::hook_fd( $handle, $callback, [ \%options ] )
+
 
 These functions can be to intercept various events. hook\_server can be
 used to intercept any incoming message from the IRC server.
@@ -102,78 +108,30 @@ Events*. hook\_timer can be used to create a new timer
 
 Valid keys for %options:
 
-.. raw:: html
++------------+--------------------------------------------------------------------------+
+| data       | Additional data that is to be associated with the hook. For timer hooks  |
+|            | this value can be provided either as Xchat::hook\_timer( $timeout,       |
+|            | cb,{data=&gt; data}) or Xchat::hook\_timer( $timeout, $cb,               |
+|            | $data ). However, this means that hook\_timer cannot be provided with a  |
+|            | hash reference containing data as a key. example: my $options = { data   |
+|            | => [@arrayOfStuff] }; Xchat::hook\_timer( $timeout, $cb, $options ); In  |
+|            | this example, the timer's data will be [@arrayOfStuff] and not { data => |
+|            | [@arrayOfStuff] } This key is valid for all of the hook functions.       |
+|            | Default is undef.                                                        |
++------------+--------------------------------------------------------------------------+
+| priority   | Sets the priority for the hook. It can be set to one of the              |
+|            | Xchat::PRI\_\* constants. This key only applies to server, command and   |
+|            | print hooks. Default is Xchat::PRI\_NORM.                                |
++------------+--------------------------------------------------------------------------+
+| help\_text | Text displayed for /help $command. This key only applies to command      |
+|            | hooks. Default is "".                                                    |
++------------+--------------------------------------------------------------------------+
+| flags      | Specify the flags for a fd hook. See hook fd flags section for valid     |
+|            | values. On Windows if the handle is a pipe you specify                   |
+|            | Xchat::FD\_NOTSOCKET in addition to any other flags you might be using.  |
+|            | This key only applies to fd hooks. Default is Xchat::FD\_READ            |
++------------+--------------------------------------------------------------------------+
 
-   <table border="1">   <tr>
-      <td>
-
-data
-
-.. raw:: html
-
-   </td>  <td>
-
-Additional data that is to be associated with the hook. For timer hooks
-this value can be provided either as Xchat::hook\_timer( $timeout,
-cb,{data=&gt; data}) or Xchat::hook\_timer( $timeout, $cb,
-$data ). However, this means that hook\_timer cannot be provided with a
-hash reference containing data as a key. example: my $options = { data
-=> [@arrayOfStuff] }; Xchat::hook\_timer( $timeout, $cb, $options ); In
-this example, the timer's data will be [@arrayOfStuff] and not { data =>
-[@arrayOfStuff] } This key is valid for all of the hook functions.
-Default is undef.
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-priority
-
-.. raw:: html
-
-   </td> <td>
-
-Sets the priority for the hook. It can be set to one of the
-Xchat::PRI\_\* constants. This key only applies to server, command and
-print hooks. Default is Xchat::PRI\_NORM.
-
-.. raw:: html
-
-   </td>   </tr>   <tr>
-         <td>
-
-help\_text
-
-.. raw:: html
-
-   </td>   <td>
-
-Text displayed for /help $command. This key only applies to command
-hooks. Default is "".
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-flags
-
-.. raw:: html
-
-   </td>   <td>
-
-Specify the flags for a fd hook. See hook fd flags section for valid
-values. On Windows if the handle is a pipe you specify
-Xchat::FD\_NOTSOCKET in addition to any other flags you might be using.
-This key only applies to fd hooks. Default is Xchat::FD\_READ
-
-.. raw:: html
-
-   </td>
-      </tr></table><p>
 
 When callbacks are invoked
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -181,71 +139,23 @@ When callbacks are invoked
 Each of the hooks will be triggered at different times depending on the
 type of hook.
 
-.. raw:: html
++---------------+------------------------------------------------------------------------------------+
+| Hook Type     | When the callback will be invoked                                                  |
++===============+====================================================================================+
+| server hooks  | a $message message is received from the server                                     |
++---------------+------------------------------------------------------------------------------------+
+| command hooks | the $command command is executed, either by the user or from a script              |
++---------------+------------------------------------------------------------------------------------+
+| print hooks   | X-Chat is about to print the message for the $event event                          |
++---------------+------------------------------------------------------------------------------------+
+| timer hooks   | called every $timeout milliseconds (1000 millisecond is 1 second)                  |
+|               | the callback will be executed in the same context where the hook_timer was called, | 
+|               | if the context no longer exists then it will execute in a random context           |
++---------------+------------------------------------------------------------------------------------+
+| fd hooks      | depends on the flags that were passed to hook_fd                                   |
+|               | See hook_fd flags section above.                                                   |
++---------------+------------------------------------------------------------------------------------+
 
-   <table border="1">   <tr style="background-color: #dddddd">
-         <td>
-
-Hook Type
-
-.. raw:: html
-
-   </td>   <td>
-
-When the callback will be invoked
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-server hooks
-
-.. raw:: html
-
-   </td>   <td>
-
-a message</code> message is received from the server </td> </tr> <tr> <td>command hooks</td> <td>the <code> command
-command is executed, either by the user or from a script
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-print hooks
-
-.. raw:: html
-
-   </td> <td>
-
-X-Chat is about to print the message for the event</code> event </td> </tr> <tr> <td>timer hooks</td> <td>called every <code> timeout
-milliseconds (1000 millisecond is 1 second) the callback will be
-executed in the same context where the hook\_timer was called, if the
-context no longer exists then it will execute in a random context
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-fd hooks
-
-.. raw:: html
-
-   </td> <td>
-
-depends on the flags that were passed to hook\_fd See hook\_fd flags
-section.
-
-.. raw:: html
-
-   </td>
-      </tr>
-   </table>
 
 The value return from these hook functions can be passed to
 ``Xchat::unhook`` to remove the hook.
@@ -312,115 +222,32 @@ messages entered by the user that is not a command.
 For print hooks besides those events listed in *Settings* ``->`` *Text
 Events*, these additional events can be used.
 
-.. raw:: html
++-----------------+--------------------------------------------------------------------------------------------+
+| Event           | Description                                                                                |
++=================+============================================================================================+
+| "Open Context"  | a new context is created                                                                   |
++-----------------+--------------------------------------------------------------------------------------------+
+| "Close Context" | a context has been close                                                                   |
++-----------------+--------------------------------------------------------------------------------------------+
+| "Focus Tab"     | when a tab is brought to the front                                                         |
++-----------------+--------------------------------------------------------------------------------------------+
+| "Focus Window"  | when a top level window is focused or the main tab window is focused by the window manager | 
++-----------------+--------------------------------------------------------------------------------------------+
+| "DCC Chat Text" | when text from a DCC Chat arrives. $_[0] will have these values                            |
+|                 |                                                                                            |
+|                 | - $_[0][0] - Address                                                                       |
+|                 | - $_[0][1] - Port                                                                          |
+|                 | - $_[0][2] - Nick                                                                          |
+|                 | - $_[0][3] - Message                                                                       | 
++-----------------+--------------------------------------------------------------------------------------------+
+| "Key Press"     | used for intercepting key presses                                                          |
+|                 |                                                                                            |
+|                 | - $_[0][0] - key value                                                                     |
+|                 | - $_[0][1] - state bitfield, 1 - shift, 4 - control, 8 - alt                               |
+|                 | - $_[0][2] - string version of the key which might be empty for unprintable keys           |
+|                 | - $_[0][3] - length of the string in $_[0][2]                                              |
++-----------------+--------------------------------------------------------------------------------------------+
 
-   <table border="1">   <tr style="background-color: #dddddd">
-         <td>
-
-Event
-
-.. raw:: html
-
-   </td> <td>
-
-Description
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-"Open Context"
-
-.. raw:: html
-
-   </td> <td>
-
-a new context is created
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-"Close Context"
-
-.. raw:: html
-
-   </td>   <td>
-
-a context has been close
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-"Focus Tab"
-
-.. raw:: html
-
-   </td> <td>
-
-when a tab is brought to the front
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-"Focus Window"
-
-.. raw:: html
-
-   </td> <td>
-
-when a top level window is focused or the main tab window is focused by
-the window manager
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-"DCC Chat Text"
-
-.. raw:: html
-
-   </td>   <td>
-
-when text from a DCC Chat arrives.
-$_[0] will have these values *$_[0][0]*
-- Address *$_[0][1]* - Port *$_[0][2]* - Nick
-*$_[0][3]* - Message
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-"Key Press"
-
-.. raw:: html
-
-   </td> <td>
-
-used for intercepting key presses $_[0][0] - key value *$_[0][1]* -
-state bitfield, 1 - shift, 4 - control, 8 - alt *$_[0][2]* - string
-version of the key which might be empty for unprintable keys *$_[0][3]*
-- length of the string in *$_[0][2]*
-
-.. raw:: html
-
-   </td>
-      </tr>
-   </table>
 
 Xchat::unhook( $hook )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -535,430 +362,62 @@ Xchat::get_info( $id )
 
 -  **$id** - one of the following case sensitive values
 
-.. raw:: html
-
-   <table border="1">   <tr style="background-color: #dddddd">
-         <td>
-
-ID
-
-.. raw:: html
-
-   </td>
-         <td>
-
-Return value
-
-.. raw:: html
-
-   </td>
-         <td>
-
-Associated Command(s)
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-away
-
-.. raw:: html
-
-   </td>
-         <td>
-
-away reason or undef if you are not away
-
-.. raw:: html
-
-   </td>
-         <td>
-
-AWAY, BACK
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-channel
-
-.. raw:: html
-
-   </td>
-         <td>
-
-current channel name
-
-.. raw:: html
-
-   </td>
-         <td>
-
-SETTAB
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-charset
-
-.. raw:: html
-
-   </td>
-         <td>
-
-character-set used in the current context
-
-.. raw:: html
-
-   </td>
-         <td>
-
-CHARSET
-
-.. raw:: html
-
-   </td>
-      </tr>
-   <tr>
-      <td>
-
-configdir
-
-.. raw:: html
-
-   </td> <td>
-
-HexChat config directory encoded in UTF-8. Examples:
-/home/user/.config/hexchat C:
-
-.. raw:: html
-
-   </td>
-      <td></td>
-   </tr>
-   <tr>
-         <td>
-
-event\_text <Event Name>
-
-.. raw:: html
-
-   </td> <td>
-
-text event format string for <Event name> Example:
-
-.. raw:: html
-
-   <div class="example synNormal"><div class='line_number'>
-   <div>
-
-1
-
-.. raw:: html
-
-   </div>
-   </div>
-   <div class='content'><pre><span class="synStatement">my</span> <span class="synIdentifier">$channel_msg_format</span> = Xchat::get_info( <span class="synStatement">&quot;</span><span class="synConstant">event_text Channel Message</span><span class="synStatement">&quot;</span> );
-   </pre></div>
-   </div>
-      </td>
-      <td></td>
-   </tr>
-   <tr>
-      <td>
-
-host
-
-.. raw:: html
-
-   </td>
-      <td>
-
-real hostname of the current server
-
-.. raw:: html
-
-   </td>
-      <td></td>
-   </tr><tr>
-      <td>
-
-id
-
-.. raw:: html
-
-   </td>
-      <td>
-
-connection id
-
-.. raw:: html
-
-   </td>
-      <td></td>
-   </tr><tr>
-      <td>
-
-inputbox
-
-.. raw:: html
-
-   </td>
-      <td>
-
-contents of the inputbox
-
-.. raw:: html
-
-   </td>
-      <td>
-
-SETTEXT
-
-.. raw:: html
-
-   </td>
-   </tr><tr>
-      <td>
-
-libdirfs
-
-.. raw:: html
-
-   </td>
-      <td>
-
-the system wide directory where xchat will look for plugins. this string
-is in the same encoding as the local file system
-
-.. raw:: html
-
-   </td>
-      <td></td>
-   </tr><tr>
-      <td>
-
-modes
-
-.. raw:: html
-
-   </td>
-      <td>
-
-the current channels modes or undef if not known
-
-.. raw:: html
-
-   </td>
-      <td>
-
-MODE
-
-.. raw:: html
-
-   </td>
-   </tr><tr>
-      <td>
-
-network
-
-.. raw:: html
-
-   </td>
-      <td>
-
-current network name or undef, this value is taken from the Network List
-
-.. raw:: html
-
-   </td>
-      <td></td>
-   </tr><tr>
-      <td>
-
-nick
-
-.. raw:: html
-
-   </td>
-      <td>
-
-current nick
-
-.. raw:: html
-
-   </td>
-      <td>
-
-NICK
-
-.. raw:: html
-
-   </td>
-   </tr><tr>
-      <td>
-
-nickserv
-
-.. raw:: html
-
-   </td>
-      <td>
-
-nickserv password for this network or undef, this value is taken from
-the Network List
-
-.. raw:: html
-
-   </td>
-      <td></td>
-   </tr><tr>
-      <td>
-
-server
-
-.. raw:: html
-
-   </td>   <td>
-
-current server name (what the server claims to be) undef if not
-connected
-
-.. raw:: html
-
-   </td>
-      <td></td>
-   </tr><tr>
-      <td>
-
-state\_cursor
-
-.. raw:: html
-
-   </td>
-      <td>
-
-current inputbox cursor position in characters
-
-.. raw:: html
-
-   </td>
-      <td>
-
-SETCURSOR
-
-.. raw:: html
-
-   </td>
-   </tr><tr>
-      <td>
-
-topic
-
-.. raw:: html
-
-   </td>
-      <td>
-
-current channel topic
-
-.. raw:: html
-
-   </td>
-      <td>
-
-TOPIC
-
-.. raw:: html
-
-   </td>
-   </tr><tr>
-      <td>
-
-version
-
-.. raw:: html
-
-   </td>
-      <td>
-
-xchat version number
-
-.. raw:: html
-
-   </td>
-      <td></td>
-   </tr><tr>
-      <td>
-
-win\_status
-
-.. raw:: html
-
-   </td>
-      <td>
-
-status of the xchat window, possible values are "active", "hidden" and
-"normal"
-
-.. raw:: html
-
-   </td>
-      <td>
-
-GUI
-
-.. raw:: html
-
-   </td>
-   </tr><tr>
-     <td>
-
-win\_ptr
-
-.. raw:: html
-
-   </td> <td>
-
-native window pointer, GtkWindow \* on Unix, HWND on Win32. On Unix if
-you have the Glib module installed you can use my $window =
-Glib::Object->new\_from\_pointer( Xchat::get\_info( "win\_ptr" ) ); to
-get a Gtk2::Window object. Additionally when you have detached tabs,
-each of the windows will return a different win\_ptr for the different
-Gtk2::Window objects. See char\_count.pl for a longer example of a
-script that uses this to show how many characters you currently have in
-your input box.
-
-.. raw:: html
-
-   </td>
-     <td></td>
-   </tr>
-   <tr>
-     <td>
-
-gtkwin\_ptr
-
-.. raw:: html
-
-   </td>
-     <td>
-
-similar to win\_ptr except it will always be a GtkWindow \*
-
-.. raw:: html
-
-   </td>
-     <td></td>
-   </tr>
-   </table>
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| ID                      | Return value                                                                                                        | Associated Command(s) |
++=========================+=====================================================================================================================+=======================+
+| away                    | away reason or undef if you are not away                                                                            | AWAY, BACK            |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| channel                 | current channel name                                                                                                | SETTAB                |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+            
+| charset                 | character-set used in the current context                                                                           | CHARSET               |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| configdir               | HexChat config directory encoded in UTF-8. Examples:                                                                |                       |
+|                         | /home/user/.config/hexchat                                                                                          |                       |
+|                         | C:\Users\user\Appdata\Roaming\HexChat                                                                               |                       |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| event_text <Event Name> | text event format string for <Event name>                                                                           |                       |
+|                         | Example:                                                                                                            |                       |
+|                         |                                                                                                                     |                       |
+|                         | - ``my $channel_msg_format = Xchat::get_info( "event_text Channel Message" );``                                     |                       |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| host                    | real hostname of the current server                                                                                 |                       |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| id                      | connection id                                                                                                       |                       |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| inputbox                | contents of the inputbox                                                                                            | SETTEXT               |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| libdirfs                | the system wide directory where xchat will look for plugins. this string is in the same encoding                    |                       |
+|                         | as the local file system                                                                                            |                       |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| modes                   | the current channels modes or undef if not known                                                                    | MODE                  |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| network                 | current network name or undef, this value is taken from the Network List                                            |                       |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| nick                    | current nick                                                                                                        | NICK                  |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| nickserv                | nickserv password for this network or undef, this value is taken from the Network List                              |                       |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| server                  | current server name                                                                                                 |                       |
+|                         | (what the server claims to be) undef if not connected                                                               |                       |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| state\_cursor           | current inputbox cursor position in characters                                                                      | SETCURSOR             |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| topic                   | current channel topic                                                                                               | TOPIC                 |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| version                 | xchat version number                                                                                                |                       |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| win_status              | status of the xchat window, possible values are "active", "hidden" and "normal"                                     | GUI                   |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| win\_ptr                | native window pointer, GtkWindow * on Unix, HWND on Win32.                                                          |                       |
+|                         | On Unix if you have the Glib module installed you can use my $window =                                              |                       |
+|                         | Glib::Object->new\_from\_pointer( Xchat::get_info( "win\_ptr" ) ); to get a Gtk2::Window object.                    |                       |
+|                         | Additionally when you have detached tabs, each of the windows will return a different win\_ptr                      |                       |
+|                         | for the different Gtk2::Window objects.                                                                             |                       |
+|                         | See `char\_count.pl <http://xchat.cvs.sourceforge.net/viewvc/xchat/xchat2/plugins/perl/char_count.pl?view=markup>`_ |                       | 
+|                         | for a longer example of a script that uses this to show how many characters you currently have in your input box.   |                       | 
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
+| gtkwin_ptr              | similar to win_ptr except it will always be a GtkWindow *                                                           |                       |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 
 This function is used to retrieve certain information about the current
 context. If there is an associated command then that command can be used
@@ -1053,664 +512,152 @@ if there is no such list.
 
 "channels" - list of channels, querys and their server
 
-.. raw:: html
-
-   <table border="1">   <tr style="background-color: #dddddd">
-         <td>
-
-Key
-
-.. raw:: html
-
-   </td>   <td>
-
-Description
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-channel
-
-.. raw:: html
-
-   </td>  <td>
-
-tab name
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-chantypes
-
-.. raw:: html
-
-   </td>
-         <td>
-
-channel types supported by the server, typically "#&"
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-context
-
-.. raw:: html
-
-   </td>  <td>
-
-can be used with set\_context
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-flags
-
-.. raw:: html
-
-   </td> <td>
-
-Server Bits: 0 - Connected 1 - Connecting 2 - Away 3 - EndOfMotd(Login
-complete) 4 - Has WHOX 5 - Has IDMSG (FreeNode)
-
-.. raw:: html
-
-   <p>
-
-The following correspond to the /chanopt command
-
-.. raw:: html
-
-   </p>
-                       
-
-6 - Hide Join/Part Message (text\_hidejoinpart) 7 - unused (was for
-color paste) 8 - Beep on message (alert\_beep) 9 - Blink Tray
-(alert\_tray) 10 - Blink Task Bar (alert\_taskbar)
-
-.. raw:: html
-
-   <p>
-
-Example of checking if the current context has Hide Join/Part messages
-set:
-
-.. raw:: html
-
-   </p>
-   <div class="example synNormal"><div class='line_number'>
-   <div>
-
-1
-
-.. raw:: html
-
-   </div>
-   <div>
-
-2
-
-.. raw:: html
-
-   </div>
-   <div>
-
-3
-
-.. raw:: html
-
-   </div>
-   </div>
-   <div class='content'><pre><span class="synStatement">if</span>( Xchat::context_info-&gt;{flags} &amp; (<span class="synConstant">1</span> &lt;&lt; <span class="synConstant">6</span>) ) {
-     Xchat::<span class="synStatement">print</span>( <span class="synStatement">&quot;</span><span class="synConstant">Hide Join/Part messages is enabled</span><span class="synStatement">&quot;</span> );
-   }
-   </pre></div>
-   </div>                     </td>
-      </tr>   <tr>
-         <td>
-
-id
-
-.. raw:: html
-
-   </td> <td>
-
-Unique server ID
-
-.. raw:: html
-
-   </td>
-      </tr>
-
-.. raw:: html
-
-   <tr>
-         <td>
-
-lag
-
-.. raw:: html
-
-   </td>
-         <td>
-
-lag in milliseconds
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-maxmodes
-
-.. raw:: html
-
-   </td> <td>
-
-Maximum modes per line
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-network
-
-.. raw:: html
-
-   </td>  <td>
-
-network name to which this channel belongs
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-nickprefixes
-
-.. raw:: html
-
-   </td>   <td>
-
-Nickname prefixes e.g. "+@"
-
-.. raw:: html
-
-   </td>
-      </tr>
-
-.. raw:: html
-
-   <tr>
-         <td>
-
-nickmodes
-
-.. raw:: html
-
-   </td>   <td>
-
-Nickname mode chars e.g. "vo"
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-queue
-
-.. raw:: html
-
-   </td>
-         <td>
-
-number of bytes in the send queue
-
-.. raw:: html
-
-   </td>
-      </tr>
-
-.. raw:: html
-
-   <tr>
-         <td>
-
-server
-
-.. raw:: html
-
-   </td>   <td>
-
-server name to which this channel belongs
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-type
-
-.. raw:: html
-
-   </td>  <td>
-
-the type of this context 1 - server 2 - channel 3 - dialog 4 - notices 5
-- server notices
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-users
-
-.. raw:: html
-
-   </td> <td>
-
-Number of users in this channel
-
-.. raw:: html
-
-   </td>
-      </tr>
-   </table>
++--------------+-----------------------------------------------------------------------------+
+| Key          | Description                                                                 |
++==============+=============================================================================+
+| channel      | tab name                                                                    |
++--------------+-----------------------------------------------------------------------------+
+| chantypes    | channel types supported by the server, typically "#&"                       |
++--------------+-----------------------------------------------------------------------------+
+| context      | can be used with set_context                                                |
++--------------+-----------------------------------------------------------------------------+
+| flags        | Server Bits:                                                                |
+|              |                                                                             |
+|              | - 0 Connected                                                               |
+|              | - 1 Connecting                                                              |
+|              | - 2 Away                                                                    |
+|              | - 3 EndOfMotd(Login complete)                                               |
+|              | - 4 Has WHOX                                                                |
+|              | - 5 Has IDMSG (FreeNode)                                                    |
+|              |                                                                             |
+|              | The following correspond to the /chanopt command                            |
+|              |                                                                             |
+|              | - 6 Hide Join/Part Message (text_hidejoinpart)                              |
+|              | - 7 unused (was for color paste)                                            |
+|              | - 8 Beep on message (alert_beep)                                            |
+|              | - 9 Blink Tray (alert_tray)                                                 |
+|              | - 10 Blink Task Bar (alert_taskbar)                                         |
+|              |                                                                             |
+|              | Example of checking if the current context has Hide Join/Part messages set: |
+|              |                                                                             |
+|              | - 1                                                                         |
+|              | - 2                                                                         |
+|              | - 3                                                                         |
+|              |                                                                             |
+|              | if( Xchat::context_info->{flags} & (1 << 6) ) {                             |
+|              |    Xchat::print( "Hide Join/Part messages is enabled" );                    |
+|              | }                                                                           |
++--------------+-----------------------------------------------------------------------------+
+| id           | Unique server ID                                                            |
++--------------+-----------------------------------------------------------------------------+
+| lag          | lag in milliseconds                                                         |
++--------------+-----------------------------------------------------------------------------+
+| maxmodes     | Maximum modes per line                                                      |
++--------------+-----------------------------------------------------------------------------+
+| network      | network name to which this channel belongs                                  |
++--------------+-----------------------------------------------------------------------------+
+| nickprefixes | Nickname prefixes e.g. "+@"                                                 |
++--------------+-----------------------------------------------------------------------------+
+| nickmodes    | Nickname mode chars e.g. "vo"                                               |
++--------------+-----------------------------------------------------------------------------+
+| queue        | number of bytes in the send queue                                           |
++--------------+-----------------------------------------------------------------------------+
+| server       | server name to which this channel belongs                                   |
++--------------+-----------------------------------------------------------------------------+
+| type         | the type of this context                                                    |
+|              | - 1 server                                                                  |
+|              | - 2 channel                                                                 |
+|              | - 3 dialog                                                                  |
+|              | - 4 notices                                                                 |
+|              | - 5 server notices                                                          |
++--------------+-----------------------------------------------------------------------------+
+| users        | Number of users in this channel                                             |
++--------------+-----------------------------------------------------------------------------+
 
 "dcc" - list of DCC file transfers
 
-.. raw:: html
-
-   <table border="1">   <tr style="background-color: #dddddd">
-         <td>
-
-Key
-
-.. raw:: html
-
-   </td>   <td>
-
-Value
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-address32
-
-.. raw:: html
-
-   </td>   <td>
-
-address of the remote user(ipv4 address)
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-cps
-
-.. raw:: html
-
-   </td>   <td>
-
-bytes per second(speed)
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-destfile
-
-.. raw:: html
-
-   </td> <td>
-
-destination full pathname
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-file
-
-.. raw:: html
-
-   </td>  <td>
-
-file name
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-nick
-
-.. raw:: html
-
-   </td>
-         <td>
-
-nick of the person this DCC connection is connected to
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-port
-
-.. raw:: html
-
-   </td>  <td>
-
-TCP port number
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-pos
-
-.. raw:: html
-
-   </td>   <td>
-
-bytes sent/received
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-poshigh
-
-.. raw:: html
-
-   </td>   <td>
-
-bytes sent/received, high order 32 bits
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-resume
-
-.. raw:: html
-
-   </td>   <td>
-
-point at which this file was resumed (zero if it was not resumed)
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-resumehigh
-
-.. raw:: html
-
-   </td>   <td>
-
-point at which this file was resumed, high order 32 bits
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-size
-
-.. raw:: html
-
-   </td>  <td>
-
-file size in bytes low order 32 bits
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-sizehigh
-
-.. raw:: html
-
-   </td> <td>
-
-file size in bytes, high order 32 bits (when the files is > 4GB)
-
-.. raw:: html
-
-   </td>
-       </tr>
-       <tr>
-         <td>
-
-status
-
-.. raw:: html
-
-   </td>   <td>
-
-DCC Status: 0 - queued 1 - active 2 - failed 3 - done 4 - connecting 5 -
-aborted
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-type
-
-.. raw:: html
-
-   </td>  <td>
-
-DCC Type: 0 - send 1 - receive 2 - chatrecv 3 - chatsend
-
-.. raw:: html
-
-   </td>
-      </tr></table>
++------------+------------------------------------------------------------------+
+| Key        | Value                                                            |
++============+==================================================================+
+| address32  | address of the remote user(ipv4 address)                         |
++------------+------------------------------------------------------------------+
+| cps        | bytes per second(speed)                                          |
++------------+------------------------------------------------------------------+
+| destfile   | destination full pathname                                        |
++------------+------------------------------------------------------------------+
+| file       | file name                                                        |
++------------+------------------------------------------------------------------+
+| nick       | nick of the person this DCC connection is connected to           |
++------------+------------------------------------------------------------------+
+| port       | TCP port number                                                  |
++------------+------------------------------------------------------------------+
+| pos        | bytes sent/received                                              |
++------------+------------------------------------------------------------------+
+| poshigh    | bytes sent/received, high order 32 bits                          |
++------------+------------------------------------------------------------------+
+| resume     | point at which this file was resumed                             |
+|            | (zero if it was not resumed)                                     |
++------------+------------------------------------------------------------------+
+| resumehigh | point at which this file was resumed, high order 32 bits         |
++------------+------------------------------------------------------------------+
+| size       | file size in bytes low order 32 bits                             |
++------------+------------------------------------------------------------------+
+| sizehigh   | file size in bytes, high order 32 bits (when the files is > 4GB) |
++------------+------------------------------------------------------------------+
+| status     | DCC Status:                                                      |
+|            |                                                                  |
+|            | - 0 - queued                                                     |
+|            |                                                                  |
+|            | - 2 - failed                                                     |
+|            | - 3 - done                                                       |
+|            | - 4 - connecting                                                 |
+|            | - 5 - aborted                                                    |
++------------+------------------------------------------------------------------+
+| type       | DCC Type:                                                        |
+|            |                                                                  |
+|            | - 0 - send                                                       |
+|            | - 1 - receive                                                    |
+|            | - 2 - chatrecv                                                   |
+|            | - 3 - chatsend                                                   |
++------------+------------------------------------------------------------------+
 
 "ignore" - current ignore list
 
-.. raw:: html
-
-   <table border="1">   <tr style="background-color: #dddddd">
-         <td>
-
-Key
-
-.. raw:: html
-
-   </td> <td>
-
-Value
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-mask
-
-.. raw:: html
-
-   </td>  <td>
-
-ignore mask. e.g: *!*\ @\*.aol.com
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-flags
-
-.. raw:: html
-
-   </td> <td>
-
-Bit field of flags. 0 - private 1 - notice 2 - channel 3 - ctcp 4 -
-invite 5 - unignore 6 - nosave 7 - dcc
-
-.. raw:: html
-
-   </td>
-      </tr></table>
++-------+---------------------------------+
+| Key   | Value                           |
++=======+=================================+
+| mask  | ignore mask. e.g: *!*@*.aol.com |
++-------+---------------------------------+
+| flags | Bit field of flags.             |
+|       |                                 |
+|       | - 0 - private                   |
+|       | - 1 - notice                    |
+|       | - 2 - channel                   |
+|       | - 3 - ctcp                      |
+|       | - 4 - invite                    |
+|       | - 5 - unignore                  |
+|       | - 6 - nosave                    |
+|       | - 7 - dcc                       |
++-------+---------------------------------+
 
 "notify" - list of people on notify
 
-.. raw:: html
-
-   <table border="1">
-      <tr style="background-color: #dddddd">
-         <td>
-
-Key
-
-.. raw:: html
-
-   </td>   <td>
-
-Value
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-networks
-
-.. raw:: html
-
-   </td>
-         <td>
-
-comma separated list of networks where you will be notfified about this
-user's online/offline status or undef if you will be notificed on every
-network you are connected to
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-nick
-
-.. raw:: html
-
-   </td>  <td>
-
-nickname
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-flags
-
-.. raw:: html
-
-   </td> <td>
-
-0 = is online
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-on
-
-.. raw:: html
-
-   </td> <td>
-
-time when user came online
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-off
-
-.. raw:: html
-
-   </td>   <td>
-
-time when user went offline
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-seen
-
-.. raw:: html
-
-   </td>  <td>
-
-time when user was last verified still online
-
-.. raw:: html
-
-   </td>
-      </tr>
-   </table>
++----------+----------------------------------------------------------------------------------------------+
+| Key      | Value                                                                                        |
++==========+==============================================================================================+
+| networks | comma separated list of networks where you will be notfified about this user's               |
+|          | online/offline statusor undef if you will be notificed on every network you are connected to |
++----------+----------------------------------------------------------------------------------------------+
+| nick     | nickname                                                                                     |
++----------+----------------------------------------------------------------------------------------------+
+| flags    | 0 = is online                                                                                |
++----------+----------------------------------------------------------------------------------------------+
+| on       | time when user came online                                                                   |
++----------+----------------------------------------------------------------------------------------------+
+| off      | time when user went offline                                                                  |
++----------+----------------------------------------------------------------------------------------------+
+| seen     | time when user was last verified still online                                                |
++----------+----------------------------------------------------------------------------------------------+
 
 The values indexed by on, off and seen can be passed to localtime and
 gmtime, see perldoc -f
@@ -1720,242 +667,90 @@ more details.
 
 "users" - list of users in the current channel
 
-.. raw:: html
++----------+-----------------------------------------------------------------------------------------------------------------------------------+
+| Key      | Value                                                                                                                             |
++==========+===================================================================================================================================+
+| away     | away status(boolean)                                                                                                              |
++----------+-----------------------------------------------------------------------------------------------------------------------------------+
+| lasttalk | last time a user was seen talking, this is the an epoch time(number of seconds since a certain date, that date depends on the OS) |
++----------+-----------------------------------------------------------------------------------------------------------------------------------+
+| nick     | nick name                                                                                                                         |
++----------+-----------------------------------------------------------------------------------------------------------------------------------+
+| host     | host name in the form: user@host or undef if not known                                                                            |
++----------+-----------------------------------------------------------------------------------------------------------------------------------+
+| prefix   | prefix character, .e.g: @ or +                                                                                                    |
++----------+-----------------------------------------------------------------------------------------------------------------------------------+
+| realname | Real name or undef                                                                                                                |
++----------+-----------------------------------------------------------------------------------------------------------------------------------+
+| selected | selected status in the user list, only works when retrieving the user list of the focused tab.                                    |
+|          | You can use the /USELECT command to select the nicks                                                                              |
++----------+-----------------------------------------------------------------------------------------------------------------------------------+
 
-   <table border="1">
-   <tr style="background-color: #dddddd">
-         <td>
+"networks" - list of networks and the associated settings from network list
 
-Key
-
-.. raw:: html
-
-   </td>   <td>
-
-Value
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-away
-
-.. raw:: html
-
-   </td>  <td>
-
-away status(boolean)
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-lasttalk
-
-.. raw:: html
-
-   </td>
-         <td>
-
-last time a user was seen talking, this is the an epoch time(number of
-seconds since a certain date, that date depends on the OS)
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-nick
-
-.. raw:: html
-
-   </td>  <td>
-
-nick name
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-host
-
-.. raw:: html
-
-   </td>
-         <td>
-
-host name in the form: user@host or undef if not known
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-prefix
-
-.. raw:: html
-
-   </td>   <td>
-
-prefix character, .e.g: @ or +
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-realname
-
-.. raw:: html
-
-   </td>
-          <td>
-
-Real name or undef
-
-.. raw:: html
-
-   </td>
-      </tr>   <tr>
-         <td>
-
-selected
-
-.. raw:: html
-
-   </td>
-         <td>
-
-selected status in the user list, only works when retrieving the user
-list of the focused tab. You can use the /USELECT command to select the
-nicks
-
-.. raw:: html
-
-   </td>
-      </tr>
-   </table>
-
-"networks" - list of networks and the associated settings from network
-list
-
-.. raw:: html
-
-   <table border="1">   <tr style="background-color: #dddddd">
-         <td>
-
-Key
-
-.. raw:: html
-
-   </td>   <td>
-
-Value
-
-.. raw:: html
-
-   </td>
-      </tr>
-    <tr>
-    <td>autojoins</td> <td>An object with the following methods:<br />
-        <table>
-            <tr>
-                <td>Method</td>
-                <td>Description</td>
-            </tr>           <tr>
-                <td>channels()</td>
-                <td>returns a list of this networks' autojoin channels in list context, a count of the number autojoin channels in scalar context</td>
-            </tr>           <tr>
-                <td>keys()</td>
-                <td>returns a list of the keys to go with the channels, the order is the same as the channels, if a channel doesn't  have a key, '' will be returned in it's place</td>
-            </tr>           <tr>
-                <td>pairs()</td>
-                <td>a combination of channels() and keys(), returns a list of (channels, keys) pairs. This can be assigned to a hash for a mapping from channel to key.</td>
-            </tr>           <tr>
-                <td>as_hash()</td>
-                <td>return the pairs as a hash reference</td>
-            </tr>           <tr>
-                <td>as_string()</td>
-                <td>the original string that was used to construct this autojoin object, this can be used with the JOIN command to join all the channels in the autojoin list</td>
-            </tr>           <tr>
-                <td>as_array()</td>
-                <td>return an array reference of hash references consisting of the keys "channel" and "key"</td>
-            </tr>           <tr>
-                <td>as_bool()</td>
-                <td>returns true if the network has autojoins and false otherwise</td>
-            </tr>
-        </table>
-    </td>
-    </tr>
-
-    <tr>
-    <td>connect_commands</td> <td>An array reference containing the connect commands for a network. An empty array if there aren't any</td>
-    </tr>   <tr>
-    <td>encoding</td> <td>the encoding for the network</td>
-    </tr>   <tr>
-        <td>flags</td>
-        <td>
-            a hash reference corresponding to the checkboxes in the network edit window
-            <table>
-                <tr>
-                    <td>allow_invalid</td>
-                    <td>true if "Accept invalid SSL certificate" is checked</td>
-                </tr>               <tr>
-                    <td>autoconnect</td>
-                    <td>true if "Auto connect to this network at startup" is checked</td>
-                </tr>               <tr>
-                    <td>cycle</td>
-                    <td>true if "Connect to selected server only" is <strong>NOT</strong> checked</td>
-                </tr>               <tr>
-                    <td>use_global</td>
-                    <td>true if "Use global user information" is checked</td>
-                </tr>               <tr>
-                    <td>use_proxy</td>
-                    <td>true if "Bypass proxy server" is <strong>NOT</strong> checked</td>
-                </tr>               <tr>
-                    <td>use_ssl</td>
-                    <td>true if "Use SSL for all the servers on this network" is checked</td>
-                </tr>
-            </table>
-        </td>
-    </tr>   <tr>
-        <td>irc_nick1</td>
-        <td>Corresponds with the "Nick name" field in the network edit window</td>
-    </tr>   <tr>
-        <td>irc_nick2</td>
-        <td>Corresponds with the "Second choice" field in the network edit window</td>
-    </tr>   <tr>
-        <td>irc_real_name</td>
-        <td>Corresponds with the "Real name" field in the network edit window</td>
-    </tr>   <tr>
-        <td>irc_user_name</td>
-        <td>Corresponds with the "User name" field in the network edit window</td>
-    </tr>   <tr>
-        <td>network</td>
-        <td>Name of the network</td>
-    </tr>   <tr>
-        <td>nickserv_password</td>
-        <td>Corresponds with the "Nickserv password" field in the network edit window</td>
-    </tr>   <tr>
-        <td>selected</td>
-        <td>Index into the list of servers in the "servers" key, this is used if the "cycle" flag is false</td>
-    </tr>   <tr>
-        <td>server_password</td>
-        <td>Corresponds with the "Server password" field in the network edit window</td>
-    </tr>   <tr>
-        <td>servers</td>
-        <td>An array reference of hash references with a "host" and "port" key. If a port is not specified then 6667 will be used.</td>
-    </tr>
-   </table>
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Key               | Value                                                                                                                                                                           |
++===================+=================================================================================================================================================================================+
+| autojoins         | An object with the following methods:                                                                                                                                           |
+|                   |                                                                                                                                                                                 |
+|                   | +-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ |
+|                   | | Method      | Description                                                                                                                                                   | |
+|                   | +=============+===============================================================================================================================================================+ |
+|                   | | channels()  | returns a list of this networks' autojoin channels in list context, a count of the number autojoin channels in scalar context                                 | |
+|                   | +-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ |
+|                   | | keys()      | returns a list of the keys to go with the channels, the order is the same as the channels, if a channel doesn't have a key, '' will be returned in it's place | |
+|                   | +-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ |
+|                   | | pairs()     | a combination of channels() and keys(), returns a list of (channels, keys) pairs. This can be assigned to a hash for a mapping from channel to key.           | | 
+|                   | +-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ |
+|                   | | as_hash()   | return the pairs as a hash reference                                                                                                                          | |
+|                   | +-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ |
+|                   | | as_string() | the original string that was used to construct this autojoin object, this can be used with the JOIN command to join all the channels in the autojoin list     | |
+|                   | +-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ |
+|                   | | as_array()  | return an array reference of hash references consisting of the keys "channel" and "key"                                                                       | |
+|                   | +-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ |
+|                   | | as_bool()   | returns true if the network has autojoins and false otherwise                                                                                                 | |
+|                   | +-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ |
+|                   |                                                                                                                                                                                 |
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| connect_commands  | An array reference containing the connect commands for a network. An empty array if there aren't any                                                                            |
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| encoding          | the encoding for the network                                                                                                                                                    |
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| flags             | a hash reference corresponding to the checkboxes in the network edit window                                                                                                     |
+|                   |                                                                                                                                                                                 |
+|                   | +---------------+-----------------------------------------------------------------+                                                                                             |
+|                   | | allow_invalid | true if "Accept invalid SSL certificate" is checked             |                                                                                             |
+|                   | +---------------+-----------------------------------------------------------------+                                                                                             |
+|                   | | autoconnect   | true if "Auto connect to this network at startup" is checked    |                                                                                             |
+|                   | +---------------+-----------------------------------------------------------------+                                                                                             |
+|                   | | cycle         | true if "Connect to selected server only" is NOT checked        |                                                                                             |
+|                   | +---------------+-----------------------------------------------------------------+                                                                                             |
+|                   | | use_global    | true if "Use global user information" is checked                |                                                                                             |
+|                   | +---------------+-----------------------------------------------------------------+                                                                                             |
+|                   | | use_proxy     | true if "Bypass proxy server" is NOT checked                    |                                                                                             |
+|                   | +---------------+-----------------------------------------------------------------+                                                                                             |
+|                   | | use_ssl       |true if "Use SSL for all the servers on this network" is checked |                                                                                             |
+|                   | +---------------+-----------------------------------------------------------------+                                                                                             |
+|                   |                                                                                                                                                                                 |
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| irc_nick1         | Corresponds with the "Nick name" field in the network edit window                                                                                                               |
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| irc_nick2         | Corresponds with the "Second choice" field in the network edit window                                                                                                           |
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| irc_real_name     | Corresponds with the "Real name" field in the network edit window                                                                                                               |
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| irc_user_name     | Corresponds with the "User name" field in the network edit window                                                                                                               |
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| network           | Name of the network                                                                                                                                                             |
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| nickserv_password | Corresponds with the "Nickserv password" field in the network edit window                                                                                                       |
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| selected          | Index into the list of servers in the "servers" key, this is used if the "cycle" flag is false                                                                                  |
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| server_password   | Corresponds with the "Server password" field in the network edit window                                                                                                         |
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| servers           | An array reference of hash references with a "host" and "port" key. If a port is not specified then 6667 will be used.                                                          |
++-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Xchat::user_info( [$nick] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2063,17 +858,3 @@ Contact Information
 Contact Lian Wan Situ at <atmcmnky [at] yahoo.com> for questions,
 comments and corrections about this page or the Perl plugin itself. You
 can also find me in #xchat on freenode under the nick Khisanth.
-
-.. raw:: html
-
-   <table border="0" width="100%" cellspacing="0" cellpadding="3">
-   <tr><td class="block" style="background-color: #cccccc" valign="middle">
-
- X-Chat 2 Perl Interface
-
-.. raw:: html
-
-   </td></tr>
-   </table>
-
-
