@@ -33,6 +33,7 @@ HexChat ChangeLog
 - add ability to save divider position between combined userlist and chanlist
 - remove hextray in favor of built in tray
 - remove Lua, Tcl and Perl 5.12/5.14 (but not 5.16)
+- disable tray icon when using unity (until appindicator support added)
 - install svg icon on unix
 - install spelling dicts to %localappdata%
 - enable tray menu on windows
