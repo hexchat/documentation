@@ -11,14 +11,12 @@ Download and install (in their default install paths):
 
 -  `Visual Studio 2010 Professional Trial`_ 
 -  `Inno Setup 5.5 Unicode`_ 
--  `ISSkin 3`_ 
 -  `7-Zip x64`_ 
 -  gendef_ (extract to *c:\\mozilla-build*)
 -  msgfmt_ (extract to *c:\\mozilla-build*)
 
 .. _Visual Studio 2010 Professional Trial: http://www.microsoft.com/en-us/download/details.aspx?id=16057
 .. _Inno Setup 5.5 Unicode: http://www.jrsoftware.org/isdl.php
-.. _ISSkin 3: http://isskin.codejock.com/
 .. _7-Zip x64: http://7-zip.org/
 .. _gendef: http://dl.hexchat.org/gtk-win32/gendef-20111031.7z
 .. _msgfmt: http://dl.hexchat.org/gtk-win32/msgfmt-0.18.1.7z
