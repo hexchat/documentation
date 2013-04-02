@@ -28,6 +28,7 @@ HexChat ChangeLog
 - add ability to automatically switch to last activity on change-page hotkey
 - add ability to save divider position between combined user list and channel tree
 - add global real name option to Preferences
+- add Safe Mode shortcut to Start Menu on Windows
 - install SVG icon on Unix
 - enable Plugin-Tray menu on Windows
 - enable IPv6 by default on Unix
