@@ -32,7 +32,7 @@ HexChat ChangeLog
 - enable Plugin-Tray menu on Windows
 - enable IPv6 by default on Unix
 - show /WHOIS response on current tab by default
-- redesigned Ban List window to show invites, bans, exemptions and quiets
+- redesign the Ban List window to show invites, bans, exemptions and quiets
 - make user list icons slightly smaller
 - close all utility windows with the Esc key
 - improve URL and username detection in the chat area
