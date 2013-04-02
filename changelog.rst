@@ -28,7 +28,9 @@ HexChat ChangeLog
 - add ability to automatically switch to last activity on change-page hotkey
 - add ability to save divider position between combined user list and channel tree
 - add global real name option to Preferences
-- add Safe Mode shortcut to Start Menu on Windows
+- add Safe Mode shortcut to the Start Menu group on Windows
+- add helpful links to the setup wizard on Windows
+- make the source tree compliant with Debian policies
 - install SVG icon on Unix
 - enable Plugin-Tray menu on Windows
 - enable IPv6 by default on Unix
@@ -45,6 +47,7 @@ HexChat ChangeLog
 - disable tray icon when using Unity
 - remove Lua and Tcl
 - remove HexTray in favor of built-in Plugin-Tray
+- remove installer theming on Windows
 - cease support for Perl 5.12 and 5.14 on Windows
 - rebuild every dependency with Visual C++ on Windows
 - stop using the WDK on Windows and depend on the Visual C++ Redistributable
