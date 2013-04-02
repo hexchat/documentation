@@ -4,52 +4,53 @@ HexChat ChangeLog
 2.9.5 (TBD)
 ------------------
 
-- fix checksum plugin with dcc\_completed\_dir set
-- fix false positives with update checker
-- fix sound_dir on linux
+- fix Checksum plugin with DCC download directory set
+- fix false positives with Update Checker
+- fix sound directory option on Unix
 - fix loading custom icons
 - fix tray icon not reappearing if the tray crashes
-- fix tray restoring maximized windows
-- fix /query -nofocus
+- fix restoring maximized windows from tray
+- fix /QUERY -nofocus
 - fix reconnecting to channels with keys
-- fix compilation on freebsd
+- fix compilation on FreeBSD
 - fix showing the join dialog when autojoining channels
-- fix tray menu not closing on windows
+- fix Plugin-Tray menu not closing on Windows
 - fix close dialog minimizing to tray before selection
-- fix python plugin compilation on ubuntu 13.04
-- fix htm crashing on readonly files
+- fix Python plugin compilation on Ubuntu 13.04
+- fix Theme Manager crashing with read-only files
 - fix channel tree indentation without server tab or with icons
-- update translations
-- update network list
-- update default text events
-- update GTK+ to 2.24 on Windows
-- add auto-away support to tray
-- add tray option to disable blinking
-- add an option to always show notices in front tab
-- add support for gnome 3.8's notification filters
-- add channel key support to urls
-- add option to color userlist nicks the same as text_color_nicks does
-- add automatically switching to last activity to change-page keybinding
-- add ability to save divider position between combined userlist and chanlist
-- remove hextray in favor of built in tray
-- remove Lua, Tcl and Perl 5.12/5.14 (but not 5.16)
-- disable tray icon when using unity (until appindicator support added)
-- install svg icon on unix
-- install spelling dicts to %localappdata%
-- enable tray menu on windows
-- enable ipv6 by default on linux
-- enable irc\_whois\_front by default
-- redesigned banlist window to show invite/ban exemptions and quiets
-- make userlist icons slightly smaller
-- close all utlity windows with ESC
-- improve url and username detection in chat
-- /join will focus an existing channel
-- change default DCC download directory to $HOME/Downloads on Unix
-- allow plugin/script utility to be opened in a tab
-- only beep when window is not active
-- use the certs subfolder of the config folder for loading custom certificates 
+- add auto-away support to Plugin-Tray
+- add Plugin-Tray option to disable blinking
+- add option to always show notices on current tab
+- add support for notification filtering in GNOME 3.8
+- add support for channel keys in URLs
+- add option to color nicks in the user list the same way as in the chat area
+- add ability to automatically switch to last activity on change-page hotkey
+- add ability to save divider position between combined user list and channel tree
+- add global real name option to Preferences
+- install SVG icon on Unix
+- enable Plugin-Tray menu on Windows
+- enable IPv6 by default on Unix
+- show /WHOIS response on current tab by default
+- redesigned Ban List window to show invites, bans, exemptions and quiets
+- make user list icons slightly smaller
+- close all utility windows with the Esc key
+- improve URL and username detection in the chat area
+- make /JOIN focus the existing channel if already joined
+- change default DCC download directory to ~/Downloads on Unix
+- allow Plugins and Scripts utility to be opened in a tab
+- only beep when the HexChat window is not active
+- use the certs subfolder of the config folder for loading custom certificates
+- disable tray icon when using Unity
+- remove Lua and Tcl
+- remove HexTray in favor of built-in Plugin-Tray
+- cease support for Perl 5.12 and 5.14 on Windows
 - rebuild every dependency with Visual C++ on Windows
 - stop using the WDK on Windows and depend on the Visual C++ Redistributable
+- update GTK+ to 2.24 on Windows
+- update default text events
+- update translations
+- update the network list
 
 2.9.4 (2012-11-11)
 ------------------
