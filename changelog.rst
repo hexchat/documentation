@@ -1,7 +1,7 @@
 HexChat ChangeLog
 =================
 
-2.9.5 (TBD)
+2.9.5 (2013-04-01)
 ------------------
 
 - fix Checksum plugin with DCC download directory set
