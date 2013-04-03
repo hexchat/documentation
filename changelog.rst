@@ -4,7 +4,9 @@ HexChat ChangeLog
 2.9.6 (TBD)
 -----------
 
-- remove ctrl+l (clear) and add ctrl+n (new server window) keybindings
+- fix compilation on FreeBSD
+- add Ctrl+N (New Server Window) keybinding
+- remove Ctrl+L (Clear Text) keybinding
 
 2.9.5 (2013-04-01)
 ------------------
