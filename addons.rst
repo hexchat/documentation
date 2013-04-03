@@ -62,7 +62,7 @@ Winamp
 
 Displays your currently playing song via :menuselection:`Window --> Display Current Song` or by command:
 
-:command`/winamp`
+:command:`/winamp`
 
 .. NOTE::
    Foobar can also be used with the `foo_winamp_spam <http://www.r1ch.net/stuff/foobar/>`_ plugin.
