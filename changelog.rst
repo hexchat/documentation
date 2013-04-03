@@ -1,6 +1,11 @@
 HexChat ChangeLog
 =================
 
+2.9.6 (TBD)
+-----------
+
+- remove ctrl+l (clear) and add ctrl+n (new server window) keybindings
+
 2.9.5 (2013-04-01)
 ------------------
 
