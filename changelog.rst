@@ -4,6 +4,8 @@ HexChat ChangeLog
 2.9.6 (TBD)
 -----------
 
+- add MONITOR support for the friends list
+- add support for the away-notify, account-notify, and extended-join capabilities
 - fix compilation on FreeBSD
 - add Ctrl+N (New Server Window) keybinding
 - remove Ctrl+L (Clear Text) keybinding
