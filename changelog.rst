@@ -4,6 +4,8 @@ HexChat ChangeLog
 2.9.6 (TBD)
 -----------
 
+- add tracking of users accounts
+- add %u to userlist popups for accounts
 - add MONITOR support for the friends list
 - add support for the away-notify, account-notify, and extended-join capabilities
 - fix compilation on FreeBSD
