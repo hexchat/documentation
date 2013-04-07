@@ -9,13 +9,13 @@ Software
 
 Download and install (in their default install paths):
 
--  `Visual Studio 2010 Professional Trial`_ 
+-  `Visual Studio 2012 Express for Windows Desktop`_ 
 -  `Inno Setup 5.5 Unicode`_ 
 -  `7-Zip x64`_ 
 -  gendef_ (extract to *c:\\mozilla-build*)
 -  msgfmt_ (extract to *c:\\mozilla-build*)
 
-.. _Visual Studio 2010 Professional Trial: http://www.microsoft.com/en-us/download/details.aspx?id=16057
+.. _Visual Studio 2012 Express for Windows Desktop: http://www.microsoft.com/visualstudio/eng/downloads#d-express-windows-desktop
 .. _Inno Setup 5.5 Unicode: http://www.jrsoftware.org/isdl.php
 .. _7-Zip x64: http://7-zip.org/
 .. _gendef: http://dl.hexchat.org/gtk-win32/gendef-20111031.7z
@@ -58,14 +58,14 @@ You can skip this step, but then you won't be able to generate the
 installer.
 Download:
 
--  `Perl 5.16 x86`_ (extract to *c:\\mozilla-build\\perl-5.16\\Win32*)
+-  `Perl 5.18 x86`_ (extract to *c:\\mozilla-build\\perl-5.18\\Win32*)
 -  Python_ 2.7 x86 (install to *c:\\mozilla-build\\python-2.7\\Win32*)
 
--  `Perl 5.16 x64`_ (extract to *c:\\mozilla-build\\perl-5.16\\x64*)
+-  `Perl 5.18 x64`_ (extract to *c:\\mozilla-build\\perl-5.18\\x64*)
 -  Python_ 2.7 x64 (install to *c:\\mozilla-build\\python-2.7\\x64*)
 
-.. _Perl 5.16 x86: http://dl.hexchat.org/misc/perl/perl-5.16.3-x86.7z
-.. _Perl 5.16 x64: http://dl.hexchat.org/misc/perl/perl-5.16.3-x64.7z
+.. _Perl 5.18 x86: http://dl.hexchat.org/misc/perl/perl-5.17.10-x86.7z
+.. _Perl 5.18 x64: http://dl.hexchat.org/misc/perl/perl-5.17.10-x64.7z
 .. _Python: http://www.python.org/download/
 
 You can use other paths, but then you must update the related properties
