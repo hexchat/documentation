@@ -2,7 +2,8 @@ Commands
 ========
 
 Commands in HexChat are prefixed with **/** and to escape them you can type it twice e.g. **//**
-They will first try to run plugin commands, then user commands, then client commands, and lastly send it directly to the server.
+
+HexChat will first try to run plugin commands, then user commands, then client commands, and lastly send it directly to the server.
 
 User Commands
 -------------
