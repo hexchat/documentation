@@ -11,6 +11,7 @@ HexChat ChangeLog
 - add notifications for friends away status (requires away-notify)
 - add events for quiet and unquiet
 - fix compilation on FreeBSD
+- fix splitting ctcps and notices
 - add Ctrl+N (New Server Window) keybinding
 - remove Ctrl+L (Clear Text) keybinding
 
