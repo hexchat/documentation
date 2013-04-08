@@ -12,6 +12,7 @@ HexChat ChangeLog
 - add events for quiet and unquiet
 - fix compilation on FreeBSD
 - fix splitting ctcps and notices
+- fix alerts and scrollback chanopts
 - add Ctrl+N (New Server Window) keybinding
 - remove Ctrl+L (Clear Text) keybinding
 
