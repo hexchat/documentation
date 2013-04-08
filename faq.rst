@@ -16,8 +16,8 @@ Why does HexChat join channels before identifying?
 When using the nickserv password HexChat waits a short time before
 joining. To change this value (which is in seconds) edit it in :menuselection:`Settings --> Preferences --> Advanced`
 
-The other option is SASL which is network dependent and can be enabled
-in the Network list (2.9.4+).
+The recommended option is SASL which is network dependent and can be enabled
+in the :menuselection:`HexChat -- > Network list --> Edit` (2.9.4+).
 
 How do I connect through a proxy?
 ---------------------------------
