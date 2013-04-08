@@ -8,6 +8,8 @@ HexChat ChangeLog
 - add %u to userlist popups for accounts
 - add MONITOR support for the friends list
 - add support for the away-notify, account-notify, and extended-join capabilities
+- add notifications for friends away status (requires away-notify)
+- add events for quiet and unquiet
 - fix compilation on FreeBSD
 - add Ctrl+N (New Server Window) keybinding
 - remove Ctrl+L (Clear Text) keybinding
