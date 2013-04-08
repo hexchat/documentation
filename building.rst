@@ -9,18 +9,12 @@ Software
 
 Download and install (in their default install paths):
 
--  `Visual Studio 2012 Express for Windows Desktop`_ 
--  `Inno Setup 5.5 Unicode`_ 
--  `7-Zip x64`_ 
--  gendef_ (extract to *c:\\mozilla-build*)
--  msgfmt_ (extract to *c:\\mozilla-build*)
+-  _`Visual Studio 2012 Express for Windows Desktop <http://www.microsoft.com/visualstudio/eng/downloads#d-express-windows-desktop>`_ + _`Visual Studio 2012 Update 2 <http://www.microsoft.com/en-us/download/details.aspx?id=38188>`_ 
+-  _`Inno Setup 5.5 Unicode <http://www.jrsoftware.org/isdl.php>`_ 
+-  _`7-Zip x64 <http://7-zip.org/>`_ 
+-  _`gendef <http://dl.hexchat.org/gtk-win32/gendef-20111031.7z>`_ (extract to *c:\\mozilla-build*)
+-  _`msgfmt <http://dl.hexchat.org/gtk-win32/msgfmt-0.18.1.7z>`_ (extract to *c:\\mozilla-build*)
 
-.. _Visual Studio 2012 Express for Windows Desktop: http://www.microsoft.com/visualstudio/eng/downloads#d-express-windows-desktop
-.. _Inno Setup 5.5 Unicode: http://www.jrsoftware.org/isdl.php
-.. _7-Zip x64: http://7-zip.org/
-.. _gendef: http://dl.hexchat.org/gtk-win32/gendef-20111031.7z
-.. _msgfmt: http://dl.hexchat.org/gtk-win32/msgfmt-0.18.1.7z
-    
 
 Source code
 ~~~~~~~~~~~
