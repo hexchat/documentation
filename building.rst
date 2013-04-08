@@ -28,7 +28,7 @@ now.
 GTK+
 ~~~~
 
-Create a folder for GTK+, referred to as *YourDepsPath* from now (*C:\\mozilla-build\\hexchat\\build* by default).
+Create a folder for GTK+, referred to as *YourDepsPath* from now (*C:\\mozilla-build\\hexchat\\gtk* by default).
 Specify the absolute path to *YourDepsPath* in *win32\\hexchat.props*
 with the *YourDepsPath* property. Download:
 
