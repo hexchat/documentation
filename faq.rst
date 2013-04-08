@@ -17,7 +17,7 @@ When using the nickserv password HexChat waits a short time before
 joining. To change this value (which is in seconds) edit it in :menuselection:`Settings --> Preferences --> Advanced`
 
 The recommended option is SASL which is network dependent and can be enabled
-in the :menuselection:`HexChat -- > Network list --> Edit` (2.9.4+).
+in the :menuselection:`HexChat --> Network list --> Edit` (2.9.4+).
 
 How do I connect through a proxy?
 ---------------------------------
