@@ -137,11 +137,11 @@ I get this error: "Unknown file type abc.yz. Maybe you need to install the Perl 
 If you get this error when trying to load a Perl or Python script, it
 means the plugin for running those scripts isn't loaded.
 
--  The Perl, Python and TCL plugins come with HexChat in the same
+-  The Perl and Python plugins come with HexChat in the same
    archive.
--  During ./configure, it will check for Perl, Python and TCL libs and
+-  During ./configure, it will check for Perl and Python libraries and
    headers, you should check if it failed there.
--  The plugins directory can be found by issuing the shell command >
+-  The addons directory can be found by issuing the shell command >
    hexchat -p
 -  All *.so files are auto-loaded at startup (*.dll on Windows).
 -  If you downloaded a binary package, maybe the packager decided to
@@ -165,14 +165,10 @@ The root of your HexChat config is:
 Referred to as <config> from now. HexChat automatically loads, at
 startup:
 
--  <config>/addons/\*.lua Lua scripts
 -  <config>/addons/\*.pl Perl scripts
 -  <config>/addons/\*.py Python scripts
--  <config>/addons/\*.tcl Tcl scripts
 -  <config>/addons/\*.dll Plugins (Windows)
 -  <config>/addons/\*.so Plugins (Unix)
-
-You may need to create the *addons* folder manually.
 
 How do I minimize HexChat to the System Tray (Notification Area)?
 -----------------------------------------------------------------
@@ -187,9 +183,6 @@ For minimizing to tray on minimize:
     /set gui\_tray\_minimize on
 
 Alerts for this tray are in :menuselection:`Settings --> Preferences --> Alerts`.
-
-The other option is Windows only, called HexTray. It is included with
-the installer. Right click on the tray icon for its options.
 
 Where are the log files saved to?
 ---------------------------------
@@ -247,7 +240,7 @@ How do I migrate my settings from XChat?
     2. Rename ~/.config/hexchat/xchat.conf to
        ~/.config/hexchat/hexchat.conf
     3. Rename ~/.config/hexchat/servlist\_.conf to
-       ~/.config/hexchat/servlist.conf (servlist\_.conf for 2.9.4)
+       ~/.config/hexchat/servlist.conf
     4. Rename ~/.config/hexchat/xchatlogs to ~/.config/hexchat/logs
     5. Move all your 3rd party addons to ~/.config/hexchat/addons
     6. Rename ~/.config/hexchat/plugin\_\*.conf to
