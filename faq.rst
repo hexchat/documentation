@@ -216,8 +216,8 @@ is the channel. In these examples, a new log filename and folder would
 be created after midnight.
 
 For the full list on usable elements, please refer to the
-`Unix` <http://linux.die.net/man/3/strftime>_ or
-`Windows` <http://msdn.microsoft.com/en-us/library/fe06s4ak(v=vs.110).aspx#languageReferenceRemarksToggle>_
+`Unix <http://linux.die.net/man/3/strftime>`_ or
+`Windows <http://msdn.microsoft.com/en-us/library/fe06s4ak(v=vs.110).aspx#languageReferenceRemarksToggle>`_
 documentation on `strftime`.
 
 Where did the Real Name field go?
