@@ -243,8 +243,6 @@ How do I migrate my settings from XChat?
        ~/.config/hexchat/servlist.conf
     4. Rename ~/.config/hexchat/xchatlogs to ~/.config/hexchat/logs
     5. Move all your 3rd party addons to ~/.config/hexchat/addons
-    6. Rename ~/.config/hexchat/plugin\_\*.conf to
-       ~/.config/hexchat/addon\_\*.conf
 
 -  Windows
 
@@ -255,5 +253,3 @@ How do I migrate my settings from XChat?
        %APPDATA%\\HexChat\\servlist.conf
     4. Rename %APPDATA%\\HexChat\\xchatlogs to %APPDATA%\\HexChat\\logs
     5. Move all your 3rd party addons to %APPDATA%\\HexChat\\addons
-    6. Rename %APPDATA%\\HexChat\\plugin\_\*.conf to
-       %APPDATA%\\HexChat\\addon\_\*.conf
