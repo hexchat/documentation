@@ -187,7 +187,7 @@ Alerts for this tray are in :menuselection:`Settings --> Preferences --> Alerts`
 Where are the log files saved to?
 ---------------------------------
 
--  Unix/Linux
+-  Unix
 
     ~/.config/hexchat/logs
 
@@ -215,8 +215,10 @@ log filename to any one of these:
 is the channel. In these examples, a new log filename and folder would
 be created after midnight.
 
-You can find more possibilities at
-`http://xchat.org/docs/log/ <http://xchat.org/docs/log/>`_.
+For the full list on usable elements, please refer to the
+`Unix` <http://linux.die.net/man/3/strftime>_ or
+`Windows` <http://msdn.microsoft.com/en-us/library/fe06s4ak(v=vs.110).aspx#languageReferenceRemarksToggle>_
+documentation on `strftime`.
 
 Where did the Real Name field go?
 ---------------------------------
@@ -234,7 +236,7 @@ use the following command:
 How do I migrate my settings from XChat?
 ----------------------------------------
 
--  UNIX/Linux
+-  Unix
 
     1. Copy ~/.xchat2 to ~/.config/hexchat
     2. Rename ~/.config/hexchat/xchat.conf to
