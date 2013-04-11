@@ -34,7 +34,7 @@ You can see an example below:
    :align: center
 
 In this example, the server address is *irc.foo.bar* and the port
-isÂ \ *6667*. The channel of choice is *#lobby*. Favorite channels are
+is *6667*. The channel of choice is *#lobby*. Favorite channels are
 joined to automatically upon connecting to the network. After you
 finished editing, click *Close* to return to the *Network List*.
 Now select the network you want to connect to and click *Connect*. After
