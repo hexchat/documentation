@@ -84,7 +84,7 @@ Here is the traditional *hello world* example.
    __module_version__ = "1.0"
    __module_description__ = "Python module example"
 
-   print "Hello world!"
+   print("Hello world!")
 
 This module will print "Hello world!" in the HexChat console, and sleep
 forever until it's unloaded. It's a simple module, but already
@@ -154,7 +154,7 @@ is found, respectively, to be less than, to match, or be greater than
 .. code-block:: python
 
    if xchat.nickcmp(nick, "mynick") == 0:
-       xchat.prnt("They are the same!")
+       print("They are the same!")
 
 Information retreiving functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -200,7 +200,7 @@ string, as available by the ``/set`` command. For example:
 
 .. code-block:: python
 
-   print "Current preferred nick:", xchat.get_prefs("irc_nick1")
+   print("Current preferred nick: " + xchat.get_prefs("irc_nick1"))
 
 xchat.get\_list(type)
 ^^^^^^^^^^^^^^^^^^^^^
@@ -219,10 +219,10 @@ API provided by HexChat.
 
    list = xchat.get_list("dcc")
    if list:
-       print "--- DCC LIST ------------------"
-       print "File  To/From   KB/s   Position"
+       print("--- DCC LIST ------------------")
+       print("File  To/From   KB/s   Position")
        for i in list:
-           print "%6s %10s %.2f  %d" % (i.file, i.nick, i.cps/1024, i.pos)
+           print("%6s %10s %.2f  %d" % (i.file, i.nick, i.cps/1024, i.pos))
 
 Below you will find what each list type has to offer.
 
@@ -405,7 +405,7 @@ function. For example:
 
    def onotice_cb(word, word_eol, userdata):
        if len(word) < 2:
-           print "Second arg must be the message!"
+           print("Second arg must be the message!")
        else:
            xchat.command("NOTICE @%s %s" % (xchat.get_info("channel"), word_eol[1]))
        return xchat.EAT_ALL
@@ -427,7 +427,7 @@ above. This function returns a hook handler which may be used in the
 .. code-block:: python
 
    def youpart_cb(word, word_eol, userdata):
-       print "You have left channel", word[2]
+       print("You have left channel " + word[2])
        return xchat.EAT_XCHAT # Don't let HexChat do its normal printing
 
    xchat.hook_print("You Part", youpart_cb)
@@ -448,7 +448,7 @@ example:
 .. code-block:: python
 
    def kick_cb(word, word_eol, userdata):
-       print "%s was kicked from %s (%s)" % (word[3], word[2], word_eol[4])
+       print("%s was kicked from %s (%s)" % (word[3], word[2], word_eol[4]))
        # Don't eat this event, let other plugins and HexChat see it too
        return xchat.EAT_NONE
 
@@ -474,10 +474,10 @@ be used in the ``xchat.unhook()`` function. For example:
        if myhook is not None:
            xchat.unhook(myhook)
            myhook = None
-           print "Timeout removed!"
+           print("Timeout removed!")
 
    def timeout_cb(userdata):
-       print "Annoying message every 5 seconds! Type /STOP to stop it."
+       print("Annoying message every 5 seconds! Type /STOP to stop it.")
        return 1 # Keep the timeout going
 
    myhook = xchat.hook_timer(5000, timeout_cb)
@@ -498,7 +498,7 @@ example:
 .. code-block:: python
 
    def unload_cb(userdata):
-       print "We're being unloaded!"
+       print("We're being unloaded!")
 
    xchat.hook_unload(unload_cb)
 
