@@ -307,6 +307,7 @@ users
 The users list type gives you access to a list of users in the current
 channel. The following attributes are available in each list item:
 
+- **account:** Account name or None (2.9.6+)
 -  **away:** Away status.
 -  **lasttalk:** Last time the user was seen talking.
 -  **host:** Host name in the form user@host (or None, if not known).
