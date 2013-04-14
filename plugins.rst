@@ -272,7 +272,7 @@ information for every server.
 ---------- -----------------------------------------------------------------------------------------------------
 Name       Description                                                                                  Type
 ========== ============================================================================================ ========
-account    Account name or NULL                                                                         string
+account    Account name or NULL (2.9.6+)                                                                string
 away       Away status (boolean)                                                                        int
 lasttalk   Last time the user was seen talking                                                          time\_t
 nick       Nick name                                                                                    string
