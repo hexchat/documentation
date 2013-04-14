@@ -266,3 +266,15 @@ sound. To do this, go to
 
 .. figure:: http://i.imgur.com/DZgEJIR.png
    :align: center
+
+How do I type Unicode characters?
+---------------------------------
+Press `Ctrl + Shift + U` at once. When you release the keys, `u` will appear in
+your input box.
+
+.. figure:: http://i.imgur.com/ztvoCwP.png
+
+Now you can enter the 4-digit code of the desired glyph. When you're done, just
+press `Space` or `Return`, and the glyph will appear as well.
+
+.. figure:: http://i.imgur.com/Sh8QMXy.png
