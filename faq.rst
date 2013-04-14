@@ -265,7 +265,6 @@ sound. To do this, go to
 :menuselection:`Control Panel --> Hardware and Sound --> Change system sounds`.
 
 .. figure:: http://i.imgur.com/DZgEJIR.png
-   :align: center
 
 How do I type Unicode characters?
 ---------------------------------
