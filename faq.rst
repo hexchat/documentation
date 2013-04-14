@@ -261,7 +261,8 @@ Why doesn't HexChat beep with beep sound alerts checked?
 
 On Windows, HexChat is using the `Default Beep` system sound for making beep alerts.
 In case you don't hear beeps when alerts occur, you need to set that up to a desired
-sound. To do this, go to `Control Panel --> Hardware and Sound --> Change system sounds`.
+sound. To do this, go to
+:menuselection:`Control Panel --> Hardware and Sound --> Change system sounds`.
 
 .. figure:: http://i.imgur.com/DZgEJIR.png
    :align: center
