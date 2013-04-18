@@ -50,6 +50,7 @@ How do I change what browser is opened?
 
 - Unix:
     - Gnome 3: :menuselection:`System Settings --> Details --> Default Applications`
+    - KDE 4: :menuselection:`System Settings --> Default Applications`
 
     Otherwise use the :command:`gvfs-mime` program.
 
