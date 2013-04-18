@@ -66,6 +66,12 @@ Keyboard Shortcuts
 Url Handlers
 ~~~~~~~~~~~~
 
+Url handlers add alternative browsers to you your right click menu on urls (they do not set the default). They take the syntax:
+
+	!program %s or !C:/PROGRA~1/program/program.exe %s
+
+If HexChat does not find the executable it will not add it to the menu.
+
 Auto Replace
 ~~~~~~~~~~~~
 
