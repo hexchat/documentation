@@ -42,6 +42,21 @@ joining. To change this value (which is in seconds) edit it in :menuselection:`S
 The recommended option is SASL which is network dependent and can be enabled
 in the :menuselection:`HexChat --> Network list --> Edit` (2.9.4+).
 
+How do I change what browser is opened?
+---------------------------------------
+
+- Windows:
+    :menuselection:`Control Panel --> Default Programs`
+
+- Unix:
+    - Gnome 3:
+        :menuselection:`System Settings --> Details --> Default Applications`
+
+    Otherwise use the :command:`gvfs-mime` program.
+
+Alternatively you can add a `Url Handler <settings.html#url-handlers>`_
+
+
 How do I connect through a proxy?
 ---------------------------------
 
