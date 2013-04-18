@@ -49,12 +49,11 @@ How do I change what browser is opened?
     :menuselection:`Control Panel --> Default Programs`
 
 - Unix:
-    - Gnome 3:
-        :menuselection:`System Settings --> Details --> Default Applications`
+    - Gnome 3: :menuselection:`System Settings --> Details --> Default Applications`
 
     Otherwise use the :command:`gvfs-mime` program.
 
-Alternatively you can add a `Url Handler <settings.html#url-handlers>`_
+Alternatively you can add an `Url Handler <settings.html#url-handlers>`_
 
 
 How do I connect through a proxy?
