@@ -92,11 +92,9 @@ This means that if you issue a :command:`/cs info #yourchannel` from your channe
 How to make notices show up in a consistent location
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The simplest method is always have notices in one location is to go to :menuselection:`Settings --> Preferences --> Channel switcher`, and check the Open an extra tab for server notices box. This will cause all server notices to go into one tab, and all user notices to go into another. In this case, ChanServ would be considered a user notice, and so will show up in the (notices) tab.
+The simplest method is to set the location in :menuselection:`Settings --> Preferences --> Channel switcher --> Placement of notices`, and select "in an extra tab" or "in the front tab". The former will cause all server notices to go into a (snotices) tab, and all user notices to go into a (notices) tab. The latter will always print the notices where you are, this can cause odd positioning of channel notices but you will never miss them.
 
 If you know who will notice you before hand, you can simply query the user before they notice you. This way, all notices from that user will show up in the query tab. In the case of ChanServ, this may allow an easier archive of commands you have done anyway.
-
-If you want the notice to always go to the front tab (assuming you are looking at the network and you don't have a query open with the user), you can use Khisanth's `Notice to Front <http://lwsitu.com/xchat/notice_to_front.pl>`_ Perl script.
 
 For other locations, a separate script would be required. While not currently implemented, it would be possible with a script to treat all notices like private messages (open a new query window when received), or place them in a specific existing tab, such as the server tab. At this point, the choice is up to you (or whoever designs the script).
 
