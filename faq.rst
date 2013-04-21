@@ -164,7 +164,7 @@ There are three ways to do this:
    containing commands on each line.
 
 -  Separate your commands with CTRL-SHIFT-u-a. This will appear as a
-   little box with numbers onit.
+   little box with numbers on it (or an invisible character).
 
 -  You can create two UserCommands, with the same name, and then execute
    the UserCommand. It will be executed in the same order as it's
