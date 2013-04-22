@@ -311,7 +311,7 @@ Plugins on Windows (Win32)
 --------------------------
 
 All you need is Visual Studio setup as explained in
-`Building <http://www.hexchat.org/developers/building>`_. Your best bet
+`Building <http://docs.hexchat.org/en/latest/building.html>`_. Your best bet
 is to use an existing plugin (such as the currently unused SASL plugin)
 in the HexChat solution as a starting point. You should have the
 following files:
