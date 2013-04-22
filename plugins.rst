@@ -17,9 +17,11 @@ necessary and only pollute the name-space. Plugins are compiled as
 shared objects (.so files), for example:
 
 Most UNIX systems:
+
    gcc -Wl,--export-dynamic -Wall -O1 -shared -fPIC myplugin.c -o myplugin.so
 
 OS X:
+
    gcc -no-cpp-precomp -g -O2 -Wall -bundle -flat\_namespace -undefined suppress -o myplugin.so myplugin.c
 
 See the `Windows section <plugins.html#plugins-on-windows-win32>`_ on how to compile a plugin using Visual Studio.
