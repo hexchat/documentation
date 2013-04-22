@@ -18,7 +18,7 @@ shared objects (.so files), for example:
 
 Most UNIX systems:
 
-   gcc -Wl,--export-dynamic -Wall -O1 -shared -fPIC myplugin.c -o myplugin.so
+   gcc -Wl --export-dynamic -Wall -O1 -shared -fPIC myplugin.c -o myplugin.so
 
 OS X:
 
