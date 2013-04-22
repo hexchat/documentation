@@ -36,11 +36,13 @@ List channels in the favorites list to join them on connect.
 Why does HexChat join channels before identifying?
 --------------------------------------------------
 
-When using the nickserv password HexChat waits a short time before
-joining. To change this value (which is in seconds) edit it in :menuselection:`Settings --> Preferences --> Advanced`
+There are 3 ways to authenticate before joining a channel, all are network dependant but nickserv is common:
 
-The recommended option is SASL which is network dependent and can be enabled
-in the :menuselection:`HexChat --> Network list --> Edit` (2.9.4+).
+1. Use a Nickserv password and increase the delay before joining in :menuselection:`Settings --> Preferences --> Advanced`
+
+2. Use SASL (same password as nickserv) which can be enabled in :menuselection:`HexChat --> Network list --> Edit` (2.9.4+).
+
+3. Use a `client cert <tips.html#custom-certificates>`_ which requires the most setup.
 
 How do I change what browser is opened?
 ---------------------------------------
