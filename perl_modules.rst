@@ -9,19 +9,20 @@ Software
 To start building Perl modules you need to download and install this software (in their default install paths):
 
 - `MozillaBuild`_ or `direct link`_ 
-- `Visual Studio 2010 Professional Trial`_ 
+- `Visual Studio 2012 Express for Windows Desktop`_ + `Visual Studio 2012 Update 2`_
 - Perl `x86`_ or `x64`_ (Perl **MUST** be installed to C:\\Perl)
 
 .. _MozillaBuild: https://wiki.mozilla.org/MozillaBuild
 .. _direct link: http://ftp.mozilla.org/pub/mozilla.org/mozilla/libraries/win32/MozillaBuildSetup-Latest.exe
-.. _Visual Studio 2010 Professional Trial: http://www.microsoft.com/en-us/download/details.aspx?id=16057
-.. _x86: http://dl.hexchat.org/misc/perl/Perl%205.16.3%20x86.msi
-.. _x64: http://dl.hexchat.org/misc/perl/Perl%205.16.3%20x64.msi
+.. _Visual Studio 2012 Express for Windows Desktop: http://www.microsoft.com/visualstudio/eng/downloads#d-express-windows-desktop
+.. _Visual Studio 2012 Update 2: http://www.microsoft.com/en-us/download/details.aspx?id=38188
+.. _x86: http://dl.hexchat.org/misc/perl/perl-5.17.10-x86.7z
+.. _x64: http://dl.hexchat.org/misc/perl/perl-5.17.10-x64.7z
 
 Downloading and Extracting
 --------------------------
 
-Start MozillaBuild console (it's in C:\\mozilla-build) *start-msvc10.bat* (if you're using Hexchat x86) or *start-msvc10-x64.bat* (if you're using Hexchat x64). 
+Start MozillaBuild console (it's in C:\\mozilla-build) *start-msvc11.bat* (if you're using Hexchat x86) or *start-msvc11-x64.bat* (if you're using Hexchat x64). 
 
 Type: 
 
