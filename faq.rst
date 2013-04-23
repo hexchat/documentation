@@ -69,6 +69,8 @@ Go to the menus, :menuselection:`Settings --> Preferences --> Network Setup`
 and fill in the requested information there. Authentication (using a
 username and password) is only supported for HTTP and Socks5.
 
+For information on Tor see our `tips page <tips.html#tor>`_
+
 How do I show @ and + in front of nicknames that are Op and Voice when they talk?
 ---------------------------------------------------------------------------------
 
