@@ -24,6 +24,8 @@ How do I migrate my settings from XChat?
     4. Rename ``%APPDATA%\HexChat\xchatlogs`` to ``%APPDATA%\HexChat\logs``
     5. Move all your 3rd party addons (plugins/scripts) to ``%APPDATA%\HexChat\addons``
 
+Note that copying a colors.conf without a pevents.conf may result in theming issues.
+
 How do I autoconnect and join a channel when HexChat loads?
 -----------------------------------------------------------
 
