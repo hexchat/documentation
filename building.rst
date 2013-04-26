@@ -38,9 +38,7 @@ with the *YourDepsPath* property. Download:
 .. _GTK+ x86 bundle: http://dl.hexchat.org/gtk-win32/vc11/x86/gtk-x86.7z
 .. _GTK+ x64 bundle: http://dl.hexchat.org/gtk-win32/vc11/x64/gtk-x64.7z
 
-Extract them to *YourDepsPath*. After that, your deps folder should look
-like
-`this <http://i.imgur.com/MtqdWLr.png>`_.
+Extract them to *YourDepsPath*.
 
 .. SEEALSO::
    If you would like to build GTK+ yourself, read this `guide <http://gtk.hexchat.org>`_.
