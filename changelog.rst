@@ -4,6 +4,7 @@ HexChat ChangeLog
 2.9.6 (TBD)
 -----------
 
+- add libcanberra support on unix
 - add tracking of users accounts
 - add %u to userlist popups for accounts
 - add MONITOR support for the friends list
@@ -15,6 +16,7 @@ HexChat ChangeLog
 - fix alerts and scrollback chanopts
 - add Ctrl+N (New Server Window) keybinding
 - remove Ctrl+L (Clear Text) keybinding
+- remove custom sound applications
 
 2.9.5 (2013-04-01)
 ------------------
