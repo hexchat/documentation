@@ -17,6 +17,7 @@ HexChat ChangeLog
 - add Ctrl+N (New Server Window) keybinding
 - remove Ctrl+L (Clear Text) keybinding
 - remove custom sound applications
+- remove away announce, replaced by away-notify on supported servers. (`alternative python script <https://github.com/hexchat/hexchat-addons/blob/master/python/awayannounce/awayanounce.py>`_)
 
 2.9.5 (2013-04-01)
 ------------------
