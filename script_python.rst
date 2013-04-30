@@ -156,6 +156,21 @@ is found, respectively, to be less than, to match, or be greater than
    if xchat.nickcmp(nick, "mynick") == 0:
        print("They are the same!")
 
+xchat.strip(text, length, flags)
+^^^^^^^^^^^^^^^^^^^^^
+
+This function can strip colors and attributes from text, length and flags are optional.
+
+Flags:
+   - 1: Strip colors
+   - 2: Strip attributes
+
+.. code-block:: python
+
+   text = '\00304\002test' # Bold red text
+   print(text)
+   print(xchat.strip(text, len(text), 1)) # Bold uncolored text
+
 Information retreiving functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
