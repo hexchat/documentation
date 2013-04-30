@@ -73,6 +73,24 @@ channel, and you have asked HexChat to tell you about this event, the
 current context will be set to this channel before your module is
 called.
 
+Text Formatting
+---------------
+
+- Bold: '\\002'
+- Color: '\\003'
+- Hidden: '\\010'
+- Underline: '\\037'
+- Original Color: '\\017'
+- Reverse Color: '\\026'
+- Beep: '\\007'
+- Italics: '\\035' (currently does nothing)
+
+For example this will print underlined red text:
+
+.. code-block:: python
+
+   print('\037\00304Text!')
+
 Hello world
 -----------
 
