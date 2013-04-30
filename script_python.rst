@@ -159,11 +159,12 @@ is found, respectively, to be less than, to match, or be greater than
 xchat.strip(text, length, flags)
 ^^^^^^^^^^^^^^^^^^^^^
 
-This function can strip colors and attributes from text, length and flags are optional.
+This function can strip colors and attributes from text, length and flags are optional defaulting to all.
 
 Flags:
    - 1: Strip colors
    - 2: Strip attributes
+   - 3: Strip all
 
 .. code-block:: python
 
