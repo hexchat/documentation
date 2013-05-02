@@ -68,7 +68,7 @@ HexChat comes with built in icons for the tray, user list, and channel tree (whi
 Gtk Theme
 ~~~~~~~~~
 
-To customize more than just text color you can place a *gtkrc* file in *<installdir>\etc\gtk-2.0*
+To customize more than just text color you can place a *gtkrc* file in *<installdir>\\etc\\gtk-2.0*
 
 Buttons, Menus, and Popups
 --------------------------
