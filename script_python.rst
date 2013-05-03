@@ -442,7 +442,7 @@ function. For example:
        if len(word) < 2:
            print("Second arg must be the message!")
        else:
-           xchat.command("NOTICE @%s %s" % (xchat.get_info("channel"), word_eol[1]))
+           xchat.command("NOTICE @{} {}".format(xchat.get_info("channel"), word_eol[1]))
        return xchat.EAT_ALL
 
    xchat.hook_command("ONOTICE", onotice_cb, help="/ONOTICE <message> Sends a notice to all ops")
@@ -483,7 +483,7 @@ example:
 .. code-block:: python
 
    def kick_cb(word, word_eol, userdata):
-       print("%s was kicked from %s (%s)" % (word[3], word[2], word_eol[4]))
+       print('{} was kicked from {} ({})'.format(word[3], word[2], word_eol[4]))
        # Don't eat this event, let other plugins and HexChat see it too
        return xchat.EAT_NONE
 
