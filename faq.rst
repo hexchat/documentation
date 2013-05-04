@@ -219,15 +219,7 @@ How do I minimize HexChat to the System Tray (Notification Area)?
 -----------------------------------------------------------------
 
 On both Unix and Windows there is an included tray plugin. To enable
-minimizing to tray on exit:
-
-    /set gui\_tray\_close on
-
-For minimizing to tray on minimize:
-
-    /set gui\_tray\_minimize on
-
-Alerts for this tray are in :menuselection:`Settings --> Preferences --> Alerts`.
+minimizing to tray on exit go to :menuselection:`Settings --> Preferences --> Alerts`.
 
 Where are the log files saved to?
 ---------------------------------
