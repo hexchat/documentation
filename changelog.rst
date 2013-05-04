@@ -5,6 +5,7 @@ HexChat ChangeLog
 -----------
 
 - add option for omitting alerts while window is focused
+- add python3 plugin
 - add libcanberra support on unix
 - add tracking of users accounts
 - add %u to userlist popups for accounts
