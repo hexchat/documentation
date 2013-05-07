@@ -343,7 +343,6 @@ channel. The following attributes are available in each list item:
 
 - **account:** Account name or None (2.9.6+)
 -  **away:** Away status.
--  **lasttalk:** Last time the user was seen talking.
 -  **host:** Host name in the form user@host (or None, if not known).
 -  **nick:** Nick name.
 -  **prefix:** Prefix character, .e.g: @ or +. Points to a single char.
