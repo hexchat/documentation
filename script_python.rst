@@ -368,6 +368,15 @@ following attributes are available in each list item:
    -  6: nosave
    -  7: dcc
 
+notify
+''''''
+
+The notify list shows users on your friends list and their status:
+
+- **nick:** Users nickname
+- **networks:** Networks they are setup to notify on (None for all)
+- **flags:** 0 is offline, 1 is online
+
 Hook functions
 ~~~~~~~~~~~~~~
 
