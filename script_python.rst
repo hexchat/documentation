@@ -205,7 +205,7 @@ are available to be queried:
 -  **charset:** Charset in current context.
 -  **configdir:** HexChat config directory e.g.: "~/.config/hexchat".
 -  **event\_name NAME:** Returns text event string for requested event.
--  **gtkwin\_ptr:** Current Gtk Window.
+-  **gtkwin\_ptr:** Returns hex representation of the pointer to the current Gtk window.
 -  **host:** Real hostname of the server you connected to.
 -  **inputbox:** Contents of inputbox.
 -  **network:** Current network name or None.
