@@ -17,6 +17,7 @@ HexChat ChangeLog
 - fix splitting ctcps and notices
 - fix alerts and scrollback chanopts
 - add Ctrl+N (New Server Window) keybinding
+- change /load -e to load from config dir
 - remove Ctrl+L (Clear Text) keybinding
 - remove custom sound applications
 - remove away announce, replaced by away-notify on supported servers. (`alternative python script <https://github.com/hexchat/hexchat-addons/blob/master/python/awayannounce/awayanounce.py>`_)
