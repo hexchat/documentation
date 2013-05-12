@@ -57,7 +57,9 @@ How do I change what browser is opened?
     - KDE 4: :menuselection:`System Settings --> Default Applications`
     - XFCE 4: :menuselection:`Settings Manager --> Prefered Applications`
 
-    Otherwise use the command :command:`gvfs-mime` to set the handler for *x-scheme-handler/http* (and https).
+    If these do not work or you do not use a DE use the command :command:`gvfs-mime` to set the handler for *x-scheme-handler/http* (and https).
+
+    If your distro predates this you may need to edit */usr/share/applications/mimeapps.list* or */usr/share/applications/defaults.list* manually.
 
 Alternatively you can add an `Url Handler <settings.html#url-handlers>`_
 
