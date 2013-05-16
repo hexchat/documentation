@@ -24,7 +24,7 @@ Unix
 
 Install your spelling dictionaries via your package manager (something like myspell-en-us for English). Then make sure to enable spelling under :menuselection:`Settings --> Preferences --> Interface --> Input box`.
 
-If you use static spelling (this is the default), also make sure to specify the languages you wish to have spelling for in :menuselection:`Settings --> Preferences --> Interface --> Input box`. You need to specify their language codes, separated by commas.
+If you use static spelling (this is the default), also make sure to specify the languages you wish to have spelling for in :menuselection:`Settings --> Preferences --> Interface --> Input box`. You need to specify their language codes (i.e. de_DE for german), separated by commas.
 
 .. Note::
 	Ubuntu users may have to manually install the libenchant-dev package for spelling to work.
