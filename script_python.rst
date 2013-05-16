@@ -478,6 +478,23 @@ above. This function returns a hook handler which may be used in the
 You may return one of ``EAT_*`` constants in the callback, to control
 HexChat's behavior, as explained above.
 
+Along with Text Events there are a handfull of *special* events you can hook with this:
+
+- **Open Context**: Called when a new context is created.
+- **Close Context**: Called when a context is closed.
+- **Focus Tab**: Called when a tab is brought to front.
+- **Focus Window**: Called a toplevel window is focused, or the main tab-window is focused by the window manager.
+- **DCC Chat Text**: Called when some text from a DCC Chat arrives. It provides these elements in the word list:
+   - Address
+   - Port
+   - Nick
+   - Message
+- **Key Press**: Called when some keys are pressed in the input box. It provides these elements in the word list:
+   - Key Value
+   - State Bitfield (shift, capslock, alt)
+   - String version of the key
+   - Length of the string (may be 0 for unprintable keys)
+
 xchat.hook\_server(name, callback, userdata=None, priority=PRI\_NORM)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
