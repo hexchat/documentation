@@ -18,6 +18,7 @@ HexChat ChangeLog
 - fix compilation on FreeBSD
 - fix splitting ctcps and notices
 - fix alerts and scrollback chanopts
+- fix sending limited channel messages (op messages) to the wrong tab
 - add Ctrl+N (New Server Window) keybinding
 - change /load -e to load from config dir
 - remove Ctrl+L (Clear Text) keybinding
