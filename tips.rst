@@ -57,14 +57,14 @@ In case you still get lego blocks, you'll need to add additional fonts to the li
 
 Please bear in mind that for some reason certain fonts that can display a certain glyph when used as the main font may not work when specified as an alternative font so you might have to play around it a bit.
 
-Custom Certificates
+Client Certificates
 -------------------
 
-Custom Certificates allows you to identify to networks services using a certificate. Please do not mistake it for server certificate which allows you to connect to network with invalid certificate, right now Hexchat can't do it.
+Client Certificates allows you to identify to networks services using a certificate. Please do not mistake it for server certificate which allows you to connect to network with invalid certificate, right now Hexchat can't do it.
 
-To use custom certificates you need to put your certificate file inside :file:`certs` directory in HexChat's `config folder <settings.html#config-files>`_.
+To use one you need to put your certificate file inside :file:`certs` directory in HexChat's `config folder <settings.html#config-files>`_.
 
-Certificate should be named after the network where it will be used, for example if you want to use it on *Rizon*, certificate file should look like this: *Rizon.pem*.
+Certificate should be named after the network where it will be used, for example if you want to use it on *Rizon*, certificate file should look like this: *Rizon.pem*. If that does not exist every network will try *client.pem*.
 
 Note on Custom Server Certificates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
