@@ -4,6 +4,8 @@ HexChat ChangeLog
 2.9.6 (TBD)
 -----------
 
+- redesign edit window in network list
+- add support for QuakeNet's challangeauth
 - add option for omitting alerts while window is focused
 - add python3 support along with various bugfixes
 - add libcanberra support on unix
