@@ -58,8 +58,8 @@ Download:
 -  Python_ 2.7 x64 (install to *c:\\mozilla-build\\python-2.7\\x64*)
 -  Python_ 3.3 x64 (install to *c:\\mozilla-build\\python-3.3\\x64*)
 
-.. _Perl 5.18 x86: http://dl.hexchat.org/misc/perl/perl-5.17.10-x86.7z
-.. _Perl 5.18 x64: http://dl.hexchat.org/misc/perl/perl-5.17.10-x64.7z
+.. _Perl 5.18 x86: http://dl.hexchat.org/misc/perl/perl-5.18.0-x86.7z
+.. _Perl 5.18 x64: http://dl.hexchat.org/misc/perl/perl-5.18.0-x64.7z
 .. _Python: http://www.python.org/download/
 
 You can use other paths, but then you must update the related properties

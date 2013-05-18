@@ -16,8 +16,8 @@ To start building Perl modules you need to download and install this software (i
 .. _direct link: http://ftp.mozilla.org/pub/mozilla.org/mozilla/libraries/win32/MozillaBuildSetup-Latest.exe
 .. _Visual Studio 2012 Express for Windows Desktop: http://www.microsoft.com/visualstudio/eng/downloads#d-express-windows-desktop
 .. _Visual Studio 2012 Update 2: http://www.microsoft.com/en-us/download/details.aspx?id=38188
-.. _x86: http://dl.hexchat.org/misc/perl/perl-5.17.10-x86.7z
-.. _x64: http://dl.hexchat.org/misc/perl/perl-5.17.10-x64.7z
+.. _x86: http://dl.hexchat.org/misc/perl/perl-5.18.0-x86.7z
+.. _x64: http://dl.hexchat.org/misc/perl/perl-5.18.0-x64.7z
 
 Downloading and Extracting
 --------------------------
