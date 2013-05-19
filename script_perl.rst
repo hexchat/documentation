@@ -695,23 +695,15 @@ more details.
 +===================+=================================================================================================================================================================================+
 | autojoins         | An object with the following methods:                                                                                                                                           |
 |                   |                                                                                                                                                                                 |
-|                   | +-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ |
-|                   | | Method      | Description                                                                                                                                                   | |
-|                   | +=============+===============================================================================================================================================================+ |
-|                   | | channels()  | returns a list of this networks' autojoin channels in list context, a count of the number autojoin channels in scalar context                                 | |
-|                   | +-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ |
-|                   | | keys()      | returns a list of the keys to go with the channels, the order is the same as the channels, if a channel doesn't have a key, '' will be returned in it's place | |
-|                   | +-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ |
-|                   | | pairs()     | a combination of channels() and keys(), returns a list of (channels, keys) pairs. This can be assigned to a hash for a mapping from channel to key.           | | 
-|                   | +-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ |
-|                   | | as_hash()   | return the pairs as a hash reference                                                                                                                          | |
-|                   | +-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ |
-|                   | | as_string() | the original string that was used to construct this autojoin object, this can be used with the JOIN command to join all the channels in the autojoin list     | |
-|                   | +-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ |
-|                   | | as_array()  | return an array reference of hash references consisting of the keys "channel" and "key"                                                                       | |
-|                   | +-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ |
-|                   | | as_bool()   | returns true if the network has autojoins and false otherwise                                                                                                 | |
-|                   | +-------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+ |
+|                   | - Method      - Description                                                                                                                                                     |
+|                   |                                                                                                                                                                                 |
+|                   | - channels()  - returns a list of this networks' autojoin channels in list context, a count of the number autojoin channels in scalar context                                   |
+|                   | - keys()      - returns a list of the keys to go with the channels, the order is the same as the channels, if a channel doesn't have a key, '' will be returned in it's place   |
+|                   | - pairs()     - a combination of channels() and keys(), returns a list of (channels, keys) pairs. This can be assigned to a hash for a mapping from channel to key.             | 
+|                   | - as_hash()   - return the pairs as a hash reference                                                                                                                            |
+|                   | - as_string() - the original string that was used to construct this autojoin object, this can be used with the JOIN command to join all the channels in the autojoin list       |
+|                   | - as_array()  - return an array reference of hash references consisting of the keys "channel" and "key"                                                                         |
+|                   | - as_bool()   - returns true if the network has autojoins and false otherwise                                                                                                   |
 |                   |                                                                                                                                                                                 |
 +-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | connect_commands  | An array reference containing the connect commands for a network. An empty array if there aren't any                                                                            |
@@ -720,19 +712,13 @@ more details.
 +-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | flags             | a hash reference corresponding to the checkboxes in the network edit window                                                                                                     |
 |                   |                                                                                                                                                                                 |
-|                   | +---------------+-----------------------------------------------------------------+                                                                                             |
-|                   | | allow_invalid | true if "Accept invalid SSL certificate" is checked             |                                                                                             |
-|                   | +---------------+-----------------------------------------------------------------+                                                                                             |
-|                   | | autoconnect   | true if "Auto connect to this network at startup" is checked    |                                                                                             |
-|                   | +---------------+-----------------------------------------------------------------+                                                                                             |
-|                   | | cycle         | true if "Connect to selected server only" is NOT checked        |                                                                                             |
-|                   | +---------------+-----------------------------------------------------------------+                                                                                             |
-|                   | | use_global    | true if "Use global user information" is checked                |                                                                                             |
-|                   | +---------------+-----------------------------------------------------------------+                                                                                             |
-|                   | | use_proxy     | true if "Bypass proxy server" is NOT checked                    |                                                                                             |
-|                   | +---------------+-----------------------------------------------------------------+                                                                                             |
-|                   | | use_ssl       |true if "Use SSL for all the servers on this network" is checked |                                                                                             |
-|                   | +---------------+-----------------------------------------------------------------+                                                                                             |
+|                   |                                                                                                                                                                                 |
+|                   | - allow_invalid - true if "Accept invalid SSL certificate" is checked                                                                                                           |
+|                   | - autoconnect   - true if "Auto connect to this network at startup" is checked                                                                                                  |
+|                   | - cycle         - true if "Connect to selected server only" is NOT checked                                                                                                      |
+|                   | - use_global    - true if "Use global user information" is checked                                                                                                              |
+|                   | - use_proxy     - true if "Bypass proxy server" is NOT checked                                                                                                                  |
+|                   | - use_ssl       - true if "Use SSL for all the servers on this network" is checked                                                                                              |
 |                   |                                                                                                                                                                                 |
 +-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | irc_nick1         | Corresponds with the "Nick name" field in the network edit window                                                                                                               |
