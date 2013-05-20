@@ -89,6 +89,11 @@ This will replace that arrow with a green unicode arrow upon pressing enter or s
 CTCP Replies
 ~~~~~~~~~~~~
 
+Custom CTCP replies can be set in :menuselection:`Settings --> CTCP Replies` and accept the same format as `User Commands </commands.html#user-commands>`_
+
+.. NOTE::
+   To hide the default VERSION reply you must :command:`/set irc_hide_version on`
+
 Set Command
 -----------
 
