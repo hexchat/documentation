@@ -63,6 +63,8 @@ Preferences
 Keyboard Shortcuts
 ~~~~~~~~~~~~~~~~~~
 
+There are two types of keyboard shortcuts in HexChat hardcoded ones which can be found by looking around in the menu, e.g. :kbd:`Control-s` and configurable ones in :menuselection:`Settings --> Keyboard Shortcuts`. These have help messages to guide you through setting up custom bindings.
+
 Url Handlers
 ~~~~~~~~~~~~
 
