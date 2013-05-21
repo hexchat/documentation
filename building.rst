@@ -99,7 +99,7 @@ basically:
  ./autogen.sh 
  ./configure 
  make 
- ./src/fe-gtk/hexchat
+ sudo make install
 
 This will compile with defaults. See *./configure --help* for more info
 about flags.
