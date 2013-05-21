@@ -1,6 +1,8 @@
 HexChat Python Interface
 ========================
 
+.. default-domain:: py
+
 Features
 --------
 
@@ -110,6 +112,8 @@ introduces some concepts. Notice how the module information is set. This
 information is obligatory, and will be shown when listing the loaded
 HexChat modules.
 
+.. module:: xchat
+
 xchat module
 ------------
 
@@ -123,11 +127,22 @@ by the Python plugin interface. Here's a simple example:
 
 The following functions are available in the xchat module.
 
+Constants and Attributes
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. data:: EAT\_PLUGIN
+	      EAT\_XCHAT
+	      EAT\_ALL
+	      EAT\_NONE
+          
+.. attribute:: __version__
+
+	Tuple of (MAJOR_VERSION, MINOR_VERSION)
+
 Generic functions
 ~~~~~~~~~~~~~~~~~
 
-xchat.prnt(string)
-^^^^^^^^^^^^^^^^^^
+.. function:: prnt(string)
 
 This function will print string in the current context. It's mainly
 useful as a parameter to pass to some other function, since the usual
@@ -137,8 +152,7 @@ above.
 This function is badly named because ``"print"`` is a reserved keyword
 of the Python language.
 
-xchat.emit\_print(event\_name, \*args)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. function:: emit\_print(event\_name, \*args)
 
 This function will generate a *print event* with the given arguments. To
 check which events are available, and the number and meaning of
@@ -149,8 +163,7 @@ Here is one example:
 
    xchat.emit_print("Channel Message", "John", "Hi there", "@")
 
-xchat.command(string)
-^^^^^^^^^^^^^^^^^^^^^
+.. function:: command(string)
 
 Execute the given command in the current context. This has the same
 results as executing a command in the HexChat window, but notice that
@@ -160,8 +173,7 @@ the ``/`` prefix is not used. Here is an example:
 
    xchat.command("server irc.openprojects.net")
 
-xchat.nickcmp(s1, s2)
-^^^^^^^^^^^^^^^^^^^^^
+.. function:: nickcmp(s1, s2)
 
 This function will do an RFC1459 compliant string comparing between
 ``s1`` and ``s2``, and is useful to compare channels and nicknames. It
@@ -174,8 +186,7 @@ is found, respectively, to be less than, to match, or be greater than
    if xchat.nickcmp(nick, "mynick") == 0:
        print("They are the same!")
 
-xchat.strip(text, length, flags)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. function:: strip(text, length, flags)
 
 This function can strip colors and attributes from text, length and flags are optional defaulting to all.
 
@@ -193,8 +204,7 @@ Flags:
 Information retreiving functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-xchat.get\_info(type)
-^^^^^^^^^^^^^^^^^^^^^
+.. function:: get\_info(type)
 
 Retrieve the information specified by the ``type`` string in the current
 context. At the moment of this writing, the following information types
@@ -226,8 +236,7 @@ Example:
    if xchat.get_info("server") == 'freenode':
        xchat.prnt('connected!')
 
-xchat.get\_prefs(name)
-^^^^^^^^^^^^^^^^^^^^^^
+.. function:: get\_prefs(name)
 
 Retrieve the HexChat setting information specified by the ``name``
 string, as available by the ``/set`` command. For example:
@@ -236,8 +245,7 @@ string, as available by the ``/set`` command. For example:
 
    print("Current preferred nick: " + xchat.get_prefs("irc_nick1"))
 
-xchat.get\_list(type)
-^^^^^^^^^^^^^^^^^^^^^
+.. function:: get\_list(type)
 
 With this function you may retrieve a list containing the selected
 information from the current context, like a DCC list, a channel list, a
@@ -382,7 +390,7 @@ Hook functions
 These functions allow one to hook into HexChat events.
 
 Priorities
-^^^^^^^^^^
+''''''''''
 
 When a priority keyword parameter is accepted, it means that this
 callback may be hooked with five different priorities: PRI\_HIGHEST,
@@ -392,7 +400,7 @@ order in which your plugin will be called. Most of the time, you won't
 want to change its default value (PRI\_NORM).
 
 Parameters word and word\_eol
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+'''''''''''''''''''''''''''''
 
 These parameters, when available in a callback, are lists of strings
 which contain the parameters the user entered for the particular
@@ -414,18 +422,18 @@ command. For example, if you executed:
 -  **word\_eol[3]** is ``there!``
 
 Parameter userdata
-^^^^^^^^^^^^^^^^^^
+''''''''''''''''''
 
 The parameter userdata, if given, allows you to pass a custom object to
 your callback.
 
 Callback return constants (EAT\_\*)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+'''''''''''''''''''''''''''''''''''
 
-When a callback is supposed to return one of the EAT\_\* macros, it is
+When a callback is supposed to return one of the EAT\_\* constants, it is
 able control how HexChat will proceed after the callback returns. These
 are the available constants, and their meanings:
-
+     
 -  **EAT\_PLUGIN:** Don't let any other plugin receive this event.
 -  **EAT\_XCHAT:** Don't let HexChat treat this event as usual.
 -  **EAT\_ALL:** Eat the event completely.
@@ -433,8 +441,7 @@ are the available constants, and their meanings:
 
 Returning ``None`` is the same as returning ``EAT_NONE``.
 
-xchat.hook\_command(name, callback, userdata=None, priority=PRI\_NORM, help=None)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. function:: hook\_command(name, callback, userdata=None, priority=PRI\_NORM, help=None)
 
 This function allows you to hook into the name HexChat command. It means
 that everytime you type ``/name ...``, ``callback`` will be called.
@@ -458,8 +465,7 @@ function. For example:
 You may return one of ``EAT_*`` constants in the callback, to control
 HexChat's behavior, as explained above.
 
-xchat.hook\_print(name, callback, userdata=None, priority=PRI\_NORM)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. function:: hook\_print(name, callback, userdata=None, priority=PRI\_NORM)
 
 This function allows you to register a callback to trap any print
 events. The event names are available in the :menuselection:`Settings --> Text Events` window.
@@ -495,8 +501,7 @@ Along with Text Events there are a handfull of *special* events you can hook wit
    - String version of the key
    - Length of the string (may be 0 for unprintable keys)
 
-xchat.hook\_server(name, callback, userdata=None, priority=PRI\_NORM)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. function:: hook\_server(name, callback, userdata=None, priority=PRI\_NORM)
 
 This function allows you to register a callback to be called when a
 certain server event occurs. You can use this to trap ``PRIVMSG``,
@@ -517,8 +522,7 @@ example:
 You may return one of ``EAT_*`` constants in the callback, to control
 HexChat's behavior, as explained above.
 
-xchat.hook\_timer(timeout, callback, userdata=None)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. function:: hook\_timer(timeout, callback, userdata=None)
 
 This function allows you to register a callback to be called every
 timeout milliseconds. Parameters userdata and priority have their
@@ -546,8 +550,7 @@ be used in the ``xchat.unhook()`` function. For example:
 If you return a true value from the callback, the timer will be keeped,
 otherwise it is removed.
 
-xchat.hook\_unload(timeout, callback, userdata=None)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. function:: hook\_unload(timeout, callback, userdata=None)
 
 This function allows you to register a callback to be called when the
 plugin is going to be unloaded. Parameters ``userdata`` and ``priority``
@@ -562,8 +565,7 @@ example:
 
    xchat.hook_unload(unload_cb)
 
-xchat.unhook(handler)
-^^^^^^^^^^^^^^^^^^^^^
+.. function:: unhook(handler)
 
 Unhooks any hook registered with the hook functions above.
 
@@ -573,31 +575,28 @@ Plugin preferences
 You can use pluginpref to easily store and retrieve settings. This was
 added in the Python plugin version 0.9
 
-xchat.set\_pluginpref(name, value)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. function:: set\_pluginpref(name, value)
 
 If neccessary creates a .conf file in the HexChat config folder named
 addon\_python.conf and stores the value in it. Returns 1 on success, 0
 on failure.
 
-    Note: Until the plugin uses different a conf file per script it's
+.. Note: Until the plugin uses different a conf file per script it's
     recommened to use 'PluginName-SettingName' to avoid conflicts.
 
-xchat.get\_pluginpref(name)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. function:: get\_pluginpref(name)
 
 This will return the value of the variable of that name. If there is
 none by this name it will return ``None``. Numbers are always returned
 as Integers.
 
-xchat.del\_pluginpref(name)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. function:: del\_pluginpref(name)
 
-Deletes the specified variable. Returns 1 on success (or never
-existing), 0 on failure.
+	Deletes the specified variable.
 
-xchat.list\_pluginpref()
-^^^^^^^^^^^^^^^^^^^^^^^^
+	:rtype: 1 on success (or never existing), 0 on failure
+
+.. function:: list\_pluginpref()
 
 Returns a list of all currently set preferences.
 
@@ -607,7 +606,7 @@ Context handling
 Below you will find information about how to work with contexts.
 
 Context objects
-^^^^^^^^^^^^^^^
+'''''''''''''''
 
 As explained in the Context theory session above, contexts give access
 to a specific channel/query/server tab of HexChat. Every function
@@ -635,13 +634,11 @@ Each context object offers the following methods:
 -  **context.get\_list(type):** Does the same as the xchat.get\_list()
    function, but in the given context.
 
-xchat.get\_context()
-^^^^^^^^^^^^^^^^^^^^
+.. function:: get\_context()
 
 Returns a context object corresponding the the current context.
 
-xchat.find\_context(server=None, channel=None)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. function:: find\_context(server=None, channel=None)
 
 Finds a context based on a channel and servername. If ``server`` is
 ``None``, it finds any channel (or query) by the given name. If
