@@ -144,20 +144,20 @@ Generic functions
 
 .. function:: prnt(string)
 
-This function will print string in the current context. It's mainly
-useful as a parameter to pass to some other function, since the usual
-print statement will have the same results. You have a usage example
-above.
+	This function will print string in the current context. It's mainly
+	useful as a parameter to pass to some other function, since the usual
+	print statement will have the same results. You have a usage example
+	above.
 
-This function is badly named because ``"print"`` is a reserved keyword
-of the Python language.
+	This function is badly named because ``"print"`` is a reserved keyword
+	of the Python language.
 
 .. function:: emit\_print(event\_name, \*args)
 
-This function will generate a *print event* with the given arguments. To
-check which events are available, and the number and meaning of
-arguments, have a look at the ``Settings > Lists > Text Events`` window.
-Here is one example:
+	This function will generate a *print event* with the given arguments. To
+	check which events are available, and the number and meaning of
+	arguments, have a look at the ``Settings > Lists > Text Events`` window.
+	Here is one example:
 
 .. code-block:: python
 
@@ -165,108 +165,108 @@ Here is one example:
 
 .. function:: command(string)
 
-Execute the given command in the current context. This has the same
-results as executing a command in the HexChat window, but notice that
-the ``/`` prefix is not used. Here is an example:
+	Execute the given command in the current context. This has the same
+	results as executing a command in the HexChat window, but notice that
+	the ``/`` prefix is not used. Here is an example:
 
-.. code-block:: python
+	.. code-block:: python
 
-   xchat.command("server irc.openprojects.net")
+	   xchat.command("server irc.openprojects.net")
 
 .. function:: nickcmp(s1, s2)
 
-This function will do an RFC1459 compliant string comparing between
-``s1`` and ``s2``, and is useful to compare channels and nicknames. It
-returns an integer less than, equal to, or greater than zero if ``s1``
-is found, respectively, to be less than, to match, or be greater than
-``s2``. For example:
+	This function will do an RFC1459 compliant string comparing between
+	``s1`` and ``s2``, and is useful to compare channels and nicknames. It
+	returns an integer less than, equal to, or greater than zero if ``s1``
+	is found, respectively, to be less than, to match, or be greater than
+	``s2``. For example:
 
-.. code-block:: python
+	.. code-block:: python
 
-   if xchat.nickcmp(nick, "mynick") == 0:
-       print("They are the same!")
+	   if xchat.nickcmp(nick, "mynick") == 0:
+		   print("They are the same!")
 
-.. function:: strip(text, length, flags)
+.. function:: strip(text[, length, flags])
 
-This function can strip colors and attributes from text, length and flags are optional defaulting to all.
+	This function can strip colors and attributes from text.
+   
+   	:param flags:
+   		1: Strip Colors 
+   		2: Strip Attributes
+   		3: Strip All (default:3)
 
-Flags:
-   - 1: Strip colors
-   - 2: Strip attributes
-   - 3: Strip all
+	.. code-block:: python
 
-.. code-block:: python
-
-   text = '\00304\002test' # Bold red text
-   print(text)
-   print(xchat.strip(text, len(text), 1)) # Bold uncolored text
+		text = '\00304\002test' # Bold red text
+		print(text)
+		print(xchat.strip(text, len(text), 1)) # Bold uncolored text
 
 Information retreiving functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. function:: get\_info(type)
 
-Retrieve the information specified by the ``type`` string in the current
-context. At the moment of this writing, the following information types
-are available to be queried:
+	Retrieve the information specified by the ``type`` string in the current
+	context. At the moment of this writing, the following information types
+	are available to be queried:
 
--  **away:** Away reason or None if you are not away.
--  **channel:** Channel name of the current context.
--  **charset:** Charset in current context.
--  **configdir:** HexChat config directory e.g.: "~/.config/hexchat".
--  **event\_name NAME:** Returns text event string for requested event.
--  **gtkwin\_ptr:** Returns hex representation of the pointer to the current Gtk window.
--  **host:** Real hostname of the server you connected to.
--  **inputbox:** Contents of inputbox.
--  **network:** Current network name or None.
--  **nick:** Your current nick name.
--  **nickserv:** Current networks nickserv password or None.
--  **modes:** Current channel modes or None.
--  **server:** Current server name (what the server claims to be) or
-   None if you are not connected.
--  **topic:** Current channel topic.
--  **win\_status:** Returns status of window: 'active', 'hidden', or
-   'normal'.
--  **version:** HexChat version number.
+	-  **away:** Away reason or None if you are not away.
+	-  **channel:** Channel name of the current context.
+	-  **charset:** Charset in current context.
+	-  **configdir:** HexChat config directory e.g.: "~/.config/hexchat".
+	-  **event\_name NAME:** Returns text event string for requested event.
+	-  **gtkwin\_ptr:** Returns hex representation of the pointer to the current Gtk window.
+	-  **host:** Real hostname of the server you connected to.
+	-  **inputbox:** Contents of inputbox.
+	-  **network:** Current network name or None.
+	-  **nick:** Your current nick name.
+	-  **nickserv:** Current networks nickserv password or None.
+	-  **modes:** Current channel modes or None.
+	-  **server:** Current server name (what the server claims to be) or
+	   None if you are not connected.
+	-  **topic:** Current channel topic.
+	-  **win\_status:** Returns status of window: 'active', 'hidden', or
+	   'normal'.
+	-  **version:** HexChat version number.
 
-Example:
+	Example:
 
-.. code-block:: python
+	.. code-block:: python
 
-   if xchat.get_info("server") == 'freenode':
-       xchat.prnt('connected!')
+	   if xchat.get_info("server") == 'freenode':
+		   xchat.prnt('connected!')
 
 .. function:: get\_prefs(name)
 
-Retrieve the HexChat setting information specified by the ``name``
-string, as available by the ``/set`` command. For example:
+	Retrieve the HexChat setting information specified by the ``name``
+	string, as available by the ``/set`` command. For example:
 
-.. code-block:: python
+	.. code-block:: python
 
-   print("Current preferred nick: " + xchat.get_prefs("irc_nick1"))
+	   print("Current preferred nick: " + xchat.get_prefs("irc_nick1"))
 
 .. function:: get\_list(type)
 
-With this function you may retrieve a list containing the selected
-information from the current context, like a DCC list, a channel list, a
-user list, etc. Each list item will have its attributes set dynamically
-depending on the information provided by the list type.
+	With this function you may retrieve a list containing the selected
+	information from the current context, like a DCC list, a channel list, a
+	user list, etc. Each list item will have its attributes set dynamically
+	depending on the information provided by the list type.
 
-The example below is a rewrite of the example provided with HexChat's
-plugin API documentation. It prints a list of every DCC transfer
-happening at the moment. Notice how similar the interface is to the C
-API provided by HexChat.
+	The example below is a rewrite of the example provided with HexChat's
+	plugin API documentation. It prints a list of every DCC transfer
+	happening at the moment. Notice how similar the interface is to the C
+	API provided by HexChat.
 
-.. code-block:: python
+	.. code-block:: python
 
-   list = xchat.get_list("dcc")
-   if list:
-       print("--- DCC LIST ------------------")
-       print("File  To/From   KB/s   Position")
-       for i in list:
-           print("%6s %10s %.2f  %d" % (i.file, i.nick, i.cps/1024, i.pos))
+	   list = xchat.get_list("dcc")
+	   if list:
+		   print("--- DCC LIST ------------------")
+		   print("File  To/From   KB/s   Position")
+		   for i in list:
+		       print("%6s %10s %.2f  %d" % (i.file, i.nick, i.cps/1024, i.pos))
 
-Below you will find what each list type has to offer.
+	Below you will find what each list type has to offer.
 
 This information was taken from HexChat's plugin documentation. You may
 find any types not listed here, if they exist at all, in an updated
@@ -443,131 +443,131 @@ Returning ``None`` is the same as returning ``EAT_NONE``.
 
 .. function:: hook\_command(name, callback, userdata=None, priority=PRI\_NORM, help=None)
 
-This function allows you to hook into the name HexChat command. It means
-that everytime you type ``/name ...``, ``callback`` will be called.
-Parameters ``userdata`` and ``priority`` have their meanings explained
-above, and the parameter help, if given, allows you to pass a help text
-which will be shown when ``/help name`` is executed. This function
-returns a hook handler which may be used in the ``xchat.unhook()``
-function. For example:
+	This function allows you to hook into the name HexChat command. It means
+	that everytime you type ``/name ...``, ``callback`` will be called.
+	Parameters ``userdata`` and ``priority`` have their meanings explained
+	above, and the parameter help, if given, allows you to pass a help text
+	which will be shown when ``/help name`` is executed. This function
+	returns a hook handler which may be used in the ``xchat.unhook()``
+	function. For example:
 
-.. code-block:: python
+	.. code-block:: python
 
-   def onotice_cb(word, word_eol, userdata):
-       if len(word) < 2:
-           print("Second arg must be the message!")
-       else:
-           xchat.command("NOTICE @{} {}".format(xchat.get_info("channel"), word_eol[1]))
-       return xchat.EAT_ALL
+	   def onotice_cb(word, word_eol, userdata):
+		   if len(word) < 2:
+		       print("Second arg must be the message!")
+		   else:
+		       xchat.command("NOTICE @{} {}".format(xchat.get_info("channel"), word_eol[1]))
+		   return xchat.EAT_ALL
 
-   xchat.hook_command("ONOTICE", onotice_cb, help="/ONOTICE <message> Sends a notice to all ops")
+	   xchat.hook_command("ONOTICE", onotice_cb, help="/ONOTICE <message> Sends a notice to all ops")
 
-You may return one of ``EAT_*`` constants in the callback, to control
-HexChat's behavior, as explained above.
+	You may return one of ``EAT_*`` constants in the callback, to control
+	HexChat's behavior, as explained above.
 
 .. function:: hook\_print(name, callback, userdata=None, priority=PRI\_NORM)
 
-This function allows you to register a callback to trap any print
-events. The event names are available in the :menuselection:`Settings --> Text Events` window.
-Parameters ``userdata`` and ``priority`` have their meanings explained
-above. This function returns a hook handler which may be used in the
-``xchat.unhook()`` function. For example:
+	This function allows you to register a callback to trap any print
+	events. The event names are available in the :menuselection:`Settings --> Text Events` window.
+	Parameters ``userdata`` and ``priority`` have their meanings explained
+	above. This function returns a hook handler which may be used in the
+	``xchat.unhook()`` function. For example:
 
-.. code-block:: python
+	.. code-block:: python
 
-   def youpart_cb(word, word_eol, userdata):
-       print("You have left channel " + word[2])
-       return xchat.EAT_XCHAT # Don't let HexChat do its normal printing
+	   def youpart_cb(word, word_eol, userdata):
+		   print("You have left channel " + word[2])
+		   return xchat.EAT_XCHAT # Don't let HexChat do its normal printing
 
-   xchat.hook_print("You Part", youpart_cb)
+	   xchat.hook_print("You Part", youpart_cb)
 
-You may return one of ``EAT_*`` constants in the callback, to control
-HexChat's behavior, as explained above.
+	You may return one of ``EAT_*`` constants in the callback, to control
+	HexChat's behavior, as explained above.
 
-Along with Text Events there are a handfull of *special* events you can hook with this:
+	Along with Text Events there are a handfull of *special* events you can hook with this:
 
-- **Open Context**: Called when a new context is created.
-- **Close Context**: Called when a context is closed.
-- **Focus Tab**: Called when a tab is brought to front.
-- **Focus Window**: Called a toplevel window is focused, or the main tab-window is focused by the window manager.
-- **DCC Chat Text**: Called when some text from a DCC Chat arrives. It provides these elements in the word list:
-   - Address
-   - Port
-   - Nick
-   - Message
-- **Key Press**: Called when some keys are pressed in the input box. It provides these elements in the word list:
-   - Key Value
-   - State Bitfield (shift, capslock, alt)
-   - String version of the key
-   - Length of the string (may be 0 for unprintable keys)
+	- **Open Context**: Called when a new context is created.
+	- **Close Context**: Called when a context is closed.
+	- **Focus Tab**: Called when a tab is brought to front.
+	- **Focus Window**: Called a toplevel window is focused, or the main tab-window is focused by the window manager.
+	- **DCC Chat Text**: Called when some text from a DCC Chat arrives. It provides these elements in the word list:
+	   - Address
+	   - Port
+	   - Nick
+	   - Message
+	- **Key Press**: Called when some keys are pressed in the input box. It provides these elements in the word list:
+	   - Key Value
+	   - State Bitfield (shift, capslock, alt)
+	   - String version of the key
+	   - Length of the string (may be 0 for unprintable keys)
 
 .. function:: hook\_server(name, callback, userdata=None, priority=PRI\_NORM)
 
-This function allows you to register a callback to be called when a
-certain server event occurs. You can use this to trap ``PRIVMSG``,
-``NOTICE``, ``PART``, a server numeric, etc. Parameters ``userdata`` and
-``priority`` have their meanings explained above. This function returns
-a hook handler which may be used in the ``xchat.unhook()`` function. For
-example:
+	This function allows you to register a callback to be called when a
+	certain server event occurs. You can use this to trap ``PRIVMSG``,
+	``NOTICE``, ``PART``, a server numeric, etc. Parameters ``userdata`` and
+	``priority`` have their meanings explained above. This function returns
+	a hook handler which may be used in the ``xchat.unhook()`` function. For
+	example:
 
-.. code-block:: python
+	.. code-block:: python
 
-   def kick_cb(word, word_eol, userdata):
-       print('{} was kicked from {} ({})'.format(word[3], word[2], word_eol[4]))
-       # Don't eat this event, let other plugins and HexChat see it too
-       return xchat.EAT_NONE
+	   def kick_cb(word, word_eol, userdata):
+		   print('{} was kicked from {} ({})'.format(word[3], word[2], word_eol[4]))
+		   # Don't eat this event, let other plugins and HexChat see it too
+		   return xchat.EAT_NONE
 
-   xchat.hook_server("KICK", kick_cb)
+	   xchat.hook_server("KICK", kick_cb)
 
-You may return one of ``EAT_*`` constants in the callback, to control
-HexChat's behavior, as explained above.
+	You may return one of ``EAT_*`` constants in the callback, to control
+	HexChat's behavior, as explained above.
 
 .. function:: hook\_timer(timeout, callback, userdata=None)
 
-This function allows you to register a callback to be called every
-timeout milliseconds. Parameters userdata and priority have their
-meanings explained above. This function returns a hook handler which may
-be used in the ``xchat.unhook()`` function. For example:
+	This function allows you to register a callback to be called every
+	timeout milliseconds. Parameters userdata and priority have their
+	meanings explained above. This function returns a hook handler which may
+	be used in the ``xchat.unhook()`` function. For example:
 
-.. code-block:: python
+	.. code-block:: python
 
-   myhook = None
+	   myhook = None
 
-   def stop_cb(word, word_eol, userdata):
-       global myhook
-       if myhook is not None:
-           xchat.unhook(myhook)
-           myhook = None
-           print("Timeout removed!")
+	   def stop_cb(word, word_eol, userdata):
+		   global myhook
+		   if myhook is not None:
+		       xchat.unhook(myhook)
+		       myhook = None
+		       print("Timeout removed!")
 
-   def timeout_cb(userdata):
-       print("Annoying message every 5 seconds! Type /STOP to stop it.")
-       return 1 # Keep the timeout going
+	   def timeout_cb(userdata):
+		   print("Annoying message every 5 seconds! Type /STOP to stop it.")
+		   return 1 # Keep the timeout going
 
-   myhook = xchat.hook_timer(5000, timeout_cb)
-   xchat.hook_command("STOP", stop_cb)
+	   myhook = xchat.hook_timer(5000, timeout_cb)
+	   xchat.hook_command("STOP", stop_cb)
 
-If you return a true value from the callback, the timer will be keeped,
-otherwise it is removed.
+	If you return a true value from the callback, the timer will be keeped,
+	otherwise it is removed.
 
 .. function:: hook\_unload(timeout, callback, userdata=None)
 
-This function allows you to register a callback to be called when the
-plugin is going to be unloaded. Parameters ``userdata`` and ``priority``
-have their meanings explained above. This function returns a hook
-handler which may be used in the ``xchat.unhook()`` function. For
-example:
+	This function allows you to register a callback to be called when the
+	plugin is going to be unloaded. Parameters ``userdata`` and ``priority``
+	have their meanings explained above. This function returns a hook
+	handler which may be used in the ``xchat.unhook()`` function. For
+	example:
 
-.. code-block:: python
+	.. code-block:: python
 
-   def unload_cb(userdata):
-       print("We're being unloaded!")
+	   def unload_cb(userdata):
+		   print("We're being unloaded!")
 
-   xchat.hook_unload(unload_cb)
+	   xchat.hook_unload(unload_cb)
 
-.. function:: unhook(handler)
+	.. function:: unhook(handler)
 
-Unhooks any hook registered with the hook functions above.
+	Unhooks any hook registered with the hook functions above.
 
 Plugin preferences
 ~~~~~~~~~~~~~~~~~~
@@ -577,28 +577,41 @@ added in the Python plugin version 0.9
 
 .. function:: set\_pluginpref(name, value)
 
-If neccessary creates a .conf file in the HexChat config folder named
-addon\_python.conf and stores the value in it. Returns 1 on success, 0
-on failure.
+	Stores settings in addon\_python.conf in the config dir.
+	
+	:rtype: 1 on success, 0 on failure
+	
+	.. versionadded:: 0.9
 
-.. Note: Until the plugin uses different a conf file per script it's
-    recommened to use 'PluginName-SettingName' to avoid conflicts.
+	.. Note:: Until the plugin uses different a config file per script it's 
+              recommened to use 'scriptname_settingname' to avoid conflicts.
 
 .. function:: get\_pluginpref(name)
 
-This will return the value of the variable of that name. If there is
-none by this name it will return ``None``. Numbers are always returned
-as Integers.
+	This will return the value of the variable of that name. If there is
+	none by this name it will return ``None``.
+	
+	:rtype: String or Integer of stored setting or None if it does not exist.
+	
+	..Note:: Strings of numbers are always returned as Integers.
+	
+	.. versionadded:: 0.9
 
 .. function:: del\_pluginpref(name)
 
 	Deletes the specified variable.
 
 	:rtype: 1 on success (or never existing), 0 on failure
+	
+	.. versionadded:: 0.9
 
 .. function:: list\_pluginpref()
 
-Returns a list of all currently set preferences.
+	Returns a list of all currently set preferences.
+	
+	:rtype: List of Strings
+	
+	.. versionadded:: 0.9
 
 Context handling
 ~~~~~~~~~~~~~~~~
@@ -640,15 +653,15 @@ Returns a context object corresponding the the current context.
 
 .. function:: find\_context(server=None, channel=None)
 
-Finds a context based on a channel and servername. If ``server`` is
-``None``, it finds any channel (or query) by the given name. If
-``channel`` is ``None``, it finds the front-most tab/window of the given
-server. For example:
+	Finds a context based on a channel and servername. If ``server`` is
+	``None``, it finds any channel (or query) by the given name. If
+	``channel`` is ``None``, it finds the front-most tab/window of the given
+	server. For example:
 
-.. code-block:: python
+	.. code-block:: python
 
-   cnc = xchat.find_context(channel='#conectiva')
-   cnc.command('whois niemeyer')
+	   cnc = xchat.find_context(channel='#conectiva')
+	   cnc.command('whois niemeyer')
 
 --------------
 
