@@ -166,16 +166,16 @@ Generic functions
 
 	This function will generate a *print event* with the given arguments. To
 	check which events are available, and the number and meaning of
-	arguments, have a look at the ``Settings > Lists > Text Events`` window.
+	arguments, have a look at the :menuselection:`Settings --> Text Events` window.
 	Here is one example:
 
-.. code-block:: python
+	.. code-block:: python
 
-   xchat.emit_print("Channel Message", "John", "Hi there", "@")
+	   xchat.emit_print("Channel Message", "John", "Hi there", "@")
 
 .. function:: command(string)
 
-	Execute the given command in the current context. This has the same
+	Execute the given command in the current :obj:`context`. This has the same
 	results as executing a command in the HexChat window, but notice that
 	the ``/`` prefix is not used. Here is an example:
 
@@ -185,11 +185,10 @@ Generic functions
 
 .. function:: nickcmp(s1, s2)
 
-	This function will do an RFC1459 compliant string comparing between
-	``s1`` and ``s2``, and is useful to compare channels and nicknames. It
-	returns an integer less than, equal to, or greater than zero if ``s1``
-	is found, respectively, to be less than, to match, or be greater than
-	``s2``. For example:
+	This function will do an RFC1459 compliant string comparison
+	and is useful to compare channels and nicknames.
+	
+	:returns: Returns 0 if they match and less than or greater than 0 if s1 is less than or greather than s2
 
 	.. code-block:: python
 
@@ -204,6 +203,7 @@ Generic functions
    		1: Strip Colors 
    		2: Strip Attributes
    		3: Strip All (default:3)
+   	:returns: Stripped String
 
 	.. code-block:: python
 
@@ -444,22 +444,22 @@ When a callback is supposed to return one of the EAT\_\* constants, it is
 able control how HexChat will proceed after the callback returns. These
 are the available constants, and their meanings:
      
--  **EAT\_PLUGIN:** Don't let any other plugin receive this event.
--  **EAT\_XCHAT:** Don't let HexChat treat this event as usual.
--  **EAT\_ALL:** Eat the event completely.
--  **EAT\_NONE:** Let everything happen as usual.
+-  :data:`EAT\_PLUGIN`: Don't let any other plugin receive this event.
+-  :data:`EAT\_XCHAT`: Don't let HexChat treat this event as usual.
+-  :data:`EAT\_ALL`: Eat the event completely.
+-  :data:`EAT\_NONE`: Let everything happen as usual.
 
-Returning ``None`` is the same as returning ``EAT_NONE``.
+.. Note:: Returning ``None`` is the same as returning ``EAT_NONE``.
 
-.. function:: hook\_command(name, callback, userdata=None, priority=PRI\_NORM, help=None)
+.. function:: hook\_command(name, callback, userdata=None, priority=:data:`PRI\_NORM`, help=None)
 
 	This function allows you to hook into the name HexChat command. It means
 	that everytime you type ``/name ...``, ``callback`` will be called.
 	Parameters ``userdata`` and ``priority`` have their meanings explained
 	above, and the parameter help, if given, allows you to pass a help text
-	which will be shown when ``/help name`` is executed. This function
-	returns a hook handler which may be used in the ``xchat.unhook()``
-	function. For example:
+	which will be shown when ``/help name`` is executed.
+	
+	:returns: New Hook Handler
 
 	.. code-block:: python
 
@@ -475,13 +475,14 @@ Returning ``None`` is the same as returning ``EAT_NONE``.
 	You may return one of ``EAT_*`` constants in the callback, to control
 	HexChat's behavior, as explained above.
 
-.. function:: hook\_print(name, callback, userdata=None, priority=PRI\_NORM)
+.. function:: hook\_print(name, callback, userdata=None, priority=:data:`PRI\_NORM`)
 
 	This function allows you to register a callback to trap any print
 	events. The event names are available in the :menuselection:`Settings --> Text Events` window.
 	Parameters ``userdata`` and ``priority`` have their meanings explained
-	above. This function returns a hook handler which may be used in the
-	``xchat.unhook()`` function. For example:
+	above.
+	
+	:returns: New Hook Handler
 
 	.. code-block:: python
 
@@ -490,9 +491,6 @@ Returning ``None`` is the same as returning ``EAT_NONE``.
 		   return xchat.EAT_XCHAT # Don't let HexChat do its normal printing
 
 	   xchat.hook_print("You Part", youpart_cb)
-
-	You may return one of ``EAT_*`` constants in the callback, to control
-	HexChat's behavior, as explained above.
 
 	Along with Text Events there are a handfull of *special* events you can hook with this:
 
@@ -511,14 +509,14 @@ Returning ``None`` is the same as returning ``EAT_NONE``.
 	   - String version of the key
 	   - Length of the string (may be 0 for unprintable keys)
 
-.. function:: hook\_server(name, callback, userdata=None, priority=PRI\_NORM)
+.. function:: hook\_server(name, callback, userdata=None, priority=:data:`PRI\_NORM`)
 
 	This function allows you to register a callback to be called when a
 	certain server event occurs. You can use this to trap ``PRIVMSG``,
 	``NOTICE``, ``PART``, a server numeric, etc. Parameters ``userdata`` and
-	``priority`` have their meanings explained above. This function returns
-	a hook handler which may be used in the ``xchat.unhook()`` function. For
-	example:
+	``priority`` have their meanings explained above.
+	
+	:returns: New Hook Handler
 
 	.. code-block:: python
 
@@ -529,15 +527,13 @@ Returning ``None`` is the same as returning ``EAT_NONE``.
 
 	   xchat.hook_server("KICK", kick_cb)
 
-	You may return one of ``EAT_*`` constants in the callback, to control
-	HexChat's behavior, as explained above.
-
 .. function:: hook\_timer(timeout, callback, userdata=None)
 
 	This function allows you to register a callback to be called every
 	timeout milliseconds. Parameters userdata and priority have their
-	meanings explained above. This function returns a hook handler which may
-	be used in the ``xchat.unhook()`` function. For example:
+	meanings explained above.
+	
+	:returns: New Hook Handler
 
 	.. code-block:: python
 
@@ -564,9 +560,9 @@ Returning ``None`` is the same as returning ``EAT_NONE``.
 
 	This function allows you to register a callback to be called when the
 	plugin is going to be unloaded. Parameters ``userdata`` and ``priority``
-	have their meanings explained above. This function returns a hook
-	handler which may be used in the ``xchat.unhook()`` function. For
-	example:
+	have their meanings explained above.
+	
+	:returns: New Hook Handler
 
 	.. code-block:: python
 
@@ -582,8 +578,7 @@ Returning ``None`` is the same as returning ``EAT_NONE``.
 Plugin preferences
 ~~~~~~~~~~~~~~~~~~
 
-You can use pluginpref to easily store and retrieve settings. This was
-added in the Python plugin version 0.9
+You can use pluginpref to easily store and retrieve settings.
 
 .. function:: set\_pluginpref(name, value)
 
