@@ -130,10 +130,20 @@ The following functions are available in the xchat module.
 Constants and Attributes
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. data:: PRI\_HIGHEST
+          PRI\_HIGH
+          PRI\_NORM
+          PRI\_LOW
+          PRI\_LOWEST
+          
+	Priority given to hooks.
+
 .. data:: EAT\_PLUGIN
 	      EAT\_XCHAT
 	      EAT\_ALL
 	      EAT\_NONE
+	      
+	Used as return values for callbacks.
           
 .. attribute:: __version__
 
@@ -579,7 +589,7 @@ added in the Python plugin version 0.9
 
 	Stores settings in addon\_python.conf in the config dir.
 	
-	:rtype: 1 on success, 0 on failure
+	:returns: 1 on success, 0 on failure
 	
 	.. versionadded:: 0.9
 
@@ -591,7 +601,7 @@ added in the Python plugin version 0.9
 	This will return the value of the variable of that name. If there is
 	none by this name it will return ``None``.
 	
-	:rtype: String or Integer of stored setting or None if it does not exist.
+	:returns: String or Integer of stored setting or None if it does not exist.
 	
 	..Note:: Strings of numbers are always returned as Integers.
 	
@@ -601,7 +611,7 @@ added in the Python plugin version 0.9
 
 	Deletes the specified variable.
 
-	:rtype: 1 on success (or never existing), 0 on failure
+	:returns: 1 on success (or never existing), 0 on failure
 	
 	.. versionadded:: 0.9
 
@@ -626,44 +636,61 @@ to a specific channel/query/server tab of HexChat. Every function
 available in the xchat module will be evaluated in the current context,
 which will be specified by HexChat itself before passing control to the
 module. Sometimes you may want to work in a specific context, and that's
-where context objects come into play.
+where :obj:`context` objects come into play.
 
-You may create a context object using the ``xchat.get_context()`` or
-``xchat.find_context()``, functions as explained below, or trough the
-``xchat.get_list()`` function, as explained in its respective session.
+You may create a context object using :func:`get_context` or :func:`find_context` 
+functions as explained below, or trough the :func:`get_list` function, as explained above.
 
-Each context object offers the following methods:
-
--  **context.set():** Changes the current context to be the one
-   represented by this context object.
--  **context.prnt(string):** Does the same as the xchat.prnt() function,
-   but in the given context.
--  **context.emit\_print(event\_name, \*args):** Does the same as the
-   emit\_print() function, but in the given context.
--  **context.command(string):** Does the same as the xchat.command()
-   function, but in the given context.
--  **context.get\_info(type):** Does the same as the xchat.get\_info()
-   function, but in the given context.
--  **context.get\_list(type):** Does the same as the xchat.get\_list()
-   function, but in the given context.
 
 .. function:: get\_context()
 
-Returns a context object corresponding the the current context.
+	:rtype: :obj:`context` 
 
 .. function:: find\_context(server=None, channel=None)
 
-	Finds a context based on a channel and servername. If ``server`` is
-	``None``, it finds any channel (or query) by the given name. If
-	``channel`` is ``None``, it finds the front-most tab/window of the given
-	server. For example:
+	Finds a context based on a channel and servername.
+	
+	:keyword server: if None only looks for channel name
+	:keyword channel: if None looks for front context of given server
+	:rtype: :obj:`context`
 
 	.. code-block:: python
 
 	   cnc = xchat.find_context(channel='#conectiva')
 	   cnc.command('whois niemeyer')
+	   
+
+.. object:: context
+
+	The context object returned by the functions listed above has these methods:
+
+	.. method:: context.set()
+	
+		Changes the current context to be the one represented by this context object.
+		
+	.. method:: context.prnt(string)
+	
+		Does the same as the :func:`prnt` function but in the given context.
+	
+	.. method:: context.emit\_print(event\_name, \*args)
+	
+		Does the same as the :func:`emit\_print` function but in the given context.
+	
+	.. method:: context.command(string)
+	
+		Does the same as the :func:`command` function but in the given context
+	
+	.. method:: context.get\_info(type)
+	
+		Does the same as the :func:`get\_info` function but in the given context.
+	
+	.. method:: context.get\_list(type)
+	
+		Does the same as the :func:`get\_list` function but in the given context.
 
 --------------
+
+Maintained by: TingPing
 
 Original Author: Gustavo Niemeyer
 `gustavo@niemeyer.net <mailto:gustavo@niemeyer.net>`_
