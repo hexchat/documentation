@@ -22,40 +22,53 @@ Here are some of the features of the python plugin interface:
 Commands
 --------
 
-The following commands will be intercepted by the Python Plugin
-interface module, when it is loaded.
+The Python plugin comes with a :command:`py` command that takes these arguments.
 
--  **/py load <filename>:** Load module with given filename.
--  **/py unload <filename\|module name>:** Unload module with given
-   filename, or module name.
--  **/py reload <filename\|module name>:** Reload module with given
-   filename, or module name.
--  **/py list:** List Python modules loaded.
--  **/py exec <command>:** Execute given Python command interactively.
-   For example:
+.. program:: py
+	
+.. option:: load <file>
 
-.. raw:: html
+	Load a script with given filename.
+	:command:`/load` will also work.
 
-   <pre>
-       /py exec import xchat
-       /py exec print xchat.get_info('channel')
-   </pre>
+.. option:: unload <filename\|module name>
 
--  **/py console:** Open the Python interactive console in a query
-   (>>python<<). Every message sent will be intercepted by the Python
-   plugin interface, and interpreted interactively. Notice that the
-   console and /py exec commands live in the same interpreter state.
+	Unload module with given filename, or module name.
+	:command:`/unload` will also work.
 
--  **/py about:** Show some information about the Python plugin
-   interface.
+.. option:: reload <filename\|module name>
+
+	Reload module with given filename, or module name.
+	:command:`/reload` will also work.
+
+.. option:: list
+
+	List Python scripts loaded
+	
+.. option:: exec <command>
+
+	Execute given Python command interactively. For example:
+
+	 /py exec import xchat; print(xchat.get_info('channel'))
+
+.. option:: console
+
+	Open the Python interactive console in a query
+	``>>python<<``. Every message sent will be intercepted by the Python
+	plugin interface, and interpreted interactively. Notice that the
+	console and /py exec commands live in the same interpreter state.
+
+.. option:: about
+
+	Show some information about the Python plugin interface.
 
 Autoloading modules
 -------------------
 
 If you want some module to be autoloaded together with the Python plugin
 interface (which usually loads at startup time), just make sure it has a
-``.py`` extension and put it in your HexChat directory
-(``~/.config/hexchat/addons``, ``%APPDATA%\\HexChat\\addons``).
+``.py`` extension and put it in the :file:`addons` subdir
+of HexChat's `config directory <settings.html#config-files>`_.
 
 Context theory
 --------------
@@ -277,14 +290,12 @@ Information retreiving functions
 		       print("%6s %10s %.2f  %d" % (i.file, i.nick, i.cps/1024, i.pos))
 
 	Below you will find what each list type has to offer.
-
-This information was taken from HexChat's plugin documentation. You may
-find any types not listed here, if they exist at all, in an updated
-HexChat documentation. Any list types accepted by HexChat should be
-dynamically accepted by the Python plugin interface.
+	
+List Types
+''''''''''
 
 channels
-''''''''
+^^^^^^^^
 
 The channels list type gives you access to the channels, queries and
 their servers. The folloing attributes are available in each list item:
@@ -322,7 +333,7 @@ their servers. The folloing attributes are available in each list item:
    -  10: Blink Task Bar
 
 dcc
-'''
+^^^
 
 The dcc list type gives you access to a list of DCC file transfers. The
 following attributes are available in each list item:
@@ -354,7 +365,7 @@ following attributes are available in each list item:
    -  3: chatsend
 
 users
-'''''
+^^^^^
 
 The users list type gives you access to a list of users in the current
 channel. The following attributes are available in each list item:
@@ -368,7 +379,7 @@ channel. The following attributes are available in each list item:
 -  **selected:** Selected status in the userlist.
 
 ignore
-''''''
+^^^^^^
 
 The ignore list type gives you access to the current ignored list. The
 following attributes are available in each list item:
@@ -386,7 +397,7 @@ following attributes are available in each list item:
    -  7: dcc
 
 notify
-''''''
+^^^^^^
 
 The notify list shows users on your friends list and their status:
 
@@ -416,11 +427,7 @@ These parameters, when available in a callback, are lists of strings
 which contain the parameters the user entered for the particular
 command. For example, if you executed:
 
-.. raw:: html
-
-   <pre>
-   /command NICK Hi there!
-   </pre>
+ /command NICK Hi there!
 
 -  **word[0]** is ``command``
 -  **word[1]** is ``NICK``
@@ -574,6 +581,8 @@ are the available constants, and their meanings:
 	.. function:: unhook(handler)
 
 	Unhooks any hook registered with the hook functions above.
+	
+	:param handler: Handler returned from :func:`hook_print`, :func:`hook_command`, :func:`hook_server` or :func:`hook_timer`
 
 Plugin preferences
 ~~~~~~~~~~~~~~~~~~
