@@ -86,7 +86,7 @@ be creative and check your *configure* output if you get an error.
 Also most package-managers can get the dependencies for you:
 
 - yum: yum-builddep hexchat
-- apt: apt-get build-dep xchat
+- apt: apt-get build-dep xchat (This will get the basics but not all)
 
 HexChat has its source code hosted using `Git <http://git-scm.com/>`_, so you have to install Git as
 well. When it's ready, you can start the actual compilation, which is
