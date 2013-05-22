@@ -228,7 +228,7 @@ Generic functions
 Information retreiving functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. function:: get\_info(type)
+.. function:: get_info(type)
 
 	Retrieve the information specified by the ``type`` string in the current
 	context. At the moment of this writing, the following information types
@@ -463,7 +463,7 @@ command. For example, if you executed:
 -  **word\_eol[2]** is ``Hi there!``
 -  **word\_eol[3]** is ``there!``
 
-.. function:: hook\_command(name, callback[, userdata=None, priority=PRI\_NORM, help=None])
+.. function:: hook_command(name, callback[, userdata=None, priority=PRI_NORM, help=None])
 
 	This function allows you to hook into the name HexChat command. It means
 	that everytime you type ``/name ...``, ``callback`` will be called.
@@ -487,7 +487,7 @@ command. For example, if you executed:
 	You may return one of ``EAT_*`` constants in the callback, to control
 	HexChat's behavior, as explained above.
 
-.. function:: hook\_print(name, callback[, userdata=None, priority=PRI\_NORM])
+.. function:: hook_print(name, callback[, userdata=None, priority=PRI_NORM])
 
 	This function allows you to register a callback to trap any print
 	events. The event names are available in the :menuselection:`Settings --> Text Events` window.
@@ -521,7 +521,7 @@ command. For example, if you executed:
 	   - String version of the key
 	   - Length of the string (may be 0 for unprintable keys)
 
-.. function:: hook_server(name, callback[, userdata=None, priority=PRI\_NORM])
+.. function:: hook_server(name, callback[, userdata=None, priority=PRI_NORM])
 
 	This function allows you to register a callback to be called when a
 	certain server event occurs. You can use this to trap ``PRIVMSG``,
@@ -659,7 +659,7 @@ functions as explained below, or trough the :func:`get_list` function, as explai
 
 	:rtype: :obj:`context` 
 
-.. function:: find\_context(server=None, channel=None)
+.. function:: find_context(server=None, channel=None)
 
 	Finds a context based on a channel and servername.
 	
@@ -685,9 +685,9 @@ functions as explained below, or trough the :func:`get_list` function, as explai
 	
 		Does the same as the :func:`prnt` function but in the given context.
 	
-	.. method:: context.emit_print(event\_name, \*args)
+	.. method:: context.emit_print(event_name, \*args)
 	
-		Does the same as the :func:`emit\_print` function but in the given context.
+		Does the same as the :func:`emit_print` function but in the given context.
 	
 	.. method:: context.command(string)
 	
@@ -695,7 +695,7 @@ functions as explained below, or trough the :func:`get_list` function, as explai
 	
 	.. method:: context.get_info(type)
 	
-		Does the same as the :func:`get\_info` function but in the given context.
+		Does the same as the :func:`get_info` function but in the given context.
 	
 	.. method:: context.get_list(type)
 	
