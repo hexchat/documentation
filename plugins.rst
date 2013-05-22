@@ -1,6 +1,8 @@
 Plugin Interface
 ================
 
+.. default-domain:: c
+
 Introduction
 ------------
 
@@ -150,7 +152,7 @@ types of lists and fields available are:
 +--------------+--------------------------------------------------------------------+--------+
 | chantypes    | Channel types e.g. “#!&”                                           | string |
 +--------------+--------------------------------------------------------------------+--------+
-| context      | (hexchat_context *) pointer. Can be used with hexchat_set_context  | string |
+| context      | (hexchat_context \*) pointer. Can be used with hexchat_set_context | string |
 +--------------+--------------------------------------------------------------------+--------+
 | flags        | - 1 = Connected                                                    | int    |
 |              | - 2 = Connecting                                                   |        |
@@ -563,832 +565,648 @@ this example, someone will CTCP you the message "SHOWFILE <filename>".
            fclose (fp);
        }
    }
+   
+Types and Constants
+-------------------
+
+.. type:: hexchat_plugin
+          hexchat_list
+          hexchat_hook
+          hexchat_context
+
+   
+.. var:: HEXCHAT_PRI_HIGHEST 
+         HEXCHAT_PRI_HIGH
+         HEXCHAT_PRI_NORM
+         HEXCHAT_PRI_LOW
+         HEXCHAT_PRI_LOWEST
+          
+.. var:: HEXCHAT_EAT_NONE
+         HEXCHAT_EAT_XCHAT
+         HEXCHAT_EAT_PLUGIN
+         HEXCHAT_EAT_ALL
+          
+.. var:: HEXCHAT_FD_READ
+         HEXCHAT_FD_WRITE
+         HEXCHAT_FD_EXCEPTION
+         HEXCHAT_FD_NOTSOCKET
+          
 
 Functions
 ---------
 
-hexchat\_hook\_command ()
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Prototype:** hexchat\_hook \*hexchat\_hook\_command (hexchat\_plugin
-\*ph, const char \*name, int pri, hexchat\_cmd\_cb \*callb, const char
-\*help\_text, void \*userdata);
-
-**Description:** Adds a new */command*. This allows your program to
-handle commands entered at the input box. To capture text without a "/"
-at the start (non-commands), you may hook a special name of "". i.e
-*hexchat\_hook\_command (ph, "", ...);*.
-
-Commands hooked that begin with a period ('.') will be hidden in */HELP*
-and */HELP -l*.
-
-**Arguments:**
-
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **name:** Name of the command (without the forward slash).
--  **pri:** Priority of this command. Use *HEXCHAT\_PRI\_NORM*.
--  **callb:** Callback function. This will be called when the user
-   executes the given command name.
--  **help\_text:** String of text to display when the user executes
-   */HELP* for this command. May be NULL if you're lazy.
--  **userdata:** Pointer passed to the callback function.
-
-**Returns:** Pointer to the hook. Can be passed to *hexchat\_unhook ()*.
-
-**Example:**
-
-.. code-block:: c
+Hook Functions
+''''''''''''''
+
+.. function:: hexchat_hook* hexchat_hook_command (hexchat_plugin *ph, const char *name, int pri, \
+								hexchat_cmd_cb *callb, const char *help_text, void *userdata)
 
-   static int
-   onotice_cb (char *word[], char *word_eol[], void *userdata)
-   {
-       if (word_eol[2][0] == 0)
-       {
-           hexchat_printf (ph, "Second arg must be the message!\n");
-           return HEXCHAT_EAT_ALL;
-       }
+	Adds a new :command:`/command`. This allows your program to
+	handle commands entered at the input box. To capture text without a "/"
+	at the start (non-commands), you may hook a special name of "". i.e
+	**hexchat_hook_command(ph, "", ...)**.
 
-       hexchat_commandf (ph, "NOTICE @%s :%s", hexchat_get_info (ph, "channel"), word_eol[2]);
-       return HEXCHAT_EAT_ALL;
-   }
+	Commands hooked that begin with a period ('.') will be hidden in :command:`/HELP` and :command:`/HELP -l`.
 
-   hexchat_hook_command (ph, "ONOTICE", HEXCHAT_PRI_NORM, onotice_cb, "Usage: ONOTICE &lt;message> Sends a notice to all ops", NULL);
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param name: Name of the command (without the forward slash).
+	:param pri: Priority of this command. Use :data:`HEXCHAT_PRI_NORM`.
+	:param callb: Callback function. This will be called when the user executes the given command name.
+	:param help_text: String of text to display when the user executes :command:`/HELP` for this command. May be NULL if you're lazy.
+	:param userdata: Pointer passed to the callback function.
 
---------------
+	:returns: Pointer to the hook. Can be passed to :func:`hexchat_unhook`.
 
-hexchat\_hook\_fd ()
-~~~~~~~~~~~~~~~~~~~~
+	**Example:**
 
-**Prototype:** hexchat\_hook \*hexchat\_hook\_fd (hexchat\_plugin \*ph,
-int fd, int flags, hexchat\_fd\_cb \*callb, void \*userdata);
+	.. code-block:: c
 
-**Description:** Hooks a socket or file descriptor. WIN32: Passing a
-pipe from MSVCR71, MSVCR80 or other variations is not supported at this
-time. **Arguments:**
+	   static int
+	   onotice_cb (char *word[], char *word_eol[], void *userdata)
+	   {
+		   if (word_eol[2][0] == 0)
+		   {
+		       hexchat_printf (ph, "Second arg must be the message!\n");
+		       return HEXCHAT_EAT_ALL;
+		   }
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **fd:** The file descriptor or socket.
--  **flags:** One or more of *HEXCHAT\_FD\_READ*, *HEXCHAT\_FD\_WRITE*,
-   *HEXCHAT\_FD\_EXCEPTION*, *HEXCHAT\_FD\_NOTSOCKET*. Use bitwise OR to
-   combine them. *HEXCHAT\_FD\_NOTSOCKET* tells HexChat that the
-   provided *fd*\ \_ is not a socket, but an "MSVCRT.DLL" pipe.
--  **callb:** Callback function. This will be called when the socket is
-   available for reading/writing or exception (depending on your chosen
-   *flags*)
--  **userdata:** Pointer passed to the callback function.
+		   hexchat_commandf (ph, "NOTICE @%s :%s", hexchat_get_info (ph, "channel"), word_eol[2]);
+		   return HEXCHAT_EAT_ALL;
+	   }
 
-**Returns:** Pointer to the hook. Can be passed to *hexchat\_unhook ()*.
+	   hexchat_hook_command (ph, "ONOTICE", HEXCHAT_PRI_NORM, onotice_cb, "Usage: ONOTICE &lt;message> Sends a notice to all ops", NULL);
 
---------------
 
-hexchat\_hook\_print ()
-~~~~~~~~~~~~~~~~~~~~~~~
+.. function:: hexchat_hook* hexchat_hook_fd (hexchat_plugin *ph, int fd, int flags, \
+											hexchat_fd_cb *callb, void *userdata)
 
-**Prototype:** hexchat\_hook \*hexchat\_hook\_print (hexchat\_plugin
-\*ph, const char \*name, int pri, hexchat\_print\_cb \*callb, void
-\*userdata);
+	Hooks a socket or file descriptor. WIN32: Passing a
+	pipe from MSVCR71, MSVCR80 or other variations is not supported at this
+	time.
 
-**Description:** Registers a function to trap any print events. The
-event names may be any available in the "Advanced > Text Events" window.
-There are also some extra "special" events you may hook using this
-function. Currently they are:
+	:param ph: Plugin handle (as given to *hexchat\_plugin\_init ()*).
+	:param fd: The file descriptor or socket.
+	:param flags: One or more of `HEXCHAT_FD_\* constants <plugins.html#types-and-constants>`_ tells HexChat that the
+		provided *fd* is not a socket, but an "MSVCRT.DLL" pipe.
+	:param callb: Callback function. This will be called when the socket is
+		available for reading/writing or exception (depending on your chosen *flags*)
+	:param userdata: Pointer passed to the callback function.
 
--  "Open Context": Called when a new hexchat\_context is created.
--  "Close Context": Called when a hexchat\_context pointer is closed.
--  "Focus Tab": Called when a tab is brought to front.
--  "Focus Window": Called a toplevel window is focused, or the main
-   tab-window is focused by the window manager.
--  "DCC Chat Text": Called when some text from a DCC Chat arrives. It
-   provides these elements in the *word[]* array:
+	:returns: Pointer to the hook. Can be passed to :func:`hexchat_unhook`.
 
-   .. raw:: html
 
-      <pre>
-          word[1] Address
-          word[2] Port
-          word[3] Nick
-          word[4] The Message
-      </pre>
+.. function:: hexchat_hook* hexchat_hook_print (hexchat_plugin *ph, const char *name, int pri, \
+												hexchat_print_cb *callb, void *userdata)
 
--  "Key Press": Called when some keys are pressed in the input box. It
-   provides these elements in the *word[]* array:
+	Registers a function to trap any print events. The
+	event names may be any available in the :menuselection:`Settings --> Text Events` window.
+	There are also some extra "special" events you may hook using this
+	function. Currently they are:
 
-   .. raw:: html
+	-  "Open Context": Called when a new hexchat\_context is created.
+	-  "Close Context": Called when a hexchat\_context pointer is closed.
+	-  "Focus Tab": Called when a tab is brought to front.
+	-  "Focus Window": Called a toplevel window is focused, or the main
+	   tab-window is focused by the window manager.
+	-  "DCC Chat Text": Called when some text from a DCC Chat arrives. It
+	   provides these elements in the *word[]* array:
 
-      <pre>
-          word[1] Key Value
-          word[2] State Bitfield (shift, capslock, alt)
-          word[3] String version of the key
-          word[4] Length of the string (may be 0 for unprintable keys)
-      </pre>
+	   .. raw:: html
 
-**Arguments:**
+		  <pre>
+		      word[1] Address
+		      word[2] Port
+		      word[3] Nick
+		      word[4] The Message
+		  </pre>
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **name:** Name of the print event (as in *Edit Event Texts* window).
--  **pri:** Priority of this command. Use HEXCHAT\_PRI\_NORM.
--  **callb:** Callback function. This will be called when this event
-   name is printed.
--  **userdata:** Pointer passed to the callback function.
+	-  "Key Press": Called when some keys are pressed in the input box. It
+	   provides these elements in the *word[]* array:
 
-**Returns:** Pointer to the hook. Can be passed to *hexchat\_unhook ()*.
+	   .. raw:: html
 
-**Example:**
+		  <pre>
+		      word[1] Key Value
+		      word[2] State Bitfield (shift, capslock, alt)
+		      word[3] String version of the key
+		      word[4] Length of the string (may be 0 for unprintable keys)
+		  </pre>
 
-.. code-block:: c
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param name: Name of the print event (as in *Text Events* window).
+	:param pri: Priority of this command. Use :data:`HEXCHAT_PRI_NORM`.
+	:param callb: Callback function. This will be called when this event name is printed.
+	:param userdata: Pointer passed to the callback function.
 
-   static int
-   youpart_cb (char *word[], void *userdata)
-   {
-       hexchat_printf (ph, "You have left channel %s\n", word[3]);
-       return HEXCHAT_EAT_HEXCHAT;     /* dont let HexChat do its normal printing */
-   }
+	:returns: Pointer to the hook. Can be passed to :func:`hexchat_unhook`.
 
-   hexchat_hook_print (ph, "You Part", HEXCHAT_PRI_NORM, youpart_cb, NULL);
+	**Example:**
 
---------------
+	.. code-block:: c
 
-hexchat\_hook\_server ()
-~~~~~~~~~~~~~~~~~~~~~~~~
+	   static int
+	   youpart_cb (char *word[], void *userdata)
+	   {
+		   hexchat_printf (ph, "You have left channel %s\n", word[3]);
+		   return HEXCHAT_EAT_HEXCHAT;     /* dont let HexChat do its normal printing */
+	   }
 
-**Prototype:** hexchat\_hook \*hexchat\_hook\_server (hexchat\_plugin
-\*ph, const char \*name, int pri, hexchat\_serv\_cb \*callb, void
-\*userdata);
+	   hexchat_hook_print (ph, "You Part", HEXCHAT_PRI_NORM, youpart_cb, NULL);
 
-**Description:** Registers a function to be called when a certain server
-event occurs. You can use this to trap *PRIVMSG*, *NOTICE*, *PART*, a
-server numeric, etc. If you want to hook every line that comes from the
-IRC server, you may use the special name of *RAW LINE*.
 
-**Arguments:**
+.. function:: hexchat_hook* hexchat_hook_server (hexchat_plugin *ph, const char *name, int pri, \
+												hexchat_serv_cb *callb, void *userdata)
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **name:** Name of the server event.
--  **pri:** Priority of this command. Use HEXCHAT\_PRI\_NORM.
--  **callb:** Callback function. This will be called when this event is
-   received from the server.
--  **userdata:** Pointer passed to the callback function.
+	Registers a function to be called when a certain server
+	event occurs. You can use this to trap *PRIVMSG*, *NOTICE*, *PART*, a
+	server numeric, etc. If you want to hook every line that comes from the
+	IRC server, you may use the special name of *RAW LINE*.
 
-**Returns:** Pointer to the hook. Can be passed to *hexchat\_unhook*.
 
-**Example:**
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param name: Name of the server event.
+	:param pri: Priority of this command. Use :data:`HEXCHAT_PRI_NORM`.
+	:param callb: Callback function. This will be called when this event is received from the server.
+	:param userdata: Pointer passed to the callback function.
 
-.. code-block:: c
+	:returns: Pointer to the hook. Can be passed to :func:`hexchat_unhook`.
 
-   static int
-   kick_cb (char *word[], char *word_eol[], void *userdata)
-   {
-       hexchat_printf (ph, "%s was kicked from %s (reason=%s)\n", word[4], word[3], word_eol[5]);
-       return HEXCHAT_EAT_NONE;        /* don't eat this event, let other plugins and HexChat see it too */
-   }
+	**Example:**
 
-   hexchat_hook_server (ph, "KICK", HEXCHAT_PRI_NORM, kick_cb, NULL);
+	.. code-block:: c
 
---------------
+	   static int
+	   kick_cb (char *word[], char *word_eol[], void *userdata)
+	   {
+		   hexchat_printf (ph, "%s was kicked from %s (reason=%s)\n", word[4], word[3], word_eol[5]);
+		   return HEXCHAT_EAT_NONE;        /* don't eat this event, let other plugins and HexChat see it too */
+	   }
 
-hexchat\_hook\_timer ()
-~~~~~~~~~~~~~~~~~~~~~~~
+	   hexchat_hook_server (ph, "KICK", HEXCHAT_PRI_NORM, kick_cb, NULL);
 
-**Prototype:** hexchat\_hook \*hexchat\_hook\_timer (hexchat\_plugin
-\*ph, int timeout, hexchat\_timer\_cb \*callb, void \*userdata);
 
-**Description:** Registers a function to be called every "timeout"
-milliseconds.
+.. function:: hexchat_hook *hexchat_hook_timer (hexchat_plugin *ph, int timeout, hexchat_timer_cb *callb, void *userdata)
 
-**Arguments:**
+	Registers a function to be called every "timeout" milliseconds.
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **timeout:** Timeout in milliseconds (1000 is 1 second).
--  **callb:** Callback function. This will be called every "timeout"
-   milliseconds.
--  **userdata:** Pointer passed to the callback function.
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param timeout: Timeout in milliseconds (1000 is 1 second).
+	:param callb: Callback function. This will be called every "timeout" milliseconds.
+	:param userdata: Pointer passed to the callback function.
 
-**Returns:** Pointer to the hook. Can be passed to hexchat\_unhook.
+	:returns: Pointer to the hook. Can be passed to :func:`hexchat_unhook`.
 
-**Example:**
+	**Example:**
 
-.. code-block:: c
+	.. code-block:: c
 
-   static hexchat_hook *myhook;
+	   static hexchat_hook *myhook;
 
-   static int
-   stop_cb (char *word[], char *word_eol[], void *userdata)
-   {
-       if (myhook != NULL)
-       {
-           hexchat_unhook (ph, myhook);
-           myhook = NULL;
-           hexchat_print (ph, "Timeout removed!\n");
-       }
+	   static int
+	   stop_cb (char *word[], char *word_eol[], void *userdata)
+	   {
+		   if (myhook != NULL)
+		   {
+		       hexchat_unhook (ph, myhook);
+		       myhook = NULL;
+		       hexchat_print (ph, "Timeout removed!\n");
+		   }
 
-       return HEXCHAT_EAT_ALL;
-   }
+		   return HEXCHAT_EAT_ALL;
+	   }
 
-   static int
-   timeout_cb (void *userdata)
-   {
-       hexchat_print (ph, "Annoying message every 5 seconds! Type /STOP to stop it.\n");
-       return 1;       /* return 1 to keep the timeout going */
-   }
+	   static int
+	   timeout_cb (void *userdata)
+	   {
+		   hexchat_print (ph, "Annoying message every 5 seconds! Type /STOP to stop it.\n");
+		   return 1;       /* return 1 to keep the timeout going */
+	   }
 
-   myhook = hexchat_hook_timer (ph, 5000, timeout_cb, NULL);
-   hexchat_hook_command (ph, "STOP", HEXCHAT_PRI_NORM, stop_cb, NULL, NULL);
+	   myhook = hexchat_hook_timer (ph, 5000, timeout_cb, NULL);
+	   hexchat_hook_command (ph, "STOP", HEXCHAT_PRI_NORM, stop_cb, NULL, NULL);
 
---------------
+.. function:: void* hexchat_unhook (hexchat_plugin *ph, hexchat_hook *hook)
 
-hexchat\_unhook ()
-~~~~~~~~~~~~~~~~~~
+	Unhooks any hook registered with **hexchat\_hook\_print/server/timer/command**. When plugins are unloaded,
+	all of its hooks are automatically removed, so you don't need to call
+	this within your :func:`hexchat_plugin_deinit` function.
 
-**Prototype:** void \*hexchat\_unhook (hexchat\_plugin \*ph,
-hexchat\_hook \*hook);
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param hook: Pointer to the hook, as returned by **hexchat\_hook\_\***.
 
-**Description:** Unhooks any hook registered with
-hexchat\_hook\_print/server/timer/command. When plugins are unloaded,
-all of its hooks are automatically removed, so you don't need to call
-this within your hexchat\_plugin\_deinit () function.
+	:returns: The userdata you originally gave to **hexchat\_hook\_\***.
+	
 
-**Arguments:**
+General Functions
+'''''''''''''''''
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **hook:** Pointer to the hook, as returned by hexchat\_hook\_\*.
+.. function:: void hexchat_command (hexchat_plugin *ph, const char *command)
 
-**Returns:** The userdata you originally gave to hexchat\_hook\_\*.
+	Executes a command as if it were typed in HexChat's input box.
 
---------------
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param command: Command to execute, without the forward slash "/".
 
-hexchat\_command ()
-~~~~~~~~~~~~~~~~~~~
 
-**Prototype:** void hexchat\_command (hexchat\_plugin \*ph, const char
-\*command);
+.. function:: void hexchat_commandf (hexchat_plugin *ph, const char *format, ...)
 
-**Description:** Executes a command as if it were typed in HexChat's
-input box.
+	Executes a command as if it were typed in HexChat's
+	input box and provides string formatting like :func:`printf`.
 
-**Arguments:**
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param format: The format string.
+	
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **command:** Command to execute, without the forward slash "/".
+.. function:: void hexchat_print (hexchat_plugin *ph, const char *text)
 
---------------
+	Prints some text to the current tab/window.
 
-hexchat\_commandf ()
-~~~~~~~~~~~~~~~~~~~~
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param text: Text to print. May contain mIRC color codes.
 
-**Prototype:** void hexchat\_commandf (hexchat\_plugin \*ph, const char
-\*format, ...);
 
-**Description:** Executes a command as if it were typed in HexChat's
-input box and provides string formatting like *printf ()*.
+.. function:: void hexchat_printf (hexchat_plugin *ph, const char *format, ...)
 
-**Arguments:**
+	Prints some text to the current tab/window and provides formatting like :func:`printf`.
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **format:** The format string.
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param format: The format string.
 
---------------
 
-hexchat\_print ()
-~~~~~~~~~~~~~~~~~
+.. function:: int hexchat_emit_print (hexchat_plugin *ph, const char *event_name, ...)
 
-**Prototype:** void hexchat\_print (hexchat\_plugin \*ph, const char
-\*text);
+	Generates a print event. This can be any event found in
+	the :menuselection:`Settings --> Text Events` window. The vararg parameter
+	list **must** always be NULL terminated. Special care should be taken
+	when calling this function inside a print callback (from
+	:func:`hexchat_hook_print`), as not to cause endless recursion.
 
-**Description:** Prints some text to the current tab/window.
 
-**Arguments:**
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param event_name: Text event to print.
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **text:** Text to print. May contain mIRC color codes.
+	:returns: 0 on Failure, 1 on Success
 
---------------
+	**Example:**
 
-hexchat\_printf ()
-~~~~~~~~~~~~~~~~~~
+	.. code-block:: c
 
-**Prototype:** void hexchat\_printf (hexchat\_plugin \*ph, const char
-\*format, ...);
+	   hexchat_emit_print (ph, "Channel Message", "John", "Hi there", "@", NULL);
 
-**Description:** Prints some text to the current tab/window and provides
-formatting like *printf ()*.
 
-**Arguments:**
+.. function:: void hexchat_send_modes (hexchat_plugin *ph, const char *targets[], int ntargets, \
+										int modes_per_line, char sign, char mode)
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **format:** The format string.
+	Sends a number of channel mode changes to the current
+	channel. For example, you can Op a whole group of people in one go. It
+	may send multiple MODE lines if the request doesn't fit on one. Pass 0
+	for *modes_per_line* to use the current server's maximum possible.
+	This function should only be called while in a channel context.
 
---------------
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param targets: Array of targets (strings). The names of people whom the action will be performed on.
+	:param ntargets: Number of elements in the array given.
+	:param modes_per_line: Maximum modes to send per line.
+	:param sign: Mode sign, '-' or '+'.
+	:param mode: Mode char, e.g. 'o' for Ops.
 
-hexchat\_emit\_print ()
-~~~~~~~~~~~~~~~~~~~~~~~
+	**Example:** (Ops the three names given)
 
-**Prototype:** int hexchat\_emit\_print (hexchat\_plugin \*ph, const
-char \*event\_name, ...);
+	.. code-block:: c
 
-**Description:** Generates a print event. This can be any event found in
-the Preferences > Advanced > Text Events window. The vararg parameter
-list **must** always be NULL terminated. Special care should be taken
-when calling this function inside a print callback (from
-hexchat\_hook\_print), as not to cause endless recursion.
+	   const char *names_to_Op[] = {"John", "Jack", "Jill"};
+	   hexchat_send_modes (ph, names_to_Op, 3, 0, '+', 'o');
 
-**Arguments:**
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **event\_name:** Text event to print.
+.. function:: hexchat_context* hexchat_find_context(hexchat_plugin *ph, const char *servname, const char *channel)
 
-**Returns:**
+	Finds a context based on a channel and servername. If
+	*servname* is NULL, it finds any channel (or query) by the given name.
+	If *channel* is NULL, it finds the front-most tab/window of the given
+	*servname*. If NULL is given for both arguments, the currently focused
+	tab/window will be returned.
 
--  1: Success.
--  0: Failure.
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param servname: Server name or NULL.
+	:param channel: Channel name or NULL.
 
-**Example:**
+	:returns: Context pointer (for use with :func:`hexchat_set_context`) or NULL.
 
-.. code-block:: c
 
-   hexchat_emit_print (ph, "Channel Message", "John", "Hi there", "@", NULL);
+.. function:: hexchat_context* hexchat_get_context (hexchat_plugin *ph)
 
---------------
+	Returns the current context for your plugin. You can
+	use this later with :func:`hexchat_set_context`.
 
-hexchat\_send\_modes ()
-~~~~~~~~~~~~~~~~~~~~~~~
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
 
-**Prototype:** void hexchat\_send\_modes (hexchat\_plugin \*ph, const
-char \*targets[], int ntargets, int modes\_per\_line, char sign, char
-mode)
+	:returns: Context pointer (for use with :func:`hexchat_set_context`).
 
-**Description:** Sends a number of channel mode changes to the current
-channel. For example, you can Op a whole group of people in one go. It
-may send multiple MODE lines if the request doesn't fit on one. Pass 0
-for *modes\_per\_line* to use the current server's maximum possible.
-This function should only be called while in a channel context.
 
-**Arguments:**
+.. function:: const char* hexchat_get_info (hexchat_plugin *ph, const char *id)
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **targets:** Array of targets (strings). The names of people whom the
-   action will be performed on.
--  **ntargets:** Number of elements in the array given.
--  **modes\_per\_line:** Maximum modes to send per line.
--  **sign:** Mode sign, '-' or '+'.
--  **mode:** Mode char, e.g. 'o' for Ops.
+	Returns information based on your current context.
 
-**Example:** (Ops the three names given)
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param id: ID of the information you want. Currently supported IDs are (case sensitive):
 
-.. code-block:: c
+	   -  **away:** away reason or NULL if you are not away.
+	   -  **channel:** current channel name.
+	   -  **charset:** character-set used in the current context.
+	   -  **configdir:** HexChat config directory, e.g.:
+		  ``/home/user/.config/hexchat``. This string is encoded in UTF-8.
+	   -  **event\_text <name>:** text event format string for *name*.
+	   -  **gtkwin\_ptr:** (GtkWindow \*).
+	   -  **host:** real hostname of the server you connected to.
+	   -  **inputbox:** the input-box contents, what the user has typed.
+	   -  **libdirfs:** library directory. e.g. /usr/lib/hexchat. The same
+		  directory used for auto-loading plugins. This string isn't
+		  necessarily UTF-8, but local file system encoding.
+	   -  **modes:** channel modes, if known, or NULL.
+	   -  **network:** current network name or NULL.
+	   -  **nick:** your current nick name.
+	   -  **nickserv:** nickserv password for this network or NULL.
+	   -  **server:** current server name (what the server claims to be).
+		  NULL if you are not connected.
+	   -  **topic:** current channel topic.
+	   -  **version:** HexChat version number.
+	   -  **win\_ptr:** native window pointer. Unix: (GtkWindow \*) Win32:
+		  HWND.
+	   -  **win\_status:** window status: "active", "hidden" or "normal".
 
-   const char *names_to_Op[] = {"John", "Jack", "Jill"};
-   hexchat_send_modes (ph, names_to_Op, 3, 0, '+', 'o');
+	:returns: A string of the requested information, or NULL. This string
+		must not be freed and must be copied if needed after the call to :func:`hexchat_get_info`.
 
---------------
 
-hexchat\_find\_context ()
-~~~~~~~~~~~~~~~~~~~~~~~~~
+.. function:: int hexchat_get_prefs (hexchat_plugin *ph, const char *name, \
+									const char **string, int *integer)
 
-**Prototype:** hexchat\_context \*hexchat\_find\_context
-(hexchat\_plugin \*ph, const char \*servname, const char \*channel);
+	Provides HexChat's setting information (that which is
+	available through the :command:`/SET` command). A few extra bits of information
+	are available that don't appear in the :command:`/SET` list, currently they are:
 
-**Description:** Finds a context based on a channel and servername. If
-*servname* is NULL, it finds any channel (or query) by the given name.
-If *channel* is NULL, it finds the front-most tab/window of the given
-*servname*. If NULL is given for both arguments, the currently focused
-tab/window will be returned.
+		-  **state\_cursor:** Current input box cursor position (characters, not
+		   bytes).
+		-  **id:** Unique server id
 
-Changed in 2.6.1. If *servname* is NULL, it finds the channel (or query)
-by the given name in the same server group as the current context. If
-that doesn't exists then find any by the given name.
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param name: Setting name required.
+	:param string: Pointer-pointer which to set.
+	:param integer: Pointer to an integer to set, if setting is a boolean or integer type.
 
-**Arguments:**
+	:returns:
+		-  0: Failed.
+		-  1: Returned a string.
+		-  2: Returned an integer.
+		-  3: Returned a boolean.
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **servname:** Server name or NULL.
--  **channel:** Channel name or NULL.
+	**Example:**
 
-**Returns:** Context pointer (for use with *hexchat\_set\_context*) or
-NULL.
+	.. code-block:: c
 
---------------
+	   {
+		   int i;
+		   const char *str;
 
-hexchat\_get\_context ()
-~~~~~~~~~~~~~~~~~~~~~~~~
+		   if (hexchat_get_prefs (ph, "irc_nick1", &amp;str, &amp;i) == 1)
+		   {
+		       hexchat_printf (ph, "Current nickname setting: %s\n", str);
+		   }
+	   }
 
-**Prototype:** hexchat\_context \*hexchat\_get\_context (hexchat\_plugin
-\*ph);
 
-**Description:** Returns the current context for your plugin. You can
-use this later with *hexchat\_set\_context ()*.
+.. function:: int hexchat_set_context (hexchat_plugin *ph, hexchat_context *ctx)
 
-**Arguments:**
+	Changes your current context to the one given.
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ctx: Context to change to (obtained with :func:`hexchat_get_context` or :func:`hexchat_find_context`).
 
-**Returns:** Context pointer (for use with *hexchat\_set\_context*).
+	:returns:
+		-  1: Success.
+		-  0: Failure.
+		
 
---------------
+.. function:: int hexchat_nickcmp (hexchat_plugin *ph, const char *s1, const char *s2)
 
-hexchat\_get\_info ()
-~~~~~~~~~~~~~~~~~~~~~
+	Performs a nick name comparision, based on the current
+	server connection. This might be an RFC1459 compliant string compare, or
+	plain ascii (in the case of DALNet). Use this to compare channels and
+	nicknames. The function works the same way as :func:`strcasecmp`.
 
-**Prototype:** const char \*hexchat\_get\_info (hexchat\_plugin \*ph,
-const char \*id);
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param s1: String to compare.
+	:param s2: String to compare *s1* to.
 
-**Description:** Returns information based on your current context.
+	**Quote from RFC1459:** >Because of IRC's scandanavian origin, the
+	characters {}\| are considered to be the lower case equivalents of the
+	characters [], respectively. This is a critical issue when determining
+	the equivalence of two nicknames.
 
-**Arguments:**
+	:returns: An integer less than, equal to, or greater than zero if
+		*s1* is found, respectively, to be less than, to match, or be greater than *s2*.
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **id:** ID of the information you want. Currently supported IDs are
-   (case sensitive):
+.. function:: char* hexchat_strip (hexchat_plugin *ph, const char *str, int len, int flags)
 
-   -  **away:** away reason or NULL if you are not away.
-   -  **channel:** current channel name.
-   -  **charset:** character-set used in the current context.
-   -  **configdir:** HexChat config directory, e.g.:
-      ``/home/user/.config/hexchat``. This string is encoded in UTF-8.
-   -  **event\_text <name>:** text event format string for *name*.
-   -  **gtkwin\_ptr:** (GtkWindow \*).
-   -  **host:** real hostname of the server you connected to.
-   -  **inputbox:** the input-box contents, what the user has typed.
-   -  **libdirfs:** library directory. e.g. /usr/lib/hexchat. The same
-      directory used for auto-loading plugins. This string isn't
-      necessarily UTF-8, but local file system encoding.
-   -  **modes:** channel modes, if known, or NULL.
-   -  **network:** current network name or NULL.
-   -  **nick:** your current nick name.
-   -  **nickserv:** nickserv password for this network or NULL.
-   -  **server:** current server name (what the server claims to be).
-      NULL if you are not connected.
-   -  **topic:** current channel topic.
-   -  **version:** HexChat version number.
-   -  **win\_ptr:** native window pointer. Unix: (GtkWindow \*) Win32:
-      HWND.
-   -  **win\_status:** window status: "active", "hidden" or "normal".
+	Strips mIRC color codes and/or text attributes (bold,
+	underlined etc) from the given string and returns a newly allocated
+	string.
 
-**Returns:** A string of the requested information, or NULL. This string
-must not be freed and must be copied if needed after the call to
-*hexchat\_get\_info ()*.
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param str: String to strip.
+	:param len: Length of the string (or -1 for NULL terminated).
+	:param flags: Bit-field of flags:
+	   -  0: Strip mIRC colors.
+	   -  1: Strip text attributes.
 
---------------
+	:returns: A newly allocated string or NULL for failure. You must free this string with :func:`hexchat_free`.
 
-hexchat\_get\_prefs ()
-~~~~~~~~~~~~~~~~~~~~~~
+	**Example:**
 
-**Prototype:** int hexchat\_get\_prefs (hexchat\_plugin \*ph, const char
-\*name, const char \*\*string, int \*integer);
+	.. code-block:: c
 
-**Description:** Provides HexChat's setting information (that which is
-available through the */SET* command). A few extra bits of information
-are available that don't appear in the */SET* list, currently they are:
+	   {
+		   char *new_text;
 
--  **state\_cursor:** Current input box cursor position (characters, not
-   bytes).
--  **id:** Unique server id
+		   /* strip both colors and attributes by using the 0 and 1 bits (1 BITWISE-OR 2) */
+		   new_text = hexchat_strip (ph, "\00312Blue\003 \002Bold!\002", -1, 1 | 2);
 
-**Arguments:**
+		   if (new_text)
+		   {
+		       /* new_text should now contain only "Blue Bold!" */
+		       hexchat_printf (ph, "%s\n", new_text);
+		       hexchat_free (ph, new_text);
+		   }
+	   }
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **name:** Setting name required.
--  **string:** Pointer-pointer which to set.
--  **integer:** Pointer to an integer to set, if setting is a boolean or
-   integer type.
 
-**Returns:**
+.. function:: void hexchat_free (hexchat_plugin *ph, void *ptr)
 
--  0: Failed.
--  1: Returned a string.
--  2: Returned an integer.
--  3: Returned a boolean.
+	Frees a string returned by **hexchat\_\*** functions.
+	Currently only used to free strings from :func:`hexchat_strip`.
 
-**Example:**
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ptr: Pointer to free.
 
-.. code-block:: c
+Plugin Preferences
+''''''''''''''''''
 
-   {
-       int i;
-       const char *str;
+.. function:: int hexchat_pluginpref_set_str (hexchat_plugin *ph, const char *var, const char *value)
 
-       if (hexchat_get_prefs (ph, "irc_nick1", &amp;str, &amp;i) == 1)
-       {
-           hexchat_printf (ph, "Current nickname setting: %s\n", str);
-       }
-   }
+	Saves a plugin-specific setting with string value to a plugin-specific config file.
 
---------------
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param var: Name of the setting to save.
+	:param value: String value of the the setting.
 
-hexchat\_set\_context ()
-~~~~~~~~~~~~~~~~~~~~~~~~
+	:returns:
+		-  1: Success.
+		-  0: Failure.
 
-**Prototype:** int hexchat\_set\_context (hexchat\_plugin \*ph,
-hexchat\_context \*ctx);
+	**Example:**
 
-**Description:** Changes your current context to the one given.
+	.. code-block:: c
 
-**Arguments:**
+	   int
+	   hexchat_plugin_init (hexchat_plugin *plugin_handle, char **plugin_name, char **plugin_desc, char **plugin_version, char *arg)
+	   {
+		   ph = plugin_handle;
+		   *plugin_name = "Tester Thingie";
+		   *plugin_desc = "Testing stuff";
+		   *plugin_version = "1.0";
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **ctx:** Context to change to (obtained with *hexchat\_get\_context
-   ()* or *hexchat\_find\_context ()*).
+		   hexchat_pluginpref_set_str (ph, "myvar1", "I want to save this string!");
+		   hexchat_pluginpref_set_str (ph, "myvar2", "This is important, too.");
 
-**Returns:**
+		   return 1;       /* return 1 for success */
+	   }
 
--  1: Success.
--  0: Failure.
+	In the example above, the settings will be saved to the
+	plugin\_tester\_thingie.conf file, and its content will be: >myvar1 = I
+	want to save this string!
+	myvar2 = This is important, too.
 
---------------
+	You should never need to edit this file manually.
 
-hexchat\_nickcmp ()
-~~~~~~~~~~~~~~~~~~~
 
-**Prototype:** int hexchat\_nickcmp (hexchat\_plugin \*ph, const char
-\*s1, const char \*s2);
+.. function:: int hexchat_pluginpref_get_str (hexchat_plugin *ph, const char *var, char *dest)
 
-**Description:** Performs a nick name comparision, based on the current
-server connection. This might be an RFC1459 compliant string compare, or
-plain ascii (in the case of DALNet). Use this to compare channels and
-nicknames. The function works the same way as *strcasecmp ()*.
+	Loads a plugin-specific setting with string value from a plugin-specific config file.
 
-**Arguments:**
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param var: Name of the setting to load.
+	:param dest: Array to save the loaded setting's string value to.
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **s1:** String to compare.
--  **s2:** String to compare *s1* to.
+	:returns:
+		-  1: Success.
+		-  0: Failure.
+		
 
-**Quote from RFC1459:** >Because of IRC's scandanavian origin, the
-characters {}\| are considered to be the lower case equivalents of the
-characters [], respectively. This is a critical issue when determining
-the equivalence of two nicknames.
+.. function:: int hexchat_pluginpref_set_int (hexchat_plugin *ph, const char *var, int value)
 
-**Returns:** An integer less than, equal to, or greater than zero if
-*s1* is found, respectively, to be less than, to match, or be greater
-than *s2*.
+	Saves a plugin-specific setting with decimal value to a plugin-specific config file.
 
---------------
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param var: Name of the setting to save.
+	:param value: Decimal value of the the setting.
 
-hexchat\_strip ()
-~~~~~~~~~~~~~~~~~
+	:returns:
+		-  1: Success.
+		-  0: Failure.
 
-**Prototype:** char \*hexchat\_strip (hexchat\_plugin \*ph, const char
-\*str, int len, int flags);
+	**Example:**
 
-**Description:** Strips mIRC color codes and/or text attributes (bold,
-underlined etc) from the given string and returns a newly allocated
-string.
+	.. code-block:: c
 
-**Arguments:**
+	   static int
+	   saveint_cb (char *word[], char *word_eol[], void *user_data)
+	   {
+		   int buffer = atoi (word[2]);
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **str:** String to strip.
--  **len:** Length of the string (or -1 for NULL terminated).
--  **flags:** Bit-field of flags:
+		   if (buffer > 0 && buffer &lt; INT_MAX)
+		   {
+		       if (hexchat_pluginpref_set_int (ph, "myint1", buffer))
+		       {
+		           hexchat_printf (ph, "Setting successfully saved!\n");
+		       }
+		       else
+		       {
+		           hexchat_printf (ph, "Error while saving!\n");
+		       }
+		   }
+		   else
+		   {
+		       hexchat_printf (ph, "Invalid input!\n");
+		   }
 
-   -  0: Strip mIRC colors.
-   -  1: Strip text attributes.
+		   return HEXCHAT_EAT_HEXCHAT;
+	   }
 
-**Returns:** A newly allocated string or NULL for failure. You must free
-this string with *hexchat\_free ()*.
+	You only need such complex checks if you're saving user input, which can
+	be non-numeric.
 
-**Example:**
 
-.. code-block:: c
+.. function:: int hexchat_pluginpref_get_int (hexchat_plugin *ph, const char *var)
 
-   {
-       char *new_text;
+	Loads a plugin-specific setting with decimal value from a plugin-specific config file.
 
-       /* strip both colors and attributes by using the 0 and 1 bits (1 BITWISE-OR 2) */
-       new_text = hexchat_strip (ph, "\00312Blue\003 \002Bold!\002", -1, 1 | 2);
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param var: Name of the setting to load.
 
-       if (new_text)
-       {
-           /* new_text should now contain only "Blue Bold!" */
-           hexchat_printf (ph, "%s\n", new_text);
-           hexchat_free (ph, new_text);
-       }
-   }
+	:returns:** The decimal value of the requested setting upon success, -1 for failure.
 
---------------
 
-hexchat\_free ()
-~~~~~~~~~~~~~~~~
+.. function:: int hexchat_pluginpref_delete (hexchat_plugin *ph, const char *var)
 
-**Prototype:** void hexchat\_free (hexchat\_plugin \*ph, void \*ptr);
+	Deletes a plugin-specific setting from a plugin-specific config file.
 
-**Description:** Frees a string returned by *hexchat\_\** functions.
-Currently only used to free strings from *hexchat\_strip ()*.
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param var: Name of the setting to delete.
 
-**Arguments:**
+	:returns:
+		-  1: Success.
+		-  0: Failure.
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **ptr:** Pointer to free.
+	If the given setting didn't exist, it also returns 1, so 1 only
+	indicates that the setting won't exist after the call.
 
---------------
 
-hexchat\_pluginpref\_set\_str ()
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. function:: int hexchat_pluginpref_list (hexchat_plugin *ph, char *dest)
 
-**Prototype:** int hexchat\_pluginpref\_set\_str (hexchat\_plugin \*ph,
-const char \*var, const char \*value);
+	Builds a comma-separated list of the currently saved
+	settings from a plugin-specific config file.
 
-**Description:** Saves a plugin-specific setting with string value to a
-plugin-specific config file.
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param dest: Array to save the list to.
 
-**Arguments:**
+	:returns:
+		-  1: Success.
+		-  0: Failure (nonexistent, empty or inaccessible config file).
 
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **var:** Name of the setting to save.
--  **value:** String value of the the setting.
+	**Example:**
 
-**Returns:**
+	.. code-block:: c
 
--  1: Success.
--  0: Failure.
+	   static void
+	   list_settings ()
+	   {
+		   char list[512];
+		   char buffer[512];
+		   char *token;
 
-**Example:**
+		   hexchat_pluginpref_list (ph, list);
+		   hexchat_printf (ph, "Current Settings:\n");
+		   token = strtok (list, ",");
 
-.. code-block:: c
+		   while (token != NULL)
+		   {
+		       hexchat_pluginpref_get_str (ph, token, buffer);
+		       hexchat_printf (ph, "%s: %s\n", token, buffer);
+		       token = strtok (NULL, ",");
+		   }
+	   }
 
-   int
-   hexchat_plugin_init (hexchat_plugin *plugin_handle, char **plugin_name, char **plugin_desc, char **plugin_version, char *arg)
-   {
-       ph = plugin_handle;
-       *plugin_name = "Tester Thingie";
-       *plugin_desc = "Testing stuff";
-       *plugin_version = "1.0";
-
-       hexchat_pluginpref_set_str (ph, "myvar1", "I want to save this string!");
-       hexchat_pluginpref_set_str (ph, "myvar2", "This is important, too.");
-
-       return 1;       /* return 1 for success */
-   }
-
-In the example above, the settings will be saved to the
-plugin\_tester\_thingie.conf file, and its content will be: >myvar1 = I
-want to save this string!
-myvar2 = This is important, too.
-
-You should never need to edit this file manually.
-
---------------
-
-hexchat\_pluginpref\_get\_str ()
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Prototype:** int hexchat\_pluginpref\_get\_str (hexchat\_plugin \*ph,
-const char \*var, char \*dest);
-
-**Description:** Loads a plugin-specific setting with string value from
-a plugin-specific config file.
-
-**Arguments:**
-
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **var:** Name of the setting to load.
--  **dest:** Array to save the loaded setting's string value to.
-
-**Returns:**
-
--  1: Success.
--  0: Failure.
-
---------------
-
-hexchat\_pluginpref\_set\_int ()
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Prototype:** int hexchat\_pluginpref\_set\_int (hexchat\_plugin \*ph,
-const char \*var, int value);
-
-**Description:** Saves a plugin-specific setting with decimal value to a
-plugin-specific config file.
-
-**Arguments:**
-
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **var:** Name of the setting to save.
--  **value:** Decimal value of the the setting.
-
-**Returns:**
-
--  1: Success.
--  0: Failure.
-
-**Example:**
-
-.. code-block:: c
-
-   static int
-   saveint_cb (char *word[], char *word_eol[], void *user_data)
-   {
-       int buffer = atoi (word[2]);
-
-       if (buffer > 0 && buffer &lt; INT_MAX)
-       {
-           if (hexchat_pluginpref_set_int (ph, "myint1", buffer))
-           {
-               hexchat_printf (ph, "Setting successfully saved!\n");
-           }
-           else
-           {
-               hexchat_printf (ph, "Error while saving!\n");
-           }
-       }
-       else
-       {
-           hexchat_printf (ph, "Invalid input!\n");
-       }
-
-       return HEXCHAT_EAT_HEXCHAT;
-   }
-
-You only need such complex checks if you're saving user input, which can
-be non-numeric.
-
---------------
-
-hexchat\_pluginpref\_get\_int ()
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Prototype:** int hexchat\_pluginpref\_get\_int (hexchat\_plugin \*ph,
-const char \*var);
-
-**Description:** Loads a plugin-specific setting with decimal value from
-a plugin-specific config file.
-
-**Arguments:**
-
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **var:** Name of the setting to load.
-
-**Returns:** The decimal value of the requested setting upon success, -1
-for failure.
-
---------------
-
-hexchat\_pluginpref\_delete ()
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Prototype:** int hexchat\_pluginpref\_delete (hexchat\_plugin \*ph,
-const char \*var);
-
-**Description:** Deletes a plugin-specific setting from a
-plugin-specific config file.
-
-**Arguments:**
-
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **var:** Name of the setting to delete.
-
-**Returns:**
-
--  1: Success.
--  0: Failure.
-
-If the given setting didn't exist, it also returns 1, so 1 only
-indicates that the setting won't exist after the call.
-
---------------
-
-hexchat\_pluginpref\_list ()
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Prototype:** int hexchat\_pluginpref\_list (hexchat\_plugin \*ph, char
-\*dest);
-
-**Description:** Builds a comma-separated list of the currently saved
-settings from a plugin-specific config file.
-
-**Arguments:**
-
--  **ph:** Plugin handle (as given to *hexchat\_plugin\_init ()*).
--  **dest:** Array to save the list to.
-
-**Returns:**
-
--  1: Success.
--  0: Failure (nonexistent, empty or inaccessible config file).
-
-**Example:**
-
-.. code-block:: c
-
-   static void
-   list_settings ()
-   {
-       char list[512];
-       char buffer[512];
-       char *token;
-
-       hexchat_pluginpref_list (ph, list);
-       hexchat_printf (ph, "Current Settings:\n");
-       token = strtok (list, ",");
-
-       while (token != NULL)
-       {
-           hexchat_pluginpref_get_str (ph, token, buffer);
-           hexchat_printf (ph, "%s: %s\n", token, buffer);
-           token = strtok (NULL, ",");
-       }
-   }
-
-In the example above we query the list of currently stored settings,
-then print them one by one with their respective values. We always use
-*hexchat\_pluginpref\_get\_str ()*, and that's because we can read an
-integer as string (but not vice versa).
+	In the example above we query the list of currently stored settings,
+	then print them one by one with their respective values. We always use
+	*hexchat\_pluginpref\_get\_str ()*, and that's because we can read an
+	integer as string (but not vice versa).
