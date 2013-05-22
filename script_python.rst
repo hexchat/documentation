@@ -459,7 +459,7 @@ are the available constants, and their meanings:
 
 .. Note:: Returning ``None`` is the same as returning ``EAT_NONE``.
 
-.. function:: hook\_command(name, callback[, userdata=None, priority=:data:`PRI\_NORM`, help=None])
+.. function:: hook\_command(name, callback[, userdata=None, priority=PRI\_NORM, help=None])
 
 	This function allows you to hook into the name HexChat command. It means
 	that everytime you type ``/name ...``, ``callback`` will be called.
@@ -483,7 +483,7 @@ are the available constants, and their meanings:
 	You may return one of ``EAT_*`` constants in the callback, to control
 	HexChat's behavior, as explained above.
 
-.. function:: hook\_print(name, callback[, userdata=None, priority=:data:`PRI\_NORM`])
+.. function:: hook\_print(name, callback[, userdata=None, priority=PRI\_NORM])
 
 	This function allows you to register a callback to trap any print
 	events. The event names are available in the :menuselection:`Settings --> Text Events` window.
@@ -517,7 +517,7 @@ are the available constants, and their meanings:
 	   - String version of the key
 	   - Length of the string (may be 0 for unprintable keys)
 
-.. function:: hook\_server(name, callback[, userdata=None, priority=:data:`PRI\_NORM`])
+.. function:: hook\_server(name, callback[, userdata=None, priority=PRI\_NORM])
 
 	This function allows you to register a callback to be called when a
 	certain server event occurs. You can use this to trap ``PRIVMSG``,
