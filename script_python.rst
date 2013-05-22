@@ -411,18 +411,42 @@ Hook functions
 
 These functions allow one to hook into HexChat events.
 
-Priorities
+Parameters
 ''''''''''
 
-When a priority keyword parameter is accepted, it means that this
-callback may be hooked with five different priorities: PRI\_HIGHEST,
-PRI\_HIGH, PRI\_NORM, PRI\_LOW, and PRI\_LOWEST. The usage of these
-constants, which are available in the xchat module, will define the
-order in which your plugin will be called. Most of the time, you won't
-want to change its default value (PRI\_NORM).
+callback
+^^^^^^^^
 
-Parameters word and word\_eol
-'''''''''''''''''''''''''''''
+A callback is the function that will be called when the event happens.
+
+The callback supposed to return one of the EAT\_\* `constants <script_python.html#constants-and-attributes>`_,
+it is able control how HexChat will proceed after the callback returns. These
+are the available constants, and their meanings:
+     
+-  :data:`EAT\_PLUGIN`: Don't let any other plugin receive this event.
+-  :data:`EAT\_XCHAT`: Don't let HexChat treat this event as usual.
+-  :data:`EAT\_ALL`: Eat the event completely.
+-  :data:`EAT\_NONE`: Let everything happen as usual.
+
+.. Note:: Returning ``None`` is the same as returning :data:`EAT\_NONE`.
+
+userdata
+^^^^^^^^
+
+The parameter userdata, if given, allows you to pass a custom object to
+your callback.
+
+priority
+^^^^^^^^
+
+When a priority keyword parameter is accepted, it means that this
+callback may be hooked with five different priorities which are 
+`constants <script_python.html#constants-and-attributes>`_ will define the
+order in which your plugin will be called. Most of the time, you won't
+want to change its default value (:data:`PRI\_NORM`).
+
+word and word\_eol
+^^^^^^^^^^^^^^^^^^
 
 These parameters, when available in a callback, are lists of strings
 which contain the parameters the user entered for the particular
@@ -438,26 +462,6 @@ command. For example, if you executed:
 -  **word\_eol[1]** is ``NICK Hi there!``
 -  **word\_eol[2]** is ``Hi there!``
 -  **word\_eol[3]** is ``there!``
-
-Parameter userdata
-''''''''''''''''''
-
-The parameter userdata, if given, allows you to pass a custom object to
-your callback.
-
-Callback return constants (EAT\_\*)
-'''''''''''''''''''''''''''''''''''
-
-When a callback is supposed to return one of the EAT\_\* constants, it is
-able control how HexChat will proceed after the callback returns. These
-are the available constants, and their meanings:
-     
--  :data:`EAT\_PLUGIN`: Don't let any other plugin receive this event.
--  :data:`EAT\_XCHAT`: Don't let HexChat treat this event as usual.
--  :data:`EAT\_ALL`: Eat the event completely.
--  :data:`EAT\_NONE`: Let everything happen as usual.
-
-.. Note:: Returning ``None`` is the same as returning ``EAT_NONE``.
 
 .. function:: hook\_command(name, callback[, userdata=None, priority=PRI\_NORM, help=None])
 
