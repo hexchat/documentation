@@ -208,14 +208,15 @@ Generic functions
 	   if xchat.nickcmp(nick, "mynick") == 0:
 		   print("They are the same!")
 
-.. function:: strip(text[, length, flags])
+.. function:: strip(text[, length=-1, flags=3])
 
 	This function can strip colors and attributes from text.
    
+   	:param length: -1 for entire string
    	:param flags:
    		1: Strip Colors 
    		2: Strip Attributes
-   		3: Strip All (default:3)
+   		3: Strip All
    	:returns: Stripped String
 
 	.. code-block:: python
@@ -458,7 +459,7 @@ are the available constants, and their meanings:
 
 .. Note:: Returning ``None`` is the same as returning ``EAT_NONE``.
 
-.. function:: hook\_command(name, callback, userdata=None, priority=:data:`PRI\_NORM`, help=None)
+.. function:: hook\_command(name, callback[, userdata=None, priority=:data:`PRI\_NORM`, help=None])
 
 	This function allows you to hook into the name HexChat command. It means
 	that everytime you type ``/name ...``, ``callback`` will be called.
@@ -482,7 +483,7 @@ are the available constants, and their meanings:
 	You may return one of ``EAT_*`` constants in the callback, to control
 	HexChat's behavior, as explained above.
 
-.. function:: hook\_print(name, callback, userdata=None, priority=:data:`PRI\_NORM`)
+.. function:: hook\_print(name, callback[, userdata=None, priority=:data:`PRI\_NORM`])
 
 	This function allows you to register a callback to trap any print
 	events. The event names are available in the :menuselection:`Settings --> Text Events` window.
@@ -516,7 +517,7 @@ are the available constants, and their meanings:
 	   - String version of the key
 	   - Length of the string (may be 0 for unprintable keys)
 
-.. function:: hook\_server(name, callback, userdata=None, priority=:data:`PRI\_NORM`)
+.. function:: hook\_server(name, callback[, userdata=None, priority=:data:`PRI\_NORM`])
 
 	This function allows you to register a callback to be called when a
 	certain server event occurs. You can use this to trap ``PRIVMSG``,
@@ -534,7 +535,7 @@ are the available constants, and their meanings:
 
 	   xchat.hook_server("KICK", kick_cb)
 
-.. function:: hook\_timer(timeout, callback, userdata=None)
+.. function:: hook\_timer(timeout, callback[, userdata=None])
 
 	This function allows you to register a callback to be called every
 	timeout milliseconds. Parameters userdata and priority have their
@@ -563,7 +564,7 @@ are the available constants, and their meanings:
 	If you return a true value from the callback, the timer will be keeped,
 	otherwise it is removed.
 
-.. function:: hook\_unload(timeout, callback, userdata=None)
+.. function:: hook\_unload(timeout, callback[, userdata=None])
 
 	This function allows you to register a callback to be called when the
 	plugin is going to be unloaded. Parameters ``userdata`` and ``priority``
