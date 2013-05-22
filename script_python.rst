@@ -143,18 +143,18 @@ The following functions are available in the xchat module.
 Constants and Attributes
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. data:: PRI\_HIGHEST
-          PRI\_HIGH
-          PRI\_NORM
-          PRI\_LOW
-          PRI\_LOWEST
+.. data:: PRI_HIGHEST
+          PRI_HIGH
+          PRI_NORM
+          PRI_LOW
+          PRI_LOWEST
           
 	Priority given to hooks.
 
-.. data:: EAT\_PLUGIN
-	      EAT\_XCHAT
-	      EAT\_ALL
-	      EAT\_NONE
+.. data:: EAT_PLUGIN
+	      EAT_XCHAT
+	      EAT_ALL
+	      EAT_NONE
 	      
 	Used as return values for callbacks.
           
@@ -175,7 +175,7 @@ Generic functions
 	This function is badly named because ``"print"`` is a reserved keyword
 	of the Python language.
 
-.. function:: emit\_print(event\_name, \*args)
+.. function:: emit_print(event_name, *args)
 
 	This function will generate a *print event* with the given arguments. To
 	check which events are available, and the number and meaning of
@@ -260,7 +260,7 @@ Information retreiving functions
 	   if xchat.get_info("server") == 'freenode':
 		   xchat.prnt('connected!')
 
-.. function:: get\_prefs(name)
+.. function:: get_prefs(name)
 
 	Retrieve the HexChat setting information specified by the ``name``
 	string, as available by the ``/set`` command. For example:
@@ -269,7 +269,7 @@ Information retreiving functions
 
 	   print("Current preferred nick: " + xchat.get_prefs("irc_nick1"))
 
-.. function:: get\_list(type)
+.. function:: get_list(type)
 
 	With this function you may retrieve a list containing the selected
 	information from the current context, like a DCC list, a channel list, a
@@ -423,10 +423,10 @@ The callback supposed to return one of the EAT\_\* `constants <script_python.htm
 it is able control how HexChat will proceed after the callback returns. These
 are the available constants, and their meanings:
      
--  :data:`EAT\_PLUGIN`: Don't let any other plugin receive this event.
--  :data:`EAT\_XCHAT`: Don't let HexChat treat this event as usual.
--  :data:`EAT\_ALL`: Eat the event completely.
--  :data:`EAT\_NONE`: Let everything happen as usual.
+-  :data:`EAT_PLUGIN`: Don't let any other plugin receive this event.
+-  :data:`EAT_XCHAT`: Don't let HexChat treat this event as usual.
+-  :data:`EAT_ALL`: Eat the event completely.
+-  :data:`EAT_NONE`: Let everything happen as usual.
 
 .. Note:: Returning ``None`` is the same as returning :data:`EAT\_NONE`.
 
@@ -443,7 +443,7 @@ When a priority keyword parameter is accepted, it means that this
 callback may be hooked with five different priorities which are 
 `constants <script_python.html#constants-and-attributes>`_ will define the
 order in which your plugin will be called. Most of the time, you won't
-want to change its default value (:data:`PRI\_NORM`).
+want to change its default value (:data:`PRI_NORM`).
 
 word and word\_eol
 ^^^^^^^^^^^^^^^^^^
@@ -521,7 +521,7 @@ command. For example, if you executed:
 	   - String version of the key
 	   - Length of the string (may be 0 for unprintable keys)
 
-.. function:: hook\_server(name, callback[, userdata=None, priority=PRI\_NORM])
+.. function:: hook_server(name, callback[, userdata=None, priority=PRI\_NORM])
 
 	This function allows you to register a callback to be called when a
 	certain server event occurs. You can use this to trap ``PRIVMSG``,
@@ -539,7 +539,7 @@ command. For example, if you executed:
 
 	   xchat.hook_server("KICK", kick_cb)
 
-.. function:: hook\_timer(timeout, callback[, userdata=None])
+.. function:: hook_timer(timeout, callback[, userdata=None])
 
 	This function allows you to register a callback to be called every
 	timeout milliseconds. Parameters userdata and priority have their
@@ -568,7 +568,7 @@ command. For example, if you executed:
 	If you return a true value from the callback, the timer will be keeped,
 	otherwise it is removed.
 
-.. function:: hook\_unload(timeout, callback[, userdata=None])
+.. function:: hook_unload(timeout, callback[, userdata=None])
 
 	This function allows you to register a callback to be called when the
 	plugin is going to be unloaded. Parameters ``userdata`` and ``priority``
@@ -594,18 +594,20 @@ Plugin preferences
 
 You can use pluginpref to easily store and retrieve settings.
 
-.. function:: set\_pluginpref(name, value)
+.. function:: set_pluginpref(name, value)
 
 	Stores settings in addon\_python.conf in the config dir.
 	
-	:returns: 1 on success, 0 on failure
+	:returns:
+		- 0: Failure
+		- 1: Success
 	
 	.. versionadded:: 0.9
 
 	.. Note:: Until the plugin uses different a config file per script it's 
               recommened to use 'scriptname_settingname' to avoid conflicts.
 
-.. function:: get\_pluginpref(name)
+.. function:: get_pluginpref(name)
 
 	This will return the value of the variable of that name. If there is
 	none by this name it will return ``None``.
@@ -616,15 +618,17 @@ You can use pluginpref to easily store and retrieve settings.
 	
 	.. versionadded:: 0.9
 
-.. function:: del\_pluginpref(name)
+.. function:: del_pluginpref(name)
 
 	Deletes the specified variable.
 
-	:returns: 1 on success (or never existing), 0 on failure
+	:returns:
+		- 0: Failure
+		- 1: Success (or never existing), 
 	
 	.. versionadded:: 0.9
 
-.. function:: list\_pluginpref()
+.. function:: list_pluginpref()
 
 	Returns a list of all currently set preferences.
 	
@@ -651,7 +655,7 @@ You may create a context object using :func:`get_context` or :func:`find_context
 functions as explained below, or trough the :func:`get_list` function, as explained above.
 
 
-.. function:: get\_context()
+.. function:: get_context()
 
 	:rtype: :obj:`context` 
 
@@ -681,7 +685,7 @@ functions as explained below, or trough the :func:`get_list` function, as explai
 	
 		Does the same as the :func:`prnt` function but in the given context.
 	
-	.. method:: context.emit\_print(event\_name, \*args)
+	.. method:: context.emit_print(event\_name, \*args)
 	
 		Does the same as the :func:`emit\_print` function but in the given context.
 	
@@ -689,13 +693,13 @@ functions as explained below, or trough the :func:`get_list` function, as explai
 	
 		Does the same as the :func:`command` function but in the given context
 	
-	.. method:: context.get\_info(type)
+	.. method:: context.get_info(type)
 	
 		Does the same as the :func:`get\_info` function but in the given context.
 	
-	.. method:: context.get\_list(type)
+	.. method:: context.get_list(type)
 	
-		Does the same as the :func:`get\_list` function but in the given context.
+		Does the same as the :func:`get_list` function but in the given context.
 
 --------------
 
