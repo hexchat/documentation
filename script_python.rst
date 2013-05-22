@@ -208,14 +208,15 @@ Generic functions
 	   if xchat.nickcmp(nick, "mynick") == 0:
 		   print("They are the same!")
 
-.. function:: strip(text[, length, flags])
+.. function:: strip(text[, length=-1, flags=3])
 
 	This function can strip colors and attributes from text.
    
+   	:param length: -1 for entire string
    	:param flags:
    		1: Strip Colors 
    		2: Strip Attributes
-   		3: Strip All (default:3)
+   		3: Strip All
    	:returns: Stripped String
 
 	.. code-block:: python
@@ -410,18 +411,42 @@ Hook functions
 
 These functions allow one to hook into HexChat events.
 
-Priorities
+Parameters
 ''''''''''
 
-When a priority keyword parameter is accepted, it means that this
-callback may be hooked with five different priorities: PRI\_HIGHEST,
-PRI\_HIGH, PRI\_NORM, PRI\_LOW, and PRI\_LOWEST. The usage of these
-constants, which are available in the xchat module, will define the
-order in which your plugin will be called. Most of the time, you won't
-want to change its default value (PRI\_NORM).
+callback
+^^^^^^^^
 
-Parameters word and word\_eol
-'''''''''''''''''''''''''''''
+A callback is the function that will be called when the event happens.
+
+The callback supposed to return one of the EAT\_\* `constants <script_python.html#constants-and-attributes>`_,
+it is able control how HexChat will proceed after the callback returns. These
+are the available constants, and their meanings:
+     
+-  :data:`EAT\_PLUGIN`: Don't let any other plugin receive this event.
+-  :data:`EAT\_XCHAT`: Don't let HexChat treat this event as usual.
+-  :data:`EAT\_ALL`: Eat the event completely.
+-  :data:`EAT\_NONE`: Let everything happen as usual.
+
+.. Note:: Returning ``None`` is the same as returning :data:`EAT\_NONE`.
+
+userdata
+^^^^^^^^
+
+The parameter userdata, if given, allows you to pass a custom object to
+your callback.
+
+priority
+^^^^^^^^
+
+When a priority keyword parameter is accepted, it means that this
+callback may be hooked with five different priorities which are 
+`constants <script_python.html#constants-and-attributes>`_ will define the
+order in which your plugin will be called. Most of the time, you won't
+want to change its default value (:data:`PRI\_NORM`).
+
+word and word\_eol
+^^^^^^^^^^^^^^^^^^
 
 These parameters, when available in a callback, are lists of strings
 which contain the parameters the user entered for the particular
@@ -438,27 +463,7 @@ command. For example, if you executed:
 -  **word\_eol[2]** is ``Hi there!``
 -  **word\_eol[3]** is ``there!``
 
-Parameter userdata
-''''''''''''''''''
-
-The parameter userdata, if given, allows you to pass a custom object to
-your callback.
-
-Callback return constants (EAT\_\*)
-'''''''''''''''''''''''''''''''''''
-
-When a callback is supposed to return one of the EAT\_\* constants, it is
-able control how HexChat will proceed after the callback returns. These
-are the available constants, and their meanings:
-     
--  :data:`EAT\_PLUGIN`: Don't let any other plugin receive this event.
--  :data:`EAT\_XCHAT`: Don't let HexChat treat this event as usual.
--  :data:`EAT\_ALL`: Eat the event completely.
--  :data:`EAT\_NONE`: Let everything happen as usual.
-
-.. Note:: Returning ``None`` is the same as returning ``EAT_NONE``.
-
-.. function:: hook\_command(name, callback, userdata=None, priority=:data:`PRI\_NORM`, help=None)
+.. function:: hook\_command(name, callback[, userdata=None, priority=PRI\_NORM, help=None])
 
 	This function allows you to hook into the name HexChat command. It means
 	that everytime you type ``/name ...``, ``callback`` will be called.
@@ -482,7 +487,7 @@ are the available constants, and their meanings:
 	You may return one of ``EAT_*`` constants in the callback, to control
 	HexChat's behavior, as explained above.
 
-.. function:: hook\_print(name, callback, userdata=None, priority=:data:`PRI\_NORM`)
+.. function:: hook\_print(name, callback[, userdata=None, priority=PRI\_NORM])
 
 	This function allows you to register a callback to trap any print
 	events. The event names are available in the :menuselection:`Settings --> Text Events` window.
@@ -516,7 +521,7 @@ are the available constants, and their meanings:
 	   - String version of the key
 	   - Length of the string (may be 0 for unprintable keys)
 
-.. function:: hook\_server(name, callback, userdata=None, priority=:data:`PRI\_NORM`)
+.. function:: hook\_server(name, callback[, userdata=None, priority=PRI\_NORM])
 
 	This function allows you to register a callback to be called when a
 	certain server event occurs. You can use this to trap ``PRIVMSG``,
@@ -534,7 +539,7 @@ are the available constants, and their meanings:
 
 	   xchat.hook_server("KICK", kick_cb)
 
-.. function:: hook\_timer(timeout, callback, userdata=None)
+.. function:: hook\_timer(timeout, callback[, userdata=None])
 
 	This function allows you to register a callback to be called every
 	timeout milliseconds. Parameters userdata and priority have their
@@ -563,7 +568,7 @@ are the available constants, and their meanings:
 	If you return a true value from the callback, the timer will be keeped,
 	otherwise it is removed.
 
-.. function:: hook\_unload(timeout, callback, userdata=None)
+.. function:: hook\_unload(timeout, callback[, userdata=None])
 
 	This function allows you to register a callback to be called when the
 	plugin is going to be unloaded. Parameters ``userdata`` and ``priority``
