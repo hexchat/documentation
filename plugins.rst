@@ -595,6 +595,276 @@ Types and Constants
 Functions
 ---------
 
+General Functions
+'''''''''''''''''
+
+.. function:: void hexchat_command (hexchat_plugin *ph, const char *command)
+
+	Executes a command as if it were typed in HexChat's input box.
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param command: Command to execute, without the forward slash "/".
+
+
+.. function:: void hexchat_commandf (hexchat_plugin *ph, const char *format, ...)
+
+	Executes a command as if it were typed in HexChat's
+	input box and provides string formatting like :func:`printf`.
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param format: The format string.
+	
+
+.. function:: void hexchat_print (hexchat_plugin *ph, const char *text)
+
+	Prints some text to the current tab/window.
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param text: Text to print. May contain mIRC color codes.
+
+
+.. function:: void hexchat_printf (hexchat_plugin *ph, const char *format, ...)
+
+	Prints some text to the current tab/window and provides formatting like :func:`printf`.
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param format: The format string.
+
+
+.. function:: int hexchat_emit_print (hexchat_plugin *ph, const char *event_name, ...)
+
+	Generates a print event. This can be any event found in
+	the :menuselection:`Settings --> Text Events` window. The vararg parameter
+	list **must** always be NULL terminated. Special care should be taken
+	when calling this function inside a print callback (from
+	:func:`hexchat_hook_print`), as not to cause endless recursion.
+
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param event_name: Text event to print.
+
+	:returns: 0 on Failure, 1 on Success
+
+	**Example:**
+
+	.. code-block:: c
+
+	   hexchat_emit_print (ph, "Channel Message", "John", "Hi there", "@", NULL);
+
+
+.. function:: void hexchat_send_modes (hexchat_plugin *ph, const char *targets[], int ntargets, \
+										int modes_per_line, char sign, char mode)
+
+	Sends a number of channel mode changes to the current
+	channel. For example, you can Op a whole group of people in one go. It
+	may send multiple MODE lines if the request doesn't fit on one. Pass 0
+	for *modes_per_line* to use the current server's maximum possible.
+	This function should only be called while in a channel context.
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param targets: Array of targets (strings). The names of people whom the action will be performed on.
+	:param ntargets: Number of elements in the array given.
+	:param modes_per_line: Maximum modes to send per line.
+	:param sign: Mode sign, '-' or '+'.
+	:param mode: Mode char, e.g. 'o' for Ops.
+
+	**Example:** (Ops the three names given)
+
+	.. code-block:: c
+
+	   const char *names_to_Op[] = {"John", "Jack", "Jill"};
+	   hexchat_send_modes (ph, names_to_Op, 3, 0, '+', 'o');
+
+
+.. function:: int hexchat_nickcmp (hexchat_plugin *ph, const char *s1, const char *s2)
+
+	Performs a nick name comparision, based on the current
+	server connection. This might be an RFC1459 compliant string compare, or
+	plain ascii (in the case of DALNet). Use this to compare channels and
+	nicknames. The function works the same way as :func:`strcasecmp`.
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param s1: String to compare.
+	:param s2: String to compare *s1* to.
+
+	**Quote from RFC1459:** >Because of IRC's scandanavian origin, the
+	characters {}\| are considered to be the lower case equivalents of the
+	characters [], respectively. This is a critical issue when determining
+	the equivalence of two nicknames.
+
+	:returns: An integer less than, equal to, or greater than zero if
+		*s1* is found, respectively, to be less than, to match, or be greater than *s2*.
+
+.. function:: char* hexchat_strip (hexchat_plugin *ph, const char *str, int len, int flags)
+
+	Strips mIRC color codes and/or text attributes (bold,
+	underlined etc) from the given string and returns a newly allocated
+	string.
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param str: String to strip.
+	:param len: Length of the string (or -1 for NULL terminated).
+	:param flags: Bit-field of flags:
+	   -  0: Strip mIRC colors.
+	   -  1: Strip text attributes.
+
+	:returns: A newly allocated string or NULL for failure. You must free this string with :func:`hexchat_free`.
+
+	**Example:**
+
+	.. code-block:: c
+
+	   {
+		   char *new_text;
+
+		   /* strip both colors and attributes by using the 0 and 1 bits (1 BITWISE-OR 2) */
+		   new_text = hexchat_strip (ph, "\00312Blue\003 \002Bold!\002", -1, 1 | 2);
+
+		   if (new_text)
+		   {
+		       /* new_text should now contain only "Blue Bold!" */
+		       hexchat_printf (ph, "%s\n", new_text);
+		       hexchat_free (ph, new_text);
+		   }
+	   }
+
+
+.. function:: void hexchat_free (hexchat_plugin *ph, void *ptr)
+
+	Frees a string returned by **hexchat\_\*** functions.
+	Currently only used to free strings from :func:`hexchat_strip`.
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ptr: Pointer to free.
+
+
+Getting Information
+'''''''''''''''''''
+
+.. function:: const char* hexchat_get_info (hexchat_plugin *ph, const char *id)
+
+	Returns information based on your current context.
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param id: ID of the information you want. List of ID's(case sensitive):
+
+	   -  **away:** away reason or NULL if you are not away.
+	   -  **channel:** current channel name.
+	   -  **charset:** character-set used in the current context.
+	   -  **configdir:** HexChat config directory, e.g.:
+		  ``/home/user/.config/hexchat``. This string is encoded in UTF-8.
+	   -  **event\_text <name>:** text event format string for *name*.
+	   -  **gtkwin\_ptr:** (GtkWindow \*).
+	   -  **host:** real hostname of the server you connected to.
+	   -  **inputbox:** the input-box contents, what the user has typed.
+	   -  **libdirfs:** library directory. e.g. /usr/lib/hexchat. The same
+		  directory used for auto-loading plugins. This string isn't
+		  necessarily UTF-8, but local file system encoding.
+	   -  **modes:** channel modes, if known, or NULL.
+	   -  **network:** current network name or NULL.
+	   -  **nick:** your current nick name.
+	   -  **nickserv:** nickserv password for this network or NULL.
+	   -  **server:** current server name (what the server claims to be).
+		  NULL if you are not connected.
+	   -  **topic:** current channel topic.
+	   -  **version:** HexChat version number.
+	   -  **win\_ptr:** native window pointer. Unix: (GtkWindow \*) Win32:
+		  HWND.
+	   -  **win\_status:** window status: "active", "hidden" or "normal".
+
+	:returns: A string of the requested information, or NULL. This string
+		must not be freed and must be copied if needed after the call to :func:`hexchat_get_info`.
+
+
+.. function:: int hexchat_get_prefs (hexchat_plugin *ph, const char *name, \
+									const char **string, int *integer)
+
+	Provides HexChat's setting information (that which is
+	available through the :command:`/SET` command). A few extra bits of information
+	are available that don't appear in the :command:`/SET` list, currently they are:
+
+		-  **state\_cursor:** Current input box cursor position (characters, not
+		   bytes).
+		-  **id:** Unique server id
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param name: Setting name required.
+	:param string: Pointer-pointer which to set.
+	:param integer: Pointer to an integer to set, if setting is a boolean or integer type.
+
+	:returns:
+		-  0: Failed.
+		-  1: Returned a string.
+		-  2: Returned an integer.
+		-  3: Returned a boolean.
+
+	**Example:**
+
+	.. code-block:: c
+
+	   {
+		   int i;
+		   const char *str;
+
+		   if (hexchat_get_prefs (ph, "irc_nick1", &amp;str, &amp;i) == 1)
+		   {
+		       hexchat_printf (ph, "Current nickname setting: %s\n", str);
+		   }
+	   }
+
+
+.. function:: hexchat_list* hexchat_list_get (hexchat_plugin *ph, const char *name)
+
+	Retreives lists of information.
+
+	:param name: Name from the `List and Fields Table <plugins.html#lists-and-fields>`_
+	:returns: hexchat_list to be used by the following functions.
+
+
+.. function:: const char* const* hexchat_list_fields (hexchat_plugin *ph, const char *name)
+
+	Lists fields in a given list.
+
+	:param name: Name from the `List and Fields Table <plugins.html#lists-and-fields>`_
+
+
+.. function:: int hexchat_list_next (hexchat_plugin *ph, hexchat_list *xlist)
+
+	Selects the next list item in a list.
+
+	:param xlist: :type:`hexchat_list` returned by :func:`hexchat_list_get`
+
+
+.. function:: const char* hexchat_list_str (hexchat_plugin *ph, hexchat_list *xlist, const char *name)
+
+	Gets a string field from a list.
+
+	:param name: Name from the `List and Fields Table <plugins.html#lists-and-fields>`_
+	:param xlist: :type:`hexchat_list` returned by :func:`hexchat_list_get`
+
+
+.. function:: int hexchat_list_int (hexchat_plugin *ph, hexchat_list *xlist, const char *name)
+
+	Gets a int field from a list.
+
+	:param name: Name from the `List and Fields Table <plugins.html#lists-and-fields>`_
+	:param xlist: :type:`hexchat_list` returned by :func:`hexchat_list_get`
+
+
+.. function:: time_t hexchat_list_time (hexchat_plugin *ph, hexchat_list *xlist, const char *name)
+
+	Gets a time field from a list.
+
+	:param name: Name from the `List and Fields Table <plugins.html#lists-and-fields>`_
+	:param xlist: :type:`hexchat_list` returned by :func:`hexchat_list_get`
+
+.. function:: void hexchat_list_free (hexchat_plugin *ph, hexchat_list *xlist)
+
+	Frees a list.
+
+	:param xlist: :type:`hexchat_list` returned by :func:`hexchat_list_get`
+
+
 Hook Functions
 ''''''''''''''
 
@@ -795,221 +1065,7 @@ Hook Functions
 	:param hook: Pointer to the hook, as returned by **hexchat\_hook\_\***.
 
 	:returns: The userdata you originally gave to **hexchat\_hook\_\***.
-	
 
-General Functions
-'''''''''''''''''
-
-.. function:: void hexchat_command (hexchat_plugin *ph, const char *command)
-
-	Executes a command as if it were typed in HexChat's input box.
-
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
-	:param command: Command to execute, without the forward slash "/".
-
-
-.. function:: void hexchat_commandf (hexchat_plugin *ph, const char *format, ...)
-
-	Executes a command as if it were typed in HexChat's
-	input box and provides string formatting like :func:`printf`.
-
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
-	:param format: The format string.
-	
-
-.. function:: void hexchat_print (hexchat_plugin *ph, const char *text)
-
-	Prints some text to the current tab/window.
-
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
-	:param text: Text to print. May contain mIRC color codes.
-
-
-.. function:: void hexchat_printf (hexchat_plugin *ph, const char *format, ...)
-
-	Prints some text to the current tab/window and provides formatting like :func:`printf`.
-
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
-	:param format: The format string.
-
-
-.. function:: int hexchat_emit_print (hexchat_plugin *ph, const char *event_name, ...)
-
-	Generates a print event. This can be any event found in
-	the :menuselection:`Settings --> Text Events` window. The vararg parameter
-	list **must** always be NULL terminated. Special care should be taken
-	when calling this function inside a print callback (from
-	:func:`hexchat_hook_print`), as not to cause endless recursion.
-
-
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
-	:param event_name: Text event to print.
-
-	:returns: 0 on Failure, 1 on Success
-
-	**Example:**
-
-	.. code-block:: c
-
-	   hexchat_emit_print (ph, "Channel Message", "John", "Hi there", "@", NULL);
-
-
-.. function:: void hexchat_send_modes (hexchat_plugin *ph, const char *targets[], int ntargets, \
-										int modes_per_line, char sign, char mode)
-
-	Sends a number of channel mode changes to the current
-	channel. For example, you can Op a whole group of people in one go. It
-	may send multiple MODE lines if the request doesn't fit on one. Pass 0
-	for *modes_per_line* to use the current server's maximum possible.
-	This function should only be called while in a channel context.
-
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
-	:param targets: Array of targets (strings). The names of people whom the action will be performed on.
-	:param ntargets: Number of elements in the array given.
-	:param modes_per_line: Maximum modes to send per line.
-	:param sign: Mode sign, '-' or '+'.
-	:param mode: Mode char, e.g. 'o' for Ops.
-
-	**Example:** (Ops the three names given)
-
-	.. code-block:: c
-
-	   const char *names_to_Op[] = {"John", "Jack", "Jill"};
-	   hexchat_send_modes (ph, names_to_Op, 3, 0, '+', 'o');
-
-
-.. function:: const char* hexchat_get_info (hexchat_plugin *ph, const char *id)
-
-	Returns information based on your current context.
-
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
-	:param id: ID of the information you want. List of ID's(case sensitive):
-
-	   -  **away:** away reason or NULL if you are not away.
-	   -  **channel:** current channel name.
-	   -  **charset:** character-set used in the current context.
-	   -  **configdir:** HexChat config directory, e.g.:
-		  ``/home/user/.config/hexchat``. This string is encoded in UTF-8.
-	   -  **event\_text <name>:** text event format string for *name*.
-	   -  **gtkwin\_ptr:** (GtkWindow \*).
-	   -  **host:** real hostname of the server you connected to.
-	   -  **inputbox:** the input-box contents, what the user has typed.
-	   -  **libdirfs:** library directory. e.g. /usr/lib/hexchat. The same
-		  directory used for auto-loading plugins. This string isn't
-		  necessarily UTF-8, but local file system encoding.
-	   -  **modes:** channel modes, if known, or NULL.
-	   -  **network:** current network name or NULL.
-	   -  **nick:** your current nick name.
-	   -  **nickserv:** nickserv password for this network or NULL.
-	   -  **server:** current server name (what the server claims to be).
-		  NULL if you are not connected.
-	   -  **topic:** current channel topic.
-	   -  **version:** HexChat version number.
-	   -  **win\_ptr:** native window pointer. Unix: (GtkWindow \*) Win32:
-		  HWND.
-	   -  **win\_status:** window status: "active", "hidden" or "normal".
-
-	:returns: A string of the requested information, or NULL. This string
-		must not be freed and must be copied if needed after the call to :func:`hexchat_get_info`.
-
-
-.. function:: int hexchat_get_prefs (hexchat_plugin *ph, const char *name, \
-									const char **string, int *integer)
-
-	Provides HexChat's setting information (that which is
-	available through the :command:`/SET` command). A few extra bits of information
-	are available that don't appear in the :command:`/SET` list, currently they are:
-
-		-  **state\_cursor:** Current input box cursor position (characters, not
-		   bytes).
-		-  **id:** Unique server id
-
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
-	:param name: Setting name required.
-	:param string: Pointer-pointer which to set.
-	:param integer: Pointer to an integer to set, if setting is a boolean or integer type.
-
-	:returns:
-		-  0: Failed.
-		-  1: Returned a string.
-		-  2: Returned an integer.
-		-  3: Returned a boolean.
-
-	**Example:**
-
-	.. code-block:: c
-
-	   {
-		   int i;
-		   const char *str;
-
-		   if (hexchat_get_prefs (ph, "irc_nick1", &amp;str, &amp;i) == 1)
-		   {
-		       hexchat_printf (ph, "Current nickname setting: %s\n", str);
-		   }
-	   }
-
-
-.. function:: int hexchat_nickcmp (hexchat_plugin *ph, const char *s1, const char *s2)
-
-	Performs a nick name comparision, based on the current
-	server connection. This might be an RFC1459 compliant string compare, or
-	plain ascii (in the case of DALNet). Use this to compare channels and
-	nicknames. The function works the same way as :func:`strcasecmp`.
-
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
-	:param s1: String to compare.
-	:param s2: String to compare *s1* to.
-
-	**Quote from RFC1459:** >Because of IRC's scandanavian origin, the
-	characters {}\| are considered to be the lower case equivalents of the
-	characters [], respectively. This is a critical issue when determining
-	the equivalence of two nicknames.
-
-	:returns: An integer less than, equal to, or greater than zero if
-		*s1* is found, respectively, to be less than, to match, or be greater than *s2*.
-
-.. function:: char* hexchat_strip (hexchat_plugin *ph, const char *str, int len, int flags)
-
-	Strips mIRC color codes and/or text attributes (bold,
-	underlined etc) from the given string and returns a newly allocated
-	string.
-
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
-	:param str: String to strip.
-	:param len: Length of the string (or -1 for NULL terminated).
-	:param flags: Bit-field of flags:
-	   -  0: Strip mIRC colors.
-	   -  1: Strip text attributes.
-
-	:returns: A newly allocated string or NULL for failure. You must free this string with :func:`hexchat_free`.
-
-	**Example:**
-
-	.. code-block:: c
-
-	   {
-		   char *new_text;
-
-		   /* strip both colors and attributes by using the 0 and 1 bits (1 BITWISE-OR 2) */
-		   new_text = hexchat_strip (ph, "\00312Blue\003 \002Bold!\002", -1, 1 | 2);
-
-		   if (new_text)
-		   {
-		       /* new_text should now contain only "Blue Bold!" */
-		       hexchat_printf (ph, "%s\n", new_text);
-		       hexchat_free (ph, new_text);
-		   }
-	   }
-
-
-.. function:: void hexchat_free (hexchat_plugin *ph, void *ptr)
-
-	Frees a string returned by **hexchat\_\*** functions.
-	Currently only used to free strings from :func:`hexchat_strip`.
-
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
-	:param ptr: Pointer to free.
 
 Context Functions
 '''''''''''''''''
