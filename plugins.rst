@@ -878,37 +878,12 @@ General Functions
 	   hexchat_send_modes (ph, names_to_Op, 3, 0, '+', 'o');
 
 
-.. function:: hexchat_context* hexchat_find_context(hexchat_plugin *ph, const char *servname, const char *channel)
-
-	Finds a context based on a channel and servername. If
-	*servname* is NULL, it finds any channel (or query) by the given name.
-	If *channel* is NULL, it finds the front-most tab/window of the given
-	*servname*. If NULL is given for both arguments, the currently focused
-	tab/window will be returned.
-
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
-	:param servname: Server name or NULL.
-	:param channel: Channel name or NULL.
-
-	:returns: Context pointer (for use with :func:`hexchat_set_context`) or NULL.
-
-
-.. function:: hexchat_context* hexchat_get_context (hexchat_plugin *ph)
-
-	Returns the current context for your plugin. You can
-	use this later with :func:`hexchat_set_context`.
-
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
-
-	:returns: Context pointer (for use with :func:`hexchat_set_context`).
-
-
 .. function:: const char* hexchat_get_info (hexchat_plugin *ph, const char *id)
 
 	Returns information based on your current context.
 
 	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
-	:param id: ID of the information you want. Currently supported IDs are (case sensitive):
+	:param id: ID of the information you want. List of ID's(case sensitive):
 
 	   -  **away:** away reason or NULL if you are not away.
 	   -  **channel:** current channel name.
@@ -975,18 +950,6 @@ General Functions
 	   }
 
 
-.. function:: int hexchat_set_context (hexchat_plugin *ph, hexchat_context *ctx)
-
-	Changes your current context to the one given.
-
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
-	:param ctx: Context to change to (obtained with :func:`hexchat_get_context` or :func:`hexchat_find_context`).
-
-	:returns:
-		-  1: Success.
-		-  0: Failure.
-		
-
 .. function:: int hexchat_nickcmp (hexchat_plugin *ph, const char *s1, const char *s2)
 
 	Performs a nick name comparision, based on the current
@@ -1047,6 +1010,46 @@ General Functions
 
 	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
 	:param ptr: Pointer to free.
+
+Context Functions
+'''''''''''''''''
+
+.. function:: hexchat_context* hexchat_find_context(hexchat_plugin *ph, const char *servname, const char *channel)
+
+	Finds a context based on a channel and servername. If
+	*servname* is NULL, it finds any channel (or query) by the given name.
+	If *channel* is NULL, it finds the front-most tab/window of the given
+	*servname*. If NULL is given for both arguments, the currently focused
+	tab/window will be returned.
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param servname: Server name or NULL.
+	:param channel: Channel name or NULL.
+
+	:returns: Context pointer (for use with :func:`hexchat_set_context`) or NULL.
+
+
+.. function:: hexchat_context* hexchat_get_context (hexchat_plugin *ph)
+
+	Returns the current context for your plugin. You can
+	use this later with :func:`hexchat_set_context`.
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+
+	:returns: Context pointer (for use with :func:`hexchat_set_context`).
+
+
+.. function:: int hexchat_set_context (hexchat_plugin *ph, hexchat_context *ctx)
+
+	Changes your current context to the one given.
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ctx: Context to change to (obtained with :func:`hexchat_get_context` or :func:`hexchat_find_context`).
+
+	:returns:
+		-  1: Success.
+		-  0: Failure.
+		
 
 Plugin Preferences
 ''''''''''''''''''
