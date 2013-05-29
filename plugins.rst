@@ -1153,7 +1153,7 @@ Plugin Preferences
 	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
 	:param var: Name of the setting to load.
 
-	:returns:** The decimal value of the requested setting upon success, -1 for failure.
+	:returns: The decimal value of the requested setting upon success, -1 for failure.
 
 
 .. function:: int hexchat_pluginpref_delete (hexchat_plugin *ph, const char *var)
