@@ -1214,7 +1214,7 @@ Plugin Preferences
 Plugin GUI
 ''''''''''
 
-.. function:: void* hexchat_plugingui_add (hexchat_plugin *ph, const char *filename, const char *name,
+.. function:: void* hexchat_plugingui_add (hexchat_plugin *ph, const char *filename, const char *name, \
 					const char *desc, const char *version, char *reserved)
 					
 	Adds a fake plugin to the GUI in :menuselection:`Window --> Plugins and Scripts`.
