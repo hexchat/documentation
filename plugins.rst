@@ -1210,3 +1210,22 @@ Plugin Preferences
 	then print them one by one with their respective values. We always use
 	*hexchat\_pluginpref\_get\_str ()*, and that's because we can read an
 	integer as string (but not vice versa).
+	
+Plugin GUI
+''''''''''
+
+.. function:: void* hexchat_plugingui_add (hexchat_plugin *ph, const char *filename, const char *name,
+					const char *desc, const char *version, char *reserved)
+					
+	Adds a fake plugin to the GUI in :menuselection:`Window --> Plugins and Scripts`.
+	This does not need to be done for your actual plugin and is only used for interfaces
+	to other languages like our python plugin.
+	
+	:returns: Handle to be used with :func:`hexchat_plugingui_remove`
+	
+.. function:: void hexchat_plugingui_remove (hexchat_plugin *ph, void *handle)
+	
+	Removes the fake plugin from the GUI. Again not to be used to remove your own plugin.
+	
+	:param handle: Handle returned by :func:`hexchat_plugingui_add`
+
