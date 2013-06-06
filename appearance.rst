@@ -6,10 +6,10 @@ Theme Manager
 
 The theme manager is a simple external application, which is included with the `installer <http://hexchat.org/downloads.html>`_ on Windows and `buildable <building.html#building-theme-manager>`_ on Unix, that helps install themes.
 
+The themes are distributed as :file:`.hct` files. These are just simply ZIP archives that you can extract manually and install into your `config folder <settings.html#config-files>`_. Some themes can be found `here <http://dl.hexchat.org/themes/>`_.
+
 .. image:: http://i.imgur.com/iwDcvLL.png
    :align: center
-   
-The themes are distributed as :file:`.hct` files. These are just simply ZIP archives that you can extract manually and install into your `config folder <settings.html#config-files>`_. Some themes can be found `here <http://dl.hexchat.org/themes/>`_.
 
 .. NOTE::
 	.NET 4 is required to run the theme manager; You can download it `here <http://www.microsoft.com/en-us/download/details.aspx?id=17113>`_
