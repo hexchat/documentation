@@ -5,7 +5,11 @@ HexChat ChangeLog
 -----------
 
 - redesign edit window in network list
+- rename favorites to autojoin
 - add support for QuakeNet's challangeauth
+- add chanopt for stripping colors
+- add copy option to banlist entries
+- add autoconnect option to context menu of networks
 - add option for omitting alerts while window is focused
 - add python3 support along with various bugfixes
 - add libcanberra support on unix
@@ -15,15 +19,17 @@ HexChat ChangeLog
 - add support for the away-notify, account-notify, and extended-join capabilities
 - add notifications for friends away status (requires away-notify)
 - add events for quiet and unquiet
+- add Ctrl+N (New Server Window) keybinding
 - fix compilation on FreeBSD
 - fix splitting ctcps and notices
 - fix alerts and scrollback chanopts
+- fix crash when attaching/detaching tabs
 - fix sending limited channel messages (op messages) to the wrong tab
-- add Ctrl+N (New Server Window) keybinding
 - change /load -e to load from config dir
 - remove Ctrl+L (Clear Text) keybinding
 - remove custom sound applications
 - remove away announce, replaced by away-notify on supported servers. (`alternative python script <https://github.com/hexchat/hexchat-addons/blob/master/python/awayannounce/awayanounce.py>`_)
+- update network list
 
 2.9.5 (2013-04-01)
 ------------------
