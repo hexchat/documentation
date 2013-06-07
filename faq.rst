@@ -56,9 +56,15 @@ How do I change what browser is opened?
     - Gnome 3: :menuselection:`System Settings --> Details --> Default Applications`
     - XFCE 4: :menuselection:`Settings Manager --> Prefered Applications`
 
-    If these do not work or you do not use a DE use the command :command:`gvfs-mime` to set the handler for *x-scheme-handler/http* (and https but not html).
+    If these do not work or you do not use a DE use the command :command:`gvfs-mime`:
+     
+     gvfs-mime --set x-scheme-handler/http firefox.desktop
 
-    If you hate gvfs you can manually edit *~/.local/share/applications/mimeapps.list* to include *x-scheme-handler/http=firefox.desktop;* for example.
+    If you hate gvfs you can manually edit *~/.local/share/applications/mimeapps.list* to include:
+    
+     x-scheme-handler/http=firefox.desktop;
+     
+    Don't forget to do the same for *https*. Now upon launching it will use the *Exec* line in their desktop file replacing *%u* with the url.
 
 Alternatively you can add an `Url Handler <settings.html#url-handlers>`_
 
