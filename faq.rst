@@ -58,7 +58,7 @@ How do I change what browser is opened?
 
     If these do not work or you do not use a DE use the command :command:`gvfs-mime` to set the handler for *x-scheme-handler/http* (and https but not html).
 
-    If you hate gvfs you can manually edit */usr/share/applications/mimeapps.list* or *~/.local/share/applications/mimeapps.list* (overrides the former).
+    If you hate gvfs you can manually edit *~/.local/share/applications/mimeapps.list* to include *x-scheme-handler/http=firefox.desktop;* for example.
 
 Alternatively you can add an `Url Handler <settings.html#url-handlers>`_
 
