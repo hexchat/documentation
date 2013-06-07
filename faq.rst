@@ -54,12 +54,11 @@ How do I change what browser is opened?
 
 - Unix:
     - Gnome 3: :menuselection:`System Settings --> Details --> Default Applications`
-    - KDE 4: :menuselection:`System Settings --> Default Applications`
     - XFCE 4: :menuselection:`Settings Manager --> Prefered Applications`
 
     If these do not work or you do not use a DE use the command :command:`gvfs-mime` to set the handler for *x-scheme-handler/http* (and https but not html).
 
-    If you hate gvfs you can manually */usr/share/applications/mimeapps.list* or *~/.local/share/applications/mimeapps.list* (overrides the former).
+    If you hate gvfs you can manually edit */usr/share/applications/mimeapps.list* or *~/.local/share/applications/mimeapps.list* (overrides the former).
 
 Alternatively you can add an `Url Handler <settings.html#url-handlers>`_
 
