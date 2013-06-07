@@ -16,11 +16,13 @@ HexChat ChangeLog
 - add tracking of users accounts
 - add %u to userlist popups for accounts
 - add MONITOR support for the friends list
+- add QUIET and UNQUIET commands
 - add support for the away-notify, account-notify, and extended-join capabilities
 - add notifications for friends away status (requires away-notify)
 - add events for quiet and unquiet
 - add Ctrl+N (New Server Window) keybinding
 - fix compilation on FreeBSD
+- fix running as root
 - fix splitting ctcps and notices
 - fix alerts and scrollback chanopts
 - fix crash when attaching/detaching tabs
