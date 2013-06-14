@@ -19,7 +19,7 @@ HexChat ChangeLog
 - add QUIET and UNQUIET commands
 - add support for the away-notify, account-notify, and extended-join capabilities
 - add notifications for friends away status (requires away-notify)
-- add events for quiet and unquiet
+- add events for quiet, unquiet, and quietlist
 - add Ctrl+N (New Server Window) keybinding
 - fix compilation on FreeBSD
 - fix running as root
