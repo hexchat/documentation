@@ -248,9 +248,9 @@ getting larger.
 Go to :menuselection:`Settings --> Preferences --> Logging` and change the
 log filename to any one of these:
 
-    %Y-%m-%d/%n-%c.log ->2006-12-30/FreeNode-#channel.log
+    %Y-%m-%d/%n-%c.log -> 2006-12-30/FreeNode-#channel.log
 
-    %n/%Y-%m-%d/%c.log ->FreeNode/2006-12-30/#channel.log
+    %n/%Y-%m-%d/%c.log -> FreeNode/2006-12-30/#channel.log
 
     %n/%c.log -> FreeNode/#channel.log (no rotation)
 
@@ -258,6 +258,8 @@ log filename to any one of these:
 %n is the network name, e.g. "FreeNode" or "UnderNet", and finally, %c
 is the channel. In these examples, a new log filename and folder would
 be created after midnight.
+
+The format can also be a full path if you want to save logs to an external drive for example.
 
 For the full list of formatting codes, please refer to the
 `Unix <http://linux.die.net/man/3/strftime>`_ or
