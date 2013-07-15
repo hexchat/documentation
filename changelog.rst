@@ -8,6 +8,7 @@ HexChat ChangeLog
 - rename favorites to autojoin
 - improve url detection yet again (this time w/ more ipv6!)
 - add support for server-time and znc.in/server-time[-iso] capabilities
+- add attributes to hook_print/server and emit_print for information such as server-time
 - add support for QuakeNet's challangeauth
 - add chanopt for stripping colors
 - add copy option to banlist entries
