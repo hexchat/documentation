@@ -869,7 +869,8 @@ Hook Functions
 ''''''''''''''
 
 .. function:: hexchat_hook* hexchat_hook_command (hexchat_plugin *ph, const char *name, int pri, \
-								hexchat_cmd_cb *callb, const char *help_text, void *userdata)
+								int (*callb) (char *word[], char *word_eol[], void *user_data), \
+								const char *help_text, void *userdata)
 
 	Adds a new :command:`/command`. This allows your program to
 	handle commands entered at the input box. To capture text without a "/"
@@ -908,7 +909,7 @@ Hook Functions
 
 
 .. function:: hexchat_hook* hexchat_hook_fd (hexchat_plugin *ph, int fd, int flags, \
-											hexchat_fd_cb *callb, void *userdata)
+											int (*callb) (int fd, int flags, void *user_data), void *userdata)
 
 	Hooks a socket or file descriptor. WIN32: Passing a
 	pipe from MSVCR71, MSVCR80 or other variations is not supported at this
@@ -926,7 +927,7 @@ Hook Functions
 
 
 .. function:: hexchat_hook* hexchat_hook_print (hexchat_plugin *ph, const char *name, int pri, \
-												hexchat_print_cb *callb, void *userdata)
+												int (*callb) (char *word[], void *user_data), void *userdata)
 
 	Registers a function to trap any print events. The
 	event names may be any available in the :menuselection:`Settings --> Text Events` window.
@@ -985,7 +986,7 @@ Hook Functions
 
 
 .. function:: hexchat_hook* hexchat_hook_server (hexchat_plugin *ph, const char *name, int pri, \
-												hexchat_serv_cb *callb, void *userdata)
+												int (*callb) (char *word[], char *word_eol[], void *user_data), void *userdata)
 
 	Registers a function to be called when a certain server
 	event occurs. You can use this to trap *PRIVMSG*, *NOTICE*, *PART*, a
@@ -1015,7 +1016,8 @@ Hook Functions
 	   hexchat_hook_server (ph, "KICK", HEXCHAT_PRI_NORM, kick_cb, NULL);
 
 
-.. function:: hexchat_hook *hexchat_hook_timer (hexchat_plugin *ph, int timeout, hexchat_timer_cb *callb, void *userdata)
+.. function:: hexchat_hook *hexchat_hook_timer (hexchat_plugin *ph, int timeout, \
+												int (*callb) (void *user_data), void *userdata)
 
 	Registers a function to be called every "timeout" milliseconds.
 
