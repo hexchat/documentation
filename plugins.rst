@@ -573,6 +573,7 @@ Types and Constants
           hexchat_list
           hexchat_hook
           hexchat_context
+          hexchat_event_attrs
 
    
 .. var:: HEXCHAT_PRI_HIGHEST 
@@ -651,6 +652,30 @@ General Functions
 
 	   hexchat_emit_print (ph, "Channel Message", "John", "Hi there", "@", NULL);
 
+
+.. function:: int hexchat_emit_print_attrs (hexchat_plugin *ph, hexchat_event_attrs *attrs, const char *event_name, ...)
+
+	Generates a print event. This is the same as
+	:func:`hexchat_emit_print` but it passes an :type:`hexchat_event_attrs *` 
+	to hexchat with the print attributes.
+
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param attrs: Print attributes. This should be obtained with :func:`hexchat_event_attrs_create` and freed with :func:`hexchat_event_attrs_free`.
+	:param event_name: Text event to print.
+
+	:returns: 0 on Failure, 1 on Success
+
+	**Example:**
+
+	.. code-block:: c
+
+	   hexchat_event_attrs *attrs;
+
+	   attrs = hexchat_event_attrs_create (ph);
+	   attrs->server_time_utc = 1342224702;
+	   hexchat_emit_print (ph, attrs, "Channel Message", "John", "Hi there", "@", NULL);
+	   hexchat_event_attrs_free (ph, attrs);
 
 .. function:: void hexchat_send_modes (hexchat_plugin *ph, const char *targets[], int ntargets, \
 										int modes_per_line, char sign, char mode)
@@ -736,6 +761,20 @@ General Functions
 
 	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
 	:param ptr: Pointer to free.
+
+
+.. function:: hexchat_event_attrs *hexchat_event_attrs_create (hexchat_plugin *ph)
+
+	Allocates a new :type:`hexchat_event_attrs`. The attributes are initially 
+	marked as unused.
+
+	:returns: A pointer to the allocated :type:`hexchat_event_attrs`. Should be freed by :func:`hexchat_event_attrs_free`.
+
+.. function:: void hexchat_event_attrs_free (hexchat_plugin *ph, hexchat_event_attrs *attrs)
+
+	Frees an :type:`hexchat_event_attrs`.
+
+	:param attrs: Attributes previously allocated by :func:`hexchat_event_attrs_create`.
 
 
 Getting Information
@@ -869,7 +908,8 @@ Hook Functions
 ''''''''''''''
 
 .. function:: hexchat_hook* hexchat_hook_command (hexchat_plugin *ph, const char *name, int pri, \
-								hexchat_cmd_cb *callb, const char *help_text, void *userdata)
+								int (*callb) (char *word[], char *word_eol[], void *user_data), \
+								const char *help_text, void *userdata)
 
 	Adds a new :command:`/command`. This allows your program to
 	handle commands entered at the input box. To capture text without a "/"
@@ -908,7 +948,7 @@ Hook Functions
 
 
 .. function:: hexchat_hook* hexchat_hook_fd (hexchat_plugin *ph, int fd, int flags, \
-											hexchat_fd_cb *callb, void *userdata)
+											int (*callb) (int fd, int flags, void *user_data), void *userdata)
 
 	Hooks a socket or file descriptor. WIN32: Passing a
 	pipe from MSVCR71, MSVCR80 or other variations is not supported at this
@@ -926,7 +966,7 @@ Hook Functions
 
 
 .. function:: hexchat_hook* hexchat_hook_print (hexchat_plugin *ph, const char *name, int pri, \
-												hexchat_print_cb *callb, void *userdata)
+												int (*callb) (char *word[], void *user_data), void *userdata)
 
 	Registers a function to trap any print events. The
 	event names may be any available in the :menuselection:`Settings --> Text Events` window.
@@ -983,9 +1023,24 @@ Hook Functions
 
 	   hexchat_hook_print (ph, "You Part", HEXCHAT_PRI_NORM, youpart_cb, NULL);
 
+.. function:: hexchat_hook* hexchat_hook_print_attrs (hexchat_plugin *ph, const char *name, int pri, \
+		int (*callb) (char *word[], hexchat_event_attrs *attrs, void *user_data), void *userdata)
+
+	Registers a function to trap any print events. This is the same as
+	:func:`hexchat_hook_print` but the callback receives an
+	:type:`hexchat_event_attrs *` with attributes related to the print event.
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param name: Name of the print event (as in *Text Events* window).
+	:param pri: Priority of this command. Use :data:`HEXCHAT_PRI_NORM`.
+	:param callb: Callback function. This will be called when this event name is printed.
+	:param userdata: Pointer passed to the callback function.
+
+	:returns: Pointer to the hook. Can be passed to :func:`hexchat_unhook`.
+
 
 .. function:: hexchat_hook* hexchat_hook_server (hexchat_plugin *ph, const char *name, int pri, \
-												hexchat_serv_cb *callb, void *userdata)
+												int (*callb) (char *word[], char *word_eol[], void *user_data), void *userdata)
 
 	Registers a function to be called when a certain server
 	event occurs. You can use this to trap *PRIVMSG*, *NOTICE*, *PART*, a
@@ -1015,7 +1070,26 @@ Hook Functions
 	   hexchat_hook_server (ph, "KICK", HEXCHAT_PRI_NORM, kick_cb, NULL);
 
 
-.. function:: hexchat_hook *hexchat_hook_timer (hexchat_plugin *ph, int timeout, hexchat_timer_cb *callb, void *userdata)
+.. function:: hexchat_hook* hexchat_hook_server_attrs (hexchat_plugin *ph, const char *name, int pri, \
+												int (*callb) (char *word[], char *word_eol[], hexchat_event_attrs *attrs, void *user_data), void *userdata)
+
+	Registers a function to be called when a certain server
+	event occurs. This is the same as
+	:func:`hexchat_hook_server` but the callback receives an
+	:type:`hexchat_event_attrs *` with attributes related to the server event.
+
+
+	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param name: Name of the server event.
+	:param pri: Priority of this command. Use :data:`HEXCHAT_PRI_NORM`.
+	:param callb: Callback function. This will be called when this event is received from the server.
+	:param userdata: Pointer passed to the callback function.
+
+	:returns: Pointer to the hook. Can be passed to :func:`hexchat_unhook`.
+
+
+.. function:: hexchat_hook *hexchat_hook_timer (hexchat_plugin *ph, int timeout, \
+												int (*callb) (void *user_data), void *userdata)
 
 	Registers a function to be called every "timeout" milliseconds.
 
