@@ -144,20 +144,20 @@ Constants and Attributes
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. data:: PRI_HIGHEST
-          PRI_HIGH
-          PRI_NORM
-          PRI_LOW
-          PRI_LOWEST
-          
+		  PRI_HIGH
+		  PRI_NORM
+		  PRI_LOW
+		  PRI_LOWEST
+		  
 	Priority given to hooks.
 
 .. data:: EAT_PLUGIN
-	      EAT_XCHAT
-	      EAT_ALL
-	      EAT_NONE
-	      
+		  EAT_XCHAT
+		  EAT_ALL
+		  EAT_NONE
+		  
 	Used as return values for callbacks.
-          
+		  
 .. attribute:: __version__
 
 	Tuple of (MAJOR_VERSION, MINOR_VERSION)
@@ -184,7 +184,9 @@ Generic functions
 
 	.. code-block:: python
 
-	   xchat.emit_print("Channel Message", "John", "Hi there", "@")
+		xchat.emit_print("Channel Message", "John", "Hi there", "@")
+
+	With 2.9.6+ this function takes Keywords for certain :obj:`Attributes` such as *time*
 
 .. function:: command(string)
 
@@ -212,12 +214,12 @@ Generic functions
 
 	This function can strip colors and attributes from text.
    
-   	:param length: -1 for entire string
-   	:param flags:
-   		1: Strip Colors 
-   		2: Strip Attributes
-   		3: Strip All
-   	:returns: Stripped String
+	:param length: -1 for entire string
+	:param flags:
+		1: Strip Colors 
+		2: Strip Attributes
+		3: Strip All
+	:returns: Stripped String
 
 	.. code-block:: python
 
@@ -288,7 +290,7 @@ Information retreiving functions
 		   print("--- DCC LIST ------------------")
 		   print("File  To/From   KB/s   Position")
 		   for i in list:
-		       print("%6s %10s %.2f  %d" % (i.file, i.nick, i.cps/1024, i.pos))
+			   print("%6s %10s %.2f  %d" % (i.file, i.nick, i.cps/1024, i.pos))
 
 	Below you will find what each list type has to offer.
 	
@@ -422,7 +424,7 @@ A callback is the function that will be called when the event happens.
 The callback supposed to return one of the EAT\_\* `constants <script_python.html#constants-and-attributes>`_,
 it is able control how HexChat will proceed after the callback returns. These
 are the available constants, and their meanings:
-     
+	 
 -  :data:`EAT_PLUGIN`: Don't let any other plugin receive this event.
 -  :data:`EAT_XCHAT`: Don't let HexChat treat this event as usual.
 -  :data:`EAT_ALL`: Eat the event completely.
@@ -435,6 +437,18 @@ userdata
 
 The parameter userdata, if given, allows you to pass a custom object to
 your callback.
+
+attributes
+^^^^^^^^^^
+
+If you create a hook with :func:`hook_server_attrs` or :func:`hook_print_attrs` the last 
+argument in the callback will be an :obj:`Attribute` object.
+
+.. object:: Attribute
+
+	.. attribute:: Attribute.time
+
+		The time the event occurred (from server-time) or 0
 
 priority
 ^^^^^^^^
@@ -477,9 +491,9 @@ command. For example, if you executed:
 
 	   def onotice_cb(word, word_eol, userdata):
 		   if len(word) < 2:
-		       print("Second arg must be the message!")
+			   print("Second arg must be the message!")
 		   else:
-		       xchat.command("NOTICE @{} {}".format(xchat.get_info("channel"), word_eol[1]))
+			   xchat.command("NOTICE @{} {}".format(xchat.get_info("channel"), word_eol[1]))
 		   return xchat.EAT_ALL
 
 	   xchat.hook_command("ONOTICE", onotice_cb, help="/ONOTICE <message> Sends a notice to all ops")
@@ -521,6 +535,24 @@ command. For example, if you executed:
 	   - String version of the key
 	   - Length of the string (may be 0 for unprintable keys)
 
+.. function:: hook_print_attrs(name, callback[, userdata=None, priority=PRI_NORM])
+
+	This function is the same as :func:`hook_print` except its callback will have a new
+	:obj:`Attribute` argument.
+
+	:returns: New Hook Handler
+
+	.. versionadded:: 1.0
+
+	.. code-block:: python
+
+		def youpart_cb(word, word_eol, userdata, attributes):
+			if attributes.time: # Time may be 0 if server-time is not enabled.
+				print("You have left channel {} at {}".format(word[2], attributes.time))
+				return xchat.EAT_XCHAT
+
+		xchat.hook_print_attrs("You Part", youpart_cb)
+
 .. function:: hook_server(name, callback[, userdata=None, priority=PRI_NORM])
 
 	This function allows you to register a callback to be called when a
@@ -532,12 +564,30 @@ command. For example, if you executed:
 
 	.. code-block:: python
 
-	   def kick_cb(word, word_eol, userdata):
-		   print('{} was kicked from {} ({})'.format(word[3], word[2], word_eol[4]))
-		   # Don't eat this event, let other plugins and HexChat see it too
-		   return xchat.EAT_NONE
+		def kick_cb(word, word_eol, userdata):
+			print('{} was kicked from {} ({})'.format(word[3], word[2], word_eol[4]))
+			# Don't eat this event, let other plugins and HexChat see it too
+			return xchat.EAT_NONE
 
 	   xchat.hook_server("KICK", kick_cb)
+
+.. function:: hook_server_attrs(name, callback[, userdata=None, priority=PRI_NORM])
+
+	This function is the same as :func:`hook_server` Except its callback will have a new
+	:obj:`Attribute` argument.
+	
+	:returns: New Hook Handler
+
+	.. versionadded:: 1.0
+
+	.. code-block:: python
+
+		def kick_cb(word, word_eol, userdata, attributes):
+			if attributes.time: # Time may be 0 if server-time is not enabled.
+				print('He was kicked at {}'.format(attributes.time))
+				return xchat.EAT_NONE
+
+	   xchat.hook_server_attrs("KICK", kick_cb)
 
 .. function:: hook_timer(timeout, callback[, userdata=None])
 
@@ -554,9 +604,9 @@ command. For example, if you executed:
 	   def stop_cb(word, word_eol, userdata):
 		   global myhook
 		   if myhook is not None:
-		       xchat.unhook(myhook)
-		       myhook = None
-		       print("Timeout removed!")
+			   xchat.unhook(myhook)
+			   myhook = None
+			   print("Timeout removed!")
 
 	   def timeout_cb(userdata):
 		   print("Annoying message every 5 seconds! Type /STOP to stop it.")
@@ -605,7 +655,7 @@ You can use pluginpref to easily store and retrieve settings.
 	.. versionadded:: 0.9
 
 	.. Note:: Until the plugin uses different a config file per script it's 
-              recommened to use 'scriptname_settingname' to avoid conflicts.
+			  recommened to use 'scriptname_settingname' to avoid conflicts.
 
 .. function:: get_pluginpref(name)
 
