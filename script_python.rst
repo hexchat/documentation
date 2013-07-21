@@ -633,11 +633,13 @@ command. For example, if you executed:
 
 	   xchat.hook_unload(unload_cb)
 
-	.. function:: unhook(handler)
+.. function:: unhook(handler)
 
 	Unhooks any hook registered with the hook functions above.
 	
 	:param handler: Handler returned from :func:`hook_print`, :func:`hook_command`, :func:`hook_server` or :func:`hook_timer`
+
+	As of version 1.0 of the plugin hooks from :func:`hook_print` and :func:`hook_command` can be unhooked by their names.
 
 Plugin preferences
 ~~~~~~~~~~~~~~~~~~
