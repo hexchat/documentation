@@ -13,11 +13,23 @@ Here are some of the features of the python plugin interface:
 -  Per plugin independent interpreter state
 -  Python interactive console
 -  Python interactive command execution
--  Full thread support
+-  Python 2 and 3 support (2.9.6+)
+-  Full thread support (except for Python2 on Windows)
 -  Stdout and stderr redirected to HexChat console
 -  Dynamic list management
 -  Nice context treatment
 -  Plugin preferences
+
+
+Python 2 or Python 3
+~~~~~~~~~~~~~~~~~~~~
+
+As of HexChat 2.9.6 the plugin supports both so which should you pick:
+
+As a user most older scripts will not be updated for Python 3 so 2 is your best bet.
+
+As a developer I would just recommend you make your scripts compatible for both but do note that
+Python 2 on Windows does not support threads while Python 3 does.
 
 Commands
 --------
