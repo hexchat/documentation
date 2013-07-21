@@ -186,7 +186,7 @@ Generic functions
 
 		xchat.emit_print("Channel Message", "John", "Hi there", "@")
 
-	With 2.9.6+ this function takes Keywords for certain :obj:`Attributes` such as *time*
+	With plugin version 1.0+ this function takes Keywords for certain :obj:`Attributes` such as *time*
 
 .. function:: command(string)
 
