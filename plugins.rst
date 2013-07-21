@@ -20,11 +20,11 @@ shared objects (.so files), for example:
 
 Most UNIX systems:
 
-   gcc -Wl --export-dynamic -Wall -O1 -shared -fPIC myplugin.c -o myplugin.so
+	 gcc -Wl --export-dynamic -Wall -O1 -shared -fPIC myplugin.c -o myplugin.so
 
 OS X:
 
-   gcc -no-cpp-precomp -g -O2 -Wall -bundle -flat\_namespace -undefined suppress -o myplugin.so myplugin.c
+	 gcc -no-cpp-precomp -g -O2 -Wall -bundle -flat\_namespace -undefined suppress -o myplugin.so myplugin.c
 
 See the `Windows section <plugins.html#plugins-on-windows-win32>`_ on how to compile a plugin using Visual Studio.
 
@@ -42,71 +42,71 @@ feature ON or OFF. Every HexChat plugin must define an
 
 .. code-block:: c
 
-   #include "hexchat-plugin.h"
+	 #include "hexchat-plugin.h"
 
-   #define PNAME "AutoOp"
-   #define PDESC "Auto Ops anyone that joins"
-   #define PVERSION "0.1"
+	 #define PNAME "AutoOp"
+	 #define PDESC "Auto Ops anyone that joins"
+	 #define PVERSION "0.1"
 
-   static hexchat_plugin *ph;      /* plugin handle */
-   static int enable = 1;
+	 static hexchat_plugin *ph;      /* plugin handle */
+	 static int enable = 1;
 
-   static int
-   join_cb (char *word[], void *userdata)
-   {
-       if (enable)
-       {
-           /* Op ANYONE who joins */
-           hexchat_commandf (ph, "OP %s", word[1]);
-       }
-       /* word[1] is the nickname, as in the Settings->Text Events window in HexChat */
+	 static int
+	 join_cb (char *word[], void *userdata)
+	 {
+			 if (enable)
+			 {
+					 /* Op ANYONE who joins */
+					 hexchat_commandf (ph, "OP %s", word[1]);
+			 }
+			 /* word[1] is the nickname, as in the Settings->Text Events window in HexChat */
 
-       return HEXCHAT_EAT_NONE;        /* don't eat this event, HexChat needs to see it! */
-   }
+			 return HEXCHAT_EAT_NONE;        /* don't eat this event, HexChat needs to see it! */
+	 }
 
-   static int
-   autooptoggle_cb (char *word[], char *word_eol[], void *userdata)
-   {
-       if (!enable)
-       {
-           enable = 1;
-           hexchat_print (ph, "AutoOping now enabled!\n");
-       }
-       else
-       {
-           enable = 0;
-           hexchat_print (ph, "AutoOping now disabled!\n");
-       }
+	 static int
+	 autooptoggle_cb (char *word[], char *word_eol[], void *userdata)
+	 {
+			 if (!enable)
+			 {
+					 enable = 1;
+					 hexchat_print (ph, "AutoOping now enabled!\n");
+			 }
+			 else
+			 {
+					 enable = 0;
+					 hexchat_print (ph, "AutoOping now disabled!\n");
+			 }
 
-       return HEXCHAT_EAT_ALL;     /* eat this command so HexChat and other plugins can't process it */
-   }
+			 return HEXCHAT_EAT_ALL;     /* eat this command so HexChat and other plugins can't process it */
+	 }
 
-   void
-   hexchat_plugin_get_info (char **name, char **desc, char **version, void **reserved)
-   {
-       *name = PNAME;
-       *desc = PDESC;
-       *version = PVERSION;
-   }
+	 void
+	 hexchat_plugin_get_info (char **name, char **desc, char **version, void **reserved)
+	 {
+			 *name = PNAME;
+			 *desc = PDESC;
+			 *version = PVERSION;
+	 }
 
-   int
-   hexchat_plugin_init (hexchat_plugin *plugin_handle, char **plugin_name, char **plugin_desc, char **plugin_version, char *arg)
-   {
-       /* we need to save this for use with any hexchat_* functions */
-       ph = plugin_handle;
+	 int
+	 hexchat_plugin_init (hexchat_plugin *plugin_handle, char **plugin_name, char **plugin_desc, char **plugin_version, char *arg)
+	 {
+			 /* we need to save this for use with any hexchat_* functions */
+			 ph = plugin_handle;
 
-       /* tell HexChat our info */
-       *plugin_name = PNAME;
-       *plugin_desc = PDESC;
-       *plugin_version = PVERSION;
+			 /* tell HexChat our info */
+			 *plugin_name = PNAME;
+			 *plugin_desc = PDESC;
+			 *plugin_version = PVERSION;
 
-       hexchat_hook_command (ph, "AutoOpToggle", HEXCHAT_PRI_NORM, autooptoggle_cb, "Usage: AUTOOPTOGGLE, Turns OFF/ON Auto Oping", 0);
-       hexchat_hook_print (ph, "Join", HEXCHAT_PRI_NORM, join_cb, 0);
+			 hexchat_hook_command (ph, "AutoOpToggle", HEXCHAT_PRI_NORM, autooptoggle_cb, "Usage: AUTOOPTOGGLE, Turns OFF/ON Auto Oping", 0);
+			 hexchat_hook_print (ph, "Join", HEXCHAT_PRI_NORM, join_cb, 0);
 
-       hexchat_print (ph, "AutoOpPlugin loaded successfully!\n");
+			 hexchat_print (ph, "AutoOpPlugin loaded successfully!\n");
 
-       return 1;       /* return 1 for success */
-   }
+			 return 1;       /* return 1 for success */
+	 }
 
 What's *word* and *word\_eol*?
 ------------------------------
@@ -116,19 +116,19 @@ for the particular command. For example, if you executed:
 
 .. raw:: html
 
-   <pre>
-   /command NICK hi there
+	 <pre>
+	 /command NICK hi there
 
-   word[1] is command
-   word[2] is NICK
-   word[3] is hi
-   word[4] is there
+	 word[1] is command
+	 word[2] is NICK
+	 word[3] is hi
+	 word[4] is there
 
-   word_eol[1] is command NICK hi there
-   word_eol[2] is NICK hi there
-   word_eol[3] is hi there
-   word_eol[4] is there
-   </pre>
+	 word_eol[1] is command NICK hi there
+	 word_eol[2] is NICK hi there
+	 word_eol[3] is hi there
+	 word_eol[4] is there
+	 </pre>
 
 These arrays are simply provided for your convenience. You are **not**
 allowed to alter them. Both arrays are limited to 32 elements (index
@@ -291,23 +291,23 @@ Example:
 
 .. code-block:: c
 
-       list = hexchat_list_get (ph, "dcc");
+			 list = hexchat_list_get (ph, "dcc");
 
-       if (list)
-       {
-           hexchat_print (ph, "--- DCC LIST ------------------\nFile  To/From   KB/s   Position\n");
+			 if (list)
+			 {
+					 hexchat_print (ph, "--- DCC LIST ------------------\nFile  To/From   KB/s   Position\n");
 
-           while (hexchat_list_next (ph, list))
-           {
-               hexchat_printf (ph, "%6s %10s %.2f  %d\n",
-                   hexchat_list_str (ph, list, "file"),
-                   hexchat_list_str (ph, list, "nick"),
-                   hexchat_list_int (ph, list, "cps") / 1024,
-                   hexchat_list_int (ph, list, "pos"));
-           }
+					 while (hexchat_list_next (ph, list))
+					 {
+							 hexchat_printf (ph, "%6s %10s %.2f  %d\n",
+									 hexchat_list_str (ph, list, "file"),
+									 hexchat_list_str (ph, list, "nick"),
+									 hexchat_list_int (ph, list, "cps") / 1024,
+									 hexchat_list_int (ph, list, "pos"));
+					 }
 
-           hexchat_list_free (ph, list);
-       }
+					 hexchat_list_free (ph, list);
+			 }
 
 Plugins on Windows (Win32)
 --------------------------
@@ -319,18 +319,18 @@ in the HexChat solution as a starting point. You should have the
 following files:
 
 -  `hexchat-plugin.h <https://github.com/hexchat/hexchat/blob/master/src/common/hexchat-plugin.h>`_
-   - main plugin header
+	 - main plugin header
 -  plugin.c - Your plugin, you need to write this one :)
 -  plugin.def - A simple text file containing the following:
 
 .. raw:: html
 
-   <pre>
-       EXPORTS
-       hexchat_plugin_init
-       hexchat_plugin_deinit
-       hexchat_plugin_get_info
-   </pre>
+	 <pre>
+			 EXPORTS
+			 hexchat_plugin_init
+			 hexchat_plugin_deinit
+			 hexchat_plugin_get_info
+	 </pre>
 
 Leave out *hexchat\_plugin\_deinit* if you don't intend to define that
 function. Then compile your plugin in Visual Studio as usual.
@@ -349,17 +349,17 @@ calling *hexchat\_command (ph, "GUI .....");*.
 -  **GUI ATTACH:** Same function as "Attach Window" in the HexChat menu.
 -  **GUI DETACH:** Same function as "Detach Tab" in the HexChat menu.
 -  **GUI APPLY:** Similar to clicking OK in the settings window. Execute
-   this after /SET to activate GUI changes.
+	 this after /SET to activate GUI changes.
 -  **GUI COLOR *n*:** Change the tab color of the current context, where
-   n is a number from 0 to 3.
+	 n is a number from 0 to 3.
 -  **GUI FOCUS:** Focus the current window or tab.
 -  **GUI FLASH:** Flash the taskbar button. It will flash only if the
-   window isn't focused and will stop when it is focused by the user.
+	 window isn't focused and will stop when it is focused by the user.
 -  **GUI HIDE:** Hide the main HexChat window completely.
 -  **GUI ICONIFY:** Iconify (minimize to taskbar) the current HexChat
-   window.
+	 window.
 -  **GUI MSGBOX *text*:** Displays a asynchronous message box with your
-   text.
+	 text.
 -  **GUI SHOW:** Show the main HexChat window (if currently hidden).
 
 You can add your own items to the menu bar. The menu command has this
@@ -367,21 +367,21 @@ syntax:
 
 .. raw:: html
 
-   <pre>
-       MENU [-eX] [-i&lt;ICONFILE>] [-k&lt;mod>,&lt;key>] [-m] [-pX] [-rX,group] [-tX] {ADD|DEL} &lt;path> [command] [unselect command]
-   </pre>
+	 <pre>
+			 MENU [-eX] [-i&lt;ICONFILE>] [-k&lt;mod>,&lt;key>] [-m] [-pX] [-rX,group] [-tX] {ADD|DEL} &lt;path> [command] [unselect command]
+	 </pre>
 
 For example:
 
 .. raw:: html
 
-   <pre>
-       MENU -p5 ADD FServe
-       MENU ADD "FServe/Show File List" "fs list"
-       MENU ADD FServe/-
-       MENU -k4,101 -t1 ADD "FServe/Enabled" "fs on" "fs off"
-       MENU -e0 ADD "FServe/Do Something" "fs action"
-   </pre>
+	 <pre>
+			 MENU -p5 ADD FServe
+			 MENU ADD "FServe/Show File List" "fs list"
+			 MENU ADD FServe/-
+			 MENU -k4,101 -t1 ADD "FServe/Enabled" "fs on" "fs off"
+			 MENU -e0 ADD "FServe/Do Something" "fs action"
+	 </pre>
 
 In the example above, it would be recommended to execute *MENU DEL
 FServe* inside your *hexchat\_plugin\_deinit* function. The special item
@@ -390,27 +390,27 @@ with name "-" will add a separator line.
 Parameters and flags:
 
 -  **-eX:** Set enable flag to X. -e0 for disable, -e1 for enable. This
-   lets you create a disabled (shaded) item.
+	 lets you create a disabled (shaded) item.
 -  **-iFILE:** Use an icon filename FILE. Not supported for toggles or
-   radio items.
+	 radio items.
 -  **-k<mod>,<key>:** Specify a keyboard shortcut. "mod" is the modifier
-   which is a bitwise OR of: 1-SHIFT 4- CTRL 8-ALT in decimal. "key" is
-   the key value in decimal, e.g. -k5,101 would specify SHIFT-CTRL-E.
+	 which is a bitwise OR of: 1-SHIFT 4- CTRL 8-ALT in decimal. "key" is
+	 the key value in decimal, e.g. -k5,101 would specify SHIFT-CTRL-E.
 -  **-m:** Specify that this label should be treated as Pango Markup
-   language. Since forward slash ("/") is already used in menu paths,
-   you should replace closing tags with an ASCII 003 instead e.g.:
-   hexchat\_command (ph, "MENU -m ADD "<b>Bold Menu<03b>"");
+	 language. Since forward slash ("/") is already used in menu paths,
+	 you should replace closing tags with an ASCII 003 instead e.g.:
+	 hexchat\_command (ph, "MENU -m ADD "<b>Bold Menu<03b>"");
 -  **-pX:** Specify a menu item's position number. e.g. -p5 will cause
-   the item to be inserted in the 5th place. If the position is a
-   negative number, it will be used as an offset from the
-   bottom/right-most item.
+	 the item to be inserted in the 5th place. If the position is a
+	 negative number, it will be used as an offset from the
+	 bottom/right-most item.
 -  **-rX,group:** Specify a radio menu item, with initial state X and a
-   group name. The group name should be the exact label of another menu
-   item (without the path) that this item will be grouped with. For
-   radio items, only a select command will be executed (no unselect
-   command).
+	 group name. The group name should be the exact label of another menu
+	 item (without the path) that this item will be grouped with. For
+	 radio items, only a select command will be executed (no unselect
+	 command).
 -  **-tX:** Specify a toggle menu item with an initial state. -t0 for an
-   "unticked" item and -t1 for a "ticked" item.
+	 "unticked" item and -t1 for a "ticked" item.
 
 If you want to change an item's toggle state or enabled flag, just *ADD*
 an item with exactly the same name and command and specify the *-tX -eX*
@@ -421,10 +421,10 @@ example:
 
 .. raw:: html
 
-   <pre>
-       MENU ADD "Settings/Sub Menu"
-       MENU -t0 ADD "Settings/Sub Menu/My Setting" myseton mysetoff
-   </pre>
+	 <pre>
+			 MENU ADD "Settings/Sub Menu"
+			 MENU -t0 ADD "Settings/Sub Menu/My Setting" myseton mysetoff
+	 </pre>
 
 However, internal names and layouts of HexChat's menu may change in the
 future, so use at own risk.
@@ -433,12 +433,12 @@ Here is an example of Radio items:
 
 .. raw:: html
 
-   <pre>
-       MENU ADD "Language"
-       MENU -r1,"English" ADD "Language/English" cmd1
-       MENU -r0,"English" ADD "Language/Spanish" cmd2
-       MENU -r0,"English" ADD "Language/German" cmd3
-   </pre>
+	 <pre>
+			 MENU ADD "Language"
+			 MENU -r1,"English" ADD "Language/English" cmd1
+			 MENU -r0,"English" ADD "Language/Spanish" cmd2
+			 MENU -r0,"English" ADD "Language/German" cmd3
+	 </pre>
 
 You can also change menus other than the main one (i.e popup menus).
 Currently they are:
@@ -457,22 +457,22 @@ Example:
 
 .. raw:: html
 
-   <pre>
-       MENU -p0 ADD "$TAB/Cycle Channel" cycle
-   </pre>
+	 <pre>
+			 MENU -p0 ADD "$TAB/Cycle Channel" cycle
+	 </pre>
 
 You can manipulate HexChat's system tray icon using the */TRAY* command:
 
 .. raw:: html
 
-   <pre>
-       Usage:
-       TRAY -f &lt;timeout> &lt;file1> [&lt;file2>] Flash tray between two icons. Leave off file2 to use default HexChat icon.
-       TRAY -f &lt;filename>                  Set tray to a fixed icon.
-       TRAY -i &lt;number>                    Flash tray with an internal icon.
-       TRAY -t &lt;text>                      Set the tray tooltip.
-       TRAY -b &lt;title> &lt;text>              Set the tray balloon.
-   </pre>
+	 <pre>
+			 Usage:
+			 TRAY -f &lt;timeout> &lt;file1> [&lt;file2>] Flash tray between two icons. Leave off file2 to use default HexChat icon.
+			 TRAY -f &lt;filename>                  Set tray to a fixed icon.
+			 TRAY -i &lt;number>                    Flash tray with an internal icon.
+			 TRAY -t &lt;text>                      Set the tray tooltip.
+			 TRAY -b &lt;title> &lt;text>              Set the tray balloon.
+	 </pre>
 
 Icon numbers:
 
@@ -505,93 +505,93 @@ this example, someone will CTCP you the message "SHOWFILE <filename>".
 
 .. code-block:: c
 
-   static int
-   ctcp_cb (char *word[], char *word_eol[], void *userdata)
-   {
-       if(strcmp(word[1], "SHOWFILE") == 0)
-       {
-           get_file_name (nick, word[2]);
-       }
+	 static int
+	 ctcp_cb (char *word[], char *word_eol[], void *userdata)
+	 {
+			 if(strcmp(word[1], "SHOWFILE") == 0)
+			 {
+					 get_file_name (nick, word[2]);
+			 }
 
-       return HEXCHAT_EAT_HEXCHAT;
-   }
+			 return HEXCHAT_EAT_HEXCHAT;
+	 }
 
-   static void
-   get_file_name (char *nick, char *fname)
-   {
-       char buf[256];
-       FILE *fp;
+	 static void
+	 get_file_name (char *nick, char *fname)
+	 {
+			 char buf[256];
+			 FILE *fp;
 
-       /* the fname is in UTF-8, because it came from the HexChat API */
+			 /* the fname is in UTF-8, because it came from the HexChat API */
 
-   #ifdef _WIN32
+	 #ifdef _WIN32
 
-       wchar_t wide_name[MAX_PATH];
+			 wchar_t wide_name[MAX_PATH];
 
-       /* convert UTF-8 to WIDECHARs (aka UTF-16LE) */
-       if (MultiByteToWideChar (CP_UTF8, 0, fname, -1, wide_name, MAX_PATH) &lt; 1)
-       {
-           return;
-       }
+			 /* convert UTF-8 to WIDECHARs (aka UTF-16LE) */
+			 if (MultiByteToWideChar (CP_UTF8, 0, fname, -1, wide_name, MAX_PATH) &lt; 1)
+			 {
+					 return;
+			 }
 
-       /* now we have WIDECHARs, so we can _wopen() or CreateFileW(). */
-       /* _wfopen actually requires NT4, Win2000, XP or newer. */
-       fp = _wfopen (wide_name, "r");
+			 /* now we have WIDECHARs, so we can _wopen() or CreateFileW(). */
+			 /* _wfopen actually requires NT4, Win2000, XP or newer. */
+			 fp = _wfopen (wide_name, "r");
 
-   #else
+	 #else
 
-       char *loc_name;
+			 char *loc_name;
 
-       /* convert UTF-8 to System Encoding */
-       loc_name = g_filename_from_utf8 (fname, -1, 0, 0, 0);
-       if(!loc_name)
-       {
-           return;
-       }
+			 /* convert UTF-8 to System Encoding */
+			 loc_name = g_filename_from_utf8 (fname, -1, 0, 0, 0);
+			 if(!loc_name)
+			 {
+					 return;
+			 }
 
-       /* now open using the system's encoding */
-       fp = fopen (loc_name, "r");
-       g_free (loc_name);
+			 /* now open using the system's encoding */
+			 fp = fopen (loc_name, "r");
+			 g_free (loc_name);
 
-   #endif
+	 #endif
 
-       if (fp)
-       {
-           while (fgets (buf, sizeof (buf), fp))
-           {
-               /* send every line to the user that requested it */
-               hexchat_commandf (ph, "QUOTE NOTICE %s :%s", nick, buf);
-           }
-           fclose (fp);
-       }
-   }
-   
+			 if (fp)
+			 {
+					 while (fgets (buf, sizeof (buf), fp))
+					 {
+							 /* send every line to the user that requested it */
+							 hexchat_commandf (ph, "QUOTE NOTICE %s :%s", nick, buf);
+					 }
+					 fclose (fp);
+			 }
+	 }
+	 
 Types and Constants
 -------------------
 
 .. type:: hexchat_plugin
-          hexchat_list
-          hexchat_hook
-          hexchat_context
-          hexchat_event_attrs
+					hexchat_list
+					hexchat_hook
+					hexchat_context
+					hexchat_event_attrs
 
-   
+	 
 .. var:: HEXCHAT_PRI_HIGHEST 
-         HEXCHAT_PRI_HIGH
-         HEXCHAT_PRI_NORM
-         HEXCHAT_PRI_LOW
-         HEXCHAT_PRI_LOWEST
-          
+				 HEXCHAT_PRI_HIGH
+				 HEXCHAT_PRI_NORM
+				 HEXCHAT_PRI_LOW
+				 HEXCHAT_PRI_LOWEST
+					
 .. var:: HEXCHAT_EAT_NONE
-         HEXCHAT_EAT_XCHAT
-         HEXCHAT_EAT_PLUGIN
-         HEXCHAT_EAT_ALL
-          
+				 HEXCHAT_EAT_XCHAT
+				 HEXCHAT_EAT_PLUGIN
+				 HEXCHAT_EAT_ALL
+					
 .. var:: HEXCHAT_FD_READ
-         HEXCHAT_FD_WRITE
-         HEXCHAT_FD_EXCEPTION
-         HEXCHAT_FD_NOTSOCKET
-          
+				 HEXCHAT_FD_WRITE
+				 HEXCHAT_FD_EXCEPTION
+				 HEXCHAT_FD_NOTSOCKET
+					
 
 Functions
 ---------
@@ -650,7 +650,7 @@ General Functions
 
 	.. code-block:: c
 
-	   hexchat_emit_print (ph, "Channel Message", "John", "Hi there", "@", NULL);
+		 hexchat_emit_print (ph, "Channel Message", "John", "Hi there", "@", NULL);
 
 
 .. function:: int hexchat_emit_print_attrs (hexchat_plugin *ph, hexchat_event_attrs *attrs, const char *event_name, ...)
@@ -666,16 +666,18 @@ General Functions
 
 	:returns: 0 on Failure, 1 on Success
 
+	.. versionadded:: 2.9.6
+
 	**Example:**
 
 	.. code-block:: c
 
-	   hexchat_event_attrs *attrs;
+		 hexchat_event_attrs *attrs;
 
-	   attrs = hexchat_event_attrs_create (ph);
-	   attrs->server_time_utc = 1342224702;
-	   hexchat_emit_print (ph, attrs, "Channel Message", "John", "Hi there", "@", NULL);
-	   hexchat_event_attrs_free (ph, attrs);
+		 attrs = hexchat_event_attrs_create (ph);
+		 attrs->server_time_utc = 1342224702;
+		 hexchat_emit_print (ph, attrs, "Channel Message", "John", "Hi there", "@", NULL);
+		 hexchat_event_attrs_free (ph, attrs);
 
 .. function:: void hexchat_send_modes (hexchat_plugin *ph, const char *targets[], int ntargets, \
 										int modes_per_line, char sign, char mode)
@@ -697,8 +699,8 @@ General Functions
 
 	.. code-block:: c
 
-	   const char *names_to_Op[] = {"John", "Jack", "Jill"};
-	   hexchat_send_modes (ph, names_to_Op, 3, 0, '+', 'o');
+		 const char *names_to_Op[] = {"John", "Jack", "Jill"};
+		 hexchat_send_modes (ph, names_to_Op, 3, 0, '+', 'o');
 
 
 .. function:: int hexchat_nickcmp (hexchat_plugin *ph, const char *s1, const char *s2)
@@ -730,8 +732,8 @@ General Functions
 	:param str: String to strip.
 	:param len: Length of the string (or -1 for NULL terminated).
 	:param flags: Bit-field of flags:
-	   -  0: Strip mIRC colors.
-	   -  1: Strip text attributes.
+		 -  0: Strip mIRC colors.
+		 -  1: Strip text attributes.
 
 	:returns: A newly allocated string or NULL for failure. You must free this string with :func:`hexchat_free`.
 
@@ -739,19 +741,19 @@ General Functions
 
 	.. code-block:: c
 
-	   {
-		   char *new_text;
+		 {
+			 char *new_text;
 
-		   /* strip both colors and attributes by using the 0 and 1 bits (1 BITWISE-OR 2) */
-		   new_text = hexchat_strip (ph, "\00312Blue\003 \002Bold!\002", -1, 1 | 2);
+			 /* strip both colors and attributes by using the 0 and 1 bits (1 BITWISE-OR 2) */
+			 new_text = hexchat_strip (ph, "\00312Blue\003 \002Bold!\002", -1, 1 | 2);
 
-		   if (new_text)
-		   {
-		       /* new_text should now contain only "Blue Bold!" */
-		       hexchat_printf (ph, "%s\n", new_text);
-		       hexchat_free (ph, new_text);
-		   }
-	   }
+			 if (new_text)
+			 {
+					 /* new_text should now contain only "Blue Bold!" */
+					 hexchat_printf (ph, "%s\n", new_text);
+					 hexchat_free (ph, new_text);
+			 }
+		 }
 
 
 .. function:: void hexchat_free (hexchat_plugin *ph, void *ptr)
@@ -770,11 +772,15 @@ General Functions
 
 	:returns: A pointer to the allocated :type:`hexchat_event_attrs`. Should be freed by :func:`hexchat_event_attrs_free`.
 
+	.. versionadded:: 2.9.6
+
 .. function:: void hexchat_event_attrs_free (hexchat_plugin *ph, hexchat_event_attrs *attrs)
 
 	Frees an :type:`hexchat_event_attrs`.
 
 	:param attrs: Attributes previously allocated by :func:`hexchat_event_attrs_create`.
+
+	.. versionadded:: 2.9.6
 
 
 Getting Information
@@ -787,29 +793,29 @@ Getting Information
 	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
 	:param id: ID of the information you want. List of ID's(case sensitive):
 
-	   -  **away:** away reason or NULL if you are not away.
-	   -  **channel:** current channel name.
-	   -  **charset:** character-set used in the current context.
-	   -  **configdir:** HexChat config directory, e.g.:
-		  ``/home/user/.config/hexchat``. This string is encoded in UTF-8.
-	   -  **event\_text <name>:** text event format string for *name*.
-	   -  **gtkwin\_ptr:** (GtkWindow \*).
-	   -  **host:** real hostname of the server you connected to.
-	   -  **inputbox:** the input-box contents, what the user has typed.
-	   -  **libdirfs:** library directory. e.g. /usr/lib/hexchat. The same
-		  directory used for auto-loading plugins. This string isn't
-		  necessarily UTF-8, but local file system encoding.
-	   -  **modes:** channel modes, if known, or NULL.
-	   -  **network:** current network name or NULL.
-	   -  **nick:** your current nick name.
-	   -  **nickserv:** nickserv password for this network or NULL.
-	   -  **server:** current server name (what the server claims to be).
-		  NULL if you are not connected.
-	   -  **topic:** current channel topic.
-	   -  **version:** HexChat version number.
-	   -  **win\_ptr:** native window pointer. Unix: (GtkWindow \*) Win32:
-		  HWND.
-	   -  **win\_status:** window status: "active", "hidden" or "normal".
+		 -  **away:** away reason or NULL if you are not away.
+		 -  **channel:** current channel name.
+		 -  **charset:** character-set used in the current context.
+		 -  **configdir:** HexChat config directory, e.g.:
+			``/home/user/.config/hexchat``. This string is encoded in UTF-8.
+		 -  **event\_text <name>:** text event format string for *name*.
+		 -  **gtkwin\_ptr:** (GtkWindow \*).
+		 -  **host:** real hostname of the server you connected to.
+		 -  **inputbox:** the input-box contents, what the user has typed.
+		 -  **libdirfs:** library directory. e.g. /usr/lib/hexchat. The same
+			directory used for auto-loading plugins. This string isn't
+			necessarily UTF-8, but local file system encoding.
+		 -  **modes:** channel modes, if known, or NULL.
+		 -  **network:** current network name or NULL.
+		 -  **nick:** your current nick name.
+		 -  **nickserv:** nickserv password for this network or NULL.
+		 -  **server:** current server name (what the server claims to be).
+			NULL if you are not connected.
+		 -  **topic:** current channel topic.
+		 -  **version:** HexChat version number.
+		 -  **win\_ptr:** native window pointer. Unix: (GtkWindow \*) Win32:
+			HWND.
+		 -  **win\_status:** window status: "active", "hidden" or "normal".
 
 	:returns: A string of the requested information, or NULL. This string
 		must not be freed and must be copied if needed after the call to :func:`hexchat_get_info`.
@@ -823,7 +829,7 @@ Getting Information
 	are available that don't appear in the :command:`/SET` list, currently they are:
 
 		-  **state\_cursor:** Current input box cursor position (characters, not
-		   bytes).
+			 bytes).
 		-  **id:** Unique server id
 
 	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
@@ -841,15 +847,15 @@ Getting Information
 
 	.. code-block:: c
 
-	   {
-		   int i;
-		   const char *str;
+		 {
+			 int i;
+			 const char *str;
 
-		   if (hexchat_get_prefs (ph, "irc_nick1", &amp;str, &amp;i) == 1)
-		   {
-		       hexchat_printf (ph, "Current nickname setting: %s\n", str);
-		   }
-	   }
+			 if (hexchat_get_prefs (ph, "irc_nick1", &amp;str, &amp;i) == 1)
+			 {
+					 hexchat_printf (ph, "Current nickname setting: %s\n", str);
+			 }
+		 }
 
 
 .. function:: hexchat_list* hexchat_list_get (hexchat_plugin *ph, const char *name)
@@ -931,20 +937,20 @@ Hook Functions
 
 	.. code-block:: c
 
-	   static int
-	   onotice_cb (char *word[], char *word_eol[], void *userdata)
-	   {
-		   if (word_eol[2][0] == 0)
-		   {
-		       hexchat_printf (ph, "Second arg must be the message!\n");
-		       return HEXCHAT_EAT_ALL;
-		   }
+		 static int
+		 onotice_cb (char *word[], char *word_eol[], void *userdata)
+		 {
+			 if (word_eol[2][0] == 0)
+			 {
+					 hexchat_printf (ph, "Second arg must be the message!\n");
+					 return HEXCHAT_EAT_ALL;
+			 }
 
-		   hexchat_commandf (ph, "NOTICE @%s :%s", hexchat_get_info (ph, "channel"), word_eol[2]);
-		   return HEXCHAT_EAT_ALL;
-	   }
+			 hexchat_commandf (ph, "NOTICE @%s :%s", hexchat_get_info (ph, "channel"), word_eol[2]);
+			 return HEXCHAT_EAT_ALL;
+		 }
 
-	   hexchat_hook_command (ph, "ONOTICE", HEXCHAT_PRI_NORM, onotice_cb, "Usage: ONOTICE &lt;message> Sends a notice to all ops", NULL);
+		 hexchat_hook_command (ph, "ONOTICE", HEXCHAT_PRI_NORM, onotice_cb, "Usage: ONOTICE &lt;message> Sends a notice to all ops", NULL);
 
 
 .. function:: hexchat_hook* hexchat_hook_fd (hexchat_plugin *ph, int fd, int flags, \
@@ -977,30 +983,30 @@ Hook Functions
 	-  "Close Context": Called when a hexchat\_context pointer is closed.
 	-  "Focus Tab": Called when a tab is brought to front.
 	-  "Focus Window": Called a toplevel window is focused, or the main
-	   tab-window is focused by the window manager.
+		 tab-window is focused by the window manager.
 	-  "DCC Chat Text": Called when some text from a DCC Chat arrives. It
-	   provides these elements in the *word[]* array:
+		 provides these elements in the *word[]* array:
 
-	   .. raw:: html
+		 .. raw:: html
 
-		  <pre>
-		      word[1] Address
-		      word[2] Port
-		      word[3] Nick
-		      word[4] The Message
-		  </pre>
+			<pre>
+					word[1] Address
+					word[2] Port
+					word[3] Nick
+					word[4] The Message
+			</pre>
 
 	-  "Key Press": Called when some keys are pressed in the input box. It
-	   provides these elements in the *word[]* array:
+		 provides these elements in the *word[]* array:
 
-	   .. raw:: html
+		 .. raw:: html
 
-		  <pre>
-		      word[1] Key Value
-		      word[2] State Bitfield (shift, capslock, alt)
-		      word[3] String version of the key
-		      word[4] Length of the string (may be 0 for unprintable keys)
-		  </pre>
+			<pre>
+					word[1] Key Value
+					word[2] State Bitfield (shift, capslock, alt)
+					word[3] String version of the key
+					word[4] Length of the string (may be 0 for unprintable keys)
+			</pre>
 
 	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
 	:param name: Name of the print event (as in *Text Events* window).
@@ -1014,14 +1020,14 @@ Hook Functions
 
 	.. code-block:: c
 
-	   static int
-	   youpart_cb (char *word[], void *userdata)
-	   {
-		   hexchat_printf (ph, "You have left channel %s\n", word[3]);
-		   return HEXCHAT_EAT_HEXCHAT;     /* dont let HexChat do its normal printing */
-	   }
+		 static int
+		 youpart_cb (char *word[], void *userdata)
+		 {
+			 hexchat_printf (ph, "You have left channel %s\n", word[3]);
+			 return HEXCHAT_EAT_HEXCHAT;     /* dont let HexChat do its normal printing */
+		 }
 
-	   hexchat_hook_print (ph, "You Part", HEXCHAT_PRI_NORM, youpart_cb, NULL);
+		 hexchat_hook_print (ph, "You Part", HEXCHAT_PRI_NORM, youpart_cb, NULL);
 
 .. function:: hexchat_hook* hexchat_hook_print_attrs (hexchat_plugin *ph, const char *name, int pri, \
 		int (*callb) (char *word[], hexchat_event_attrs *attrs, void *user_data), void *userdata)
@@ -1037,6 +1043,8 @@ Hook Functions
 	:param userdata: Pointer passed to the callback function.
 
 	:returns: Pointer to the hook. Can be passed to :func:`hexchat_unhook`.
+
+	.. versionadded:: 2.9.6
 
 
 .. function:: hexchat_hook* hexchat_hook_server (hexchat_plugin *ph, const char *name, int pri, \
@@ -1060,19 +1068,19 @@ Hook Functions
 
 	.. code-block:: c
 
-	   static int
-	   kick_cb (char *word[], char *word_eol[], void *userdata)
-	   {
-		   hexchat_printf (ph, "%s was kicked from %s (reason=%s)\n", word[4], word[3], word_eol[5]);
-		   return HEXCHAT_EAT_NONE;        /* don't eat this event, let other plugins and HexChat see it too */
-	   }
+		static int
+		kick_cb (char *word[], char *word_eol[], void *userdata)
+		{
+			hexchat_printf (ph, "%s was kicked from %s (reason=%s)\n", word[4], word[3], word_eol[5]);
+			return HEXCHAT_EAT_NONE;        /* don't eat this event, let other plugins and HexChat see it too */
+		}
 
-	   hexchat_hook_server (ph, "KICK", HEXCHAT_PRI_NORM, kick_cb, NULL);
+		hexchat_hook_server (ph, "KICK", HEXCHAT_PRI_NORM, kick_cb, NULL);
 
 
 .. function:: hexchat_hook* hexchat_hook_server_attrs (hexchat_plugin *ph, const char *name, int pri, \
 												int (*callb) (char *word[], char *word_eol[], hexchat_event_attrs *attrs, void *user_data), void *userdata)
-
+	
 	Registers a function to be called when a certain server
 	event occurs. This is the same as
 	:func:`hexchat_hook_server` but the callback receives an
@@ -1087,6 +1095,7 @@ Hook Functions
 
 	:returns: Pointer to the hook. Can be passed to :func:`hexchat_unhook`.
 
+	.. versionadded:: 2.9.6
 
 .. function:: hexchat_hook *hexchat_hook_timer (hexchat_plugin *ph, int timeout, \
 												int (*callb) (void *user_data), void *userdata)
@@ -1104,30 +1113,30 @@ Hook Functions
 
 	.. code-block:: c
 
-	   static hexchat_hook *myhook;
+		 static hexchat_hook *myhook;
 
-	   static int
-	   stop_cb (char *word[], char *word_eol[], void *userdata)
-	   {
-		   if (myhook != NULL)
-		   {
-		       hexchat_unhook (ph, myhook);
-		       myhook = NULL;
-		       hexchat_print (ph, "Timeout removed!\n");
-		   }
+		 static int
+		 stop_cb (char *word[], char *word_eol[], void *userdata)
+		 {
+			 if (myhook != NULL)
+			 {
+					 hexchat_unhook (ph, myhook);
+					 myhook = NULL;
+					 hexchat_print (ph, "Timeout removed!\n");
+			 }
 
-		   return HEXCHAT_EAT_ALL;
-	   }
+			 return HEXCHAT_EAT_ALL;
+		 }
 
-	   static int
-	   timeout_cb (void *userdata)
-	   {
-		   hexchat_print (ph, "Annoying message every 5 seconds! Type /STOP to stop it.\n");
-		   return 1;       /* return 1 to keep the timeout going */
-	   }
+		 static int
+		 timeout_cb (void *userdata)
+		 {
+			 hexchat_print (ph, "Annoying message every 5 seconds! Type /STOP to stop it.\n");
+			 return 1;       /* return 1 to keep the timeout going */
+		 }
 
-	   myhook = hexchat_hook_timer (ph, 5000, timeout_cb, NULL);
-	   hexchat_hook_command (ph, "STOP", HEXCHAT_PRI_NORM, stop_cb, NULL, NULL);
+		 myhook = hexchat_hook_timer (ph, 5000, timeout_cb, NULL);
+		 hexchat_hook_command (ph, "STOP", HEXCHAT_PRI_NORM, stop_cb, NULL, NULL);
 
 .. function:: void* hexchat_unhook (hexchat_plugin *ph, hexchat_hook *hook)
 
@@ -1200,19 +1209,19 @@ Plugin Preferences
 
 	.. code-block:: c
 
-	   int
-	   hexchat_plugin_init (hexchat_plugin *plugin_handle, char **plugin_name, char **plugin_desc, char **plugin_version, char *arg)
-	   {
-		   ph = plugin_handle;
-		   *plugin_name = "Tester Thingie";
-		   *plugin_desc = "Testing stuff";
-		   *plugin_version = "1.0";
+		int
+		hexchat_plugin_init (hexchat_plugin *plugin_handle, char **plugin_name, char **plugin_desc, char **plugin_version, char *arg)
+		{
+			ph = plugin_handle;
+			*plugin_name = "Tester Thingie";
+			*plugin_desc = "Testing stuff";
+			*plugin_version = "1.0";
 
-		   hexchat_pluginpref_set_str (ph, "myvar1", "I want to save this string!");
-		   hexchat_pluginpref_set_str (ph, "myvar2", "This is important, too.");
+			hexchat_pluginpref_set_str (ph, "myvar1", "I want to save this string!");
+			hexchat_pluginpref_set_str (ph, "myvar2", "This is important, too.");
 
-		   return 1;       /* return 1 for success */
-	   }
+			return 1;       /* return 1 for success */
+		}
 
 	In the example above, the settings will be saved to the
 	plugin\_tester\_thingie.conf file, and its content will be: >myvar1 = I
@@ -1251,29 +1260,29 @@ Plugin Preferences
 
 	.. code-block:: c
 
-	   static int
-	   saveint_cb (char *word[], char *word_eol[], void *user_data)
-	   {
-		   int buffer = atoi (word[2]);
+		 static int
+		 saveint_cb (char *word[], char *word_eol[], void *user_data)
+		 {
+			 int buffer = atoi (word[2]);
 
-		   if (buffer > 0 && buffer &lt; INT_MAX)
-		   {
-		       if (hexchat_pluginpref_set_int (ph, "myint1", buffer))
-		       {
-		           hexchat_printf (ph, "Setting successfully saved!\n");
-		       }
-		       else
-		       {
-		           hexchat_printf (ph, "Error while saving!\n");
-		       }
-		   }
-		   else
-		   {
-		       hexchat_printf (ph, "Invalid input!\n");
-		   }
+			 if (buffer > 0 && buffer &lt; INT_MAX)
+			 {
+					 if (hexchat_pluginpref_set_int (ph, "myint1", buffer))
+					 {
+							 hexchat_printf (ph, "Setting successfully saved!\n");
+					 }
+					 else
+					 {
+							 hexchat_printf (ph, "Error while saving!\n");
+					 }
+			 }
+			 else
+			 {
+					 hexchat_printf (ph, "Invalid input!\n");
+			 }
 
-		   return HEXCHAT_EAT_HEXCHAT;
-	   }
+			 return HEXCHAT_EAT_HEXCHAT;
+		 }
 
 	You only need such complex checks if you're saving user input, which can
 	be non-numeric.
@@ -1320,24 +1329,24 @@ Plugin Preferences
 
 	.. code-block:: c
 
-	   static void
-	   list_settings ()
-	   {
-		   char list[512];
-		   char buffer[512];
-		   char *token;
+		 static void
+		 list_settings ()
+		 {
+			 char list[512];
+			 char buffer[512];
+			 char *token;
 
-		   hexchat_pluginpref_list (ph, list);
-		   hexchat_printf (ph, "Current Settings:\n");
-		   token = strtok (list, ",");
+			 hexchat_pluginpref_list (ph, list);
+			 hexchat_printf (ph, "Current Settings:\n");
+			 token = strtok (list, ",");
 
-		   while (token != NULL)
-		   {
-		       hexchat_pluginpref_get_str (ph, token, buffer);
-		       hexchat_printf (ph, "%s: %s\n", token, buffer);
-		       token = strtok (NULL, ",");
-		   }
-	   }
+			 while (token != NULL)
+			 {
+					 hexchat_pluginpref_get_str (ph, token, buffer);
+					 hexchat_printf (ph, "%s: %s\n", token, buffer);
+					 token = strtok (NULL, ",");
+			 }
+		 }
 
 	In the example above we query the list of currently stored settings,
 	then print them one by one with their respective values. We always use
