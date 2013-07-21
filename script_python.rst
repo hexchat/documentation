@@ -651,8 +651,8 @@ You can use pluginpref to easily store and retrieve settings.
 	Stores settings in addon\_python.conf in the config dir.
 	
 	:returns:
-		- 0: Failure
-		- 1: Success
+		- False: Failure
+		- True: Success
 	
 	.. versionadded:: 0.9
 
@@ -675,8 +675,8 @@ You can use pluginpref to easily store and retrieve settings.
 	Deletes the specified variable.
 
 	:returns:
-		- 0: Failure
-		- 1: Success (or never existing), 
+		- False: Failure
+		- True: Success (or never existing), 
 	
 	.. versionadded:: 0.9
 
