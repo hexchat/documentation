@@ -41,7 +41,7 @@ with the *YourDepsPath* property. Download:
 Extract them to *YourDepsPath*.
 
 .. SEEALSO::
-   If you would like to build GTK+ yourself, read this `guide <http://gtk.hexchat.org>`_.
+   If you would like to build GTK+ yourself, read this `guide <http://hexchat.github.io/gtk-win32/>`_.
 
 Language interfaces
 ~~~~~~~~~~~~~~~~~~~
