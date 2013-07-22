@@ -13,8 +13,8 @@ HexChat for Windows uses MySpell for spelling via the Enchant library. The requi
 
 If you want to have spelling, do the following:
 
-    1. Download the `Spelling Dictionaries <http://hexchat.org/downloads.html>`_ self-extracting archive
-    2. Specify the languages you wish to have spelling for in :menuselection:`Settings --> Preferences --> Interface --> Input box`. You need to specify their language codes, see :file:`%LOCALAPPDATA%\\enchant\\myspell` for hints. By default, HexChat uses the LC_ALL environmental variable, or if it's unset, it falls back to en_US.
+1. Download the `Spelling Dictionaries <http://hexchat.org/downloads.html>`_ self-extracting archive
+2. Specify the languages you wish to have spelling for in :menuselection:`Settings --> Preferences --> Interface --> Input box`. You need to specify their language codes, see :file:`%LOCALAPPDATA%\\enchant\\myspell` for hints. By default, HexChat uses the LC_ALL environmental variable, or if it's unset, it falls back to en_US.
 
 .. NOTE::
 	For portable installs, you can use the :file:`share\\myspell\\dicts` subfolder instead of :file:`%LOCALAPPDATA%\\enchant\\myspell` (both will work, but the former one can be carried on a pendrive unlike the latter one).
@@ -22,12 +22,12 @@ If you want to have spelling, do the following:
 Unix
 ~~~~
 
-Install your spelling dictionaries via your package manager (something like myspell-en-us for English). Then make sure to enable spelling under :menuselection:`Settings --> Preferences --> Interface --> Input box`.
+Install your spelling dictionaries via your package manager (something like myspell-en-us or hunspell-en for English). Then make sure to enable spelling under :menuselection:`Settings --> Preferences --> Interface --> Input box`.
 
-If you use static spelling (this is the default), also make sure to specify the languages you wish to have spelling for in :menuselection:`Settings --> Preferences --> Interface --> Input box`. You need to specify their language codes (i.e. de_DE for german), separated by commas.
+If you use static spelling (this is the default for manual builds) make sure to specify the languages you wish to have spelling for in :menuselection:`Settings --> Preferences --> Interface --> Input box`. You need to specify their language codes (i.e. de_DE for german), separated by commas.
+You will also have to manually install the libenchant-dev package for static spelling to work.
 
-.. Note::
-	Ubuntu users may have to manually install the libenchant-dev package for spelling to work.
+Installs using libsexy (most packages *should* use this) should be using your systems default, but it can be overriden by starting HexChat with "*LANG=en hexchat*"
 
 Localization
 ------------
