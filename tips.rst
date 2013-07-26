@@ -13,7 +13,7 @@ HexChat for Windows uses MySpell for spelling via the Enchant library. The requi
 
 If you want to have spelling, do the following:
 
-1. Download the `Spelling Dictionaries <http://hexchat.org/downloads.html>`_ self-extracting archive
+1. Download the `Spelling Dictionaries <http://hexchat.github.io/downloads.html>`_ self-extracting archive
 2. Specify the languages you wish to have spelling for in :menuselection:`Settings --> Preferences --> Interface --> Input box`. You need to specify their language codes, see :file:`%LOCALAPPDATA%\\enchant\\myspell` for hints. By default, HexChat uses the LC_ALL environmental variable, or if it's unset, it falls back to en_US.
 
 .. NOTE::
@@ -79,13 +79,13 @@ Other than channel messages and private messages, IRC has a notice type of messa
 Why replies from ChanServ may not appear in the current tab
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When HexChat decides where to print a notice, it does so in the following order.
+When HexChat decides where to print a notice, it does so in the following order:
 
-    1. In a query window you have with that user
-    2. In the front tab, if the tab is a channel, the other user is on that channel, and you are on the correct network
-    3. In the last joined channel you have in common with the other user
-    4. The current tab, if you are on the same network
-    5. The last tab you looked at that shares the correct network with the other user 
+1. In a query window you have with that user
+2. In the front tab, if the tab is a channel, the other user is on that channel, and you are on the correct network
+3. In the last joined channel you have in common with the other user
+4. The current tab, if you are on the same network
+5. The last tab you looked at that shares the correct network with the other user 
 
 This means that if you issue a :command:`/cs info #yourchannel` from your channel, the reply may show up elsewhere if ChanServ isn't in your channel, but is in some other channel.
 
