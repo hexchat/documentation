@@ -7,6 +7,7 @@ HexChat ChangeLog
 - redesign edit window in network list
 - rename favorites to autojoin
 - improve url detection yet again (this time w/ more ipv6!)
+- improvements to the dcc window
 - add support for server-time and znc.in/server-time[-iso] capabilities
 - add attributes to hook_print/server and emit_print for information such as server-time
 - add support for QuakeNet's challangeauth
