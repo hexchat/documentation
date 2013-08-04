@@ -471,7 +471,7 @@ Example:
 .. code-block:: perl
 
    use strict;
-   use warning;
+   use warnings;
    use Xchat qw(:all);
 
    hook_command( "MODES", sub {
