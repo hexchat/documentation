@@ -38,7 +38,7 @@ with the *YourDepsPath* property. Download:
 .. _GTK+ x86 bundle: http://dl.hexchat.org/gtk-win32/vc11/x86/gtk-x86.7z
 .. _GTK+ x64 bundle: http://dl.hexchat.org/gtk-win32/vc11/x64/gtk-x64.7z
 
-Extract them to *YourDepsPath*.
+Extract them to *win32* and *x64* in *YourDepsPath*.
 
 .. SEEALSO::
    If you would like to build GTK+ yourself, read this `guide <http://hexchat.github.io/gtk-win32/>`_.
