@@ -1,7 +1,36 @@
 Building Perl modules on Windows
 ================================
 
-Since version 2.9.5 on Windows you need to use specific Perl build for Hexchat for Perl plugin to work. But this build doesn't have PPM and CPAN doesn't work so if your Perl script needs specific module to work you need to build it manually.
+CPAN
+----
+
+Software
+--------
+
+- `Visual Studio 2012 Express for Windows Desktop`_ + `Visual Studio 2012 Update 3`_
+- Perl `x86`_ or `x64`_
+- `MSYS`_ (I'm linking to this version but you can use ANY MSYS, it's possible to use MSYS from MozillaBuild but it's really ancient)
+- This `script <https://gist.github.com/Eustachy/6345568>`_
+
+.. _MSYS: http://xhmikosr.1f0.de/tools/MSYS_MinGW-w64_GCC_481_x86-x64_Full.7z
+
+Setup
+-----
+
+You must paste my script to directory above your Perl installation. Script was written for Perl installed in MozillaBuild directory: C:\\mozilla-build\\perl-5.18\\x64 or \\x86, so script must be in perl-5.18 dir, if your Perl installation dir is in another place you must edit PATHs in lines 13 & 16.
+
+MSYS can be extracted to any directory you want, you just need to edit PATH in *SET MSYS=I:\\MSYS\\bin*, fg. *SET MSYS=C:\\MSYS\\bin*
+
+Usage
+-----
+
+To use script you must open cmd (Win+R, type cmd), navigate to directory where you pasted cpan.bat. Type *cpan.bat x86* if you're using 32bit Hexchat & Perl or *cpan.bat x64* for 64bit version. After that you can use all cpan commands.
+
+
+
+
+Old depreciated method
+----------------------
 
 Software
 --------
@@ -9,13 +38,13 @@ Software
 To start building Perl modules you need to download and install this software (in their default install paths):
 
 - `MozillaBuild`_ or `direct link`_ 
-- `Visual Studio 2012 Express for Windows Desktop`_ + `Visual Studio 2012 Update 2`_
+- `Visual Studio 2012 Express for Windows Desktop`_ + `Visual Studio 2012 Update 3`_
 - Perl `x86`_ or `x64`_ (Perl **MUST** be installed to C:\\Perl)
 
 .. _MozillaBuild: https://wiki.mozilla.org/MozillaBuild
 .. _direct link: http://ftp.mozilla.org/pub/mozilla.org/mozilla/libraries/win32/MozillaBuildSetup-Latest.exe
 .. _Visual Studio 2012 Express for Windows Desktop: http://www.microsoft.com/visualstudio/eng/downloads#d-express-windows-desktop
-.. _Visual Studio 2012 Update 2: http://www.microsoft.com/en-us/download/details.aspx?id=38188
+.. _Visual Studio 2012 Update 3: http://www.microsoft.com/en-us/download/details.aspx?id=39305
 .. _x86: http://dl.hexchat.org/misc/perl/perl-5.18.0-x86.7z
 .. _x64: http://dl.hexchat.org/misc/perl/perl-5.18.0-x64.7z
 
