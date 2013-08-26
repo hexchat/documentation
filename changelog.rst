@@ -7,7 +7,9 @@ HexChat ChangeLog
 - redesign edit window in network list
 - rename favorites to autojoin
 - improve url detection yet again (this time w/ more ipv6!)
+- implement /exec -o on Windows
 - improvements to the dcc window
+- improvements to sysinfo on unix, including -e to print info instead of saying
 - add reload command and button in plugingui
 - add support for server-time and znc.in/server-time[-iso] capabilities
 - add attributes to hook_print/server and emit_print for information such as server-time
