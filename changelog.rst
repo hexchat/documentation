@@ -29,6 +29,7 @@ HexChat ChangeLog
 - add events for quiet, unquiet, and quietlist
 - add Ctrl+N (New Server Window) keybinding
 - add ctrl+home/end keybinding for scrolling to top/bottom
+- add theme manager to unix build system
 - fix compilation on FreeBSD
 - fix running as root
 - fix splitting ctcps and notices
