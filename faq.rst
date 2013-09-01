@@ -35,10 +35,11 @@ checkbox.
 
 List channels in the favorites list to join them on connect.
 
-Hexchat doesn't reconnect after my computer wakes up from being in sleep/hibernate mode?
-----------------------------------------------------------------------------------------
+How do I get Hexchat to reconnect after my computer wakes up from being in sleep/hibernate mode?
+------------------------------------------------------------------------------------------------
 
 Try the following command from a chat window:
+
      /set net_ping_timeout 31
 
 Why does HexChat join channels before identifying?
