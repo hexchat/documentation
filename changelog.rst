@@ -10,6 +10,7 @@ HexChat ChangeLog
 - implement /exec -o on Windows
 - improvements to the dcc window
 - improvements to sysinfo on unix, including -e to print info instead of saying
+- add support for BLOWFISH, AES, and EXTERNAL SASL mechanisms
 - add reload command and button in plugingui
 - add support for server-time and znc.in/server-time[-iso] capabilities
 - add attributes to hook_print/server and emit_print for information such as server-time
