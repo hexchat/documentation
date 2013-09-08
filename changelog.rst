@@ -23,6 +23,7 @@ HexChat ChangeLog
 - add libcanberra support on unix
 - add tracking of users accounts
 - add %u to userlist popups for accounts
+- add channelkey to channel lists in plugin api
 - add MONITOR support for the friends list
 - add QUIET and UNQUIET commands
 - add support for the away-notify, account-notify, and extended-join capabilities
