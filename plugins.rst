@@ -150,6 +150,8 @@ types of lists and fields available are:
 +==============+====================================================================+========+
 | channel      | Channel or query name                                              | string |
 +--------------+--------------------------------------------------------------------+--------+
+| channelkey   | Channels key or NULL (2.9.6+)                                      | string |
++--------------+--------------------------------------------------------------------+--------+
 | chantypes    | Channel types e.g. “#!&”                                           | string |
 +--------------+--------------------------------------------------------------------+--------+
 | context      | (hexchat_context \*) pointer. Can be used with hexchat_set_context | string |
