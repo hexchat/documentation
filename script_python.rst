@@ -316,6 +316,7 @@ The channels list type gives you access to the channels, queries and
 their servers. The folloing attributes are available in each list item:
 
 -  **channel:** Channel or query name.
+-  **channelkey:** Channel key. (2.9.6+)
 -  **chantypes:** Channel types e.g. #!&.
 -  **context:** A context object, giving access to that channel/server.
 -  **id:** Unique server id.
