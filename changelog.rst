@@ -1,7 +1,7 @@
 HexChat ChangeLog
 =================
 
-2.9.6 (TBD)
+2.9.6 (2013-09-11)
 -----------
 
 - redesign edit window in network list
