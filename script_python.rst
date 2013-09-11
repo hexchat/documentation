@@ -61,7 +61,7 @@ The Python plugin comes with a :command:`py` command that takes these arguments.
 
 	Execute given Python command interactively. For example:
 
-	 /py exec import xchat; print(xchat.get_info('channel'))
+	 /py exec import hexchat; print(hexchat.get_info('channel'))
 
 .. option:: console
 
@@ -137,7 +137,7 @@ introduces some concepts. Notice how the module information is set. This
 information is obligatory, and will be shown when listing the loaded
 HexChat modules.
 
-.. module:: xchat
+.. module:: hexchat
 
 xchat module
 ------------
@@ -147,10 +147,10 @@ by the Python plugin interface. Here's a simple example:
 
 .. code-block:: python
 
-   import xchat
-   xchat.prnt("Hi everyone!")
+   import hexchat
+   hexchat.prnt("Hi everyone!")
 
-The following functions are available in the xchat module.
+The following functions are available in the hexchat module.
 
 Constants and Attributes
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -164,7 +164,7 @@ Constants and Attributes
 	Priority given to hooks.
 
 .. data:: EAT_PLUGIN
-		  EAT_XCHAT
+		  EAT_HEXCHAT
 		  EAT_ALL
 		  EAT_NONE
 		  
@@ -196,7 +196,7 @@ Generic functions
 
 	.. code-block:: python
 
-		xchat.emit_print("Channel Message", "John", "Hi there", "@")
+		hexchat.emit_print("Channel Message", "John", "Hi there", "@")
 
 	With plugin version 1.0+ this function takes Keywords for certain :obj:`Attributes` such as *time*
 
@@ -208,7 +208,7 @@ Generic functions
 
 	.. code-block:: python
 
-	   xchat.command("server irc.openprojects.net")
+	   hexchat.command("server irc.openprojects.net")
 
 .. function:: nickcmp(s1, s2)
 
@@ -219,7 +219,7 @@ Generic functions
 
 	.. code-block:: python
 
-	   if xchat.nickcmp(nick, "mynick") == 0:
+	   if hexchat.nickcmp(nick, "mynick") == 0:
 		   print("They are the same!")
 
 .. function:: strip(text[, length=-1, flags=3])
@@ -237,7 +237,7 @@ Generic functions
 
 		text = '\00304\002test' # Bold red text
 		print(text)
-		print(xchat.strip(text, len(text), 1)) # Bold uncolored text
+		print(hexchat.strip(text, len(text), 1)) # Bold uncolored text
 
 Information retreiving functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -271,8 +271,8 @@ Information retreiving functions
 
 	.. code-block:: python
 
-	   if xchat.get_info("server") == 'freenode':
-		   xchat.prnt('connected!')
+	   if hexchat.get_info("server") == 'freenode':
+		   hexchat.prnt('connected!')
 
 .. function:: get_prefs(name)
 
@@ -281,7 +281,7 @@ Information retreiving functions
 
 	.. code-block:: python
 
-	   print("Current preferred nick: " + xchat.get_prefs("irc_nick1"))
+	   print("Current preferred nick: " + hexchat.get_prefs("irc_nick1"))
 
 .. function:: get_list(type)
 
@@ -293,11 +293,11 @@ Information retreiving functions
 	The example below is a rewrite of the example provided with HexChat's
 	plugin API documentation. It prints a list of every DCC transfer
 	happening at the moment. Notice how similar the interface is to the C
-	API provided by HexChat.
+	API provided by Hehexchat.
 
 	.. code-block:: python
 
-	   list = xchat.get_list("dcc")
+	   list = hexchat.get_list("dcc")
 	   if list:
 		   print("--- DCC LIST ------------------")
 		   print("File  To/From   KB/s   Position")
@@ -439,7 +439,7 @@ it is able control how HexChat will proceed after the callback returns. These
 are the available constants, and their meanings:
 	 
 -  :data:`EAT_PLUGIN`: Don't let any other plugin receive this event.
--  :data:`EAT_XCHAT`: Don't let HexChat treat this event as usual.
+-  :data:`EAT_HEXCHAT`: Don't let HexChat treat this event as usual.
 -  :data:`EAT_ALL`: Eat the event completely.
 -  :data:`EAT_NONE`: Let everything happen as usual.
 
@@ -506,10 +506,10 @@ command. For example, if you executed:
 		   if len(word) < 2:
 			   print("Second arg must be the message!")
 		   else:
-			   xchat.command("NOTICE @{} {}".format(xchat.get_info("channel"), word_eol[1]))
-		   return xchat.EAT_ALL
+			   hexchat.command("NOTICE @{} {}".format(hexchat.get_info("channel"), word_eol[1]))
+		   return hexchat.EAT_ALL
 
-	   xchat.hook_command("ONOTICE", onotice_cb, help="/ONOTICE <message> Sends a notice to all ops")
+	   hexchat.hook_command("ONOTICE", onotice_cb, help="/ONOTICE <message> Sends a notice to all ops")
 
 	You may return one of ``EAT_*`` constants in the callback, to control
 	HexChat's behavior, as explained above.
@@ -527,9 +527,9 @@ command. For example, if you executed:
 
 	   def youpart_cb(word, word_eol, userdata):
 		   print("You have left channel " + word[2])
-		   return xchat.EAT_XCHAT # Don't let HexChat do its normal printing
+		   return hexchat.EAT_HEXCHAT # Don't let HexChat do its normal printing
 
-	   xchat.hook_print("You Part", youpart_cb)
+	   hexchat.hook_print("You Part", youpart_cb)
 
 	Along with Text Events there are a handfull of *special* events you can hook with this:
 
@@ -562,9 +562,9 @@ command. For example, if you executed:
 		def youpart_cb(word, word_eol, userdata, attributes):
 			if attributes.time: # Time may be 0 if server-time is not enabled.
 				print("You have left channel {} at {}".format(word[2], attributes.time))
-				return xchat.EAT_XCHAT
+				return hexchat.EAT_HEXCHAT
 
-		xchat.hook_print_attrs("You Part", youpart_cb)
+		hexchat.hook_print_attrs("You Part", youpart_cb)
 
 .. function:: hook_server(name, callback[, userdata=None, priority=PRI_NORM])
 
@@ -580,9 +580,9 @@ command. For example, if you executed:
 		def kick_cb(word, word_eol, userdata):
 			print('{} was kicked from {} ({})'.format(word[3], word[2], word_eol[4]))
 			# Don't eat this event, let other plugins and HexChat see it too
-			return xchat.EAT_NONE
+			return hexchat.EAT_NONE
 
-	   xchat.hook_server("KICK", kick_cb)
+	   hexchat.hook_server("KICK", kick_cb)
 
 .. function:: hook_server_attrs(name, callback[, userdata=None, priority=PRI_NORM])
 
@@ -598,9 +598,9 @@ command. For example, if you executed:
 		def kick_cb(word, word_eol, userdata, attributes):
 			if attributes.time: # Time may be 0 if server-time is not enabled.
 				print('He was kicked at {}'.format(attributes.time))
-				return xchat.EAT_NONE
+				return hexchat.EAT_NONE
 
-	   xchat.hook_server_attrs("KICK", kick_cb)
+	   hexchat.hook_server_attrs("KICK", kick_cb)
 
 .. function:: hook_timer(timeout, callback[, userdata=None])
 
@@ -617,7 +617,7 @@ command. For example, if you executed:
 	   def stop_cb(word, word_eol, userdata):
 		   global myhook
 		   if myhook is not None:
-			   xchat.unhook(myhook)
+			   hexchat.unhook(myhook)
 			   myhook = None
 			   print("Timeout removed!")
 
@@ -625,8 +625,8 @@ command. For example, if you executed:
 		   print("Annoying message every 5 seconds! Type /STOP to stop it.")
 		   return 1 # Keep the timeout going
 
-	   myhook = xchat.hook_timer(5000, timeout_cb)
-	   xchat.hook_command("STOP", stop_cb)
+	   myhook = hexchat.hook_timer(5000, timeout_cb)
+	   hexchat.hook_command("STOP", stop_cb)
 
 	If you return a true value from the callback, the timer will be keeped,
 	otherwise it is removed.
@@ -644,7 +644,7 @@ command. For example, if you executed:
 	   def unload_cb(userdata):
 		   print("We're being unloaded!")
 
-	   xchat.hook_unload(unload_cb)
+	   hexchat.hook_unload(unload_cb)
 
 .. function:: unhook(handler)
 
@@ -710,7 +710,7 @@ Context objects
 '''''''''''''''
 
 As explained in the Context theory session above, contexts give access
-to a specific channel/query/server tab of HexChat. Every function
+to a specific channel/query/server tab of Hehexchat. Every function
 available in the xchat module will be evaluated in the current context,
 which will be specified by HexChat itself before passing control to the
 module. Sometimes you may want to work in a specific context, and that's
@@ -734,7 +734,7 @@ functions as explained below, or trough the :func:`get_list` function, as explai
 
 	.. code-block:: python
 
-	   cnc = xchat.find_context(channel='#conectiva')
+	   cnc = hexchat.find_context(channel='#conectiva')
 	   cnc.command('whois niemeyer')
 	   
 
