@@ -10,7 +10,7 @@ Developers
 Scripting
 ---------
 
-There are multiple scripting languages supported by HexChat but currently only Python (2.7) and Perl (5.16) are officially supported.
+There are multiple scripting languages supported by HexChat but currently only Python (2.7 & 3.3) and Perl (5.18) are officially supported.
 
 .. toctree::
    :maxdepth: 1
