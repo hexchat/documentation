@@ -277,11 +277,23 @@ Information retreiving functions
 .. function:: get_prefs(name)
 
 	Retrieve the HexChat setting information specified by the ``name``
-	string, as available by the ``/set`` command. For example:
-
+	string, as available by the ``/set`` command.
+	
 	.. code-block:: python
 
-	   print("Current preferred nick: " + hexchat.get_prefs("irc_nick1"))
+	   print("Current preferred nick: " + hexchat.get_prefs("irc_nick1"))	
+	
+	You can also get the format of Text Events by using *event_name* and the event:
+	
+	.. code-block:: python
+
+	   print("hexchat.get_prefs("event_name Channel Message")
+	   
+	And on top of that there are a few special preferences:
+	
+	- id (unique server id)
+	- state_cursor (location of cursor in input box)
+
 
 .. function:: get_list(type)
 
