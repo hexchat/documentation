@@ -287,7 +287,7 @@ Information retreiving functions
 	
 	.. code-block:: python
 
-	   print("hexchat.get_prefs("event_name Channel Message")
+	   print(hexchat.get_prefs("event_name Channel Message"))
 	   
 	And on top of that there are a few special preferences:
 	
