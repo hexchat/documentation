@@ -1,8 +1,13 @@
 HexChat ChangeLog
 =================
 
-2.9.6 (2013-09-11)
+2.9.7 (TDB)
 -----------
+
+- replace search window with a searchbar
+
+2.9.6 (2013-09-11)
+------------------
 
 - redesign edit window in network list
 - rename favorites to autojoin
