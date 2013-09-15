@@ -6,6 +6,11 @@ HexChat ChangeLog
 
 - replace search window with a searchbar
 
+2.9.6.1 (2013-09-15)
+--------------------
+
+- fixes some utilities causing crash `#740 <https://github.com/hexchat/hexchat/issues/740>`_
+
 2.9.6 (2013-09-11)
 ------------------
 
