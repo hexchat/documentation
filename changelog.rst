@@ -5,6 +5,7 @@ HexChat ChangeLog
 -----------
 
 - replace search window with a searchbar
+- update Visual Studio to 2013
 
 2.9.6.1 (2013-09-15)
 --------------------
