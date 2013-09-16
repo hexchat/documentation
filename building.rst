@@ -9,11 +9,11 @@ Software
 
 Download and install (in their default install paths):
 
--  `Visual Studio 2012 Express for Windows Desktop <http://www.microsoft.com/visualstudio/eng/downloads#d-express-windows-desktop>`_ + `Visual Studio 2012 Update 3 <http://www.microsoft.com/en-us/download/details.aspx?id=39305>`_ 
+-  `Visual Studio 2013 Express for Windows Desktop <http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express>`_
 -  `Inno Setup 5.5 Unicode <http://www.jrsoftware.org/isdl.php>`_ 
 -  `7-Zip x64 <http://7-zip.org/>`_ 
--  `gendef <http://dl.hexchat.org/gtk-win32/gendef-20111031.7z>`_ (extract to *c:\\mozilla-build*)
--  `msgfmt <http://dl.hexchat.org/gtk-win32/msgfmt-0.18.1.7z>`_ (extract to *c:\\mozilla-build*)
+-  `gendef <http://dl.hexchat.net/gtk-win32/gendef-20111031.7z>`_ (extract to *c:\\mozilla-build*)
+-  `msgfmt <http://dl.hexchat.net/gtk-win32/msgfmt-0.18.1.7z>`_ (extract to *c:\\mozilla-build*)
 
 
 Source code
@@ -35,8 +35,8 @@ with the *YourDepsPath* property. Download:
 -  `GTK+ x86 bundle`_ 
 -  `GTK+ x64 bundle`_ 
 
-.. _GTK+ x86 bundle: http://dl.hexchat.org/gtk-win32/vc11/x86/gtk-x86.7z
-.. _GTK+ x64 bundle: http://dl.hexchat.org/gtk-win32/vc11/x64/gtk-x64.7z
+.. _GTK+ x86 bundle: http://dl.hexchat.net/gtk-win32/vc12/x86/gtk-x86.7z
+.. _GTK+ x64 bundle: http://dl.hexchat.net/gtk-win32/vc12/x64/gtk-x64.7z
 
 Extract them to *win32* and *x64* in *YourDepsPath*.
 
@@ -58,8 +58,8 @@ Download:
 -  Python_ 2.7 x64 (install to *c:\\mozilla-build\\python-2.7\\x64*)
 -  Python_ 3.3 x64 (install to *c:\\mozilla-build\\python-3.3\\x64*)
 
-.. _Perl 5.18 x86: http://dl.hexchat.org/misc/perl/perl-5.18.0-x86.7z
-.. _Perl 5.18 x64: http://dl.hexchat.org/misc/perl/perl-5.18.0-x64.7z
+.. _Perl 5.18 x86: http://dl.hexchat.net/misc/perl/perl-5.18.0-x86.7z
+.. _Perl 5.18 x64: http://dl.hexchat.net/misc/perl/perl-5.18.0-x64.7z
 .. _Python: http://www.python.org/download/
 
 You can use other paths, but then you must update the related properties
@@ -128,7 +128,7 @@ Download the `testing package`_ which is prepared for Homebrew compilation (basi
 HEAD with *./autogen.sh* ran on Debian 6). Extract it and run the
 following commands:
 
-.. _testing package: http://dl.hexchat.org/hexchat/hexchat-mac.tar.gz
+.. _testing package: http://dl.hexchat.org/hexchat/osx/hexchat-2.9.4-mac.tar.gz
 
 .. code-block:: bash
 
