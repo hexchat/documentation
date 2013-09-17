@@ -4,6 +4,7 @@ HexChat ChangeLog
 2.9.7 (TDB)
 -----------
 
+- add message parameter to /query
 - replace search window with a searchbar
 - update Visual Studio to 2013
 
