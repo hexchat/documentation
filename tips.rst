@@ -24,7 +24,9 @@ Unix
 
 Install your spelling dictionaries via your package manager (myspell-en-us on the Debians or hunspell-en-US everywhere else for English). Then make sure to enable spelling under :menuselection:`Settings --> Preferences --> Interface --> Input box`.
 
-Installs using libsexy (most packages *should* use this) should be using your systems default, but it can be overriden by starting HexChat with "*LANG=en_US hexchat*"
+Installs using libsexy (most packages *should* use this) should be using your systems default, 
+but it can be overriden by starting HexChat with "*LANG=en_US hexchat*"
+(You can edit your hexchat.desktop file to do this every launch)
 
 If you use static spelling (this is uncommon) make sure to specify the languages you wish to have spelling for in :menuselection:`Settings --> Preferences --> Interface --> Input box`. You need to specify their language codes (i.e. de_DE for german), separated by commas.
 You will also have to manually install the libenchant-dev package for static spelling to work.
