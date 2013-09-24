@@ -68,6 +68,8 @@ To use one you need to put your certificate file inside :file:`certs` directory 
 
 Certificate should be named after the network where it will be used, for example if you want to use it on *Rizon*, certificate file should look like this: *Rizon.pem*. If that does not exist every network will try *client.pem*.
 
+On networks that support it you can use SASL EXTERNAL in the network list.
+
 Note on Custom Server Certificates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
