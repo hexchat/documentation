@@ -52,7 +52,7 @@ Functions
 ---------
 
 Xchat::register( $name, $version, [$description,[$callback]] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  ``$name`` - The name of this script
 -  ``$version`` - This script's version
@@ -63,33 +63,24 @@ Xchat::register( $name, $version, [$description,[$callback]] )
 
 This is the first thing to call in every script.
 
-.. code-block:: none
 
-   Xchat::hook_server( $message, $callback, [\%options] )
+Xchat::hook_server( $message, $callback, [\%options] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Xchat::hook_command( $command, $callback, [\%options] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Xchat::hook_print( $event,$callback, [\%options] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Xchat::hook_timer( $timeout,$callback, [\%options | $data] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Xchat::hook_fd( $handle, $callback, [ \%options ] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: none
-
-   Xchat::hook_command( $command, $callback, [\%options] )
-
-.. code-block:: none
-
-   Xchat::hook_print( $event,$callback, [\%options] )
-
-.. code-block:: none
-
-   Xchat::hook_timer( $timeout,$callback, [\%options | $data] )
-
-.. code-block:: none
-
-   Xchat::hook_fd( $handle, $callback, [ \%options ] )
-
-
-These functions can be to intercept various events. hook\_server can be
+These functions can be to intercept various events. ``hook_server`` can be
 used to intercept any incoming message from the IRC server.
-hook\_command can be used to intercept any command, if the command
-doesn't currently exist then a new one is created. hook\_print can be
+``hook_command`` can be used to intercept any command, if the command
+doesn't currently exist then a new one is created. ``hook_print`` can be
 used to intercept any of the events listed in *Setttings* ``->`` *Text
-Events*. hook\_timer can be used to create a new timer
+Events*. ``hook_timer`` can be used to create a new timer
 
 -  **$message** - server message to hook such as PRIVMSG
 -  **$command** - command to intercept, without the leading /
@@ -110,26 +101,33 @@ Valid keys for %options:
 
 +------------+--------------------------------------------------------------------------+
 | data       | Additional data that is to be associated with the hook. For timer hooks  |
-|            | this value can be provided either as Xchat::hook\_timer( $timeout,       |
-|            | cb,{data=&gt; data}) or Xchat::hook\_timer( $timeout, $cb,               |
-|            | $data ). However, this means that hook\_timer cannot be provided with a  |
-|            | hash reference containing data as a key. example: my $options = { data   |
-|            | => [@arrayOfStuff] }; Xchat::hook\_timer( $timeout, $cb, $options ); In  |
-|            | this example, the timer's data will be [@arrayOfStuff] and not { data => |
-|            | [@arrayOfStuff] } This key is valid for all of the hook functions.       |
-|            | Default is undef.                                                        |
+|            | this value can be provided either as ``Xchat::hook_timer( $timeout,      |
+|            | cb,{data=> data})`` or ``Xchat::hook_timer( $timeout, $cb, $data )``.    |
+|            | However, this means that hook\_timer cannot be provided with a hash      |
+|            | reference containing data as a key.                                      |
+|            |                                                                          |
+|            | Example:                                                                 |
+|            |                                                                          |
+|            | .. code-block:: none                                                     |
+|            |                                                                          |
+|            |    my $options = { data => [@arrayOfStuff] };                            |
+|            |    Xchat::hook_timer( $timeout, $cb, $options );                         |
+|            |                                                                          |
+|            | In this example, the timer's data will be ``[@arrayOfStuff]`` and not    |
+|            | ``{ data => [@arrayOfStuff] }``. This key is valid for all of the hook   |
+|            | functions. Default is ``undef``.                                         |
 +------------+--------------------------------------------------------------------------+
 | priority   | Sets the priority for the hook. It can be set to one of the              |
-|            | Xchat::PRI\_\* constants. This key only applies to server, command and   |
-|            | print hooks. Default is Xchat::PRI\_NORM.                                |
+|            | ``Xchat::PRI_*`` constants. This key only applies to server, command and |
+|            | print hooks. Default is ``Xchat::PRI_NORM``.                             |
 +------------+--------------------------------------------------------------------------+
 | help\_text | Text displayed for /help $command. This key only applies to command      |
 |            | hooks. Default is "".                                                    |
 +------------+--------------------------------------------------------------------------+
 | flags      | Specify the flags for a fd hook. See hook fd flags section for valid     |
 |            | values. On Windows if the handle is a pipe you specify                   |
-|            | Xchat::FD\_NOTSOCKET in addition to any other flags you might be using.  |
-|            | This key only applies to fd hooks. Default is Xchat::FD\_READ            |
+|            | ``Xchat::FD_NOTSOCKET`` in addition to any other flags you might be      |
+|            | using. This key only applies to fd hooks. Default is ``Xchat::FD_READ``. |
 +------------+--------------------------------------------------------------------------+
 
 
@@ -142,18 +140,19 @@ type of hook.
 +---------------+------------------------------------------------------------------------------------+
 | Hook Type     | When the callback will be invoked                                                  |
 +===============+====================================================================================+
-| server hooks  | a $message message is received from the server                                     |
+| server hooks  | A ``$message`` message is received from the server.                                |
 +---------------+------------------------------------------------------------------------------------+
-| command hooks | the $command command is executed, either by the user or from a script              |
+| command hooks | The ``$command`` command is executed, either by the user or from a script.         |
 +---------------+------------------------------------------------------------------------------------+
-| print hooks   | X-Chat is about to print the message for the $event event                          |
+| print hooks   | X-Chat is about to print the message for the ``$event`` event.                     |
 +---------------+------------------------------------------------------------------------------------+
-| timer hooks   | called every $timeout milliseconds (1000 millisecond is 1 second)                  |
-|               | the callback will be executed in the same context where the hook_timer was called, | 
-|               | if the context no longer exists then it will execute in a random context           |
+| timer hooks   | Called every ``$timeout`` milliseconds (1000 milliseconds are 1 second).           |
+|               | The callback will be executed in the same context where the ``hook_timer`` was     |
+|               | called, or if the context no longer exists then it will execute in a random        |
+|               | context.                                                                           |
 +---------------+------------------------------------------------------------------------------------+
-| fd hooks      | depends on the flags that were passed to hook_fd                                   |
-|               | See hook_fd flags section above.                                                   |
+| fd hooks      | Depends on the flags that were passed to ``hook_fd``. See ``hook_fd`` flags in the |
+|               | section above.                                                                     |
 +---------------+------------------------------------------------------------------------------------+
 
 
@@ -166,47 +165,49 @@ Callback Arguments
 All callback functions will receive their arguments in ``@_`` like every
 other Perl subroutine.
 
-Server and command callbacks
+-  Server and command callbacks
 
-``$_[0]`` - array reference containing the IRC message or command and
-arguments broken into words example:
-/command arg1 arg2 arg3
-``$_[0][0]`` - command
-``$_[0][1]`` - arg1
-``$_[0][2]`` - arg2
-``$_[0][3]`` - arg3
+   ``$_[0]`` - array reference containing the IRC message or command and
+   arguments broken into words example:
+   /command arg1 arg2 arg3
 
-``$_[1]`` - array reference containing the Nth word to the last word
-example:
-/command arg1 arg2 arg3
-``$_[1][0]`` - command arg1 arg2 arg3
-``$_[1][1]`` - arg1 arg2 arg3
-``$_[1][2]`` - arg2 arg3
-``$_[1][3]`` - arg3
+   -  ``$_[0][0]`` - command
+   -  ``$_[0][1]`` - arg1
+   -  ``$_[0][2]`` - arg2
+   -  ``$_[0][3]`` - arg3
 
-``$_[2]`` - the data that was passed to the hook function
+   ``$_[1]`` - array reference containing the Nth word to the last word
+   example:
+   /command arg1 arg2 arg3
 
-Print callbacks
+   -  ``$_[1][0]`` - command arg1 arg2 arg3
+   -  ``$_[1][1]`` - arg1 arg2 arg3
+   -  ``$_[1][2]`` - arg2 arg3
+   -  ``$_[1][3]`` - arg3
 
-``$_[0]`` - array reference containing the values for the text event,
-see *Settings* ``->`` *Text Events*
-``$_[1]`` - the data that was passed to the hook function
+   ``$_[2]`` - the data that was passed to the hook function
 
-Timer callbacks
+-  Print callbacks
 
-``$_[0]`` - the data that was passed to the hook function
+   ``$_[0]`` - array reference containing the values for the text event,
+   see *Settings* ``->`` *Text Events*
+   ``$_[1]`` - the data that was passed to the hook function
 
-fd callbacks
+-  Timer callbacks
 
-``$_[0]`` - the handle that was passed to hook\_fd ``$_[1]`` - flags
-indicating why the callback was called ``$_[2]`` - the data that was
-passed to the hook function
+   ``$_[0]`` - the data that was passed to the hook function
+
+-  fd callbacks
+
+   ``$_[0]`` - the handle that was passed to hook\_fd ``$_[1]`` - flags
+   indicating why the callback was called ``$_[2]`` - the data that was
+   passed to the hook function
 
 Callback return values
 ^^^^^^^^^^^^^^^^^^^^^^
 
 All server, command and print callbacks should return one of the
-Xchat::EAT_* constants.
+``Xchat::EAT_*`` constants.
 Timer callbacks can return ``Xchat::REMOVE`` to remove the timer or
 ``Xchat::KEEP`` to keep it going.
 
@@ -227,25 +228,25 @@ Events*, these additional events can be used.
 +=================+============================================================================================+
 | "Open Context"  | a new context is created                                                                   |
 +-----------------+--------------------------------------------------------------------------------------------+
-| "Close Context" | a context has been close                                                                   |
+| "Close Context" | a context has been closed                                                                  |
 +-----------------+--------------------------------------------------------------------------------------------+
 | "Focus Tab"     | when a tab is brought to the front                                                         |
 +-----------------+--------------------------------------------------------------------------------------------+
-| "Focus Window"  | when a top level window is focused or the main tab window is focused by the window manager | 
+| "Focus Window"  | when a top level window is focused or the main tab window is focused by the window manager |
 +-----------------+--------------------------------------------------------------------------------------------+
 | "DCC Chat Text" | when text from a DCC Chat arrives. $_[0] will have these values                            |
 |                 |                                                                                            |
-|                 | - $_[0][0] - Address                                                                       |
-|                 | - $_[0][1] - Port                                                                          |
-|                 | - $_[0][2] - Nick                                                                          |
-|                 | - $_[0][3] - Message                                                                       | 
+|                 | - ``$_[0][0]`` - Address                                                                   |
+|                 | - ``$_[0][1]`` - Port                                                                      |
+|                 | - ``$_[0][2]`` - Nick                                                                      |
+|                 | - ``$_[0][3]`` - Message                                                                   |
 +-----------------+--------------------------------------------------------------------------------------------+
 | "Key Press"     | used for intercepting key presses                                                          |
 |                 |                                                                                            |
-|                 | - $_[0][0] - key value                                                                     |
-|                 | - $_[0][1] - state bitfield, 1 - shift, 4 - control, 8 - alt                               |
-|                 | - $_[0][2] - string version of the key which might be empty for unprintable keys           |
-|                 | - $_[0][3] - length of the string in $_[0][2]                                              |
+|                 | - ``$_[0][0]`` - key value                                                                 |
+|                 | - ``$_[0][1]`` - state bitfield, 1 - shift, 4 - control, 8 - alt                           |
+|                 | - ``$_[0][2]`` - string version of the key which might be empty for unprintable keys       |
+|                 | - ``$_[0][3]`` - length of the string in ``$_[0][2]``                                      |
 +-----------------+--------------------------------------------------------------------------------------------+
 
 
@@ -253,10 +254,10 @@ Xchat::unhook( $hook )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$hook** - the hook that was previously returned by one of the
-   Xchat::hook_* functions
+   ``Xchat::hook_*`` functions
 
 This function is used to removed a hook previously added with one of the
-Xchat::hook_* functions.
+``Xchat::hook_*`` functions.
 
 It returns the data that was passed to the Xchat::hook_* function
 when the hook was added.
@@ -273,13 +274,13 @@ Xchat::print( $text | \@lines, [$channel,[$server]] )
    or tab that is associated with ``$server``
 
 The first argument can either be a string or an array reference of
-strings. Either or both of ``$channel`` and ``$server`` can be undef.
+strings. Either or both of ``$channel`` and ``$server`` can be ``undef``.
 
 If called as Xchat::print( $text ), it will always return true. If
 called with either the channel or the channel and the server specified
 then it will return true if a context is found and false otherwise. The
 text will not be printed if the context is not found. The meaning of
-setting ``$channel`` or ``$server`` to undef is the same as
+setting ``$channel`` or ``$server`` to ``undef`` is the same as
 find\_context.
 
 Xchat::printf( $format, LIST )
@@ -302,13 +303,13 @@ Xchat::command( $command | \@commands, [$channel,[$server]] )
    channel or tab that is associated with ``$server``
 
 The first argument can either be a string or an array reference of
-strings. Either or both of ``$channel`` and ``$server`` can be undef.
+strings. Either or both of ``$channel`` and ``$server`` can be ``undef``.
 
 If called as Xchat::command( $command ), it will always return true.
 If called with either the channel or the channel and the server
 specified then it will return true if a context is found and false
 otherwise. The command will not be executed if the context is not found.
-The meaning of setting ``$channel`` or ``$server`` to undef is the same
+The meaning of setting ``$channel`` or ``$server`` to ``undef`` is the same
 as find\_context.
 
 Xchat::commandf( $format, LIST )
@@ -325,18 +326,18 @@ Xchat::find_context( [$channel, [$server]] )
 -  **$channel** - name of a channel
 -  **$server** - name of a server
 
-Either or both of ``$channel`` and ``$server`` can be undef. Calling
-Xchat::find_context() is the same as calling
-Xchat::find_context( undef, undef) and
-Xchat::find_context( $channel ) is the same as
-Xchat::find_context( $channel, undef ).
+Either or both of ``$channel`` and ``$server`` can be ``undef``. Calling
+``Xchat::find_context()`` is the same as calling
+``Xchat::find_context( undef, undef)`` and
+``Xchat::find_context( $channel )`` is the same as
+``Xchat::find_context( $channel, undef )``.
 
-If ``$server`` is undef, find any channel named ``$channel``. If
-``$channel`` is undef, find the front most window or tab named
-``$server``.If both ``$channel`` and ``$server`` are undef, find the
+If ``$server`` is ``undef``, find any channel named ``$channel``. If
+``$channel`` is ``undef``, find the front most window or tab named
+``$server``.If both ``$channel`` and ``$server`` are ``undef``, find the
 currently focused tab or window.
 
-Return the context found for one of the above situations or undef if
+Return the context found for one of the above situations or ``undef`` if
 such a context cannot be found.
 
 Xchat::get_context()
@@ -365,10 +366,10 @@ Xchat::get_info( $id )
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | ID                      | Return value                                                                                                        | Associated Command(s) |
 +=========================+=====================================================================================================================+=======================+
-| away                    | away reason or undef if you are not away                                                                            | AWAY, BACK            |
+| away                    | away reason or ``undef`` if you are not away                                                                        | AWAY, BACK            |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
-| channel                 | current channel name                                                                                                | SETTAB                |
-+-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+            
+| channel                 | the original name of the tab, not affected by SETTAB                                                                | SETTAB                |
++-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | charset                 | character-set used in the current context                                                                           | CHARSET               |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | configdir               | HexChat config directory encoded in UTF-8. Examples:                                                                |                       |
@@ -378,7 +379,7 @@ Xchat::get_info( $id )
 | event_text <Event Name> | text event format string for <Event name>                                                                           |                       |
 |                         | Example:                                                                                                            |                       |
 |                         |                                                                                                                     |                       |
-|                         | - ``my $channel_msg_format = Xchat::get_info( "event_text Channel Message" );``                                     |                       |
+|                         | ``my $channel_msg_format = Xchat::get_info( "event_text Channel Message" );``                                       |                       |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | host                    | real hostname of the current server                                                                                 |                       |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
@@ -389,32 +390,32 @@ Xchat::get_info( $id )
 | libdirfs                | the system wide directory where xchat will look for plugins. this string is in the same encoding                    |                       |
 |                         | as the local file system                                                                                            |                       |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
-| modes                   | the current channels modes or undef if not known                                                                    | MODE                  |
+| modes                   | the current channels modes or ``undef`` if not known                                                                | MODE                  |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
-| network                 | current network name or undef, this value is taken from the Network List                                            |                       |
+| network                 | current network name or ``undef``, this value is taken from the Network List                                        |                       |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | nick                    | current nick                                                                                                        | NICK                  |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
-| nickserv                | nickserv password for this network or undef, this value is taken from the Network List                              |                       |
+| nickserv                | nickserv password for this network or ``undef``, this value is taken from the Network List                          |                       |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | server                  | current server name                                                                                                 |                       |
-|                         | (what the server claims to be) undef if not connected                                                               |                       |
+|                         | (what the server claims to be) ``undef`` if not connected                                                           |                       |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | state\_cursor           | current inputbox cursor position in characters                                                                      | SETCURSOR             |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | topic                   | current channel topic                                                                                               | TOPIC                 |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
-| version                 | xchat version number                                                                                                |                       |
+| version                 | hexchat's version number                                                                                            |                       |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | win_status              | status of the xchat window, possible values are "active", "hidden" and "normal"                                     | GUI                   |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | win\_ptr                | native window pointer, GtkWindow * on Unix, HWND on Win32.                                                          |                       |
-|                         | On Unix if you have the Glib module installed you can use my $window =                                              |                       |
-|                         | Glib::Object->new\_from\_pointer( Xchat::get_info( "win\_ptr" ) ); to get a Gtk2::Window object.                    |                       |
+|                         | On Unix if you have the Glib module installed you can use my ``$window =                                            |                       |
+|                         | Glib::Object->new\_from\_pointer( Xchat::get_info( "win\_ptr" ) );`` to get a Gtk2::Window object.                  |                       |
 |                         | Additionally when you have detached tabs, each of the windows will return a different win\_ptr                      |                       |
-|                         | for the different Gtk2::Window objects.                                                                             |                       |
-|                         | See `char\_count.pl <http://xchat.cvs.sourceforge.net/viewvc/xchat/xchat2/plugins/perl/char_count.pl?view=markup>`_ |                       | 
-|                         | for a longer example of a script that uses this to show how many characters you currently have in your input box.   |                       | 
+|                         | for the different ``Gtk2::Window`` objects.                                                                         |                       |
+|                         | See `char\_count.pl <http://xchat.cvs.sourceforge.net/viewvc/xchat/xchat2/plugins/perl/char_count.pl?view=markup>`_ |                       |
+|                         | for a longer example of a script that uses this to show how many characters you currently have in your input box.   |                       |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | gtkwin_ptr              | similar to win_ptr except it will always be a GtkWindow *                                                           |                       |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
@@ -517,6 +518,8 @@ if there is no such list.
 +==============+=============================================================================+
 | channel      | tab name                                                                    |
 +--------------+-----------------------------------------------------------------------------+
+| channelkey   | the key used to get into the channel                                        |
++--------------+-----------------------------------------------------------------------------+
 | chantypes    | channel types supported by the server, typically "#&"                       |
 +--------------+-----------------------------------------------------------------------------+
 | context      | can be used with set_context                                                |
@@ -544,9 +547,10 @@ if there is no such list.
 |              | - 2                                                                         |
 |              | - 3                                                                         |
 |              |                                                                             |
-|              | if( Xchat::context_info->{flags} & (1 << 6) ) {                             |
-|              |    Xchat::print( "Hide Join/Part messages is enabled" );                    |
-|              | }                                                                           |
+|              | .. code-block:: perl                                                        |
+|              |    if( Xchat::context_info->{flags} & (1 << 6) ) {                          |
+|              |       Xchat::print( "Hide Join/Part messages is enabled" );                 |
+|              |    }                                                                        |
 +--------------+-----------------------------------------------------------------------------+
 | id           | Unique server ID                                                            |
 +--------------+-----------------------------------------------------------------------------+
@@ -556,22 +560,22 @@ if there is no such list.
 +--------------+-----------------------------------------------------------------------------+
 | network      | network name to which this channel belongs                                  |
 +--------------+-----------------------------------------------------------------------------+
-| nickprefixes | Nickname prefixes e.g. "+@"                                                 |
-+--------------+-----------------------------------------------------------------------------+
 | nickmodes    | Nickname mode chars e.g. "vo"                                               |
++--------------+-----------------------------------------------------------------------------+
+| nickprefixes | Nickname prefixes e.g. "+@"                                                 |
 +--------------+-----------------------------------------------------------------------------+
 | queue        | number of bytes in the send queue                                           |
 +--------------+-----------------------------------------------------------------------------+
 | server       | server name to which this channel belongs                                   |
 +--------------+-----------------------------------------------------------------------------+
 | type         | the type of this context                                                    |
-|              | - 1 server                                                                  |
-|              | - 2 channel                                                                 |
-|              | - 3 dialog                                                                  |
-|              | - 4 notices                                                                 |
-|              | - 5 server notices                                                          |
+|              | - 1 - server                                                                |
+|              | - 2 - channel                                                               |
+|              | - 3 - dialog                                                                |
+|              | - 4 - notices                                                               |
+|              | - 5 - server notices                                                        |
 +--------------+-----------------------------------------------------------------------------+
-| users        | Number of users in this channel                                             |
+| users        | Number of users in a channel                                                |
 +--------------+-----------------------------------------------------------------------------+
 
 "dcc" - list of DCC file transfers
@@ -646,7 +650,8 @@ if there is no such list.
 | Key      | Value                                                                                        |
 +==========+==============================================================================================+
 | networks | comma separated list of networks where you will be notfified about this user's               |
-|          | online/offline statusor undef if you will be notificed on every network you are connected to |
+|          | online/offline status or ``undef`` if you will be notificed on every network you are         |
+|          | connected to                                                                                 |
 +----------+----------------------------------------------------------------------------------------------+
 | nick     | nickname                                                                                     |
 +----------+----------------------------------------------------------------------------------------------+
@@ -670,19 +675,19 @@ more details.
 +----------+-----------------------------------------------------------------------------------------------------------------------------------+
 | Key      | Value                                                                                                                             |
 +==========+===================================================================================================================================+
-| account  | account name or undef (2.9.6+)                                                                                                    |
+| account  | account name or ``undef`` (2.9.6+)                                                                                                |
 +----------+-----------------------------------------------------------------------------------------------------------------------------------+
-| away     | away status(boolean)                                                                                                              |
+| away     | away status (boolean)                                                                                                             |
 +----------+-----------------------------------------------------------------------------------------------------------------------------------+
-| lasttalk | last time a user was seen talking, this is the an epoch time(number of seconds since a certain date, that date depends on the OS) |
+| host     | host name in the form: user@host or ``undef`` if not known                                                                        |
++----------+-----------------------------------------------------------------------------------------------------------------------------------+
+| lasttalk | last time a user was seen talking, this is the an epoch time                                                                      |
 +----------+-----------------------------------------------------------------------------------------------------------------------------------+
 | nick     | nick name                                                                                                                         |
 +----------+-----------------------------------------------------------------------------------------------------------------------------------+
-| host     | host name in the form: user@host or undef if not known                                                                            |
-+----------+-----------------------------------------------------------------------------------------------------------------------------------+
 | prefix   | prefix character, .e.g: @ or +                                                                                                    |
 +----------+-----------------------------------------------------------------------------------------------------------------------------------+
-| realname | Real name or undef                                                                                                                |
+| realname | Real name or ``undef``                                                                                                            |
 +----------+-----------------------------------------------------------------------------------------------------------------------------------+
 | selected | selected status in the user list, only works when retrieving the user list of the focused tab.                                    |
 |          | You can use the /USELECT command to select the nicks                                                                              |
@@ -695,15 +700,14 @@ more details.
 +===================+=================================================================================================================================================================================+
 | autojoins         | An object with the following methods:                                                                                                                                           |
 |                   |                                                                                                                                                                                 |
-|                   | - Method      - Description                                                                                                                                                     |
-|                   |                                                                                                                                                                                 |
-|                   | - channels()  - returns a list of this networks' autojoin channels in list context, a count of the number autojoin channels in scalar context                                   |
-|                   | - keys()      - returns a list of the keys to go with the channels, the order is the same as the channels, if a channel doesn't have a key, '' will be returned in it's place   |
-|                   | - pairs()     - a combination of channels() and keys(), returns a list of (channels, keys) pairs. This can be assigned to a hash for a mapping from channel to key.             | 
-|                   | - as_hash()   - return the pairs as a hash reference                                                                                                                            |
-|                   | - as_string() - the original string that was used to construct this autojoin object, this can be used with the JOIN command to join all the channels in the autojoin list       |
-|                   | - as_array()  - return an array reference of hash references consisting of the keys "channel" and "key"                                                                         |
-|                   | - as_bool()   - returns true if the network has autojoins and false otherwise                                                                                                   |
+|                   | - ``channels()``  - returns a list of this networks' autojoin channels in list context, a count of the number autojoin channels in scalar context                               |
+|                   | - ``keys()``      - returns a list of the keys to go with the channels, the order is the same as the channels, if a channel doesn't have a key, '' will be returned in its      |
+|                   |   place                                                                                                                                                                         |
+|                   | - ``pairs()``     - a combination of channels() and keys(), returns a list of (channels, keys) pairs. This can be assigned to a hash for a mapping from channel to key.         |
+|                   | - ``as_hash()``   - return the pairs as a hash reference                                                                                                                        |
+|                   | - ``as_string()`` - the original string that was used to construct this autojoin object, this can be used with the JOIN command to join all the channels in the autojoin list   |
+|                   | - ``as_array()``  - return an array reference of hash references consisting of the keys "channel" and "key"                                                                     |
+|                   | - ``as_bool()``   - returns true if the network has autojoins and false otherwise                                                                                               |
 |                   |                                                                                                                                                                                 |
 +-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | connect_commands  | An array reference containing the connect commands for a network. An empty array if there aren't any                                                                            |
@@ -750,7 +754,7 @@ This function is mainly intended to be used as a shortcut for when you
 need to retrieve some information about only one user in a channel.
 Otherwise it is better to use ``get_list``. If ``$nick`` is found a hash
 reference containing the same keys as those in the "users" list of
-``get_list`` is returned otherwise undef is returned. Since it relies on
+``get_list`` is returned otherwise ``undef`` is returned. Since it relies on
 ``get_list`` this function can only be used in a channel context.
 
 Xchat::context_info( [$context] )
@@ -767,7 +771,7 @@ information will be returned in the form of a hash. The keys of the hash
 are the ``$id`` you would normally supply to ``get_info`` as well as all
 the keys that are valid for the items in the "channels" list from
 ``get_list``. Use of this function is more efficient than calling
-get\_list( "channels" ) and searching through the result.
+``get_list( "channels" )`` and searching through the result.
 
 Example:
 
