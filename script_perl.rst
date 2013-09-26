@@ -214,7 +214,7 @@ Timer callbacks can return ``Xchat::REMOVE`` to remove the timer or
 Miscellaneous Hook Related Information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For server hooks, if ``$message`` is "RAW LINE" then ``$cb``> will be
+For server hooks, if ``$message`` is "RAW LINE" then ``$cb`` will be
 called for every IRC message that HexChat receives.
 
 For command hooks if ``$command`` is "" then ``$cb`` will be called for
