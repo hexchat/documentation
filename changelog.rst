@@ -4,9 +4,11 @@ HexChat ChangeLog
 2.9.7 (TDB)
 -----------
 
+- enable italics
 - add fullscreen to view menu
 - add message parameter to /query
 - replace search window with a searchbar
+- replace xtext transparency with full window transparency
 - update Visual Studio to 2013
 
 2.9.6.1 (2013-09-15)
