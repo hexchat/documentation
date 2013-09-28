@@ -187,6 +187,8 @@ types of lists and fields available are:
 | type         | - 1 = Server                                                       | int    |
 |              | - 2 = Channel                                                      |        |
 |              | - 3 = Dialog                                                       |        |
+|              | - 4 = Notice                                                       |        |
+|              | - 5 = SNotice                                                      |        |
 +--------------+--------------------------------------------------------------------+--------+
 | users        | Number of users in this channel                                    | int    |
 +--------------+--------------------------------------------------------------------+--------+
