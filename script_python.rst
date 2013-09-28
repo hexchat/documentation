@@ -345,6 +345,8 @@ their servers. The folloing attributes are available in each list item:
    -  1: Server
    -  2: Channel
    -  3: Dialog
+   -  4: Notices
+   -  5: SNotices
 
 -  **flags:** Bit field of flags:
 
