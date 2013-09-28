@@ -110,7 +110,7 @@ Text Formatting
 - Original Color: '\\017'
 - Reverse Color: '\\026'
 - Beep: '\\007'
-- Italics: '\\035' (currently does nothing)
+- Italics: '\\035' (2.9.7+)
 
 For example this will print underlined red text:
 
