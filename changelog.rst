@@ -1,7 +1,7 @@
 HexChat ChangeLog
 =================
 
-2.9.7 (TDB)
+2.9.7 (TBD)
 -----------
 
 - enable italics
