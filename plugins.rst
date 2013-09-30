@@ -1323,7 +1323,7 @@ Plugin Preferences
 	settings from a plugin-specific config file.
 
 	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
-	:param dest: Array to save the list to.
+	:param dest: Array of size 4096 to save the list to.
 
 	:returns:
 		-  1: Success.
@@ -1336,7 +1336,7 @@ Plugin Preferences
 		 static void
 		 list_settings ()
 		 {
-			 char list[512];
+			 char list[4096];
 			 char buffer[512];
 			 char *token;
 
