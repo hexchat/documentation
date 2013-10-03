@@ -4,9 +4,11 @@ HexChat ChangeLog
 2.9.7 (TBD)
 -----------
 
+- render colors and attributes in the input and topic box
 - enable italics
 - add fullscreen to view menu
 - add message parameter to /query
+- improve spell check
 - replace search window with a searchbar
 - replace xtext transparency with full window transparency
 - update Visual Studio to 2013
