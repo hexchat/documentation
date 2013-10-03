@@ -4,9 +4,9 @@ Appearance
 Theme Manager
 -------------
 
-The theme manager is a simple external application, which is included with the `installer <http://hexchat.net/downloads.html>`_ on Windows and `buildable <building.html#building-theme-manager>`_ on Unix, that helps install themes.
+We distribute themes as :file:`.hct` files. These are just simply ZIP archives that you can extract manually and install into your `config folder <settings.html#config-files>`_. Some themes can be found `here <http://dl.hexchat.net/themes/>`_.
 
-The themes are distributed as :file:`.hct` files. These are just simply ZIP archives that you can extract manually and install into your `config folder <settings.html#config-files>`_. Some themes can be found `here <http://dl.hexchat.net/themes/>`_.
+The theme manager is a simple external application, which is included with the `installer <http://hexchat.net/downloads.html>`_ on Windows and `buildable <building.html#building-theme-manager>`_ on Unix, that helps install themes.
 
 .. image:: http://i.imgur.com/iwDcvLL.png
    :align: center
@@ -68,7 +68,9 @@ HexChat comes with built in icons for the tray, user list, and channel tree (whi
 Gtk Theme
 ~~~~~~~~~
 
-To customize more than just text color you can place a *gtkrc* file in *<installdir>\\etc\\gtk-2.0*
+To customize more than just text color such as the window borders you can place a *gtkrc* file in *<installdir>\\etc\\gtk-2.0*.
+
+During installation be sure to uncheck *Gtk Theme* to not overwrite your current theme.
 
 Buttons, Menus, and Popups
 --------------------------
