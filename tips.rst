@@ -116,3 +116,12 @@ Tor
 .. image:: http://i.imgur.com/Sg8m8MC.png
 
 .. _freenode: http://freenode.net/irc_servers.shtml#tor
+
+Twitch
+------
+
+Twitch.tv uses irc for chat so you can use a regular client for chat but it is a very customized irc that has some extra requirements.
+
+In the Network List add a new network and for the server use *irc.twitch.tv*, ssl is not supported. You must have your username and nickname match your twitch account. For the login method choose *Server Password* and generate a password on this website `<http://twitchapps.com/tmi>`_
+
+To enhance your experience I recommend using the `twitch.py <https://github.com/TingPing/plugins/blob/master/HexChat/twitch.py>`_ script.
