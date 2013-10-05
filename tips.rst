@@ -86,7 +86,7 @@ When HexChat decides where to print a notice, it does so in the following order:
 2. In the front tab, if the tab is a channel, the other user is on that channel, and you are on the correct network
 3. In the last joined channel you have in common with the other user
 4. The current tab, if you are on the same network
-5. The last tab you looked at that shares the correct network with the other user 
+5. The last tab you looked at that shares the correct network with the other user
 
 This means that if you issue a :command:`/cs info #yourchannel` from your channel, the reply may show up elsewhere if ChanServ isn't in your channel, but is in some other channel.
 

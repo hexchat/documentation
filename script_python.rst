@@ -37,7 +37,7 @@ Commands
 The Python plugin comes with a :command:`py` command that takes these arguments.
 
 .. program:: py
-	
+
 .. option:: load <file>
 
 	Load a script with given filename.
@@ -56,7 +56,7 @@ The Python plugin comes with a :command:`py` command that takes these arguments.
 .. option:: list
 
 	List Python scripts loaded
-	
+
 .. option:: exec <command>
 
 	Execute given Python command interactively. For example:
@@ -160,16 +160,16 @@ Constants and Attributes
 		  PRI_NORM
 		  PRI_LOW
 		  PRI_LOWEST
-		  
+
 	Priority given to hooks.
 
 .. data:: EAT_PLUGIN
 		  EAT_HEXCHAT
 		  EAT_ALL
 		  EAT_NONE
-		  
+
 	Used as return values for callbacks.
-		  
+
 .. attribute:: __version__
 
 	Tuple of (MAJOR_VERSION, MINOR_VERSION)
@@ -214,7 +214,7 @@ Generic functions
 
 	This function will do an RFC1459 compliant string comparison
 	and is useful to compare channels and nicknames.
-	
+
 	:returns: Returns 0 if they match and less than or greater than 0 if s1 is less than or greather than s2
 
 	.. code-block:: python
@@ -225,10 +225,10 @@ Generic functions
 .. function:: strip(text[, length=-1, flags=3])
 
 	This function can strip colors and attributes from text.
-   
+
 	:param length: -1 for entire string
 	:param flags:
-		1: Strip Colors 
+		1: Strip Colors
 		2: Strip Attributes
 		3: Strip All
 	:returns: Stripped String
@@ -278,19 +278,19 @@ Information retreiving functions
 
 	Retrieve the HexChat setting information specified by the ``name``
 	string, as available by the ``/set`` command.
-	
+
 	.. code-block:: python
 
-	   print("Current preferred nick: " + hexchat.get_prefs("irc_nick1"))	
-	
+	   print("Current preferred nick: " + hexchat.get_prefs("irc_nick1"))
+
 	You can also get the format of Text Events by using *event_name* and the event:
-	
+
 	.. code-block:: python
 
 	   print(hexchat.get_prefs("event_name Channel Message"))
-	   
+
 	And on top of that there are a few special preferences:
-	
+
 	- id (unique server id)
 	- state_cursor (location of cursor in input box)
 
@@ -317,7 +317,7 @@ Information retreiving functions
 			   print("%6s %10s %.2f  %d" % (i.file, i.nick, i.cps/1024, i.pos))
 
 	Below you will find what each list type has to offer.
-	
+
 List Types
 ''''''''''
 
@@ -451,7 +451,7 @@ A callback is the function that will be called when the event happens.
 The callback supposed to return one of the EAT\_\* `constants <script_python.html#constants-and-attributes>`_,
 it is able control how HexChat will proceed after the callback returns. These
 are the available constants, and their meanings:
-	 
+
 -  :data:`EAT_PLUGIN`: Don't let any other plugin receive this event.
 -  :data:`EAT_HEXCHAT`: Don't let HexChat treat this event as usual.
 -  :data:`EAT_ALL`: Eat the event completely.
@@ -468,7 +468,7 @@ your callback.
 attributes
 ^^^^^^^^^^
 
-If you create a hook with :func:`hook_server_attrs` or :func:`hook_print_attrs` the last 
+If you create a hook with :func:`hook_server_attrs` or :func:`hook_print_attrs` the last
 argument in the callback will be an :obj:`Attribute` object.
 
 .. object:: Attribute
@@ -481,7 +481,7 @@ priority
 ^^^^^^^^
 
 When a priority keyword parameter is accepted, it means that this
-callback may be hooked with five different priorities which are 
+callback may be hooked with five different priorities which are
 `constants <script_python.html#constants-and-attributes>`_ will define the
 order in which your plugin will be called. Most of the time, you won't
 want to change its default value (:data:`PRI_NORM`).
@@ -511,7 +511,7 @@ command. For example, if you executed:
 	Parameters ``userdata`` and ``priority`` have their meanings explained
 	above, and the parameter help, if given, allows you to pass a help text
 	which will be shown when ``/help name`` is executed.
-	
+
 	:returns: New Hook Handler
 
 	.. code-block:: python
@@ -534,7 +534,7 @@ command. For example, if you executed:
 	events. The event names are available in the :menuselection:`Settings --> Text Events` window.
 	Parameters ``userdata`` and ``priority`` have their meanings explained
 	above.
-	
+
 	:returns: New Hook Handler
 
 	.. code-block:: python
@@ -586,7 +586,7 @@ command. For example, if you executed:
 	certain server event occurs. You can use this to trap ``PRIVMSG``,
 	``NOTICE``, ``PART``, a server numeric, etc. Parameters ``userdata`` and
 	``priority`` have their meanings explained above.
-	
+
 	:returns: New Hook Handler
 
 	.. code-block:: python
@@ -602,7 +602,7 @@ command. For example, if you executed:
 
 	This function is the same as :func:`hook_server` Except its callback will have a new
 	:obj:`Attribute` argument.
-	
+
 	:returns: New Hook Handler
 
 	.. versionadded:: 1.0
@@ -621,7 +621,7 @@ command. For example, if you executed:
 	This function allows you to register a callback to be called every
 	timeout milliseconds. Parameters userdata and priority have their
 	meanings explained above.
-	
+
 	:returns: New Hook Handler
 
 	.. code-block:: python
@@ -650,7 +650,7 @@ command. For example, if you executed:
 	This function allows you to register a callback to be called when the
 	plugin is going to be unloaded. Parameters ``userdata`` and ``priority``
 	have their meanings explained above.
-	
+
 	:returns: New Hook Handler
 
 	.. code-block:: python
@@ -663,7 +663,7 @@ command. For example, if you executed:
 .. function:: unhook(handler)
 
 	Unhooks any hook registered with the hook functions above.
-	
+
 	:param handler: Handler returned from :func:`hook_print`, :func:`hook_command`, :func:`hook_server` or :func:`hook_timer`
 
 	As of version 1.0 of the plugin hooks from :func:`hook_print` and :func:`hook_command` can be unhooked by their names.
@@ -676,25 +676,25 @@ You can use pluginpref to easily store and retrieve settings.
 .. function:: set_pluginpref(name, value)
 
 	Stores settings in addon\_python.conf in the config dir.
-	
+
 	:returns:
 		- False: Failure
 		- True: Success
-	
+
 	.. versionadded:: 0.9
 
-	.. Note:: Until the plugin uses different a config file per script it's 
+	.. Note:: Until the plugin uses different a config file per script it's
 			  recommened to use 'scriptname_settingname' to avoid conflicts.
 
 .. function:: get_pluginpref(name)
 
 	This will return the value of the variable of that name. If there is
 	none by this name it will return ``None``.
-	
+
 	:returns: String or Integer of stored setting or None if it does not exist.
-	
+
 	.. Note:: Strings of numbers are always returned as Integers.
-	
+
 	.. versionadded:: 0.9
 
 .. function:: del_pluginpref(name)
@@ -703,16 +703,16 @@ You can use pluginpref to easily store and retrieve settings.
 
 	:returns:
 		- False: Failure
-		- True: Success (or never existing), 
-	
+		- True: Success (or never existing),
+
 	.. versionadded:: 0.9
 
 .. function:: list_pluginpref()
 
 	Returns a list of all currently set preferences.
-	
+
 	:rtype: List of Strings
-	
+
 	.. versionadded:: 0.9
 
 Context handling
@@ -730,18 +730,18 @@ which will be specified by HexChat itself before passing control to the
 module. Sometimes you may want to work in a specific context, and that's
 where :obj:`context` objects come into play.
 
-You may create a context object using :func:`get_context` or :func:`find_context` 
+You may create a context object using :func:`get_context` or :func:`find_context`
 functions as explained below, or trough the :func:`get_list` function, as explained above.
 
 
 .. function:: get_context()
 
-	:rtype: :obj:`context` 
+	:rtype: :obj:`context`
 
 .. function:: find_context(server=None, channel=None)
 
 	Finds a context based on a channel and servername.
-	
+
 	:keyword server: if None only looks for channel name
 	:keyword channel: if None looks for front context of given server
 	:rtype: :obj:`context`
@@ -750,34 +750,34 @@ functions as explained below, or trough the :func:`get_list` function, as explai
 
 	   cnc = hexchat.find_context(channel='#conectiva')
 	   cnc.command('whois niemeyer')
-	   
+
 
 .. object:: context
 
 	The context object returned by the functions listed above has these methods:
 
 	.. method:: context.set()
-	
+
 		Changes the current context to be the one represented by this context object.
-		
+
 	.. method:: context.prnt(string)
-	
+
 		Does the same as the :func:`prnt` function but in the given context.
-	
+
 	.. method:: context.emit_print(event_name, \*args)
-	
+
 		Does the same as the :func:`emit_print` function but in the given context.
-	
+
 	.. method:: context.command(string)
-	
+
 		Does the same as the :func:`command` function but in the given context
-	
+
 	.. method:: context.get_info(type)
-	
+
 		Does the same as the :func:`get_info` function but in the given context.
-	
+
 	.. method:: context.get_list(type)
-	
+
 		Does the same as the :func:`get_list` function but in the given context.
 
 --------------

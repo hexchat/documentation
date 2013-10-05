@@ -10,8 +10,8 @@ Software
 Download and install (in their default install paths):
 
 -  `Visual Studio 2013 Express for Windows Desktop <http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express>`_
--  `Inno Setup 5.5 Unicode <http://www.jrsoftware.org/isdl.php>`_ 
--  `7-Zip <http://7-zip.org/>`_ 
+-  `Inno Setup 5.5 Unicode <http://www.jrsoftware.org/isdl.php>`_
+-  `7-Zip <http://7-zip.org/>`_
 -  `gendef <http://dl.hexchat.net/gtk-win32/gendef-20111031.7z>`_ (extract to *c:\\mozilla-build*)
 -  `msgfmt <http://dl.hexchat.net/gtk-win32/msgfmt-0.18.1.7z>`_ (extract to *c:\\mozilla-build*)
 
@@ -32,8 +32,8 @@ Create a folder for GTK+, referred to as *YourDepsPath* from now (*C:\\mozilla-b
 Specify the absolute path to *YourDepsPath* in *win32\\hexchat.props*
 with the *YourDepsPath* property. Download:
 
--  `GTK+ x86 bundle`_ 
--  `GTK+ x64 bundle`_ 
+-  `GTK+ x86 bundle`_
+-  `GTK+ x64 bundle`_
 
 .. _GTK+ x86 bundle: http://dl.hexchat.net/gtk-win32/vc12/x86/gtk-x86.7z
 .. _GTK+ x64 bundle: http://dl.hexchat.net/gtk-win32/vc12/x64/gtk-x64.7z
@@ -82,7 +82,7 @@ Unix
 
 First of all, you have to install the build dependencies just like you
 would for an XChat compilation. Package names differ across distros, so
-be creative and check your *configure* output if you get an error. 
+be creative and check your *configure* output if you get an error.
 Also most package-managers can get the dependencies for you:
 
 - yum: yum-builddep hexchat
@@ -92,13 +92,13 @@ HexChat has its source code hosted using `Git <http://git-scm.com/>`_, so you ha
 well. When it's ready, you can start the actual compilation, which is
 basically:
 
-.. code-block:: bash 
+.. code-block:: bash
 
- git clone https://github.com/hexchat/hexchat.git 
- cd hexchat 
- ./autogen.sh 
- ./configure 
- make 
+ git clone https://github.com/hexchat/hexchat.git
+ cd hexchat
+ ./autogen.sh
+ ./configure
+ make
  sudo make install
 
 This will compile with defaults. See *./configure --help* for more info
@@ -132,10 +132,10 @@ following commands:
 
 .. code-block:: bash
 
- cd hexchat 
- ./configure --disable-nls --disable-xlib --disable-perl 
- make 
- ./src/fe-gtk/hexchat 
+ cd hexchat
+ ./configure --disable-nls --disable-xlib --disable-perl
+ make
+ ./src/fe-gtk/hexchat
 
 See *./configure --help* for more info about flags.
 

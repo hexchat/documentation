@@ -4,7 +4,7 @@ Frequently Asked Questions
 How do I migrate my settings from XChat?
 ----------------------------------------
 
-It is recommend to just start with fresh settings as the format and names of 
+It is recommend to just start with fresh settings as the format and names of
 many options have changed and you may encounter some oddities migrating.
 
 -  Unix
@@ -66,16 +66,16 @@ How do I change what browser is opened?
     - XFCE 4: :menuselection:`Settings Manager --> Prefered Applications`
 
     If these do not work or you do not use a DE use the command :command:`gvfs-mime`:
-     
+
      gvfs-mime --set x-scheme-handler/http firefox.desktop
 
     If you hate gvfs you can manually edit *~/.local/share/applications/mimeapps.list* to include:
-    
+
      x-scheme-handler/http=firefox.desktop;
-     
-    Don't forget to do the same for *https*. 
-    
-    Now upon launching it will use the *Exec* line in their desktop file replacing *%u* with the url. 
+
+    Don't forget to do the same for *https*.
+
+    Now upon launching it will use the *Exec* line in their desktop file replacing *%u* with the url.
     If you get a blank window this is where the problem is.
 
 Alternatively you can add an `Url Handler <settings.html#url-handlers>`_
