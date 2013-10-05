@@ -89,7 +89,7 @@ You can use pluginpref to easily store and retrieve settings.
 .. function:: set_pluginpref(name, value)
 
 	Stores settings in addon\_*SCRIPT_NAME*.conf in the config dir.
-	
+
 	:returns:
 		- False: Failure
 		- True: Success
@@ -98,9 +98,9 @@ You can use pluginpref to easily store and retrieve settings.
 
 	This will return the value of the variable of that name. If there is
 	none by this name it will return undefined.
-	
+
 	:returns: String or Integer of stored setting or None if it does not exist.
-	
+
 	.. Note:: Strings of numbers are always returned as Integers.
 
 .. function:: del_pluginpref(name)
@@ -109,7 +109,7 @@ You can use pluginpref to easily store and retrieve settings.
 
 	:returns:
 		- False: Failure
-		- True: Success (or never existing), 
+		- True: Success (or never existing),
 
 .. function:: list_pluginpref()
 
