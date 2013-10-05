@@ -548,6 +548,7 @@ if there is no such list.
 |              | - 3                                                                         |
 |              |                                                                             |
 |              | .. code-block:: perl                                                        |
+|              |                                                                             |
 |              |    if( Xchat::context_info->{flags} & (1 << 6) ) {                          |
 |              |       Xchat::print( "Hide Join/Part messages is enabled" );                 |
 |              |    }                                                                        |
