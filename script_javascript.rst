@@ -67,7 +67,7 @@ Hook Functions
 
 	Calls specified callback in your specified interval (in milliseconds).
 
-	If you return :obj:`true` the callback will continue to be called, otherwise it is removed.
+	If you return *true* the callback will continue to be called, otherwise it is removed.
 
 	:returns: Hook handler
 
