@@ -256,9 +256,9 @@ types of lists and fields available are:
 
 
 ======== ================================================================== =======
-"notify" list of people on notify                                                  
+"notify" list of people on notify
 -------- --------------------------------------------------------------------------
-Name     Description                                                        Type   
+Name     Description                                                        Type
 ======== ================================================================== =======
 networks Networks to which this nick applies. Comma separated. May be NULL. string
 nick     Nickname                                                           string
@@ -448,7 +448,7 @@ You can also change menus other than the main one (i.e popup menus).
 Currently they are:
 
 ============ ============================================================
-Root Name    Menu                                                        
+Root Name    Menu
 ============ ============================================================
 $TAB         Tab menu (right click a channel/query tab or treeview row)
 $TRAY        System Tray menu
@@ -569,7 +569,7 @@ this example, someone will CTCP you the message "SHOWFILE <filename>".
 					 fclose (fp);
 			 }
 	 }
-	 
+
 Types and Constants
 -------------------
 
@@ -579,23 +579,23 @@ Types and Constants
 					hexchat_context
 					hexchat_event_attrs
 
-	 
-.. var:: HEXCHAT_PRI_HIGHEST 
+
+.. var:: HEXCHAT_PRI_HIGHEST
 				 HEXCHAT_PRI_HIGH
 				 HEXCHAT_PRI_NORM
 				 HEXCHAT_PRI_LOW
 				 HEXCHAT_PRI_LOWEST
-					
+
 .. var:: HEXCHAT_EAT_NONE
 				 HEXCHAT_EAT_XCHAT
 				 HEXCHAT_EAT_PLUGIN
 				 HEXCHAT_EAT_ALL
-					
+
 .. var:: HEXCHAT_FD_READ
 				 HEXCHAT_FD_WRITE
 				 HEXCHAT_FD_EXCEPTION
 				 HEXCHAT_FD_NOTSOCKET
-					
+
 
 Functions
 ---------
@@ -618,7 +618,7 @@ General Functions
 
 	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
 	:param format: The format string.
-	
+
 
 .. function:: void hexchat_print (hexchat_plugin *ph, const char *text)
 
@@ -660,7 +660,7 @@ General Functions
 .. function:: int hexchat_emit_print_attrs (hexchat_plugin *ph, hexchat_event_attrs *attrs, const char *event_name, ...)
 
 	Generates a print event. This is the same as
-	:func:`hexchat_emit_print` but it passes an :type:`hexchat_event_attrs *` 
+	:func:`hexchat_emit_print` but it passes an :type:`hexchat_event_attrs *`
 	to hexchat with the print attributes.
 
 
@@ -771,7 +771,7 @@ General Functions
 
 .. function:: hexchat_event_attrs *hexchat_event_attrs_create (hexchat_plugin *ph)
 
-	Allocates a new :type:`hexchat_event_attrs`. The attributes are initially 
+	Allocates a new :type:`hexchat_event_attrs`. The attributes are initially
 	marked as unused.
 
 	:returns: A pointer to the allocated :type:`hexchat_event_attrs`. Should be freed by :func:`hexchat_event_attrs_free`.
@@ -1084,7 +1084,7 @@ Hook Functions
 
 .. function:: hexchat_hook* hexchat_hook_server_attrs (hexchat_plugin *ph, const char *name, int pri, \
 												int (*callb) (char *word[], char *word_eol[], hexchat_event_attrs *attrs, void *user_data), void *userdata)
-	
+
 	Registers a function to be called when a certain server
 	event occurs. This is the same as
 	:func:`hexchat_hook_server` but the callback receives an
@@ -1192,7 +1192,7 @@ Context Functions
 	:returns:
 		-  1: Success.
 		-  0: Failure.
-		
+
 
 Plugin Preferences
 ''''''''''''''''''
@@ -1246,7 +1246,7 @@ Plugin Preferences
 	:returns:
 		-  1: Success.
 		-  0: Failure.
-		
+
 
 .. function:: int hexchat_pluginpref_set_int (hexchat_plugin *ph, const char *var, int value)
 
@@ -1356,22 +1356,22 @@ Plugin Preferences
 	then print them one by one with their respective values. We always use
 	*hexchat\_pluginpref\_get\_str ()*, and that's because we can read an
 	integer as string (but not vice versa).
-	
+
 Plugin GUI
 ''''''''''
 
 .. function:: void* hexchat_plugingui_add (hexchat_plugin *ph, const char *filename, const char *name, \
 					const char *desc, const char *version, char *reserved)
-					
+
 	Adds a fake plugin to the GUI in :menuselection:`Window --> Plugins and Scripts`.
 	This does not need to be done for your actual plugin and is only used for interfaces
 	to other languages like our python plugin.
-	
+
 	:returns: Handle to be used with :func:`hexchat_plugingui_remove`
-	
+
 .. function:: void hexchat_plugingui_remove (hexchat_plugin *ph, void *handle)
-	
+
 	Removes the fake plugin from the GUI. Again not to be used to remove your own plugin.
-	
+
 	:param handle: Handle returned by :func:`hexchat_plugingui_add`
 
