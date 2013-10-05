@@ -118,5 +118,5 @@ Now if you didn't get any error you should have Perl module installed and it can
 
 Whole operation should look like this:
 
-.. figure:: http://i.imgur.com/2phxzxr.png
+.. figure:: _static/img/perlmodules_terminal.png
    :align: center

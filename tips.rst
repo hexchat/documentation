@@ -9,7 +9,7 @@ Windows
 
 HexChat for Windows uses MySpell for spelling via the Enchant library. The required libraries are included in the installer, but the dictionaries are big so they are distributed in a separate archive. They're from Debian Lenny.
 
-.. image:: http://i.imgur.com/MxSpn7J.png
+.. image:: _static/img/tips_spellcheck.png
 
 If you want to have spelling, do the following:
 
@@ -106,11 +106,11 @@ Tor
 2. Get tor working. Refer to the tutorial from official tor website (instructions for `Windows <http://www.torproject.org.in/docs/tor-doc-windows.html.en>`_ and `Linux <http://www.torproject.org.in/docs/debian.html.en>`_). For windows -  Browser bundle is an easy way to test.
 3. Set up proxy in :menuselection:`Settings --> Preferences --> Network Setup`. Example (with defaults):
 
-.. image:: http://i.imgur.com/ohSfc.png
+.. image:: _static/img/tips_tor_1.png
 
 4. Setup the network in :menuselection:`HexChat --> Network List`. Note the ip from `freenode`_'s site (which may change) and for freenode SASL is required. Example:
 
-.. image:: http://i.imgur.com/Sg8m8MC.png
+.. image:: _static/img/tips_tor_2.png
 
 .. _freenode: http://freenode.net/irc_servers.shtml#tor
 
