@@ -403,6 +403,7 @@ channel. The following attributes are available in each list item:
 - **account:** Account name or None (2.9.6+)
 -  **away:** Away status.
 -  **host:** Host name in the form user@host (or None, if not known).
+- **lasttalk:** Time they last talked (2.9.6+)
 -  **nick:** Nick name.
 -  **prefix:** Prefix character, .e.g: @ or +. Points to a single char.
 -  **realname:** Real name.
@@ -434,6 +435,9 @@ The notify list shows users on your friends list and their status:
 - **nick:** Users nickname
 - **networks:** Networks they are setup to notify on (None for all)
 - **flags:** 0 is offline, 1 is online
+- **on:** Time when user last came on (2.9.6+)
+- **off:** Time when user last logged off (2.9.6+)
+- **seen:** Time when user was last seen (2.9.6+)
 
 Hook functions
 ~~~~~~~~~~~~~~
