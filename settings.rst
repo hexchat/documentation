@@ -9,7 +9,7 @@ Config files are stored as plaintext files (which shouldn't be edited by hand). 
 - Windows: :file:`%APPDATA%\\HexChat`
 - Unix: :file:`~/.config/hexchat`
 
-.. NOTE::
+.. note::
    Type the path into your file browser to expand them into a full directory.
 
 Custom directories can be set with the :option:`-d` or :option:`--cfgdir` command line argument.
@@ -72,7 +72,7 @@ Url handlers add alternative browsers to you your right click menu on urls (they
 
 	!program %s or !C:\\PROGRA~1\\program\\program.exe %s
 
-.. NOTE::
+.. note::
 	If HexChat does not find the executable it will not add it to the menu.
 
 Auto Replace
@@ -91,7 +91,7 @@ CTCP Replies
 
 Custom CTCP replies can be set in :menuselection:`Settings --> CTCP Replies` and accept the same format as `User Commands <commands.html#user-commands>`_
 
-.. NOTE::
+.. note::
    To hide the default VERSION reply you must :command:`/set irc_hide_version on`
 
 Set Command
