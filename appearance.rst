@@ -12,7 +12,7 @@ The theme manager is a simple external application, which is included with the `
    :align: center
 
 .. NOTE::
-	.NET 4 is required to run the theme manager; You can download it from `Microsoft's site <http://www.microsoft.com/en-us/download/details.aspx?id=17113>`_
+	.NET 4 is required to run the theme manager; You can download it from `Microsoft's site <http://www.microsoft.com/en-us/download/details.aspx?id=17113>`_.
 
 Theming
 -------
