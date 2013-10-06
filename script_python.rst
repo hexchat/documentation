@@ -305,7 +305,7 @@ Information retreiving functions
 	The example below is a rewrite of the example provided with HexChat's
 	plugin API documentation. It prints a list of every DCC transfer
 	happening at the moment. Notice how similar the interface is to the C
-	API provided by Hehexchat.
+	API provided by HexChat.
 
 	.. code-block:: python
 
@@ -728,7 +728,7 @@ Context objects
 '''''''''''''''
 
 As explained in the Context theory session above, contexts give access
-to a specific channel/query/server tab of Hehexchat. Every function
+to a specific channel/query/server tab of HexChat. Every function
 available in the xchat module will be evaluated in the current context,
 which will be specified by HexChat itself before passing control to the
 module. Sometimes you may want to work in a specific context, and that's
