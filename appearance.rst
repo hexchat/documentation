@@ -8,11 +8,11 @@ We distribute themes as :file:`.hct` files. These are just simply ZIP archives t
 
 The theme manager is a simple external application, which is included with the `installer <http://hexchat.net/downloads.html>`_ on Windows and `buildable <building.html#building-theme-manager>`_ on Unix, that helps install themes.
 
-.. image:: http://i.imgur.com/iwDcvLL.png
+.. image:: _static/img/appearance.png
    :align: center
 
 .. NOTE::
-	.NET 4 is required to run the theme manager; You can download it `here <http://www.microsoft.com/en-us/download/details.aspx?id=17113>`_
+	.NET 4 is required to run the theme manager; You can download it from `Microsoft's site <http://www.microsoft.com/en-us/download/details.aspx?id=17113>`_
 
 Theming
 -------

@@ -7,7 +7,7 @@ Quick Start
 The first time you start HexChat you'll see the *Network List* as seen
 below:
 
-.. figure:: http://i.imgur.com/7kbmoqU.png
+.. image:: _static/img/network_list.png
    :align: center
 
 Here you can specify your global logon details. The *Nick name* will be
@@ -17,7 +17,7 @@ server.
 You can pick a server from the default list, or if it's not there, you
 can add your own by clicking the *Add* button:
 
-.. figure:: http://i.imgur.com/DoVfAK9.png
+.. image:: _static/img/network_list_add.png
    :align: center
 
 After you named it, click *Edit...* and specify the details of your
@@ -30,7 +30,7 @@ certain group of people:
 
 You can see an example below:
 
-.. figure:: http://i.imgur.com/n8nguGI.png
+.. image:: _static/img/network_list_edit.png
    :align: center
 
 In this example, the server address is *irc.foo.bar* and the port
@@ -40,7 +40,7 @@ finished editing, click *Close* to return to the *Network List*.
 Now select the network you want to connect to and click *Connect*. After
 a successful connection you'll see the following window:
 
-.. figure:: http://i.imgur.com/uAk50pU.png
+.. image:: _static/img/connection_complete_msg.png
    :align: center
 
 If you don't want to join a channel just yet, leave it as it is. If you
@@ -50,7 +50,7 @@ option. Then press *OK* to close this window.
 After you successfully joined a channel, you should see something like
 this:
 
-.. figure:: http://i.imgur.com/c15ePWZ.png
+.. image:: _static/img/channel_window.png
    :align: center
 
 That's it, you're online. Now you can learn more about HexChat and

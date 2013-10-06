@@ -307,16 +307,16 @@ simple beep effect. In case you don't hear beeps when alerts occur, you need
 to set this system sound to the desired sound effect. To do this, go to
 :menuselection:`Control Panel --> Hardware and Sound --> Change system sounds`.
 
-.. figure:: _static/img/faq_sound.png
+.. image:: _static/img/faq_sound.png
 
 How do I type Unicode characters?
 ---------------------------------
 Press `Ctrl + Shift + U` at once. When you release the keys, `u` will appear in
 your input box.
 
-.. figure:: _static/img/faq_unicode_1.png
+.. image:: _static/img/faq_unicode_1.png
 
 Now you can enter the 4-digit code of the desired glyph. When you're done, just
 press `Space` or `Return`, and the glyph will appear as well.
 
-.. figure:: _static/img/faq_unicode_2.png
+.. image:: _static/img/faq_unicode_2.png
