@@ -8,7 +8,9 @@ HexChat ChangeLog
 - enable italics
 - add fullscreen to view menu
 - add message parameter to /query
+- add plugin_pref to perl
 - improve spell check
+- rebrand perl plugin
 - replace search window with a searchbar
 - replace xtext transparency with full window transparency
 - update Visual Studio to 2013
