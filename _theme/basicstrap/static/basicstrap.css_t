@@ -531,3 +531,8 @@ div.topic {
   }
   {% endif %}
 }
+
+div.section {
+  padding-top: 40px;
+  margin-top: -40px;
+}
