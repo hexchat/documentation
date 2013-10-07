@@ -530,9 +530,9 @@ div.topic {
     width: {{ theme_content_width }};
   }
   {% endif %}
-}
 
-div.section {
-  padding-top: 40px;
-  margin-top: -40px;
+  div.section {
+    padding-top: 40px;
+    margin-top: -40px;
+  }
 }
