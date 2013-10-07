@@ -12,7 +12,7 @@ Config files are stored as plaintext files (which shouldn't be edited by hand). 
 .. note::
    Type the path into your file browser to expand them into a full directory.
 
-Custom directories can be set with the :option:`-d` or :option:`--cfgdir` command line argument.
+Custom directories can be set with the `-d` or `--cfgdir` command line argument.
 
 On Windows there is a portable mode option which makes HexChat store settings inside of a :file:`\\config` subdir within the main installation folder. Though this option should only be used if you must for a portable drive or if you lack administrative priviliges for installation.
 
