@@ -607,16 +607,16 @@ General Functions
 
 	Executes a command as if it were typed in HexChat's input box.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param command: Command to execute, without the forward slash "/".
 
 
 .. function:: void hexchat_commandf (hexchat_plugin *ph, const char *format, ...)
 
 	Executes a command as if it were typed in HexChat's
-	input box and provides string formatting like :func:`printf`.
+	input box and provides string formatting like `printf`.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param format: The format string.
 
 
@@ -624,15 +624,15 @@ General Functions
 
 	Prints some text to the current tab/window.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param text: Text to print. May contain mIRC color codes.
 
 
 .. function:: void hexchat_printf (hexchat_plugin *ph, const char *format, ...)
 
-	Prints some text to the current tab/window and provides formatting like :func:`printf`.
+	Prints some text to the current tab/window and provides formatting like `printf`.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param format: The format string.
 
 
@@ -645,7 +645,7 @@ General Functions
 	:func:`hexchat_hook_print`), as not to cause endless recursion.
 
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param event_name: Text event to print.
 
 	:returns: 0 on Failure, 1 on Success
@@ -664,7 +664,7 @@ General Functions
 	to hexchat with the print attributes.
 
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param attrs: Print attributes. This should be obtained with :func:`hexchat_event_attrs_create` and freed with :func:`hexchat_event_attrs_free`.
 	:param event_name: Text event to print.
 
@@ -692,7 +692,7 @@ General Functions
 	for *modes_per_line* to use the current server's maximum possible.
 	This function should only be called while in a channel context.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param targets: Array of targets (strings). The names of people whom the action will be performed on.
 	:param ntargets: Number of elements in the array given.
 	:param modes_per_line: Maximum modes to send per line.
@@ -712,9 +712,9 @@ General Functions
 	Performs a nick name comparision, based on the current
 	server connection. This might be an RFC1459 compliant string compare, or
 	plain ascii (in the case of DALNet). Use this to compare channels and
-	nicknames. The function works the same way as :func:`strcasecmp`.
+	nicknames. The function works the same way as `strcasecmp`.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param s1: String to compare.
 	:param s2: String to compare *s1* to.
 
@@ -732,7 +732,7 @@ General Functions
 	underlined etc) from the given string and returns a newly allocated
 	string.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param str: String to strip.
 	:param len: Length of the string (or -1 for NULL terminated).
 	:param flags: Bit-field of flags:
@@ -765,7 +765,7 @@ General Functions
 	Frees a string returned by **hexchat\_\*** functions.
 	Currently only used to free strings from :func:`hexchat_strip`.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param ptr: Pointer to free.
 
 
@@ -794,7 +794,7 @@ Getting Information
 
 	Returns information based on your current context.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param id: ID of the information you want. List of ID's(case sensitive):
 
 		 -  **away:** away reason or NULL if you are not away.
@@ -836,7 +836,7 @@ Getting Information
 			 bytes).
 		-  **id:** Unique server id
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param name: Setting name required.
 	:param string: Pointer-pointer which to set.
 	:param integer: Pointer to an integer to set, if setting is a boolean or integer type.
@@ -928,7 +928,7 @@ Hook Functions
 
 	Commands hooked that begin with a period ('.') will be hidden in :command:`/HELP` and :command:`/HELP -l`.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param name: Name of the command (without the forward slash).
 	:param pri: Priority of this command. Use :data:`HEXCHAT_PRI_NORM`.
 	:param callb: Callback function. This will be called when the user executes the given command name.
@@ -1012,7 +1012,7 @@ Hook Functions
 					word[4] Length of the string (may be 0 for unprintable keys)
 			</pre>
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param name: Name of the print event (as in *Text Events* window).
 	:param pri: Priority of this command. Use :data:`HEXCHAT_PRI_NORM`.
 	:param callb: Callback function. This will be called when this event name is printed.
@@ -1040,7 +1040,7 @@ Hook Functions
 	:func:`hexchat_hook_print` but the callback receives an
 	:type:`hexchat_event_attrs *` with attributes related to the print event.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param name: Name of the print event (as in *Text Events* window).
 	:param pri: Priority of this command. Use :data:`HEXCHAT_PRI_NORM`.
 	:param callb: Callback function. This will be called when this event name is printed.
@@ -1060,7 +1060,7 @@ Hook Functions
 	IRC server, you may use the special name of *RAW LINE*.
 
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param name: Name of the server event.
 	:param pri: Priority of this command. Use :data:`HEXCHAT_PRI_NORM`.
 	:param callb: Callback function. This will be called when this event is received from the server.
@@ -1091,7 +1091,7 @@ Hook Functions
 	:type:`hexchat_event_attrs *` with attributes related to the server event.
 
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param name: Name of the server event.
 	:param pri: Priority of this command. Use :data:`HEXCHAT_PRI_NORM`.
 	:param callb: Callback function. This will be called when this event is received from the server.
@@ -1106,7 +1106,7 @@ Hook Functions
 
 	Registers a function to be called every "timeout" milliseconds.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param timeout: Timeout in milliseconds (1000 is 1 second).
 	:param callb: Callback function. This will be called every "timeout" milliseconds.
 	:param userdata: Pointer passed to the callback function.
@@ -1146,9 +1146,9 @@ Hook Functions
 
 	Unhooks any hook registered with **hexchat\_hook\_print/server/timer/command**. When plugins are unloaded,
 	all of its hooks are automatically removed, so you don't need to call
-	this within your :func:`hexchat_plugin_deinit` function.
+	this within your `hexchat_plugin_deinit` function.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param hook: Pointer to the hook, as returned by **hexchat\_hook\_\***.
 
 	:returns: The userdata you originally gave to **hexchat\_hook\_\***.
@@ -1165,7 +1165,7 @@ Context Functions
 	*servname*. If NULL is given for both arguments, the currently focused
 	tab/window will be returned.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param servname: Server name or NULL.
 	:param channel: Channel name or NULL.
 
@@ -1177,7 +1177,7 @@ Context Functions
 	Returns the current context for your plugin. You can
 	use this later with :func:`hexchat_set_context`.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 
 	:returns: Context pointer (for use with :func:`hexchat_set_context`).
 
@@ -1186,7 +1186,7 @@ Context Functions
 
 	Changes your current context to the one given.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param ctx: Context to change to (obtained with :func:`hexchat_get_context` or :func:`hexchat_find_context`).
 
 	:returns:
@@ -1201,7 +1201,7 @@ Plugin Preferences
 
 	Saves a plugin-specific setting with string value to a plugin-specific config file.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param var: Name of the setting to save.
 	:param value: String value of the the setting.
 
@@ -1239,7 +1239,7 @@ Plugin Preferences
 
 	Loads a plugin-specific setting with string value from a plugin-specific config file.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param var: Name of the setting to load.
 	:param dest: Array to save the loaded setting's string value to.
 
@@ -1252,7 +1252,7 @@ Plugin Preferences
 
 	Saves a plugin-specific setting with decimal value to a plugin-specific config file.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param var: Name of the setting to save.
 	:param value: Decimal value of the the setting.
 
@@ -1296,7 +1296,7 @@ Plugin Preferences
 
 	Loads a plugin-specific setting with decimal value from a plugin-specific config file.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param var: Name of the setting to load.
 
 	:returns: The decimal value of the requested setting upon success, -1 for failure.
@@ -1306,7 +1306,7 @@ Plugin Preferences
 
 	Deletes a plugin-specific setting from a plugin-specific config file.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param var: Name of the setting to delete.
 
 	:returns:
@@ -1322,7 +1322,7 @@ Plugin Preferences
 	Builds a comma-separated list of the currently saved
 	settings from a plugin-specific config file.
 
-	:param ph: Plugin handle (as given to :func:`hexchat_plugin_init`).
+	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param dest: Array of size 4096 to save the list to.
 
 	:returns:

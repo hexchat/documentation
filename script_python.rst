@@ -198,11 +198,11 @@ Generic functions
 
 		hexchat.emit_print("Channel Message", "John", "Hi there", "@")
 
-	With plugin version 1.0+ this function takes Keywords for certain :obj:`Attributes` such as *time*
+	With plugin version 1.0+ this function takes Keywords for certain `Attributes` such as *time*
 
 .. function:: command(string)
 
-	Execute the given command in the current :obj:`context`. This has the same
+	Execute the given command in the current `context`. This has the same
 	results as executing a command in the HexChat window, but notice that
 	the ``/`` prefix is not used. Here is an example:
 
@@ -473,7 +473,7 @@ attributes
 ^^^^^^^^^^
 
 If you create a hook with :func:`hook_server_attrs` or :func:`hook_print_attrs` the last
-argument in the callback will be an :obj:`Attribute` object.
+argument in the callback will be an `Attribute` object.
 
 .. object:: Attribute
 
@@ -569,7 +569,7 @@ command. For example, if you executed:
 .. function:: hook_print_attrs(name, callback[, userdata=None, priority=PRI_NORM])
 
 	This function is the same as :func:`hook_print` except its callback will have a new
-	:obj:`Attribute` argument.
+	`Attribute` argument.
 
 	:returns: New Hook Handler
 
@@ -605,7 +605,7 @@ command. For example, if you executed:
 .. function:: hook_server_attrs(name, callback[, userdata=None, priority=PRI_NORM])
 
 	This function is the same as :func:`hook_server` Except its callback will have a new
-	:obj:`Attribute` argument.
+	`Attribute` argument.
 
 	:returns: New Hook Handler
 
@@ -732,7 +732,7 @@ to a specific channel/query/server tab of HexChat. Every function
 available in the xchat module will be evaluated in the current context,
 which will be specified by HexChat itself before passing control to the
 module. Sometimes you may want to work in a specific context, and that's
-where :obj:`context` objects come into play.
+where `context` objects come into play.
 
 You may create a context object using :func:`get_context` or :func:`find_context`
 functions as explained below, or trough the :func:`get_list` function, as explained above.
@@ -740,7 +740,7 @@ functions as explained below, or trough the :func:`get_list` function, as explai
 
 .. function:: get_context()
 
-	:rtype: :obj:`context`
+	:rtype: `context`
 
 .. function:: find_context(server=None, channel=None)
 
@@ -748,7 +748,7 @@ functions as explained below, or trough the :func:`get_list` function, as explai
 
 	:keyword server: if None only looks for channel name
 	:keyword channel: if None looks for front context of given server
-	:rtype: :obj:`context`
+	:rtype: `context`
 
 	.. code-block:: python
 

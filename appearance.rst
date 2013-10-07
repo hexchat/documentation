@@ -11,8 +11,8 @@ The theme manager is a simple external application, which is included with the `
 .. image:: _static/img/appearance.png
    :align: center
 
-.. NOTE::
-	.NET 4 is required to run the theme manager; You can download it from `Microsoft's site <http://www.microsoft.com/en-us/download/details.aspx?id=17113>`_
+.. note::
+	.NET 4 is required to run the theme manager; You can download it from `Microsoft's site <http://www.microsoft.com/en-us/download/details.aspx?id=17113>`_.
 
 Theming
 -------
@@ -39,7 +39,7 @@ Text events control the look of every event you see. They can be customized in :
 - **$t** Text separator
 - **$<num>** Event information
 
-.. NOTE::
+.. note::
 	Always hit enter after editing a field.
 
 Icons
