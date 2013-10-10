@@ -8,9 +8,9 @@ HexChat ChangeLog
 - enable italics
 - add fullscreen to view menu
 - add message parameter to ``/query``
-- add ``plugin_pref`` to perl
+- add ``plugin_pref`` to Perl
 - improve spell check
-- rebrand perl plugin
+- rebrand Perl plugin
 - replace search window with a searchbar
 - replace xtext transparency with full window transparency
 - update Visual Studio to 2013
@@ -18,17 +18,17 @@ HexChat ChangeLog
 2.9.6.1 (2013-09-15)
 --------------------
 
-- fixes some utilities causing crash `#740 <https://github.com/hexchat/hexchat/issues/740>`_
+- fix some utilities causing crash `#740 <https://github.com/hexchat/hexchat/issues/740>`_
 
 2.9.6 (2013-09-11)
 ------------------
 
 - redesign edit window in network list
 - rename favorites to autojoin
-- improve URL detection yet again (this time w/ more ipv6!)
+- improve URL detection yet again (this time with more IPv6!)
 - implement ``/exec -o`` on Windows
-- improvements to the dcc window
-- improvements to sysinfo on unix, including ``-e`` to print info instead of saying
+- improvements to the DCC window
+- improvements to sysinfo on Unix, including ``-e`` to print info instead of saying
 - add support for BLOWFISH, AES, and EXTERNAL SASL mechanisms
 - add reload command and button in plugingui
 - add support for server-time and znc.in/server-time[-iso] capabilities
@@ -39,18 +39,18 @@ HexChat ChangeLog
 - add autoconnect option to context menu of networks
 - add option for omitting alerts while window is focused
 - add python3 support along with various bugfixes
-- add libcanberra support on unix
+- add libcanberra support on Unix
 - add tracking of users accounts
 - add ``%u`` to userlist popups for accounts
 - add channelkey to channel lists in plugin api
-- add MONITOR support for the friends list
-- add QUIET and UNQUIET commands
+- add ``MONITOR`` support for the friends list
+- add ``QUIET`` and ``UNQUIET`` commands
 - add support for the away-notify, account-notify, and extended-join capabilities
 - add notifications for friends away status (requires away-notify)
 - add events for quiet, unquiet, and quietlist
 - add Ctrl+N (New Server Window) keybinding
-- add Ctrl+Home/end keybinding for scrolling to top/bottom
-- add theme manager to unix build system
+- add Ctrl+Home/End keybinding for scrolling to top/bottom
+- add theme manager to Unix build system
 - fix compilation on FreeBSD
 - fix running as root
 - fix splitting ctcps and notices
