@@ -242,7 +242,7 @@ types of lists and fields available are:
 +----------+----------------------------------------------+--------+
 | Name     | Description                                  | Type   |
 +==========+==============================================+========+
-| mask     | Ignore mask. .e.g. \*!\*@\*.aol.com          | string |
+| mask     | Ignore mask. .e.g. \*\!\*\@\*.aol.com        | string |
 +----------+----------------------------------------------+--------+
 | flags    | - 0 = Private                                | int    |
 |          | - 1 = Notice                                 |        |
@@ -284,7 +284,7 @@ account    Account name or NULL (2.9.6+)                                        
 away       Away status (boolean)                                                                        int
 lasttalk   Last time the user was seen talking                                                          time\_t
 nick       Nick name                                                                                    string
-host       Host name in the form: user@host (or NULL if not known).                                     string
+host       Host name in the form: user\@host (or NULL if not known).                                    string
 prefix     Prefix character, .e.g: @ or +. Points to a single char.                                     string
 realname   Real name or NULL                                                                            string
 selected   Selected status in the user list, only works for retrieving the user list of the focused tab int
@@ -832,8 +832,7 @@ Getting Information
 	available through the :command:`/SET` command). A few extra bits of information
 	are available that don't appear in the :command:`/SET` list, currently they are:
 
-		-  **state\_cursor:** Current input box cursor position (characters, not
-			 bytes).
+		-  **state\_cursor:** Current input box cursor position (characters, not bytes).
 		-  **id:** Unique server id
 
 	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
@@ -918,8 +917,8 @@ Hook Functions
 ''''''''''''''
 
 .. function:: hexchat_hook* hexchat_hook_command (hexchat_plugin *ph, const char *name, int pri, \
-								int (*callb) (char *word[], char *word_eol[], void *user_data), \
-								const char *help_text, void *userdata)
+												  int (*callb) (char *word[], char *word_eol[], void *user_data), \
+												  const char *help_text, void *userdata)
 
 	Adds a new :command:`/command`. This allows your program to
 	handle commands entered at the input box. To capture text without a "/"
@@ -958,7 +957,7 @@ Hook Functions
 
 
 .. function:: hexchat_hook* hexchat_hook_fd (hexchat_plugin *ph, int fd, int flags, \
-											int (*callb) (int fd, int flags, void *user_data), void *userdata)
+											 int (*callb) (int fd, int flags, void *user_data), void *userdata)
 
 	Hooks a socket or file descriptor. WIN32: Passing a
 	pipe from MSVCR71, MSVCR80 or other variations is not supported at this
@@ -1034,7 +1033,8 @@ Hook Functions
 		 hexchat_hook_print (ph, "You Part", HEXCHAT_PRI_NORM, youpart_cb, NULL);
 
 .. function:: hexchat_hook* hexchat_hook_print_attrs (hexchat_plugin *ph, const char *name, int pri, \
-		int (*callb) (char *word[], hexchat_event_attrs *attrs, void *user_data), void *userdata)
+													  int (*callb) (char *word[], hexchat_event_attrs *attrs, void *user_data), \
+													  void *userdata)
 
 	Registers a function to trap any print events. This is the same as
 	:func:`hexchat_hook_print` but the callback receives an
@@ -1052,7 +1052,7 @@ Hook Functions
 
 
 .. function:: hexchat_hook* hexchat_hook_server (hexchat_plugin *ph, const char *name, int pri, \
-												int (*callb) (char *word[], char *word_eol[], void *user_data), void *userdata)
+												 int (*callb) (char *word[], char *word_eol[], void *user_data), void *userdata)
 
 	Registers a function to be called when a certain server
 	event occurs. You can use this to trap *PRIVMSG*, *NOTICE*, *PART*, a
@@ -1083,7 +1083,8 @@ Hook Functions
 
 
 .. function:: hexchat_hook* hexchat_hook_server_attrs (hexchat_plugin *ph, const char *name, int pri, \
-												int (*callb) (char *word[], char *word_eol[], hexchat_event_attrs *attrs, void *user_data), void *userdata)
+													   int (*callb) (char *word[], char *word_eol[], \
+													   hexchat_event_attrs *attrs, void *user_data), void *userdata)
 
 	Registers a function to be called when a certain server
 	event occurs. This is the same as

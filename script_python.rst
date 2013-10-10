@@ -402,7 +402,7 @@ channel. The following attributes are available in each list item:
 
 - **account:** Account name or None (2.9.6+)
 -  **away:** Away status.
--  **host:** Host name in the form user@host (or None, if not known).
+-  **host:** Host name in the form user\@host (or None, if not known).
 - **lasttalk:** Time they last talked (2.9.6+)
 -  **nick:** Nick name.
 -  **prefix:** Prefix character, .e.g: @ or +. Points to a single char.
@@ -415,7 +415,7 @@ ignore
 The ignore list type gives you access to the current ignored list. The
 following attributes are available in each list item:
 
--  **mask:** Ignore mask (for example, "\*!\*@\*.aol.com").
+-  **mask:** Ignore mask (for example, "\*\!\*\@\*.aol.com").
 -  **flags:** Bit field of flags:
 
    -  0: private

@@ -124,9 +124,9 @@ How do I set different ban types?
        all bans. The different types are:
 
        -  0 = \*!\ *@*.host
-       -  1 = \*!\*@domain
-       -  2 = \*!\ *user@*.host
-       -  3 = \*!\*user@domain
+       -  1 = \*!\*\@domain
+       -  2 = \*!\ *user\@*.host
+       -  3 = \*!\*user\@domain
 
 Why does the timestamp overlap some nicknames?
 ----------------------------------------------
