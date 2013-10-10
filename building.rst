@@ -125,7 +125,7 @@ your *configure* output if you get an error.
 .. _Homebrew: http://mxcl.github.com/homebrew/
 
 Download the `testing package`_ which is prepared for Homebrew compilation (basically a clone of Git
-HEAD with *./autogen.sh* ran on Debian 6). Extract it and run the
+HEAD with *./autogen.sh* run on Debian 6). Extract it and run the
 following commands:
 
 .. _testing package: http://dl.hexchat.org/hexchat/osx/hexchat-2.9.4-mac.tar.gz

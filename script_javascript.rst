@@ -45,7 +45,7 @@ Hook Functions
 
 .. function:: hook_command(name, callback[, userdata, priority])
 
-	Calls specified callback anytime the specified command is ran.
+	Calls specified callback anytime the specified command is run.
 
 	:returns: Hook handler
 
