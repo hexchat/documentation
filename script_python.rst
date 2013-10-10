@@ -790,4 +790,3 @@ Maintained by: TingPing
 
 Original Author: Gustavo Niemeyer
 `gustavo@niemeyer.net <mailto:gustavo@niemeyer.net>`_
-

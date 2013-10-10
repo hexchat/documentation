@@ -114,21 +114,19 @@ What's *word* and *word\_eol*?
 They are arrays of strings. They contain the parameters the user entered
 for the particular command. For example, if you executed:
 
-.. raw:: html
+.. code-block:: none
 
-	 <pre>
-	 /command NICK hi there
+	/command NICK hi there
 
-	 word[1] is command
-	 word[2] is NICK
-	 word[3] is hi
-	 word[4] is there
+	word[1] is command
+	word[2] is NICK
+	word[3] is hi
+	word[4] is there
 
-	 word_eol[1] is command NICK hi there
-	 word_eol[2] is NICK hi there
-	 word_eol[3] is hi there
-	 word_eol[4] is there
-	 </pre>
+	word_eol[1] is command NICK hi there
+	word_eol[2] is NICK hi there
+	word_eol[3] is hi there
+	word_eol[4] is there
 
 These arrays are simply provided for your convenience. You are **not**
 allowed to alter them. Both arrays are limited to 32 elements (index
@@ -327,14 +325,12 @@ following files:
 -  plugin.c - Your plugin, you need to write this one :)
 -  plugin.def - A simple text file containing the following:
 
-.. raw:: html
+.. code-block:: none
 
-	<pre>
 	EXPORTS
 		hexchat_plugin_init
 		hexchat_plugin_deinit
 		hexchat_plugin_get_info
-	</pre>
 
 Leave out *hexchat\_plugin\_deinit* if you don't intend to define that
 function. Then compile your plugin in Visual Studio as usual.
@@ -369,23 +365,19 @@ calling *hexchat\_command (ph, "GUI .....");*.
 You can add your own items to the menu bar. The menu command has this
 syntax:
 
-.. raw:: html
+.. code-block:: none
 
-	<pre>
-	MENU [-eX] [-i&lt;ICONFILE>] [-k&lt;mod>,&lt;key>] [-m] [-pX] [-rX,group] [-tX] {ADD|DEL} &lt;path> [command] [unselect command]
-	</pre>
+	MENU [-eX] [-i<ICONFILE>] [-k<mod>,<key>] [-m] [-pX] [-rX,group] [-tX] {ADD|DEL} <path> [command] [unselect command]
 
 For example:
 
-.. raw:: html
+.. code-block:: none
 
-	<pre>
 	MENU -p5 ADD FServe
 	MENU ADD "FServe/Show File List" "fs list"
 	MENU ADD FServe/-
 	MENU -k4,101 -t1 ADD "FServe/Enabled" "fs on" "fs off"
 	MENU -e0 ADD "FServe/Do Something" "fs action"
-	</pre>
 
 In the example above, it would be recommended to execute *MENU DEL
 FServe* inside your *hexchat\_plugin\_deinit* function. The special item
@@ -423,26 +415,22 @@ parameters you need.
 It's also possible to add items to HexChat's existing menus, for
 example:
 
-.. raw:: html
+.. code-block:: none
 
-	<pre>
 	MENU ADD "Settings/Sub Menu"
 	MENU -t0 ADD "Settings/Sub Menu/My Setting" myseton mysetoff
-	</pre>
 
 However, internal names and layouts of HexChat's menu may change in the
 future, so use at own risk.
 
 Here is an example of Radio items:
 
-.. raw:: html
+.. code-block:: none
 
-	<pre>
 	MENU ADD "Language"
 	MENU -r1,"English" ADD "Language/English" cmd1
 	MENU -r0,"English" ADD "Language/Spanish" cmd2
 	MENU -r0,"English" ADD "Language/German" cmd3
-	</pre>
 
 You can also change menus other than the main one (i.e popup menus).
 Currently they are:
@@ -459,24 +447,20 @@ $CHAN        Menu when clicking a channel in the text area
 
 Example:
 
-.. raw:: html
+.. code-block:: none
 
-	<pre>
 	MENU -p0 ADD "$TAB/Cycle Channel" cycle
-	</pre>
 
 You can manipulate HexChat's system tray icon using the */TRAY* command:
 
-.. raw:: html
+.. code-block:: none
 
-	<pre>
 	Usage:
-	TRAY -f &lt;timeout> &lt;file1> [&lt;file2>] Flash tray between two icons. Leave off file2 to use default HexChat icon.
-	TRAY -f &lt;filename>                  Set tray to a fixed icon.
-	TRAY -i &lt;number>                    Flash tray with an internal icon.
-	TRAY -t &lt;text>                      Set the tray tooltip.
-	TRAY -b &lt;title> &lt;text>              Set the tray balloon.
-	</pre>
+	TRAY -f <timeout> <file1> [<file2>] Flash tray between two icons. Leave off file2 to use default HexChat icon.
+	TRAY -f <filename>                  Set tray to a fixed icon.
+	TRAY -i <number>                    Flash tray with an internal icon.
+	TRAY -t <text>                      Set the tray tooltip.
+	TRAY -b <title> <text>              Set the tray balloon.
 
 Icon numbers:
 
@@ -533,7 +517,7 @@ this example, someone will CTCP you the message "SHOWFILE <filename>".
 			 wchar_t wide_name[MAX_PATH];
 
 			 /* convert UTF-8 to WIDECHARs (aka UTF-16LE) */
-			 if (MultiByteToWideChar (CP_UTF8, 0, fname, -1, wide_name, MAX_PATH) &lt; 1)
+			 if (MultiByteToWideChar (CP_UTF8, 0, fname, -1, wide_name, MAX_PATH) < 1)
 			 {
 					 return;
 			 }
@@ -953,7 +937,7 @@ Hook Functions
 			 return HEXCHAT_EAT_ALL;
 		 }
 
-		 hexchat_hook_command (ph, "ONOTICE", HEXCHAT_PRI_NORM, onotice_cb, "Usage: ONOTICE &lt;message> Sends a notice to all ops", NULL);
+		 hexchat_hook_command (ph, "ONOTICE", HEXCHAT_PRI_NORM, onotice_cb, "Usage: ONOTICE <message> Sends a notice to all ops", NULL);
 
 
 .. function:: hexchat_hook* hexchat_hook_fd (hexchat_plugin *ph, int fd, int flags, \
@@ -986,30 +970,26 @@ Hook Functions
 	-  "Close Context": Called when a hexchat\_context pointer is closed.
 	-  "Focus Tab": Called when a tab is brought to front.
 	-  "Focus Window": Called a toplevel window is focused, or the main
-		 tab-window is focused by the window manager.
+		tab-window is focused by the window manager.
 	-  "DCC Chat Text": Called when some text from a DCC Chat arrives. It
-		 provides these elements in the *word[]* array:
+		provides these elements in the *word[]* array:
 
-		 .. raw:: html
+		.. code-block:: c
 
-			<pre>
 			word[1] Address
 			word[2] Port
 			word[3] Nick
 			word[4] The Message
-			</pre>
 
 	-  "Key Press": Called when some keys are pressed in the input box. It
-		 provides these elements in the *word[]* array:
+		provides these elements in the *word[]* array:
 
-		 .. raw:: html
+		.. code-block:: c
 
-			<pre>
 			word[1] Key Value
 			word[2] State Bitfield (shift, capslock, alt)
 			word[3] String version of the key
 			word[4] Length of the string (may be 0 for unprintable keys)
-			</pre>
 
 	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param name: Name of the print event (as in *Text Events* window).
@@ -1270,7 +1250,7 @@ Plugin Preferences
 		 {
 			 int buffer = atoi (word[2]);
 
-			 if (buffer > 0 && buffer &lt; INT_MAX)
+			 if (buffer > 0 && buffer < INT_MAX)
 			 {
 					 if (hexchat_pluginpref_set_int (ph, "myint1", buffer))
 					 {
@@ -1375,4 +1355,3 @@ Plugin GUI
 	Removes the fake plugin from the GUI. Again not to be used to remove your own plugin.
 
 	:param handle: Handle returned by :func:`hexchat_plugingui_add`
-

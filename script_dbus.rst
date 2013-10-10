@@ -311,4 +311,3 @@ Available signals:
 
    -  Emitted when the user asks to unload your program. Please exit(0);
       when received!
-

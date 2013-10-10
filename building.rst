@@ -94,14 +94,14 @@ basically:
 
 .. code-block:: bash
 
- git clone https://github.com/hexchat/hexchat.git
- cd hexchat
- ./autogen.sh
- ./configure
- make
- sudo make install
+	git clone https://github.com/hexchat/hexchat.git
+	cd hexchat
+	./autogen.sh
+	./configure
+	make
+	sudo make install
 
-This will compile with defaults. See *./configure --help* for more info
+This will compile with defaults. See ``./configure --help`` for more info
 about flags.
 
 Building Theme Manager
@@ -132,10 +132,9 @@ following commands:
 
 .. code-block:: bash
 
- cd hexchat
- ./configure --disable-nls --disable-xlib --disable-perl
- make
- ./src/fe-gtk/hexchat
+	cd hexchat
+	./configure --disable-nls --disable-xlib --disable-perl
+	make
+	./src/fe-gtk/hexchat
 
-See *./configure --help* for more info about flags.
-
+See ``./configure --help`` for more info about flags.

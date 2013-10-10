@@ -108,7 +108,7 @@ Valid keys for %options:
 |            |                                                                          |
 |            | Example:                                                                 |
 |            |                                                                          |
-|            | .. code-block:: none                                                     |
+|            | .. code-block:: perl                                                     |
 |            |                                                                          |
 |            |    my $options = { data => [@arrayOfStuff] };                            |
 |            |    Xchat::hook_timer( $timeout, $cb, $options );                         |
