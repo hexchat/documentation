@@ -574,27 +574,27 @@ Types and Constants
 -------------------
 
 .. type:: hexchat_plugin
-					hexchat_list
-					hexchat_hook
-					hexchat_context
-					hexchat_event_attrs
+		  hexchat_list
+		  hexchat_hook
+		  hexchat_context
+		  hexchat_event_attrs
 
 
 .. var:: HEXCHAT_PRI_HIGHEST
-				 HEXCHAT_PRI_HIGH
-				 HEXCHAT_PRI_NORM
-				 HEXCHAT_PRI_LOW
-				 HEXCHAT_PRI_LOWEST
+		 HEXCHAT_PRI_HIGH
+		 HEXCHAT_PRI_NORM
+		 HEXCHAT_PRI_LOW
+		 HEXCHAT_PRI_LOWEST
 
 .. var:: HEXCHAT_EAT_NONE
-				 HEXCHAT_EAT_XCHAT
-				 HEXCHAT_EAT_PLUGIN
-				 HEXCHAT_EAT_ALL
+		 HEXCHAT_EAT_XCHAT
+		 HEXCHAT_EAT_PLUGIN
+		 HEXCHAT_EAT_ALL
 
 .. var:: HEXCHAT_FD_READ
-				 HEXCHAT_FD_WRITE
-				 HEXCHAT_FD_EXCEPTION
-				 HEXCHAT_FD_NOTSOCKET
+		 HEXCHAT_FD_WRITE
+		 HEXCHAT_FD_EXCEPTION
+		 HEXCHAT_FD_NOTSOCKET
 
 
 Functions
