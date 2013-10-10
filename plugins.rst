@@ -329,12 +329,12 @@ following files:
 
 .. raw:: html
 
-	 <pre>
-			 EXPORTS
-			 hexchat_plugin_init
-			 hexchat_plugin_deinit
-			 hexchat_plugin_get_info
-	 </pre>
+	<pre>
+	EXPORTS
+		hexchat_plugin_init
+		hexchat_plugin_deinit
+		hexchat_plugin_get_info
+	</pre>
 
 Leave out *hexchat\_plugin\_deinit* if you don't intend to define that
 function. Then compile your plugin in Visual Studio as usual.
@@ -371,21 +371,21 @@ syntax:
 
 .. raw:: html
 
-	 <pre>
-			 MENU [-eX] [-i&lt;ICONFILE>] [-k&lt;mod>,&lt;key>] [-m] [-pX] [-rX,group] [-tX] {ADD|DEL} &lt;path> [command] [unselect command]
-	 </pre>
+	<pre>
+	MENU [-eX] [-i&lt;ICONFILE>] [-k&lt;mod>,&lt;key>] [-m] [-pX] [-rX,group] [-tX] {ADD|DEL} &lt;path> [command] [unselect command]
+	</pre>
 
 For example:
 
 .. raw:: html
 
-	 <pre>
-			 MENU -p5 ADD FServe
-			 MENU ADD "FServe/Show File List" "fs list"
-			 MENU ADD FServe/-
-			 MENU -k4,101 -t1 ADD "FServe/Enabled" "fs on" "fs off"
-			 MENU -e0 ADD "FServe/Do Something" "fs action"
-	 </pre>
+	<pre>
+	MENU -p5 ADD FServe
+	MENU ADD "FServe/Show File List" "fs list"
+	MENU ADD FServe/-
+	MENU -k4,101 -t1 ADD "FServe/Enabled" "fs on" "fs off"
+	MENU -e0 ADD "FServe/Do Something" "fs action"
+	</pre>
 
 In the example above, it would be recommended to execute *MENU DEL
 FServe* inside your *hexchat\_plugin\_deinit* function. The special item
@@ -425,10 +425,10 @@ example:
 
 .. raw:: html
 
-	 <pre>
-			 MENU ADD "Settings/Sub Menu"
-			 MENU -t0 ADD "Settings/Sub Menu/My Setting" myseton mysetoff
-	 </pre>
+	<pre>
+	MENU ADD "Settings/Sub Menu"
+	MENU -t0 ADD "Settings/Sub Menu/My Setting" myseton mysetoff
+	</pre>
 
 However, internal names and layouts of HexChat's menu may change in the
 future, so use at own risk.
@@ -437,12 +437,12 @@ Here is an example of Radio items:
 
 .. raw:: html
 
-	 <pre>
-			 MENU ADD "Language"
-			 MENU -r1,"English" ADD "Language/English" cmd1
-			 MENU -r0,"English" ADD "Language/Spanish" cmd2
-			 MENU -r0,"English" ADD "Language/German" cmd3
-	 </pre>
+	<pre>
+	MENU ADD "Language"
+	MENU -r1,"English" ADD "Language/English" cmd1
+	MENU -r0,"English" ADD "Language/Spanish" cmd2
+	MENU -r0,"English" ADD "Language/German" cmd3
+	</pre>
 
 You can also change menus other than the main one (i.e popup menus).
 Currently they are:
@@ -461,22 +461,22 @@ Example:
 
 .. raw:: html
 
-	 <pre>
-			 MENU -p0 ADD "$TAB/Cycle Channel" cycle
-	 </pre>
+	<pre>
+	MENU -p0 ADD "$TAB/Cycle Channel" cycle
+	</pre>
 
 You can manipulate HexChat's system tray icon using the */TRAY* command:
 
 .. raw:: html
 
-	 <pre>
-			 Usage:
-			 TRAY -f &lt;timeout> &lt;file1> [&lt;file2>] Flash tray between two icons. Leave off file2 to use default HexChat icon.
-			 TRAY -f &lt;filename>                  Set tray to a fixed icon.
-			 TRAY -i &lt;number>                    Flash tray with an internal icon.
-			 TRAY -t &lt;text>                      Set the tray tooltip.
-			 TRAY -b &lt;title> &lt;text>              Set the tray balloon.
-	 </pre>
+	<pre>
+	Usage:
+	TRAY -f &lt;timeout> &lt;file1> [&lt;file2>] Flash tray between two icons. Leave off file2 to use default HexChat icon.
+	TRAY -f &lt;filename>                  Set tray to a fixed icon.
+	TRAY -i &lt;number>                    Flash tray with an internal icon.
+	TRAY -t &lt;text>                      Set the tray tooltip.
+	TRAY -b &lt;title> &lt;text>              Set the tray balloon.
+	</pre>
 
 Icon numbers:
 
@@ -993,10 +993,10 @@ Hook Functions
 		 .. raw:: html
 
 			<pre>
-					word[1] Address
-					word[2] Port
-					word[3] Nick
-					word[4] The Message
+			word[1] Address
+			word[2] Port
+			word[3] Nick
+			word[4] The Message
 			</pre>
 
 	-  "Key Press": Called when some keys are pressed in the input box. It
@@ -1005,10 +1005,10 @@ Hook Functions
 		 .. raw:: html
 
 			<pre>
-					word[1] Key Value
-					word[2] State Bitfield (shift, capslock, alt)
-					word[3] String version of the key
-					word[4] Length of the string (may be 0 for unprintable keys)
+			word[1] Key Value
+			word[2] State Bitfield (shift, capslock, alt)
+			word[3] String version of the key
+			word[4] Length of the string (may be 0 for unprintable keys)
 			</pre>
 
 	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
