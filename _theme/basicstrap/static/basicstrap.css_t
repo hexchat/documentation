@@ -531,7 +531,7 @@ div.topic {
   }
   {% endif %}
 
-  div.section {
+  div.section:target {
     padding-top: 40px;
     margin-top: -40px;
   }
