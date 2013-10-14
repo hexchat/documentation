@@ -31,11 +31,12 @@ many options have changed and you may encounter some oddities migrating.
 How do I autoconnect and join a channel when HexChat loads?
 -----------------------------------------------------------
 
-In the Network list select the Network you want to auto-connect to and
-click Edit and turn ON the "Auto connect to this network at startup"
-checkbox.
+In the Network List, select the network to which you would like to automatically connect to at startup,
+click the "Edit..." button, and then tick the checkbox for "Connect to this network automatically".
 
-List channels in the favorites list to join them on connect.
+To automatically join channels for this network upon connecting, select the "Autojoin channels"
+tab in this same window and add your desired channels here. You can also add a currently joined channel
+by right-clicking its name in the channel switcher and by toggling "Autojoin" on.
 
 How do I get Hexchat to reconnect after my computer wakes up from being in sleep/hibernate mode?
 ------------------------------------------------------------------------------------------------
