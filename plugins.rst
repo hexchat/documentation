@@ -161,10 +161,16 @@ types of lists and fields available are:
 |              | - 16 = Has WHOX                                                    |        |
 |              | - 32 = Has IDMSG                                                   |        |
 |              | - 64 = Hide Join/Parts                                             |        |
-|              | - 128 = unused                                                     |        |
+|              | - 128 = Hide Join/Parts unset                                      |        |
 |              | - 256 = Beep on Message                                            |        |
 |              | - 512 = Blink Tray                                                 |        |
 |              | - 1024 = Blink Taskbar                                             |        |
+|              | - 2048 = Logging                                                   |        |
+|              | - 4096 = Logging unset                                             |        |
+|              | - 8192 = Scrollback                                                |        |
+|              | - 16384 = Scrollback unset                                         |        |
+|              | - 32768 = Strip colors                                             |        |
+|              | - 65536 = Strip colors unset                                       |        |
 +--------------+--------------------------------------------------------------------+--------+
 | id           | Unique server ID                                                   | int    |
 +--------------+--------------------------------------------------------------------+--------+
