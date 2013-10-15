@@ -118,6 +118,34 @@ For example this will print underlined red text:
 
    print('\037\00304Text!')
 
+
+Bit fields
+----------
+
+Some lists return bit fields which many Python scripts may not be familair with
+so here is an example of how to use one:
+
+.. code-block:: python
+
+	...
+
+	# We know its the 15th bit field we want, this will get that value
+	text_strip = 1 << 15
+	text_strip_unset = 1 << 16 # If this is set use the global option
+
+	def get_chanopt (channel, option):
+		for chan in hexchat.get_list('channels'):
+			if chan.channel == channel:
+				return bool(chan.flags & option)
+
+	if get_chanopt('#hexchat', text_strip_unset):
+		stripped = hexchat.get_prefs('text_stripcolor_msg')
+	else:
+		stripped = get_chanopt ('#hexchat', text_strip)
+
+	print('Color stripping in hexchat is: {}'.format(stripped))
+
+
 Hello world
 -----------
 
