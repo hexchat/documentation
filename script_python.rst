@@ -357,10 +357,16 @@ their servers. The following attributes are available in each list item:
    -  4: Has WHOX
    -  5: Has IDMSG
    -  6: Join/Parts hidden
-   -  7: Unused
+   -  7: Join/Parts hidden unset
    -  8: Beep on Message
    -  9: Blink Tray
    -  10: Blink Task Bar
+   -  11: Logging (This and the following are 2.9.7+)
+   -  12: Logging unset
+   -  13: Scrollback
+   -  14: Scrollback unset
+   -  15: Strip Colors
+   -  16: Strip Colors unset
 
 dcc
 ^^^
