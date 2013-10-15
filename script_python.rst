@@ -122,7 +122,7 @@ For example this will print underlined red text:
 Bit fields
 ----------
 
-Some lists return bit fields which many Python scripts may not be familair with
+Some lists return bit fields which many Python scripters may not be familair with
 so here is an example of how to use one:
 
 .. code-block:: python
@@ -139,11 +139,11 @@ so here is an example of how to use one:
 				return bool(chan.flags & option)
 
 	if get_chanopt('#hexchat', text_strip_unset):
-		stripped = hexchat.get_prefs('text_stripcolor_msg')
+		stripped = bool(hexchat.get_prefs('text_stripcolor_msg'))
 	else:
 		stripped = get_chanopt ('#hexchat', text_strip)
 
-	print('Color stripping in hexchat is: {}'.format(stripped))
+	print('Color stripping in #hexchat is: {}'.format(stripped))
 
 
 Hello world
