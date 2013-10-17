@@ -186,7 +186,10 @@ How do I execute multiple commands in one line?
 
 There are three ways to do this:
 
--  /LOAD -e <textfile>, where <textfile> is a full pathname to a file
+-  If this is during connection the network list (Ctrl+s) has a 'connect commands'
+   section as well as most login types you would need.
+
+-  /LOAD -e <textfile>, where <textfile> is a file in your config dir
    containing commands on each line.
 
 -  Separate your commands with CTRL-SHIFT-u-a. This will appear as a
@@ -195,6 +198,7 @@ There are three ways to do this:
 -  You can create two UserCommands, with the same name, and then execute
    the UserCommand. It will be executed in the same order as it's
    written in the UserCommands GUI.
+
 
 I get this error: "Unknown file type abc.yz. Maybe you need to install the Perl or Python plugin?"
 --------------------------------------------------------------------------------------------------
