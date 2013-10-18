@@ -7,6 +7,7 @@ HexChat ChangeLog
 - render colors and attributes in the input and topic box
 - enable italics
 - add fullscreen to view menu
+- add support for userhost-in-names capability
 - add message parameter to ``/query``
 - add ``plugin_pref`` to Perl
 - improve spell check
