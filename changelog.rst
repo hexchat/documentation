@@ -4,7 +4,9 @@ HexChat ChangeLog
 2.9.7 (TBD)
 -----------
 
+- redesign various settings windows
 - render colors and attributes in the input and topic box
+- change ``/list`` to open channel list gui
 - enable italics
 - add fullscreen to view menu
 - add support for userhost-in-names capability
