@@ -134,7 +134,7 @@ If you do receive an error, you will need to modify your PKG_CONFIG_PATH
 as per the instructions in this wiki_. The necessary steps outlined in
 the wiki are listed here:
 
-.. _wiki: http://wiki.icub.org/wiki/Homebrew
+.. _wiki: http://wiki.icub.org/wiki/Homebrew#Setting_up_pkg-config
 
 In OS X 10.8 and older, enter the following:
 
