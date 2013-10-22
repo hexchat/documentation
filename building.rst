@@ -119,14 +119,47 @@ Mac
 ---
 
 Install Homebrew_, then install all
-the build dependencies of HexChat such as GTK+. Be creative and check
-your *configure* output if you get an error.
+the build dependencies of HexChat such as GTK+.
 
 .. _Homebrew: http://mxcl.github.com/homebrew/
 
-Download the `testing package`_ which is prepared for Homebrew compilation (basically a clone of Git
-HEAD with *./autogen.sh* run on Debian 6). Extract it and run the
-following commands:
+After installing the dependencies but prior to building, ensure that 
+you do not receive any errors after running the following command:
+
+.. code-block:: bash
+
+	pkg-config --cflags gtk+-2.0
+
+If you do receive an error, you will need to modify your PKG_CONFIG_PATH
+as per the instructions in this wiki_. The necessary steps outlined in
+the wiki are listed here:
+
+.. _wiki: http://wiki.icub.org/wiki/Homebrew#Setting_up_pkg-config
+
+In OS X 10.8 and older, enter the following:
+
+.. code-block:: bash
+
+	echo "export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig/:$PKG_CONFIG_PATH" >> ~/.bash_profile
+	source ~/.bash_profile
+	
+Run the following command again:
+
+.. code-block:: bash
+
+	pkg-config --cflags gtk+-2.0
+
+If you have properly configured your PKG_CONFIG_PATH according to the above
+instructions, your output should now look something like this:
+
+.. code-block:: bash
+
+	-D_REENTRANT -I/usr/X11/include cairo -I/usr/X11/include/pixman-1
+	-I/usr/X11/include/libping15 -I/usr/X11/include [...]
+
+Now download the `testing package`_, which is prepared for Homebrew compilation
+(basically a clone of Git HEAD with *./autogen.sh* run on Debian 6).
+Extract it and run the following commands:
 
 .. _testing package: http://dl.hexchat.org/hexchat/osx/hexchat-2.9.4-mac.tar.gz
 
@@ -137,4 +170,5 @@ following commands:
 	make
 	./src/fe-gtk/hexchat
 
-See ``./configure --help`` for more info about flags.
+See ``./configure --help`` for more info about flags. Be creative and check
+your *configure* output if you get an error.
