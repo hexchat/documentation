@@ -154,7 +154,7 @@ instructions, your output should now look something like this:
 
 .. code-block:: bash
 
-	-D_REENTRANT -I/usr/X11/include cairo -I/usr/X11/include/pixman-1
+	-D_REENTRANT -I/usr/X11/include/cairo -I/usr/X11/include/pixman-1
 	-I/usr/X11/include/libping15 -I/usr/X11/include [...]
 
 Now download the `testing package`_, which is prepared for Homebrew compilation
