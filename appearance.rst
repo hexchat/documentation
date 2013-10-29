@@ -67,9 +67,14 @@ HexChat comes with built in icons for the tray, user list, and channel tree (whi
 Gtk Theme
 ~~~~~~~~~
 
-To customize more than just text color such as the window borders you can place a *gtkrc* file in *<installdir>\\etc\\gtk-2.0*.
+To customize more than just text color such as the window borders you must install a gtk theme.
 
-During installation be sure to uncheck *Gtk Theme* to not overwrite your current theme.
+You can place a *gtkrc* file in *<installdir>\\etc\\gtk-2.0* or save it as *%USERPROFILE%\\.gtkrc-2.0*
+
+The latter will not be overwritten ever but will effect all gtk applications. Eitherway you **must** 
+make sure uring installation to uncheck *Gtk Theme* to not overwrite the global theme or mess up the user theme.
+
+As of 2.9.7 we ship the Pixbuf/Pixmap theming engine required by many custom themes, 2.9.6 does not so themes may not look correct.
 
 Buttons, Menus, and Popups
 --------------------------
