@@ -167,10 +167,10 @@ HexChat modules.
 
 .. module:: hexchat
 
-xchat module
+hexchat module
 ------------
 
-The xchat module is your passport to every HexChat functionality offered
+The hexchat module is your passport to every HexChat functionality offered
 by the Python plugin interface. Here's a simple example:
 
 .. code-block:: python
