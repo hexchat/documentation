@@ -355,17 +355,16 @@ calling *hexchat\_command (ph, "GUI .....");*.
 -  **GUI ATTACH:** Same function as "Attach Window" in the HexChat menu.
 -  **GUI DETACH:** Same function as "Detach Tab" in the HexChat menu.
 -  **GUI APPLY:** Similar to clicking OK in the settings window. Execute
-	 this after /SET to activate GUI changes.
+   this after /SET to activate GUI changes.
 -  **GUI COLOR *n*:** Change the tab color of the current context, where
-	 n is a number from 0 to 3.
+   *n* is a number from 0 to 3.
 -  **GUI FOCUS:** Focus the current window or tab.
 -  **GUI FLASH:** Flash the taskbar button. It will flash only if the
-	 window isn't focused and will stop when it is focused by the user.
+   window isn't focused and will stop when it is focused by the user.
 -  **GUI HIDE:** Hide the main HexChat window completely.
 -  **GUI ICONIFY:** Iconify (minimize to taskbar) the current HexChat
-	 window.
--  **GUI MSGBOX *text*:** Displays a asynchronous message box with your
-	 text.
+   window.
+-  **GUI MSGBOX *text*:** Displays a asynchronous message box with your text.
 -  **GUI SHOW:** Show the main HexChat window (if currently hidden).
 
 You can add your own items to the menu bar. The menu command has this
@@ -392,27 +391,27 @@ with name "-" will add a separator line.
 Parameters and flags:
 
 -  **-eX:** Set enable flag to X. -e0 for disable, -e1 for enable. This
-	 lets you create a disabled (shaded) item.
+   lets you create a disabled (shaded) item.
 -  **-iFILE:** Use an icon filename FILE. Not supported for toggles or
-	 radio items.
+   radio items.
 -  **-k<mod>,<key>:** Specify a keyboard shortcut. "mod" is the modifier
-	 which is a bitwise OR of: 1-SHIFT 4- CTRL 8-ALT in decimal. "key" is
-	 the key value in decimal, e.g. -k5,101 would specify SHIFT-CTRL-E.
+   which is a bitwise OR of: 1-SHIFT 4- CTRL 8-ALT in decimal. "key" is
+   the key value in decimal, e.g. -k5,101 would specify SHIFT-CTRL-E.
 -  **-m:** Specify that this label should be treated as Pango Markup
-	 language. Since forward slash ("/") is already used in menu paths,
-	 you should replace closing tags with an ASCII 003 instead e.g.:
-	 hexchat\_command (ph, "MENU -m ADD "<b>Bold Menu<03b>"");
+   language. Since forward slash ("/") is already used in menu paths,
+   you should replace closing tags with an ASCII 003 instead e.g.:
+   hexchat\_command (ph, "MENU -m ADD "<b>Bold Menu<03b>"");
 -  **-pX:** Specify a menu item's position number. e.g. -p5 will cause
-	 the item to be inserted in the 5th place. If the position is a
-	 negative number, it will be used as an offset from the
-	 bottom/right-most item.
+   the item to be inserted in the 5th place. If the position is a
+   negative number, it will be used as an offset from the
+   bottom/right-most item.
 -  **-rX,group:** Specify a radio menu item, with initial state X and a
-	 group name. The group name should be the exact label of another menu
-	 item (without the path) that this item will be grouped with. For
-	 radio items, only a select command will be executed (no unselect
-	 command).
+   group name. The group name should be the exact label of another menu
+   item (without the path) that this item will be grouped with. For
+   radio items, only a select command will be executed (no unselect
+   command).
 -  **-tX:** Specify a toggle menu item with an initial state. -t0 for an
-	 "unticked" item and -t1 for a "ticked" item.
+   "unticked" item and -t1 for a "ticked" item.
 
 If you want to change an item's toggle state or enabled flag, just *ADD*
 an item with exactly the same name and command and specify the *-tX -eX*
@@ -787,29 +786,28 @@ Getting Information
 	:param ph: Plugin handle (as given to `hexchat_plugin_init`).
 	:param id: ID of the information you want. List of ID's(case sensitive):
 
-		 -  **away:** away reason or NULL if you are not away.
-		 -  **channel:** current channel name.
-		 -  **charset:** character-set used in the current context.
-		 -  **configdir:** HexChat config directory, e.g.:
-			``/home/user/.config/hexchat``. This string is encoded in UTF-8.
-		 -  **event\_text <name>:** text event format string for *name*.
-		 -  **gtkwin\_ptr:** (GtkWindow \*).
-		 -  **host:** real hostname of the server you connected to.
-		 -  **inputbox:** the input-box contents, what the user has typed.
-		 -  **libdirfs:** library directory. e.g. /usr/lib/hexchat. The same
-			directory used for auto-loading plugins. This string isn't
-			necessarily UTF-8, but local file system encoding.
-		 -  **modes:** channel modes, if known, or NULL.
-		 -  **network:** current network name or NULL.
-		 -  **nick:** your current nick name.
-		 -  **nickserv:** nickserv password for this network or NULL.
-		 -  **server:** current server name (what the server claims to be).
-			NULL if you are not connected.
-		 -  **topic:** current channel topic.
-		 -  **version:** HexChat version number.
-		 -  **win\_ptr:** native window pointer. Unix: (GtkWindow \*) Win32:
-			HWND.
-		 -  **win\_status:** window status: "active", "hidden" or "normal".
+		-  **away:** away reason or NULL if you are not away.
+		-  **channel:** current channel name.
+		-  **charset:** character-set used in the current context.
+		-  **configdir:** HexChat config directory, e.g.:
+		   ``/home/user/.config/hexchat``. This string is encoded in UTF-8.
+		-  **event\_text <name>:** text event format string for *name*.
+		-  **gtkwin\_ptr:** (GtkWindow \*).
+		-  **host:** real hostname of the server you connected to.
+		-  **inputbox:** the input-box contents, what the user has typed.
+		-  **libdirfs:** library directory. e.g. /usr/lib/hexchat. The same
+		   directory used for auto-loading plugins. This string isn't
+		   necessarily UTF-8, but local file system encoding.
+		-  **modes:** channel modes, if known, or NULL.
+		-  **network:** current network name or NULL.
+		-  **nick:** your current nick name.
+		-  **nickserv:** nickserv password for this network or NULL.
+		-  **server:** current server name (what the server claims to be).
+		   NULL if you are not connected.
+		-  **topic:** current channel topic.
+		-  **version:** HexChat version number.
+		-  **win\_ptr:** native window pointer. Unix: (GtkWindow \*) Win32: HWND.
+		-  **win\_status:** window status: "active", "hidden" or "normal".
 
 	:returns: A string of the requested information, or NULL. This string
 		must not be freed and must be copied if needed after the call to :func:`hexchat_get_info`.

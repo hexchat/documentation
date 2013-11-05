@@ -590,15 +590,18 @@ command. For example, if you executed:
 	- **Focus Tab**: Called when a tab is brought to front.
 	- **Focus Window**: Called a toplevel window is focused, or the main tab-window is focused by the window manager.
 	- **DCC Chat Text**: Called when some text from a DCC Chat arrives. It provides these elements in the word list:
-	   - Address
-	   - Port
-	   - Nick
-	   - Message
+
+	  - Address
+	  - Port
+	  - Nick
+	  - Message
+
 	- **Key Press**: Called when some keys are pressed in the input box. It provides these elements in the word list:
-	   - Key Value
-	   - State Bitfield (shift, capslock, alt)
-	   - String version of the key
-	   - Length of the string (may be 0 for unprintable keys)
+
+	  - Key Value
+	  - State Bitfield (shift, capslock, alt)
+	  - String version of the key
+	  - Length of the string (may be 0 for unprintable keys)
 
 .. function:: hook_print_attrs(name, callback[, userdata=None, priority=PRI_NORM])
 
