@@ -7,25 +7,21 @@ How do I migrate my settings from XChat?
 It is recommend to just start with fresh settings as the format and names of
 many options have changed and you may encounter some oddities migrating.
 
--  Unix
+- Unix
 
-    1. Copy ``~/.xchat2`` to ``~/.config/hexchat``
-    2. Rename ``~/.config/hexchat/xchat.conf`` to
-       ``~/.config/hexchat/hexchat.conf``
-    3. Rename ``~/.config/hexchat/servlist_.conf`` to
-       ``~/.config/hexchat/servlist.conf``
-    4. Rename ``~/.config/hexchat/xchatlogs`` to ``~/.config/hexchat/logs``
-    5. Move all your 3rd party addons (plugins/scripts) to ``~/.config/hexchat/addons``
+  1. Copy ``~/.xchat2`` to ``~/.config/hexchat``
+  2. Rename ``~/.config/hexchat/xchat.conf`` to ``~/.config/hexchat/hexchat.conf``
+  3. Rename ``~/.config/hexchat/servlist_.conf`` to ``~/.config/hexchat/servlist.conf``
+  4. Rename ``~/.config/hexchat/xchatlogs`` to ``~/.config/hexchat/logs``
+  5. Move all your 3rd party addons (plugins/scripts) to ``~/.config/hexchat/addons``
 
--  Windows
+- Windows
 
-    1. Copy ``%APPDATA%\X-Chat 2`` to ``%APPDATA%\HexChat``
-    2. Rename ``%APPDATA%\HexChat\xchat.conf`` to
-       ``%APPDATA%\HexChat\hexchat.conf``
-    3. Rename ``%APPDATA%\HexChat\servlist_.conf`` to
-       ``%APPDATA%\HexChat\servlist.conf``
-    4. Rename ``%APPDATA%\HexChat\xchatlogs`` to ``%APPDATA%\HexChat\logs``
-    5. Move all your 3rd party addons (plugins/scripts) to ``%APPDATA%\HexChat\addons``
+  1. Copy ``%APPDATA%\X-Chat 2`` to ``%APPDATA%\HexChat``
+  2. Rename ``%APPDATA%\HexChat\xchat.conf`` to ``%APPDATA%\HexChat\hexchat.conf``
+  3. Rename ``%APPDATA%\HexChat\servlist_.conf`` to ``%APPDATA%\HexChat\servlist.conf``
+  4. Rename ``%APPDATA%\HexChat\xchatlogs`` to ``%APPDATA%\HexChat\logs``
+  5. Move all your 3rd party addons (plugins/scripts) to ``%APPDATA%\HexChat\addons``
 
 
 How do I autoconnect and join a channel when HexChat loads?
@@ -121,13 +117,13 @@ How do I set different ban types?
    a number from 0 to 3.
 3. Or set the default with:
 
-       /set irc\_ban\_type bantype sets the default ban type to use for
-       all bans. The different types are:
+   /set irc\_ban\_type bantype sets the default ban type to use for
+   all bans. The different types are:
 
-       -  0 = \*!\ *@*.host
-       -  1 = \*!\*\@domain
-       -  2 = \*!\ *user\@*.host
-       -  3 = \*!\*user\@domain
+   -  0 = \*!\ *@*.host
+   -  1 = \*!\*\@domain
+   -  2 = \*!\ *user\@*.host
+   -  3 = \*!\*user\@domain
 
 Why does the timestamp overlap some nicknames?
 ----------------------------------------------
@@ -156,8 +152,8 @@ If you want to turn this option on globally go to :menuselection:`Settings --> P
 Then all channels you join **after** setting this will start with "Show
 join/part messages" turned off.
 
-Why doesn't DCC send work behind a router (IPNat/ADSL)?
--------------------------------------------------------
+Why doesn't DCC send work behind a router?
+------------------------------------------
 
 If you are behind a IP-NAT or ADSL router, you will most likely have an
 address like 192.168.0.1. This address is not usable on the Internet,
@@ -173,8 +169,8 @@ to the server before it'll take effect.
 You will also need to forward some ports for use in DCC send. You may
 pick almost any port range you wish, for example, in HexChat set:
 
-    First DCC send port: 4990
-     Last DCC send port: 5000
+First DCC send port: 4990
+Last DCC send port: 5000
 
 This will allow you to send up to ten files at the same time, which
 should be plenty for most people. Lastly, configure your router/modem to

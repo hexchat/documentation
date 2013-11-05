@@ -168,7 +168,7 @@ HexChat modules.
 .. module:: hexchat
 
 hexchat module
-------------
+--------------
 
 The hexchat module is your passport to every HexChat functionality offered
 by the Python plugin interface. Here's a simple example:
