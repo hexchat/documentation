@@ -24,8 +24,8 @@ many options have changed and you may encounter some oddities migrating.
   5. Move all your 3rd party addons (plugins/scripts) to ``%APPDATA%\HexChat\addons``
 
 
-How do I autoconnect and join a channel when HexChat loads?
------------------------------------------------------------
+How do I autoconnect and join a channel on start?
+--------------------------------------------------
 
 In the Network List, select the network to which you would like to automatically connect to at startup,
 click the "Edit..." button, and then tick the checkbox for "Connect to this network automatically".
@@ -34,15 +34,15 @@ To automatically join channels for this network upon connecting, select the "Aut
 tab in this same window and add your desired channels here. You can also add a currently joined channel
 by right-clicking its name in the channel switcher and by toggling "Autojoin" on.
 
-How do I get Hexchat to reconnect after my computer wakes up from being in sleep/hibernate mode?
-------------------------------------------------------------------------------------------------
+How do I auto-reconnect after my computer wakes up from being in sleep/hibernate mode?
+--------------------------------------------------------------------------------------
 
 Try the following command from a chat window:
 
      /set net_ping_timeout 31
 
-Why does HexChat join channels before identifying?
---------------------------------------------------
+Why are channels joined before identifying?
+-------------------------------------------
 
 There are 3 ways to authenticate before joining a channel, all are network dependant but nickserv is common:
 
@@ -140,8 +140,8 @@ Once you adjust this setting high enough, overlapping timestamps and
 nicknames should not occur. The adjustment will not take effect
 immediately, a restart may be needed.
 
-How do I turn on Conference mode where I will not see join or part messages?
-----------------------------------------------------------------------------
+How do I hide join and part messages?
+-------------------------------------
 
 Right-click on the tab you want to change. In the submenu of the channel
 name, there's a toggle-item "Show join/part messages", simply turn this
@@ -200,17 +200,15 @@ I get this error: "Unknown file type abc.yz. Maybe you need to install the Perl 
 --------------------------------------------------------------------------------------------------
 
 If you get this error when trying to load a Perl or Python script, it
-means the plugin for running those scripts isn't loaded.
+means the plugin or language for running those scripts isn't loaded.
 
--  The Perl and Python plugins come with HexChat in the same
-   archive.
--  During ./configure, it will check for Perl and Python libraries and
-   headers, you should check if it failed there.
--  The addons directory can be found by issuing the shell command >
-   hexchat -p
--  All *.so files are auto-loaded at startup (*.dll on Windows).
--  If you downloaded a binary package, maybe the packager decided to
-   exclude the Perl or Python plugins.
+On Unix:
+- Install the packages including these plugins (i.e. hexchat-perl) and perl.
+- When building yourself check ./configure output and install devel packages.
+
+On Windows
+- Select the plugins in the installer.
+- Install the language linked on our downloads page.
 
 How do I play sound files on certain events?
 --------------------------------------------
@@ -299,14 +297,18 @@ use the following command:
 
     /set irc\_real\_name Stewie Griffin
 
-Why doesn't HexChat beep with beep sound alerts checked?
---------------------------------------------------------
+Why don't beep sound alerts work?
+---------------------------------
 
 On Windows, HexChat is using the `Instant Message Notification` system sound
 for making beep alerts, and if it's unspecified, it attempts to produce a
 simple beep effect. In case you don't hear beeps when alerts occur, you need
 to set this system sound to the desired sound effect. To do this, go to
 :menuselection:`Control Panel --> Hardware and Sound --> Change system sounds`.
+
+On Unix it uses libcanberra by default to play the "message-new-instant" freedesktop sound.
+Use the *canberra-gtk-play* command to test playing events or custom sound files
+as that is likely where the problem lies.
 
 .. image:: _static/img/faq_sound.png
 
@@ -321,3 +323,5 @@ Now you can enter the 4-digit code of the desired glyph. When you're done, just
 press `Space` or `Return`, and the glyph will appear as well.
 
 .. image:: _static/img/faq_unicode_2.png
+
+.. Note:: Windows alt codes will not work.
