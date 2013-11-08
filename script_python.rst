@@ -573,6 +573,7 @@ command. For example, if you executed:
 	Parameters ``userdata`` and ``priority`` have their meanings explained
 	above.
 
+	:param name: event name (see :menuselection:`Settings --> Text Events`)
 	:returns: New Hook Handler
 
 	.. code-block:: python
