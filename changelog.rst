@@ -4,6 +4,7 @@ HexChat ChangeLog
 2.9.7 (TBD)
 -----------
 
+- fix SASL on InspIRCd networks
 - redesign various settings windows
 - render colors and attributes in the input and topic box
 - change ``/list`` to open channel list gui
