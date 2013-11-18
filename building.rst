@@ -132,7 +132,7 @@ you do not receive any errors after running the following command:
 
 If you do receive an error, you will need to modify your PKG_CONFIG_PATH
 as per the instructions in this wiki_. The necessary steps outlined in
-the wiki are listed here:
+the wiki are listed here for convenience:
 
 .. _wiki: http://wiki.icub.org/wiki/Homebrew#Setting_up_pkg-config
 
@@ -154,20 +154,20 @@ instructions, your output should now look something like this:
 
 .. code-block:: bash
 
-	-D_REENTRANT -I/usr/X11/include/cairo -I/usr/X11/include/pixman-1
-	-I/usr/X11/include/libping15 -I/usr/X11/include [...]
+	-D_REENTRANT -I/usr/X11/include/cairo -I/usr/X11/include/pixman-1 -I/usr/X11/include/libpng15 -I/usr/X11/include -I/usr/X11/include/libpng15 -I/usr/X11/include/freetype2 -I/usr/X11/include -I/usr/local/Cellar/gtk+/2.24.22/include/gtk-2.0 -I/usr/local/Cellar/gtk+/2.24.22/lib/gtk-2.0/include -I/usr/local/Cellar/pango/1.36.0/include/pango-1.0 -I/usr/local/Cellar/atk/2.10.0/include/atk-1.0 -I/usr/local/Cellar/gdk-pixbuf/2.30.0/include/gdk-pixbuf-2.0 -I/usr/local/Cellar/pango/1.36.0/include/pango-1.0 -I/usr/local/Cellar/harfbuzz/0.9.21/include/harfbuzz -I/usr/local/Cellar/pango/1.36.0/include/pango-1.0 -I/usr/local/Cellar/glib/2.38.1/include/glib-2.0 -I/usr/local/Cellar/glib/2.38.1/lib/glib-2.0/include -I/usr/local/opt/gettext/include
 
-Now download the `testing package`_, which is prepared for Homebrew compilation
-(basically a clone of Git HEAD with *./autogen.sh* run on Debian 6).
+Now download the `hexchat-2.9.6.1-mac package`_, which is prepared for Homebrew compilation
+(simply 2.9.6.1 stable with  *./autogen.sh* run on openSUSE 12.3).
 Extract it and run the following commands:
 
-.. _testing package: http://dl.hexchat.org/hexchat/osx/hexchat-2.9.4-mac.tar.gz
+.. _hexchat-2.9.6.1-mac package: http://dl.hexchat.net/hexchat/osx/hexchat-2.9.6.1-mac.tar.gz
 
 .. code-block:: bash
 
 	cd hexchat
-	./configure --disable-nls --disable-xlib --disable-perl
+	./configure --disable-nls --disable-xlib --disable-python --disable-perl
 	make
+	sudo make install
 	./src/fe-gtk/hexchat
 
 See ``./configure --help`` for more info about flags. Be creative and check
