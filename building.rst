@@ -135,7 +135,7 @@ follow the instructions below instead.
 Install Homebrew_, then install all
 the build dependencies of HexChat such as GTK+.
 
-.. _Homebrew: http://mxcl.github.com/homebrew/
+.. _Homebrew: http://brew.sh/
 
 After installing the dependencies but prior to building, ensure that 
 you do not receive any errors after running the following command:
