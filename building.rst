@@ -119,10 +119,24 @@ The theme manager isn't built by default on Unix. To do so install MonoDevelop w
 Mac
 ---
 
+HexChat can be installed via Homebrew. The Homebrew version
+is automatically configured to support Python and Perl so that
+scripts can be loaded from ~/.config/hexchat/addons. First install
+Homebrew_, then do the following:
+
+.. code-block:: bash
+
+	brew install hexchat
+	cd /usr/local/Cellar/hexchat/2.9.6/bin
+	./hexchat
+
+If you would rather compile HexChat from source,
+follow the instructions below instead.
+
 Install Homebrew_, then install all
 the build dependencies of HexChat such as GTK+.
 
-.. _Homebrew: http://mxcl.github.com/homebrew/
+.. _Homebrew: http://brew.sh/
 
 After installing the dependencies but prior to building, ensure that 
 you do not receive any errors after running the following command:
@@ -165,7 +179,7 @@ Extract it and run the following commands:
 
 .. code-block:: bash
 
-	cd hexchat
+	cd hexchat-2.9.6.1
 	./configure --disable-nls --disable-xlib --disable-python --disable-perl
 	make
 	sudo make install
