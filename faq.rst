@@ -60,13 +60,13 @@ How do I change what browser is opened?
 
 - Unix:
     - Gnome 3: :menuselection:`System Settings --> Details --> Default Applications`
-    - XFCE 4: :menuselection:`Settings Manager --> Prefered Applications`
+    - Other DE's use their own settings which may not work with gvfs, see below.
 
     If these do not work or you do not use a DE use the command :command:`gvfs-mime`:
 
      gvfs-mime --set x-scheme-handler/http firefox.desktop
 
-    If you hate gvfs you can manually edit *~/.local/share/applications/mimeapps.list* to include:
+    If you hate gvfs you may be able to manually edit *~/.local/share/applications/mimeapps.list* to include:
 
      x-scheme-handler/http=firefox.desktop;
 
