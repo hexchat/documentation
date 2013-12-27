@@ -69,6 +69,13 @@ in *win32\\hexchat.props* accordingly.
 Building
 ~~~~~~~~
 
+Open PowerShell as administrator and run::
+
+	Set-ExecutionPolicy RemoteSigned
+
+- If you're on 32-bit Windows, this is *C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe*
+- If you're on 64-bit Windows, this is *C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell.exe* (notice that this is the 32-bit PowerShell executable)
+
 Open *win32\\hexchat.sln*, right click on the *release/installer* (or
 *release/copy* if you skipped the language interfaces) project and set
 it as the startup project. Now you can compile from under the *Build*
