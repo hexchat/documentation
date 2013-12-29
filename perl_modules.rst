@@ -12,7 +12,7 @@ Software
 - `MSYS`_ (I'm linking to this version but you can use ANY MSYS, it's possible to use MSYS from MozillaBuild but it's really ancient)
 - This `script <https://gist.github.com/Eustachy/6345568>`_
 
-.. _MSYS: http://xhmikosr.1f0.de/tools/MSYS_MinGW-w64_GCC_481_x86-x64_Full.7z
+.. _MSYS: http://xhmikosr.1f0.de/tools/
 
 Setup
 -----
