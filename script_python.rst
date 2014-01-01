@@ -29,7 +29,7 @@ As of HexChat 2.9.6 the plugin supports both so which should you pick:
 As a user most older scripts will not be updated for Python 3 so 2 is your best bet.
 
 As a developer I would just recommend you make your scripts compatible for both but do note that
-Python 2 on Windows does not support threads while Python 3 does.
+the Python 2 plugin on Windows does not support threads while the Python 3 plugin does.
 
 Commands
 --------
