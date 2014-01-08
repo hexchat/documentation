@@ -33,6 +33,7 @@ Text events control the look of every event you see. They can be customized in :
 - **%C<fg>,<bg>** Color code
 - **%U** Underlined text
 - **%B** Bold text
+- **%I** Italic text (2.9.7+)
 - **%H** Hide text
 - **%O** Normal text
 - **$t** Text separator
