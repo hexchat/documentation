@@ -48,7 +48,8 @@ There are 3 ways to authenticate before joining a channel, all are network depen
 
 1. Use a Nickserv password and increase the delay before joining in :menuselection:`Settings --> Preferences --> Advanced`
 
-2. Use SASL (same password as nickserv and your username) which can be enabled in :menuselection:`HexChat --> Network list --> Edit` (2.9.4+).
+2. Use SASL which can be enabled in :menuselection:`HexChat --> Network list --> Edit` (2.9.4+).
+   Your username must match your nickserv account, you can set it by unchecking *Use global user information*.
 
 3. Use a `client cert <tips.html#client-certificates>`_ which requires the most setup.
 
