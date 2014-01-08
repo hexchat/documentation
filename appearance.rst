@@ -89,7 +89,8 @@ Userlist Popup
 
 Popups are shown when you right click on a nickname, either in the userlist or in the main chat itself. These can be edited in :menuselection:`Settings --> Userlist Popup`
 
-The Name column can take either just the name of the entry (_ characters represent keyboard shortcuts), *SUB*/*ENDSUB* for submenus, *SEP* for separators, and *TOGGLE* for toggleable options.
+The Name column can take either just the name of the entry, *SUB*/*ENDSUB* for submenus, *SEP* for separators, and *TOGGLE* for toggleable options.
+Suffix the name with *~GTK_ICON_NAME~* to show an icon and prefix the name with *_* for keyboard shortcuts (e.g. N_ame will bind a).
 
 The Command column can take any `command <commands.html>`_ with text formatted using the same codes as `text events <appearance.html#text-events>`_ and on top of that they also have their own codes:
 
