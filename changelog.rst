@@ -18,6 +18,7 @@ HexChat ChangeLog
 - add message parameter to ``/query``
 - add ``plugin_pref`` to Perl
 - improve spell check
+- improve OS X integration and create an app bundle
 - imporove Windows installer (Downloads requirements when ran)
 - rewrite ``/dns`` adding support for Windows and replacing the plugin
 - rebrand Perl plugin
