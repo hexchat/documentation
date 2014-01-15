@@ -140,7 +140,7 @@ Homebrew_, then do the following:
 	/usr/local/bin/hexchat
 
 If you would rather build from source yourself you must manually install gtk + deps.
-After installing the dependencies but prior to building, ensure that 
+After installing the dependencies but prior to building, ensure that
 you do not receive any errors after running the following command.
 If you do see errors see the Homebrew wiki_ on pkg-config:
 
