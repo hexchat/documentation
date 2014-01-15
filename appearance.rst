@@ -31,6 +31,7 @@ Text Events
 Text events control the look of every event you see. They can be customized in :menuselection:`Settings --> Text Events` using these codes to format it:
 
 - **%C<fg>,<bg>** Color code
+- **%R** Reverse color
 - **%U** Underlined text
 - **%B** Bold text
 - **%I** Italic text (2.9.7+)
