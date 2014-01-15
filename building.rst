@@ -123,66 +123,34 @@ The theme manager isn't built by default on Unix. To do so install MonoDevelop w
 	mdtool --verbose build htm-mono.csproj
 	mono thememan.exe
 
-Mac
----
+OS X
+----
 
-HexChat can be installed via Homebrew. The Homebrew version
-is automatically configured to support Python and Perl so that
+Homebrew
+~~~~~~~~
+
+HexChat can be installed via Homebrew. The Homebrew method is fairly
+simple and is automatically configured to support Python and Perl so that
 scripts can be loaded from ~/.config/hexchat/addons. First install
 Homebrew_, then do the following:
 
 .. code-block:: bash
 
 	brew install hexchat
-	cd /usr/local/Cellar/hexchat/2.9.6/bin
-	./hexchat
+	/usr/local/bin/hexchat
 
-If you would rather compile HexChat from source,
-follow the instructions below instead.
-
-Install Homebrew_, then install all
-the build dependencies of HexChat such as GTK+.
-
-.. _Homebrew: http://brew.sh/
-
+If you would rather build from source yourself you must manually install gtk + deps.
 After installing the dependencies but prior to building, ensure that 
-you do not receive any errors after running the following command:
+you do not receive any errors after running the following command.
+If you do see errors see the Homebrew wiki_ on pkg-config:
 
 .. code-block:: bash
 
 	pkg-config --cflags gtk+-2.0
-
-If you do receive an error, you will need to modify your PKG_CONFIG_PATH
-as per the instructions in this wiki_. The necessary steps outlined in
-the wiki are listed here for convenience:
-
-.. _wiki: http://wiki.icub.org/wiki/Homebrew#Setting_up_pkg-config
-
-In OS X 10.8 and older, enter the following:
-
-.. code-block:: bash
-
-	echo "export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig/:$PKG_CONFIG_PATH" >> ~/.bash_profile
-	source ~/.bash_profile
-	
-Run the following command again:
-
-.. code-block:: bash
-
-	pkg-config --cflags gtk+-2.0
-
-If you have properly configured your PKG_CONFIG_PATH according to the above
-instructions, your output should now look something like this:
-
-.. code-block:: bash
-
-	-D_REENTRANT -I/usr/X11/include/cairo -I/usr/X11/include/pixman-1 -I/usr/X11/include/libpng15 -I/usr/X11/include -I/usr/X11/include/libpng15 -I/usr/X11/include/freetype2 -I/usr/X11/include -I/usr/local/Cellar/gtk+/2.24.22/include/gtk-2.0 -I/usr/local/Cellar/gtk+/2.24.22/lib/gtk-2.0/include -I/usr/local/Cellar/pango/1.36.0/include/pango-1.0 -I/usr/local/Cellar/atk/2.10.0/include/atk-1.0 -I/usr/local/Cellar/gdk-pixbuf/2.30.0/include/gdk-pixbuf-2.0 -I/usr/local/Cellar/pango/1.36.0/include/pango-1.0 -I/usr/local/Cellar/harfbuzz/0.9.21/include/harfbuzz -I/usr/local/Cellar/pango/1.36.0/include/pango-1.0 -I/usr/local/Cellar/glib/2.38.1/include/glib-2.0 -I/usr/local/Cellar/glib/2.38.1/lib/glib-2.0/include -I/usr/local/opt/gettext/include
 
 Now download the `hexchat-2.9.6.1-mac package`_, which is prepared for Homebrew compilation
 (simply 2.9.6.1 stable with  *./autogen.sh* run on openSUSE 12.3).
 Extract it and run the following commands:
-
-.. _hexchat-2.9.6.1-mac package: http://dl.hexchat.net/hexchat/osx/hexchat-2.9.6.1-mac.tar.gz
 
 .. code-block:: bash
 
@@ -190,7 +158,38 @@ Extract it and run the following commands:
 	./configure --disable-nls --disable-xlib --disable-python --disable-perl
 	make
 	sudo make install
-	./src/fe-gtk/hexchat
 
 See ``./configure --help`` for more info about flags. Be creative and check
 your *configure* output if you get an error.
+
+.. _Homebrew: http://brew.sh/
+.. _wiki: http://wiki.icub.org/wiki/Homebrew#Setting_up_pkg-config
+.. _hexchat-2.9.6.1-mac package: http://dl.hexchat.net/hexchat/osx/hexchat-2.9.6.1-mac.tar.gz
+
+JHBuild
+~~~~~~~
+
+JHBuild is the alternative method, this is how the *official* HexChat.app is built.
+It uses the quartz backend as well as a more native theme.
+It can be more hands on and complex then the automated Homebrew method.
+
+1. Follow the instructions on Gnome's site for `Building on OSX`_
+2. Follow the instructions on Gnome's site for `Bundling on OSX`_
+3. With jhbuild install: gtk-quartz-engine and gtk-engines
+
+.. Note::
+	Some of these builds may fail and require dropping to a shell to fix them.
+	Most are trivial but the packages are always changing so you are on your own.
+
+Once everything is set up we can build hexchat:
+
+.. code-block:: bash
+
+	git clone https://github.com/hexchat/hexchat.git && cd hexchat
+	./autogen.sh && ./configure
+	make && make install
+	# At this point you can use hexchat, but if you want a package...
+	cd osx && ./makebundle.sh
+
+.. _Building on OSX: https://wiki.gnome.org/Projects/GTK%2B/OSX/Building
+.. _Bundling on OSX: https://wiki.gnome.org/Projects/GTK%2B/OSX/Bundling
