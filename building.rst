@@ -169,9 +169,9 @@ your *configure* output if you get an error.
 JHBuild
 ~~~~~~~
 
-JHBuild is the alternative method, this is how the *official* HexChat.app is built.
+JHBuild is the alternative method; this is how the *official* HexChat.app is built.
 It uses the quartz backend as well as a more native theme.
-It can be more hands on and complex then the automated Homebrew method.
+It can be more hands on and complex than the automated Homebrew method.
 
 1. Follow the instructions on Gnome's site for `Building on OSX`_
 2. Follow the instructions on Gnome's site for `Bundling on OSX`_
