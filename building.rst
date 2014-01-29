@@ -115,13 +115,12 @@ about flags.
 Building Theme Manager
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The theme manager isn't built by default on Unix. To do so install MonoDevelop with your package manager of choice then run this:
+The theme manager isn't built by default on Unix. To do so get hexchat's source as mentioned above and install MonoDevelop with your package manager of choice then run this:
 
 .. code-block:: bash
 
-	cd hexchat/src/htm
-	mdtool --verbose build htm-mono.csproj
-	mono thememan.exe
+	./configure --with-theme-manager
+	make && sudo make install
 
 OS X
 ----
