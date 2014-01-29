@@ -94,7 +94,7 @@ be creative and check your *configure* output if you get an error.
 Also most package-managers can get the dependencies for you:
 
 - yum: yum-builddep hexchat
-- apt: apt-get build-dep xchat && apt-get install libnotify-dev libproxy-dev libpci-dev libcanberra-dev build-essential automake
+- apt: apt-get build-dep xchat && apt-get install libnotify-dev libproxy-dev libpci-dev libcanberra-dev build-essential gnome-common
 
 HexChat has its source code hosted using `Git <http://git-scm.com/>`_, so you have to install Git as
 well. When it's ready, you can start the actual compilation, which is
