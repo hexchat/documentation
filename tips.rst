@@ -24,7 +24,7 @@ Unix
 
 Install your spelling dictionaries via your package manager (myspell-en-us on the Debians or hunspell-en-US everywhere else for English). Then make sure to enable spelling under :menuselection:`Settings --> Preferences --> Interface --> Input box`.
 
-Post 2.9.6 you can then list your languages in :menuselection:`Settings --> Preferences --> Interface --> Input box` by their language codes (i.e. de_DE for german), separated by commas.
+In 2.9.7+ you can then list your languages in :menuselection:`Settings --> Preferences --> Interface --> Input box` by their language codes (i.e. de_DE for german), separated by commas.
 
 In older versions the language can be overriden by starting HexChat with "*LANG=en_US hexchat*" (You can edit your hexchat.desktop file to do this every launch)
 
