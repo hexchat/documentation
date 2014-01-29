@@ -186,7 +186,7 @@ Once everything is set up we can build hexchat:
 .. code-block:: bash
 
 	git clone https://github.com/hexchat/hexchat.git && cd hexchat
-	./autogen.sh && ./configure
+	./autogen.sh && ./configure --prefix=$PREFIX
 	make && make install
 	# At this point you can use hexchat, but if you want a package...
 	cd osx && ./makebundle.sh
