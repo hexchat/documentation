@@ -177,7 +177,7 @@ your router/modem's manual on how to do this.
 How do I execute multiple commands in one line?
 -----------------------------------------------
 
-There are three ways to do this:
+There are a few ways to do this:
 
 -  If this is during connection the network list (Ctrl+s) has a 'connect commands'
    section as well as most login types you would need.
