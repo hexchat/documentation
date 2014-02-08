@@ -25,6 +25,7 @@ HexChat ChangeLog
 - replace search window with a searchbar
 - replace xtext transparency with full window transparency
 - update Visual Studio to 2013
+- update Perl to 5.18.2
 
 2.9.6.1 (2013-09-15)
 --------------------
