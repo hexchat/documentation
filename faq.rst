@@ -212,7 +212,7 @@ How do I play sound files on certain events?
 
 In the menus, go to: :menuselection:`Settings --> Preferences --> Sound`.
 Select the event you want to make a sound on, then type in a sound
-filename (or use the Browse button). Sound files must be in .wav format.
+filename (or use the Browse button). On Windows, sound files must be in .wav format.
 
 How do I auto-load scripts at startup?
 --------------------------------------
