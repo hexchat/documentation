@@ -14,10 +14,14 @@ HexChat ChangeLog
 - change ``/list`` to open channel list gui
 - enable italics
 - add fullscreen to view menu
+- add ``/getbool`` command
 - add support for userhost-in-names capability
+- add --command command line flag on Windows
 - add message parameter to ``/query``
+- add help messages to usercommands
 - add ``plugin_pref`` to Perl
 - improve spell check
+- improve rendering and selection in text box
 - improve OS X integration and create an app bundle
 - improve Windows installer (Downloads requirements when ran)
 - rewrite ``/dns`` adding support for Windows and replacing the plugin
