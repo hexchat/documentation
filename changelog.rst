@@ -7,12 +7,7 @@ HexChat ChangeLog
 - fix SASL on InspIRCd networks
 - fix building on OpenBSD
 - fix crash when using invalid timestamps on Windows
-- redesign various settings windows
-- render colors and attributes in the input and topic box
-- bind middle-click to close tab
-- build gtk's pixbuf theme engine on Windows
-- change ``/list`` to open channel list gui
-- enable italics
+- fix lagmeter reporting invalid numbers
 - add fullscreen to view menu
 - add ``/getbool`` command
 - add support for userhost-in-names capability
@@ -20,14 +15,22 @@ HexChat ChangeLog
 - add message parameter to ``/query``
 - add help messages to usercommands
 - add ``plugin_pref`` to Perl
-- improve spell check
-- improve rendering and selection in text box
-- improve OS X integration and create an app bundle
-- improve Windows installer (Downloads requirements when ran)
+- add regex search to channel list on Windows
+- redesign various settings windows
+- render colors and attributes in the input and topic box
+- bind middle-click to close tab
+- build gtk's pixbuf theme engine on Windows
+- change ``/list`` to open channel list gui
+- enable italics
 - rewrite ``/dns`` adding support for Windows and replacing the plugin
 - rebrand Perl plugin
 - replace search window with a searchbar
 - replace xtext transparency with full window transparency
+- hide unsupported channel modes from topicbar
+- improve spell check
+- improve rendering and selection in text box
+- improve OS X integration and create an app bundle
+- improve Windows installer (Downloads requirements when ran)
 - update Visual Studio to 2013
 - update Perl to 5.18.2
 
