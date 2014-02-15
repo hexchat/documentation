@@ -549,6 +549,9 @@ command. For example, if you executed:
 	Parameters ``userdata`` and ``priority`` have their meanings explained
 	above, and the parameter help, if given, allows you to pass a help text
 	which will be shown when ``/help name`` is executed.
+	
+	You may also hook an empty string to capture every message a user sends,
+	either when they hit enter or use ``/say``.
 
 	:returns: New Hook Handler
 
