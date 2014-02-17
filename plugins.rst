@@ -1011,7 +1011,7 @@ Hook Functions
 		 youpart_cb (char *word[], void *userdata)
 		 {
 			 hexchat_printf (ph, "You have left channel %s\n", word[3]);
-			 return HEXCHAT_EAT_HEXCHAT;     /* dont let HexChat do its normal printing */
+			 return HEXCHAT_EAT_HEXCHAT;     /* don't let HexChat do its normal printing */
 		 }
 
 		 hexchat_hook_print (ph, "You Part", HEXCHAT_PRI_NORM, youpart_cb, NULL);
