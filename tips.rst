@@ -48,7 +48,7 @@ Special Glyphs
 
 There are many symbols which may not be supported by the main font you selected to use in HexChat, especially Asian glyphs and special characters, like a peace sign. In this case, you'll see "lego blocks" instead of them.
 
-To circumvent this, you need to specify alternative fonts for glyphs not supported by your current font. You can specify them in :menuselection:`Settings --> Preferences --> Chatting --> Advanced --> Alternative fonts`. By default, it is set to *Arial Unicode MS,Lucida Sans Unicode,MS Gothic,Unifont*, which should fix most rendering errors.
+To circumvent this, you need to specify alternative fonts for glyphs not supported by your current font. On Unix this is handled automatically. On Windows you can specify them in :menuselection:`Settings --> Preferences --> Chatting --> Advanced --> Alternative fonts`. By default, it is set to *Arial Unicode MS,Lucida Sans Unicode,MS Gothic,Unifont*, which should fix most rendering errors.
 
 `Unifont <http://unifoundry.com/unifont.html>`_ is freely available, so it is recommended to install it - it should solve most of your rendering problems.
 
