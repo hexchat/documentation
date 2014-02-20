@@ -32,7 +32,7 @@ HexChat ChangeLog
 - improve OS X integration and create an app bundle
 - improve Windows installer (Downloads requirements when ran)
 - update Visual Studio to 2013
-- update Perl to 5.18.2
+- update Perl to 5.18.2 on Windows
 
 2.9.6.1 (2013-09-15)
 --------------------
