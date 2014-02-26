@@ -140,14 +140,14 @@ immediately, a restart may be needed.
 How do I hide join and part messages?
 -------------------------------------
 
-Right-click on the tab you want to change. In the submenu of the channel
-name, there's a toggle-item "Show join/part messages", simply turn this
-off.
-
-If you want to turn this option on globally go to :menuselection:`Settings --> Preferences --> Advanced`.
+To disable joins and parts from being displayed in all channels check 'Hide join and part messages' under 
+:menuselection:`Settings -> Preferences -> Chatting -> General` (Advanced pre-2.9.6)'.
 
 Then all channels you join **after** setting this will start with "Show
 join/part messages" turned off.
+
+To disable the prints for only certain channels, right click on the channel tab and click
+:menuselection:`Settings -> Hide Join/Part Messages`
 
 Why doesn't DCC send work behind a router?
 ------------------------------------------
