@@ -690,7 +690,7 @@ command. For example, if you executed:
 	If you return a true value from the callback, the timer will be keeped,
 	otherwise it is removed.
 
-.. function:: hook_unload(timeout, callback[, userdata=None])
+.. function:: hook_unload(callback[, userdata=None])
 
 	This function allows you to register a callback to be called when the
 	plugin is going to be unloaded. Parameters ``userdata`` and ``priority``
