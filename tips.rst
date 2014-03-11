@@ -63,7 +63,7 @@ Please bear in mind that for some reason certain fonts that can display a certai
 Client Certificates
 -------------------
 
-Client Certificates allows you to identify to networks services using a certificate. Please do not mistake it for server certificate which allows you to connect to network with invalid certificate, right now Hexchat can't do it.
+Client Certificates allows you to identify to networks services using a certificate. Please do not mistake it for server certificate which allows you to connect to network with invalid certificate, right now HexChat can't do it.
 
 To use one you need to put your certificate file inside :file:`certs` directory in HexChat's `config folder <settings.html#config-files>`_.
 
@@ -74,7 +74,7 @@ On networks that support it you can use SASL EXTERNAL in the network list.
 Note on Custom Server Certificates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-On Windows it is possible to edit *cert.pem* file in Hexchat main installation directory and add custom certificate there. But this method isn't very effective as *cert.pem* is overwritten each time Hexchat installer is used.
+On Windows it is possible to edit *cert.pem* file in HexChat main installation directory and add custom certificate there. But this method isn't very effective as *cert.pem* is overwritten each time HexChat installer is used.
 
 Notice Placement
 ----------------
