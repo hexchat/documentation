@@ -33,6 +33,7 @@ HexChat ChangeLog
 - improve Windows installer (Downloads requirements when ran)
 - update Visual Studio to 2013
 - update Perl to 5.18.2 on Windows
+- update Python to 3.4.0 on Windows
 
 2.9.6.1 (2013-09-15)
 --------------------
