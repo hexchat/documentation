@@ -10,7 +10,7 @@ Software
 - `Visual Studio 2012 Express for Windows Desktop`_ + `Visual Studio 2012 Update 3`_
 - Perl `x86`_ or `x64`_
 - `MSYS`_ (I'm linking to this version but you can use ANY MSYS, it's possible to use MSYS from MozillaBuild but it's really ancient)
-- This `script <https://gist.github.com/Eustachy/6345568>`_
+- This `script <https://gist.github.com/tomek/6345568>`_
 
 .. _MSYS: http://xhmikosr.1f0.de/tools/
 
