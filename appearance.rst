@@ -38,6 +38,7 @@ Text events control the look of every event you see. They can be customized in :
 - **%H** Hide text
 - **%O** Normal text
 - **$t** Text separator
+- **$aXXX** Ascii value
 - **$<num>** Event information
 
 .. note::
