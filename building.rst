@@ -11,7 +11,7 @@ Download and install (in their default install paths):
 
 -  `Visual Studio 2013 Express for Windows Desktop <http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express>`_
 -  `Inno Setup 5.5 Unicode <http://www.jrsoftware.org/isdl.php>`_
--  `Inno Download Plugin <http://mitrich.net23.net/?/inno-download-plugin.html>`_
+-  `Inno Download Plugin <http://dl.hexchat.net/misc/idpsetup-1.1.2.exe>`_
 -  `7-Zip <http://7-zip.org/>`_
 -  `gendef <http://dl.hexchat.net/gtk-win32/gendef-20111031.7z>`_ (extract to *c:\\mozilla-build*)
 -  `msgfmt <http://dl.hexchat.net/gtk-win32/msgfmt-0.18.1.7z>`_ (extract to *c:\\mozilla-build*)
