@@ -339,5 +339,5 @@ but there are some simple guidelines of what the network SHOULD have.
 
 You should make a pull request on `GitHub <https://github.com/hexchat/hexchat/pulls>`_ if you
 want the quickest results, the list is stored in *src/common/servlist.c*. You should include an 
-SSL server if supported but you should not include IPv6 only servers. Follow the syntax of
-other networks in the file.
+SSL server if supported but you should not include IPv6 only servers and mark SASL as default if supported.
+Follow the syntax of other networks in the file.
