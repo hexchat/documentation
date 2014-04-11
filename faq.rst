@@ -325,3 +325,19 @@ press `Space` or `Return`, and the glyph will appear as well.
 .. image:: _static/img/faq_unicode_2.png
 
 .. Note:: Windows alt codes will not work.
+
+How do I add a network to the official list?
+--------------------------------------------
+
+There are no official requirements to be added to the network list,
+but there are some simple guidelines of what the network SHOULD have.
+
+- A maintained website listing servers.
+- Has been around for a while.
+- A decent amount of active users.
+- Doesn't block large groups of users.
+
+You should make a pull request on `GitHub <https://github.com/hexchat/hexchat/pulls>`_ if you
+want the quickest results, the list is stored in *src/common/servlist.c*. You should include an 
+SSL server if supported but you should not include IPv6 only servers. Follow the syntax of
+other networks in the file.
