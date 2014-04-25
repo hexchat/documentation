@@ -74,6 +74,7 @@ Url handlers add alternative browsers to you your right click menu on urls (they
 
 .. note::
 	If HexChat does not find the executable it will not add it to the menu.
+	The command MUST use unix style slashes and does not handle spaces at all.
 
 Auto Replace
 ~~~~~~~~~~~~
