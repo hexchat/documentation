@@ -137,34 +137,13 @@ Homebrew_, then do the following:
 .. code-block:: bash
 
 	brew install hexchat
+	# or to build directly from git:
+	# brew install --HEAD hexchat
+	
+	# then launch it
 	/usr/local/bin/hexchat
 
-If you would rather build from source yourself you must manually install gtk + deps.
-After installing the dependencies but prior to building, ensure that
-you do not receive any errors after running the following command.
-If you do see errors see the Homebrew wiki_ on pkg-config:
-
-.. code-block:: bash
-
-	pkg-config --cflags gtk+-2.0
-
-Now download the `hexchat-2.9.6.1-mac package`_, which is prepared for Homebrew compilation
-(simply 2.9.6.1 stable with  *./autogen.sh* run on openSUSE 12.3).
-Extract it and run the following commands:
-
-.. code-block:: bash
-
-	cd hexchat-2.9.6.1
-	./configure --disable-nls --disable-xlib --disable-python --disable-perl
-	make
-	sudo make install
-
-See ``./configure --help`` for more info about flags. Be creative and check
-your *configure* output if you get an error.
-
 .. _Homebrew: http://brew.sh/
-.. _wiki: http://wiki.icub.org/wiki/Homebrew#Setting_up_pkg-config
-.. _hexchat-2.9.6.1-mac package: http://dl.hexchat.net/hexchat/osx/hexchat-2.9.6.1-mac.tar.gz
 
 JHBuild
 ~~~~~~~
