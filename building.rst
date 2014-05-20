@@ -136,9 +136,9 @@ Homebrew_, then do the following:
 
 .. code-block:: bash
 
-	brew install hexchat
+	brew install hexchat --with-python
 	# or to build directly from git:
-	# brew install --HEAD hexchat
+	# brew install --HEAD hexchat --with-python
 	
 	# then launch it
 	/usr/local/bin/hexchat
@@ -154,7 +154,7 @@ It can be more hands on and complex than the automated Homebrew method.
 
 1. Follow the instructions on Gnome's site for `Building on OSX`_
 2. Follow the instructions on Gnome's site for `Bundling on OSX`_
-3. With jhbuild install: gtk-quartz-engine and gtk-engines
+3. With jhbuild install: gtk-quartz-engine, gtk-engines, and enchant
 
 .. Note::
 	Some of these builds may fail and require dropping to a shell to fix them.
