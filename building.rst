@@ -51,16 +51,15 @@ You can skip this step, but then you won't be able to generate the
 installer.
 Download:
 
--  `Perl 5.18.2 x86`_ (extract to *c:\\mozilla-build\\perl-5.18\\Win32*)
+-  Perl_ 5.18.2 x86 (install to *c:\\mozilla-build\\perl-5.18\\Win32*)
 -  Python_ 2.7 x86 (install to *c:\\mozilla-build\\python-2.7\\Win32*)
 -  Python_ 3.4 x86 (install to *c:\\mozilla-build\\python-3.4\\Win32*)
 
--  `Perl 5.18.2 x64`_ (extract to *c:\\mozilla-build\\perl-5.18\\x64*)
+-  Perl_ 5.18.2 x64 (install to *c:\\mozilla-build\\perl-5.18\\x64*)
 -  Python_ 2.7 x64 (install to *c:\\mozilla-build\\python-2.7\\x64*)
 -  Python_ 3.4 x64 (install to *c:\\mozilla-build\\python-3.4\\x64*)
 
-.. _Perl 5.18.2 x86: http://dl.hexchat.net/misc/perl/perl-5.18.2-x86.7z
-.. _Perl 5.18.2 x64: http://dl.hexchat.net/misc/perl/perl-5.18.2-x64.7z
+.. _Perl: http://dl.hexchat.net/misc/perl/
 .. _Python: http://www.python.org/download/
 
 You can use other paths, but then you must update the related properties
