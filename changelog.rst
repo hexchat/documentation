@@ -8,6 +8,7 @@ HexChat ChangeLog
 - fix building on OpenBSD
 - fix crash when using invalid timestamps on Windows
 - fix lagmeter reporting invalid numbers
+- fix drag and drop on userlist/chan switcher
 - add fullscreen to view menu
 - add ``/getbool`` command
 - add support for userhost-in-names capability
