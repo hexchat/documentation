@@ -51,11 +51,11 @@ You can skip this step, but then you won't be able to generate the
 installer.
 Download:
 
--  Perl_ 5.18.2 x86 (install to *c:\\mozilla-build\\perl-5.18\\Win32*)
+-  Perl_ 5.20 x86 (install to *c:\\mozilla-build\\perl-5.18\\Win32*)
 -  Python_ 2.7 x86 (install to *c:\\mozilla-build\\python-2.7\\Win32*)
 -  Python_ 3.4 x86 (install to *c:\\mozilla-build\\python-3.4\\Win32*)
 
--  Perl_ 5.18.2 x64 (install to *c:\\mozilla-build\\perl-5.18\\x64*)
+-  Perl_ 5.20 x64 (install to *c:\\mozilla-build\\perl-5.18\\x64*)
 -  Python_ 2.7 x64 (install to *c:\\mozilla-build\\python-2.7\\x64*)
 -  Python_ 3.4 x64 (install to *c:\\mozilla-build\\python-3.4\\x64*)
 
