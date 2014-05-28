@@ -152,8 +152,6 @@ It uses the quartz backend as well as a more native theme.
 It can be more hands on and complex than the automated Homebrew method.
 
 1. Follow the instructions on Gnome's site for `Building on OSX`_
-2. Follow the instructions on Gnome's site for `Bundling on OSX`_
-3. With jhbuild install: gtk-quartz-engine, gtk-engines, and enchant
 
 .. Note::
 	Some of these builds may fail and require dropping to a shell to fix them.
@@ -166,7 +164,19 @@ Once everything is set up we can build hexchat:
 	git clone https://github.com/hexchat/hexchat.git && cd hexchat
 	./autogen.sh && ./configure --prefix=$PREFIX
 	make && make install
-	# At this point you can use hexchat, but if you want a package...
+	hexchat
+
+If you want to make the HexChat.app bundle it will take some more work.
+
+1. Follow the instructions on Gnome's site for `Bundling on OSX`_
+2. Build and install these packages
+
+   - Modified `gtk-quartz-engine <https://github.com/TingPing/gtk-quartz-engine/tree/mono>`_
+   - `xamarin-gtk-theme <https://github.com/mono/xamarin-gtk-theme>`_
+   - enchant with these `patches <https://gist.github.com/TingPing/2d88a875b50da15c352d>`_
+
+.. code-block:: bash
+
 	cd osx && ./makebundle.sh
 
 .. _Building on OSX: https://wiki.gnome.org/Projects/GTK%2B/OSX/Building
