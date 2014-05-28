@@ -36,7 +36,7 @@ HexChat ChangeLog
 - improve OS X integration (custom theme, app menu, dock icon, spell check, app bundle, key bindings)
 - improve Windows installer (Downloads requirements when ran)
 - update Visual Studio to 2013
-- update Perl to 5.18.2 on Windows
+- update Perl to 5.20 on Windows
 - update Python to 3.4.0 on Windows
 - update translations
 
