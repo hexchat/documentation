@@ -9,6 +9,7 @@ HexChat ChangeLog
 - fix crash when using invalid timestamps on Windows
 - fix lagmeter reporting invalid numbers
 - fix drag and drop on userlist/chan switcher
+- fix various unicode issues on Windows
 - add fullscreen to view menu
 - add ``/getbool`` command
 - add support for userhost-in-names capability
@@ -17,20 +18,22 @@ HexChat ChangeLog
 - add help messages to usercommands
 - add ``plugin_pref`` to Perl
 - add regex search to channel list on Windows
-- redesign various settings windows
+- redesign various settings windows (notably keybindings)
 - render colors and attributes in the input and topic box
 - bind middle-click to close tab
 - build gtk's pixbuf theme engine on Windows
 - change ``/list`` to open channel list gui
+- change format keybindings are stored in (will convert automatically)
 - enable italics
 - rewrite ``/dns`` adding support for Windows and replacing the plugin
 - rebrand Perl plugin
 - replace search window with a searchbar
 - replace xtext transparency with full window transparency
+- remove all deprecated gtk usage
 - hide unsupported channel modes from topicbar
-- improve spell check
+- improve spell check (handle contractions)
 - improve rendering and selection in text box
-- improve OS X integration and create an app bundle
+- improve OS X integration (custom theme, app menu, dock icon, spell check, app bundle, key bindings)
 - improve Windows installer (Downloads requirements when ran)
 - update Visual Studio to 2013
 - update Perl to 5.18.2 on Windows
