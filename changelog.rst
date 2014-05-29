@@ -38,6 +38,7 @@ HexChat ChangeLog
 - update Visual Studio to 2013
 - update Perl to 5.20 on Windows
 - update Python to 3.4.0 on Windows
+- update openssl on Windows to fix "heartbleed"
 - update translations
 
 2.9.6.1 (2013-09-15)
