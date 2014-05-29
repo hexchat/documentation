@@ -30,6 +30,7 @@ HexChat ChangeLog
 - replace search window with a searchbar
 - replace xtext transparency with full window transparency
 - remove all deprecated gtk usage
+- remove all use of X11 directly, fixing XWayland support
 - hide unsupported channel modes from topicbar
 - improve spell check (handle contractions)
 - improve rendering and selection in text box
