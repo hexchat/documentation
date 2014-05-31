@@ -18,6 +18,7 @@ HexChat ChangeLog
 - add help messages to usercommands
 - add ``plugin_pref`` to Perl
 - add regex search to channel list on Windows
+- add option to hide nick change messages
 - redesign various settings windows (notably keybindings)
 - render colors and attributes in the input and topic box
 - bind middle-click to close tab
