@@ -7,40 +7,40 @@ HexChat ChangeLog
 - fix SASL on InspIRCd networks
 - fix building on OpenBSD
 - fix crash when using invalid timestamps on Windows
-- fix lagmeter reporting invalid numbers
-- fix drag and drop on userlist/chan switcher
-- fix various unicode issues on Windows
-- add fullscreen to view menu
+- fix Lag Meter reporting invalid numbers
+- fix drag and drop on User List/Channel Switcher
+- fix various Unicode issues on Windows
+- add fullscreen display mode
 - add ``/getbool`` command
 - add support for userhost-in-names capability
 - add --command command line flag on Windows
 - add message parameter to ``/query``
-- add help messages to usercommands
+- add help messages to user commands
 - add ``plugin_pref`` to Perl
-- add regex search to channel list on Windows
+- add regex search to the Channel List on Windows
 - add option to hide nick change messages
-- redesign various settings windows (notably keybindings)
-- render colors and attributes in the input and topic box
-- bind middle-click to close tab
-- build gtk's pixbuf theme engine on Windows
-- change ``/list`` to open channel list gui
-- change format keybindings are stored in (will convert automatically)
+- redesign various settings windows (notably key bindings)
+- render colors and attributes in the Input Box and Topic Bar
+- bind middle-click to close tabs
+- build the GTK+ PixBuf theme engine on Windows
+- change ``/list`` to open the Channel List window
+- change the format key bindings are stored in (will convert automatically)
 - enable italics
 - rewrite ``/dns`` adding support for Windows and replacing the plugin
-- rebrand Perl plugin
-- replace search window with a searchbar
-- replace xtext transparency with full window transparency
-- remove all deprecated gtk usage
-- remove all use of X11 directly, fixing XWayland support
-- hide unsupported channel modes from topicbar
+- rebrand the Perl plugin
+- replace the Search window with a Search Bar
+- replace Text Box transparency with full window transparency
+- remove all deprecated GTK+ usage
+- remove all direct use of X11, fixing XWayland support
+- hide unsupported channel modes from the Topic Bar
 - improve spell check (handle contractions)
-- improve rendering and selection in text box
+- improve rendering and selection in the Text Box
 - improve OS X integration (custom theme, app menu, dock icon, spell check, app bundle, key bindings)
-- improve Windows installer (Downloads requirements when ran)
+- improve the Windows installer (downloads requirements when ran)
 - update Visual Studio to 2013
 - update Perl to 5.20 on Windows
 - update Python to 3.4.0 on Windows
-- update openssl on Windows to fix "heartbleed"
+- update OpenSSL on Windows to fix "Heartbleed"
 - update translations
 
 2.9.6.1 (2013-09-15)
