@@ -39,7 +39,7 @@ HexChat ChangeLog
 - improve the Windows installer (downloads requirements when ran)
 - update Visual Studio to 2013
 - update Perl to 5.20 on Windows
-- update Python to 3.4.0 on Windows
+- update Python to 3.4 on Windows
 - update OpenSSL on Windows to fix "Heartbleed"
 - update translations
 
