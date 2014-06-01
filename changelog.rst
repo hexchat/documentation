@@ -1,8 +1,8 @@
 HexChat ChangeLog
 =================
 
-2.9.7 (TBD)
------------
+2.10.0 (2014-06-01)
+-------------------
 
 - fix SASL on InspIRCd networks
 - fix building on OpenBSD
@@ -29,7 +29,7 @@ HexChat ChangeLog
 - rewrite ``/dns`` adding support for Windows and replacing the plugin
 - rebrand the Perl plugin
 - replace the Search window with a Search Bar
-- replace Text Box transparency with full window transparency
+- replace Text Box transparency with full window transparency (may come back)
 - remove all deprecated GTK+ usage
 - remove all direct use of X11, fixing XWayland support
 - hide unsupported channel modes from the Topic Bar
