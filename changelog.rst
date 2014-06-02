@@ -1,6 +1,12 @@
 HexChat ChangeLog
 =================
 
+2.10.1 (TBD)
+------------
+
+- Fix plugin support on some platforms (OS X 10.8)
+- Update translations
+
 2.10.0 (2014-06-01)
 -------------------
 
