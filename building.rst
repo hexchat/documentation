@@ -36,7 +36,7 @@ with the *YourDepsPath* property. Download:
 -  `GTK+ x86 bundle`_
 -  `GTK+ x64 bundle`_
 
-.. _GTK+ x86 bundle: http://dl.hexchat.net/gtk-win32/vc12/x86/gtk-x86.7z
+.. _GTK+ x86 bundle: http://dl.hexchat.net/gtk-win32/vc12/x86/gtk-Win32.7z
 .. _GTK+ x64 bundle: http://dl.hexchat.net/gtk-win32/vc12/x64/gtk-x64.7z
 
 Extract them to *win32* and *x64* in *YourDepsPath*.
