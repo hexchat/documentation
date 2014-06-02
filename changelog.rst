@@ -4,8 +4,8 @@ HexChat ChangeLog
 2.10.1 (TBD)
 ------------
 
-- Fix plugin support on some platforms (OS X 10.8)
-- Update translations
+- fix plugin support on some platforms (OS X 10.8)
+- update translations
 
 2.10.0 (2014-06-01)
 -------------------
