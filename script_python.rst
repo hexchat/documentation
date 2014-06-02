@@ -110,7 +110,7 @@ Text Formatting
 - Original Color: '\\017'
 - Reverse Color: '\\026'
 - Beep: '\\007'
-- Italics: '\\035' (2.9.7+)
+- Italics: '\\035' (2.10.0+)
 
 For example this will print underlined red text:
 
@@ -389,7 +389,7 @@ their servers. The following attributes are available in each list item:
    -  8: Beep on Message
    -  9: Blink Tray
    -  10: Blink Task Bar
-   -  11: Logging (This and the following are 2.9.7+)
+   -  11: Logging (This and the following are 2.10.0+)
    -  12: Logging unset
    -  13: Scrollback
    -  14: Scrollback unset

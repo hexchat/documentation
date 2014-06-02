@@ -34,7 +34,7 @@ Text events control the look of every event you see. They can be customized in :
 - **%R** Reverse color
 - **%U** Underlined text
 - **%B** Bold text
-- **%I** Italic text (2.9.7+)
+- **%I** Italic text (2.10.0+)
 - **%H** Hide text
 - **%O** Normal text
 - **$t** Text separator
