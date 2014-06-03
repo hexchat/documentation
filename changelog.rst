@@ -8,6 +8,7 @@ HexChat ChangeLog
 - fix building plugin support on some platforms (OS X 10.8)
 - fix FiSHLiM decryption when identify-msg is enabled
 - update translations
+- update network list
 
 2.10.0 (2014-06-01)
 -------------------
