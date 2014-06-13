@@ -1,6 +1,11 @@
 HexChat ChangeLog
 =================
 
+2.12.0 (TBD)
+------------
+
+- enable logging by default
+
 2.10.1 (TBD)
 ------------
 
