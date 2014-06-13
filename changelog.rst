@@ -7,6 +7,7 @@ HexChat ChangeLog
 - fix scrolling the chanview on Unix
 - fix building plugin support on some platforms (OS X 10.8)
 - fix FiSHLiM decryption when identify-msg is enabled
+- fix missing license files on Windows
 - update translations
 - update network list
 
