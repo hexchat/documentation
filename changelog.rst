@@ -9,6 +9,7 @@ HexChat ChangeLog
 2.10.1 (TBD)
 ------------
 
+- fix notify list being sent to wrong networks
 - fix scrolling the chanview on Unix
 - fix building plugin support on some platforms (OS X 10.8)
 - fix FiSHLiM decryption when identify-msg is enabled
