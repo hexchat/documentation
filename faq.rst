@@ -314,8 +314,8 @@ as that is likely where the problem lies.
 
 How do I type Unicode characters?
 ---------------------------------
-Press `Ctrl + Shift + U` at once. When you release the keys, `u` will appear in
-your input box.
+Press `Ctrl + Shift + U` at once.  Mac OS X users press `Command + Shift + U` 
+instead.  When you release the keys, `u` will appear in your input box.
 
 .. image:: _static/img/faq_unicode_1.png
 
