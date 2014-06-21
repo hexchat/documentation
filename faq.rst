@@ -14,6 +14,7 @@ many options have changed and you may encounter some oddities migrating.
   3. Rename ``~/.config/hexchat/servlist_.conf`` to ``~/.config/hexchat/servlist.conf``
   4. Rename ``~/.config/hexchat/xchatlogs`` to ``~/.config/hexchat/logs``
   5. Move all your 3rd party addons (plugins/scripts) to ``~/.config/hexchat/addons``
+  6. Move all your client certs to ``~/.config/hexchat/certs``
 
 - Windows
 
@@ -22,6 +23,7 @@ many options have changed and you may encounter some oddities migrating.
   3. Rename ``%APPDATA%\HexChat\servlist_.conf`` to ``%APPDATA%\HexChat\servlist.conf``
   4. Rename ``%APPDATA%\HexChat\xchatlogs`` to ``%APPDATA%\HexChat\logs``
   5. Move all your 3rd party addons (plugins/scripts) to ``%APPDATA%\HexChat\addons``
+  6. Move all your client certs to ``%APPDATA%\HexChat\certs``
   
 The server list format also changed, instead of a giant autojoin list formatted ``J=chan1,chan2 key1,key2``
 it is now formatted on seperate lines ``J=chan1,key1\nJ=chan2,key2``
