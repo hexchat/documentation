@@ -9,11 +9,14 @@ HexChat ChangeLog
 2.10.1 (TBD)
 ------------
 
+- add configure check for python 3.4
+- fix possible crash in banlist
 - fix notify list being sent to wrong networks
 - fix scrolling the chanview on Unix
 - fix building plugin support on some platforms (OS X 10.8)
 - fix FiSHLiM decryption when identify-msg is enabled
 - fix missing license files on Windows
+- fix silent installer on Windows
 - update translations
 - update network list
 
