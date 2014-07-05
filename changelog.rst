@@ -10,6 +10,7 @@ HexChat ChangeLog
 ------------
 
 - add configure check for python 3.4
+- disable unsupported tray feature on Elementary OS
 - fix possible crash in banlist
 - fix notify list being sent to wrong networks
 - fix scrolling the chanview on Unix
