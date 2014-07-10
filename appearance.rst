@@ -77,7 +77,7 @@ Gtk Theme
 
 To customize more than just text color such as the window borders you must install a gtk theme.
 
-You can place a *gtkrc* file in *<installdir>\\etc\\gtk-2.0* or save it as *%USERPROFILE%\\.gtkrc-2.0*
+You can place a *gtkrc* file in *<installdir>\\share\\themes\\MS-Windows\\gtk-2.0* or save it as *%USERPROFILE%\\.gtkrc-2.0*
 
 The latter will not be overwritten ever but will affect all gtk applications. Eitherway you **must**
 make sure during installation to uncheck *Gtk Theme* to not overwrite the global theme or mess up the user theme.
