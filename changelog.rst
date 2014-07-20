@@ -11,7 +11,9 @@ HexChat ChangeLog
 
 - add configure check for python 3.4
 - disable unsupported tray feature on Elementary OS
+- disable installing on Vista (it does not work)
 - fix possible crash in banlist
+- fix crash in spell check
 - fix notify list being sent to wrong networks
 - fix scrolling the chanview on Unix
 - fix building plugin support on some platforms (OS X 10.8)
@@ -20,6 +22,7 @@ HexChat ChangeLog
 - fix silent installer on Windows
 - update translations
 - update network list
+- update Python versions on Windows
 
 2.10.0 (2014-06-01)
 -------------------
