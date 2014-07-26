@@ -14,45 +14,57 @@ Constants
 Priorities
 ~~~~~~~~~~
 
--  **Xchat::PRI_HIGHEST**
--  **Xchat::PRI_HIGH**
--  **Xchat::PRI_NORM**
--  **Xchat::PRI_LOW**
--  **Xchat::PRI_LOWEST**
+-  **HexChat::PRI_HIGHEST**
+-  **HexChat::PRI_HIGH**
+-  **HexChat::PRI_NORM**
+-  **HexChat::PRI_LOW**
+-  **HexChat::PRI_LOWEST**
 
 Return values
 ~~~~~~~~~~~~~
 
--  **Xchat::EAT_NONE** - pass the event along
--  **Xchat::EAT_XCHAT** - don't let HexChat see this event
--  **Xchat::EAT_PLUGIN** - don't let other scripts and plugins see
-   this event but xchat will still see it
--  **Xchat::EAT_ALL** - don't let anything else see this event
+-  **HexChat::EAT_NONE** - pass the event along
+-  **HexChat::EAT_HEXCHAT** - don't let HexChat see this event
+-  **HexChat::EAT_PLUGIN** - don't let other scripts and plugins see
+   this event but HexChat will still see it
+-  **HexChat::EAT_ALL** - don't let anything else see this event
 
 Timer and fd hooks
 ^^^^^^^^^^^^^^^^^^
 
--  **Xchat::KEEP** - keep the timer going or hook watching the
+-  **HexChat::KEEP** - keep the timer going or hook watching the
    handle
--  **Xchat::REMOVE** - remove the timer or hook watching the handle
+-  **HexChat::REMOVE** - remove the timer or hook watching the handle
 
 hook\_fd flags
 ~~~~~~~~~~~~~~
 
--  **Xchat::FD_READ** - invoke the callback when the handle is ready
+-  **HexChat::FD_READ** - invoke the callback when the handle is ready
    for reading
--  **Xchat::FD_WRITE** - invoke the callback when the handle is
+-  **HexChat::FD_WRITE** - invoke the callback when the handle is
    ready for writing
--  **Xchat::FD_EXCEPTION** - invoke the callback if an exception
+-  **HexChat::FD_EXCEPTION** - invoke the callback if an exception
    occurs
--  **Xchat::FD_NOTSOCKET** - indicate that the handle being hooked
+-  **HexChat::FD_NOTSOCKET** - indicate that the handle being hooked
    is not a socket
+
+Exports
+~~~~~~~
+
+The following tags are supported:
+
+- ``:all`` - exports everything
+- ``:constants`` - exports all the constants
+- ``:hooks`` - exports ``hook_*`` functions as well us ``unhook``
+- ``:util`` - everything else
+
+By default only the constants are exported.
 
 Functions
 ---------
 
-Xchat::register( $name, $version, [$description,[$callback]] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::register( $name, $version, [$description,[$callback]] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  ``$name`` - The name of this script
 -  ``$version`` - This script's version
@@ -64,16 +76,16 @@ Xchat::register( $name, $version, [$description,[$callback]] )
 This is the first thing to call in every script.
 
 
-Xchat::hook_server( $message, $callback, [\%options] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Xchat::hook_command( $command, $callback, [\%options] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Xchat::hook_print( $event,$callback, [\%options] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Xchat::hook_timer( $timeout,$callback, [\%options | $data] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Xchat::hook_fd( $handle, $callback, [ \%options ] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::hook_server( $message, $callback, [\%options] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::hook_command( $command, $callback, [\%options] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::hook_print( $event,$callback, [\%options] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::hook_timer( $timeout,$callback, [\%options | $data] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::hook_fd( $handle, $callback, [ \%options ] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 These functions can be to intercept various events. ``hook_server`` can be
 used to intercept any incoming message from the IRC server.
@@ -101,33 +113,34 @@ Valid keys for %options:
 
 +------------+--------------------------------------------------------------------------+
 | data       | Additional data that is to be associated with the hook. For timer hooks  |
-|            | this value can be provided either as ``Xchat::hook_timer( $timeout,      |
-|            | cb,{data=> data})`` or ``Xchat::hook_timer( $timeout, $cb, $data )``.    |
+|            | this value can be provided either as ``HexChat::hook_timer( $timeout,    |
+|            | cb,{data=> data})`` or ``HexChat::hook_timer( $timeout, $cb, $data )``.  |
 |            | However, this means that hook\_timer cannot be provided with a hash      |
 |            | reference containing data as a key.                                      |
 |            |                                                                          |
 |            | Example:                                                                 |
 |            |                                                                          |
-|            | .. code-block:: perl                                                     |
+|            | .. code-block:: none                                                     |
 |            |                                                                          |
 |            |    my $options = { data => [@arrayOfStuff] };                            |
-|            |    Xchat::hook_timer( $timeout, $cb, $options );                         |
+|            |    HexChat::hook_timer( $timeout, $cb, $options );                       |
 |            |                                                                          |
 |            | In this example, the timer's data will be ``[@arrayOfStuff]`` and not    |
 |            | ``{ data => [@arrayOfStuff] }``. This key is valid for all of the hook   |
 |            | functions. Default is ``undef``.                                         |
 +------------+--------------------------------------------------------------------------+
 | priority   | Sets the priority for the hook. It can be set to one of the              |
-|            | ``Xchat::PRI_*`` constants. This key only applies to server, command and |
-|            | print hooks. Default is ``Xchat::PRI_NORM``.                             |
+|            | ``HexChat::PRI_*`` constants. This key only applies to server, command   |
+|            | and print hooks. Default is ``HexChat::PRI_NORM``.                       |
 +------------+--------------------------------------------------------------------------+
 | help\_text | Text displayed for /help $command. This key only applies to command      |
 |            | hooks. Default is "".                                                    |
 +------------+--------------------------------------------------------------------------+
 | flags      | Specify the flags for a fd hook. See hook fd flags section for valid     |
 |            | values. On Windows if the handle is a pipe you specify                   |
-|            | ``Xchat::FD_NOTSOCKET`` in addition to any other flags you might be      |
-|            | using. This key only applies to fd hooks. Default is ``Xchat::FD_READ``. |
+|            | ``HexChat::FD_NOTSOCKET`` in addition to any other flags you might be    |
+|            | using. This key only applies to fd hooks. Default is                     |
+|            | ``HexChat::FD_READ``.                                                    |
 +------------+--------------------------------------------------------------------------+
 
 
@@ -157,7 +170,7 @@ type of hook.
 
 
 The value return from these hook functions can be passed to
-``Xchat::unhook`` to remove the hook.
+``HexChat::unhook`` to remove the hook.
 
 Callback Arguments
 ^^^^^^^^^^^^^^^^^^
@@ -207,9 +220,9 @@ Callback return values
 ^^^^^^^^^^^^^^^^^^^^^^
 
 All server, command and print callbacks should return one of the
-``Xchat::EAT_*`` constants.
-Timer callbacks can return ``Xchat::REMOVE`` to remove the timer or
-``Xchat::KEEP`` to keep it going.
+``HexChat::EAT_*`` constants.
+Timer callbacks can return ``HexChat::REMOVE`` to remove the timer or
+``HexChat::KEEP`` to keep it going.
 
 Miscellaneous Hook Related Information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -250,20 +263,20 @@ Events*, these additional events can be used.
 +-----------------+--------------------------------------------------------------------------------------------+
 
 
-Xchat::unhook( $hook )
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::unhook( $hook )
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$hook** - the hook that was previously returned by one of the
-   ``Xchat::hook_*`` functions
+   ``HexChat::hook_*`` functions
 
 This function is used to removed a hook previously added with one of the
-``Xchat::hook_*`` functions.
+``HexChat::hook_*`` functions.
 
-It returns the data that was passed to the Xchat::hook_* function
+It returns the data that was passed to the HexChat::hook_* function
 when the hook was added.
 
-Xchat::print( $text | \@lines, [$channel,[$server]] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::print( $text | \@lines, [$channel,[$server]] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$text** - the text to print
 -  **\@lines** - array reference containing lines of text to be
@@ -276,23 +289,23 @@ Xchat::print( $text | \@lines, [$channel,[$server]] )
 The first argument can either be a string or an array reference of
 strings. Either or both of ``$channel`` and ``$server`` can be ``undef``.
 
-If called as Xchat::print( $text ), it will always return true. If
+If called as HexChat::print( $text ), it will always return true. If
 called with either the channel or the channel and the server specified
 then it will return true if a context is found and false otherwise. The
 text will not be printed if the context is not found. The meaning of
 setting ``$channel`` or ``$server`` to ``undef`` is the same as
 find\_context.
 
-Xchat::printf( $format, LIST )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::printf( $format, LIST )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$format** - a format string, see "perldoc -f
    `sprintf <http://perldoc.perl.org/functions/sprintf.html>`_" for
    further details
 -  **LIST** - list of values for the format fields
 
-Xchat::command( $command | \@commands, [$channel,[$server]] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::command( $command | \@commands, [$channel,[$server]] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$command** - the command to execute, without the leading /
 -  **\@commands** - array reference containing a list of commands to
@@ -305,32 +318,32 @@ Xchat::command( $command | \@commands, [$channel,[$server]] )
 The first argument can either be a string or an array reference of
 strings. Either or both of ``$channel`` and ``$server`` can be ``undef``.
 
-If called as Xchat::command( $command ), it will always return true.
+If called as HexChat::command( $command ), it will always return true.
 If called with either the channel or the channel and the server
 specified then it will return true if a context is found and false
 otherwise. The command will not be executed if the context is not found.
 The meaning of setting ``$channel`` or ``$server`` to ``undef`` is the same
 as find\_context.
 
-Xchat::commandf( $format, LIST )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::commandf( $format, LIST )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$format** - a format string, see "perldoc -f
    `sprintf <http://perldoc.perl.org/functions/sprintf.html>`_" for
    further details
 -  **LIST** - list of values for the format fields
 
-Xchat::find_context( [$channel, [$server]] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::find_context( [$channel, [$server]] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$channel** - name of a channel
 -  **$server** - name of a server
 
 Either or both of ``$channel`` and ``$server`` can be ``undef``. Calling
-``Xchat::find_context()`` is the same as calling
-``Xchat::find_context( undef, undef)`` and
-``Xchat::find_context( $channel )`` is the same as
-``Xchat::find_context( $channel, undef )``.
+``HexChat::find_context()`` is the same as calling
+``HexChat::find_context( undef, undef)`` and
+``HexChat::find_context( $channel )`` is the same as
+``HexChat::find_context( $channel, undef )``.
 
 If ``$server`` is ``undef``, find any channel named ``$channel``. If
 ``$channel`` is ``undef``, find the front most window or tab named
@@ -340,13 +353,13 @@ currently focused tab or window.
 Return the context found for one of the above situations or ``undef`` if
 such a context cannot be found.
 
-Xchat::get_context()
-~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::get_context()
+~~~~~~~~~~~~~~~~~~~~~~
 
 Returns the current context.
 
-Xchat::set_context( $context | $channel,[$server] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::set_context( $context | $channel,[$server] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$context** - context value as returned from ``get_context``,
    ``find_context`` or one of the fields in the list of hashrefs
@@ -358,8 +371,8 @@ See ``find_context`` for more details on ``$channel`` and ``$server``.
 
 Returns true on success, false on failure.
 
-Xchat::get_info( $id )
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::get_info( $id )
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$id** - one of the following case sensitive values
 
@@ -379,7 +392,7 @@ Xchat::get_info( $id )
 | event_text <Event Name> | text event format string for <Event name>                                                                           |                       |
 |                         | Example:                                                                                                            |                       |
 |                         |                                                                                                                     |                       |
-|                         | ``my $channel_msg_format = Xchat::get_info( "event_text Channel Message" );``                                       |                       |
+|                         | ``my $channel_msg_format = HexChat::get_info( "event_text Channel Message" );``                                     |                       |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | host                    | real hostname of the current server                                                                                 |                       |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
@@ -387,7 +400,7 @@ Xchat::get_info( $id )
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | inputbox                | contents of the inputbox                                                                                            | SETTEXT               |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
-| libdirfs                | the system wide directory where xchat will look for plugins. this string is in the same encoding                    |                       |
+| libdirfs                | the system wide directory where HexChat will look for plugins. this string is in the same encoding                  |                       |
 |                         | as the local file system                                                                                            |                       |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | modes                   | the current channels modes or ``undef`` if not known                                                                | MODE                  |
@@ -405,13 +418,13 @@ Xchat::get_info( $id )
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | topic                   | current channel topic                                                                                               | TOPIC                 |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
-| version                 | hexchat's version number                                                                                            |                       |
+| version                 | HexChat's version number                                                                                            |                       |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
-| win_status              | status of the xchat window, possible values are "active", "hidden" and "normal"                                     | GUI                   |
+| win_status              | status of the HexChat window, possible values are "active", "hidden" and "normal"                                   | GUI                   |
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | win\_ptr                | native window pointer, GtkWindow * on Unix, HWND on Win32.                                                          |                       |
 |                         | On Unix if you have the Glib module installed you can use my ``$window =                                            |                       |
-|                         | Glib::Object->new\_from\_pointer( Xchat::get_info( "win\_ptr" ) );`` to get a Gtk2::Window object.                  |                       |
+|                         | Glib::Object->new\_from\_pointer( HexChat::get_info( "win\_ptr" ) );`` to get a Gtk2::Window object.                |                       |
 |                         | Additionally when you have detached tabs, each of the windows will return a different win\_ptr                      |                       |
 |                         | for the different ``Gtk2::Window`` objects.                                                                         |                       |
 |                         | See `char\_count.pl <http://xchat.cvs.sourceforge.net/viewvc/xchat/xchat2/plugins/perl/char_count.pl?view=markup>`_ |                       |
@@ -424,8 +437,8 @@ This function is used to retrieve certain information about the current
 context. If there is an associated command then that command can be used
 to change the value for a particular ID.
 
-Xchat::get_prefs( $name )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::get_prefs( $name )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$name** - name of a HexChat setting (available through the /set
    command)
@@ -434,8 +447,8 @@ This function provides a way to retrieve HexChat's setting information.
 
 Returns ``undef`` if there is no setting called called ``$name``.
 
-Xchat::emit_print( $event, LIST )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::emit_print( $event, LIST )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$event** - name from the Event column in *Settings* ``->`` *Text
    Events*
@@ -445,14 +458,14 @@ Xchat::emit_print( $event, LIST )
 This functions is used to generate one of the events listed under
 *Settings* ``->`` *Text Events*.
 
-Note: when using this function you **must** return ``Xchat::EAT_ALL``
+Note: when using this function you **must** return ``HexChat::EAT_ALL``
 otherwise you will end up with duplicate events. One is the original and
 the second is the one you emit.
 
 Returns true on success, false on failure.
 
-Xchat::send_modes( $target | \@targets, $sign, $mode, [ $modes_per_line ] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::send_modes( $target | \@targets, $sign, $mode, [ $modes_per_line ] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$target** - a single nick to set the mode on
 -  **\@targets** - an array reference of the nicks to set the mode
@@ -473,7 +486,7 @@ Example:
 
    use strict;
    use warnings;
-   use Xchat qw(:all);
+   use HexChat qw(:all);
 
    hook_command( "MODES", sub {
       my (undef, $who, $sign, $mode) = @{$_[0]};
@@ -483,11 +496,11 @@ Example:
       } else {
          send_modes( $who, $sign, $mode );
       }
-      return EAT_XCHAT;
+      return EAT_HEXCHAT;
    });
 
-Xchat::nickcmp( $nick1, $nick2 )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::nickcmp( $nick1, $nick2 )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$nick1, $nick2** - the two nicks or channel names that are to be
    compared
@@ -501,8 +514,8 @@ Returns a number less than, equal to or greater than zero if ``$nick1``
 is found respectively, to be less than, to match, or be greater than
 ``$nick2``.
 
-Xchat::get_list( $name )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::get_list( $name )
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$name** - name of the list, one of the following: "channels",
    "dcc", "ignore", "notify", "users"
@@ -549,8 +562,8 @@ if there is no such list.
 |              |                                                                             |
 |              | .. code-block:: perl                                                        |
 |              |                                                                             |
-|              |    if( Xchat::context_info->{flags} & (1 << 6) ) {                          |
-|              |       Xchat::print( "Hide Join/Part messages is enabled" );                 |
+|              |    if( HexChat::context_info->{flags} & (1 << 6) ) {                        |
+|              |       HexChat::print( "Hide Join/Part messages is enabled" );               |
 |              |    }                                                                        |
 +--------------+-----------------------------------------------------------------------------+
 | id           | Unique server ID                                                            |
@@ -628,22 +641,22 @@ if there is no such list.
 
 "ignore" - current ignore list
 
-+-------+--------------------------------------+
-| Key   | Value                                |
-+=======+======================================+
-| mask  | ignore mask. e.g: \*\!\*\@\*.aol.com |
-+-------+--------------------------------------+
-| flags | Bit field of flags.                  |
-|       |                                      |
-|       | - 0 - private                        |
-|       | - 1 - notice                         |
-|       | - 2 - channel                        |
-|       | - 3 - ctcp                           |
-|       | - 4 - invite                         |
-|       | - 5 - unignore                       |
-|       | - 6 - nosave                         |
-|       | - 7 - dcc                            |
-+-------+--------------------------------------+
++-------+-----------------------------------+
+| Key   | Value                             |
++=======+===================================+
+| mask  | ignore mask. e.g: \*!*\@*.aol.com |
++-------+-----------------------------------+
+| flags | Bit field of flags.               |
+|       |                                   |
+|       | - 0 - private                     |
+|       | - 1 - notice                      |
+|       | - 2 - channel                     |
+|       | - 3 - ctcp                        |
+|       | - 4 - invite                      |
+|       | - 5 - unignore                    |
+|       | - 6 - nosave                      |
+|       | - 7 - dcc                         |
++-------+-----------------------------------+
 
 "notify" - list of people on notify
 
@@ -680,7 +693,7 @@ more details.
 +----------+-----------------------------------------------------------------------------------------------------------------------------------+
 | away     | away status (boolean)                                                                                                             |
 +----------+-----------------------------------------------------------------------------------------------------------------------------------+
-| host     | host name in the form: user\@host or ``undef`` if not known                                                                       |
+| host     | host name in the form: user@host or ``undef`` if not known                                                                        |
 +----------+-----------------------------------------------------------------------------------------------------------------------------------+
 | lasttalk | last time a user was seen talking, this is the an epoch time                                                                      |
 +----------+-----------------------------------------------------------------------------------------------------------------------------------+
@@ -745,8 +758,8 @@ more details.
 | servers           | An array reference of hash references with a "host" and "port" key. If a port is not specified then 6667 will be used.                                                          |
 +-------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-Xchat::user_info( [$nick] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::user_info( [$nick] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$nick** - the nick to look for, if this is not given your own
    nick will be used as default
@@ -758,8 +771,8 @@ reference containing the same keys as those in the "users" list of
 ``get_list`` is returned otherwise ``undef`` is returned. Since it relies on
 ``get_list`` this function can only be used in a channel context.
 
-Xchat::context_info( [$context] )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::context_info( [$context] )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$context** - context returned from ``get_context``,
    ``find_context`` and ``get_list``, this is the context that you want
@@ -768,7 +781,7 @@ Xchat::context_info( [$context] )
 
 This function will return the information normally retrieved with
 ``get_info``, except this is for the context that is passed in. The
-information will be returned in the form of a hash. The keys of the hash
+information will be returned in a hashref. The keys of the hash
 are the ``$id`` you would normally supply to ``get_info`` as well as all
 the keys that are valid for the items in the "channels" list from
 ``get_list``. Use of this function is more efficient than calling
@@ -780,18 +793,46 @@ Example:
 
    use strict;
    use warnings;
-   use Xchat qw(:all); # imports all the functions documented on this page
+   use HexChat qw(:all); # imports all the functions documented on this page
 
    register( "User Count", "0.1",
       "Print out the number of users on the current channel" );
    hook_command( "UCOUNT", \&display_count );
    sub display_count {
       prnt "There are " . context_info()->{users} . " users in this channel.";
-      return EAT_XCHAT;
+      return EAT_HEXCHAT;
    }
 
-Xchat::strip_code( $string )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::plugin_pref_set( $setting, $value )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **$setting** - name of the setting you want to store
+- **$value** - value of that setting
+
+This function allows you to store settings in addon_perl.conf via HexChat.
+Returns 1 on success, 0 on failure.
+
+HexChat::plugin_pref_get( $setting )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **$setting** - name of the setting you want to retrieve
+
+Returns the value of the specified setting or undef it is not found.
+
+HexChat::plugin_pref_del( $setting )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **$setting** - name of the setting you want to delete
+
+Returns 1 on success (including deletion of not existing settings), 0 on failure.
+
+HexChat::plugin_pref_list( )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Returns a hashref of all stored settings or an empty hashref on failure.
+
+HexChat::strip_code( $string )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  **$string** - string to remove codes from
 
@@ -811,7 +852,7 @@ Asynchronous DNS resolution with hook\_fd
 
    use strict;
    use warnings;
-   use Xchat qw(:all);
+   use HexChat qw(:all);
    use Net::DNS;
 
    hook_command( "BGDNS", sub {
@@ -842,7 +883,7 @@ Asynchronous DNS resolution with hook\_fd
          flags => FD_READ,
       });
 
-      return EAT_XCHAT;
+      return EAT_HEXCHAT;
    });
 
 Contact Information
