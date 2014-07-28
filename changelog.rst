@@ -5,6 +5,8 @@ HexChat ChangeLog
 ------------
 
 - enable logging by default
+- improve parsing commands for url handlers
+- remove custom gtkrc on Windows
 
 2.10.1 (2014-07-28)
 ------------
