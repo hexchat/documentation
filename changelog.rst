@@ -6,18 +6,21 @@ HexChat ChangeLog
 
 - enable logging by default
 
-2.10.1 (TBD)
+2.10.1 (2014-07-28)
 ------------
 
 - add configure check for python 3.4
+- improve spell check handling apostrophes
 - disable unsupported tray feature on Elementary OS
 - disable installing on Vista (it does not work)
 - fix possible crash in banlist
+- fix some crashes in pluginpref API
 - fix crash in spell check
 - fix notify list being sent to wrong networks
 - fix scrolling the chanview on Unix
 - fix building plugin support on some platforms (OS X 10.8)
 - fix FiSHLiM decryption when identify-msg is enabled
+- fix expanding *~user* on Unix
 - fix missing license files on Windows
 - fix silent installer on Windows
 - update translations
