@@ -14,7 +14,7 @@ HexChat ChangeLog
 - add configure check for python 3.4
 - improve spell check handling apostrophes
 - disable unsupported tray feature on Elementary OS
-- disable installing on Vista (it does not work)
+- disable installing on Vista (would just crash on x64)
 - fix possible crash in banlist
 - fix some crashes in pluginpref API
 - fix crash in spell check
