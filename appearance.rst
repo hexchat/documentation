@@ -82,7 +82,7 @@ You can place a *gtkrc* file in *<installdir>\\etc\\gtk-2.0* or save it as *%USE
 The latter will not be overwritten ever but will affect all gtk applications. Eitherway you **must**
 make sure during installation to uncheck *Gtk Theme* to not overwrite the global theme or mess up the user theme.
 
-As of 2.9.7 we ship the Pixbuf/Pixmap theming engine on Windows required by many custom themes, 2.9.6 does not so themes may not look correct.
+As of 2.10.0 we ship the Pixbuf/Pixmap theming engine on Windows required by many custom themes, 2.9.6 does not so themes may not look correct.
 
 Buttons, Menus, and Popups
 --------------------------
