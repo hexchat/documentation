@@ -77,7 +77,7 @@ How do I change what browser is opened?
     Now upon launching it will use the *Exec* line in their desktop file replacing *%u* with the url.
     If you get a blank window this is where the problem is.
 
-Alternatively you can add an `Url Handler <settings.html#url-handlers>`_
+Alternatively you can add a `Url Handler <settings.html#url-handlers>`_
 
 
 How do I connect through a proxy?
