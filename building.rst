@@ -147,8 +147,7 @@ Homebrew_, then do the following:
 JHBuild
 ~~~~~~~
 
-JHBuild is the alternative method; this is how the *official* HexChat.app is built.
-It uses the quartz backend as well as a more native theme.
+JHBuild is the alternative method. It uses the quartz backend as well as a more native theme.
 It can be more hands on and complex than the automated Homebrew method.
 
 1. Follow the instructions on Gnome's site for `Building on OSX`_
