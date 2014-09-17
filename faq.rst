@@ -165,7 +165,7 @@ When offering a DCC file, HexChat will tell the receiver your address.
 If it says 192.168.0.1, the receiver will not be able to connect. One
 way to make it send your "real" address is to enable the "Get my IP from
 IRC Server" option in HexChat. This option is available in :menuselection:`Settings --> Preferences -->
-File Transfers`. When you turn it ON, you will have to re-login
+Network setup`. When you turn it ON, you will have to re-login
 to the server before it'll take effect.
 
 You will also need to forward some ports for use in DCC send. You may
