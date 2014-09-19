@@ -103,6 +103,19 @@ If you know who will notice you before hand, you can simply query the user befor
 
 For other locations, a separate script would be required. While not currently implemented, it would be possible with a script to treat all notices like private messages (open a new query window when received), or place them in a specific existing tab, such as the server tab. At this point, the choice is up to you (or whoever designs the script).
 
+How the marker line works
+-------------------------
+
+The marker line is a very useful tool to keep track of what you have and have not read in a channel but it's behavior is non-obvious at times. It just follows a few simple rules though.
+
+A line is created when new information is printed in a context that is not currently visible. This means the window is in the background, another tab is selected, or you are scrolled up.
+
+This line by design only automatically resets when it is seen. One common issue here is that the marker line is at the very top of your scrollback so you very unlikely to see it. This can happen with bnc playback for example where you get a lot of messages at once.
+
+HexChat has two shortcuts to reset the marker line also. Ctrl+M will reset the the marker line directly. Ctrl+Shift+M will scroll to where the marker was which is quite useful if you actually care about the scrollback.
+
+Once a marker line is "reset" it does not instantly get created at the bottom it will only be created if it matches the conditions mentioned above (not being visible).
+
 Tor
 ---
 
