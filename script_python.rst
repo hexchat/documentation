@@ -302,6 +302,12 @@ Information retreiving functions
 	   if hexchat.get_info("server") == 'freenode':
 		   hexchat.prnt('connected!')
 
+	You can also get the format of Text Events by using *event_text* and the event:
+
+	.. code-block:: python
+
+	   print(hexchat.get_prefs("event_text Channel Message"))
+
 .. function:: get_prefs(name)
 
 	Retrieve the HexChat setting information specified by the ``name``
@@ -310,12 +316,6 @@ Information retreiving functions
 	.. code-block:: python
 
 	   print("Current preferred nick: " + hexchat.get_prefs("irc_nick1"))
-
-	You can also get the format of Text Events by using *event_name* and the event:
-
-	.. code-block:: python
-
-	   print(hexchat.get_prefs("event_name Channel Message"))
 
 	And on top of that there are a few special preferences:
 
