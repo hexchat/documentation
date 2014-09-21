@@ -306,7 +306,7 @@ Information retreiving functions
 
 	.. code-block:: python
 
-	   print(hexchat.get_prefs("event_text Channel Message"))
+	   print(hexchat.get_info("event_text Channel Message"))
 
 .. function:: get_prefs(name)
 
