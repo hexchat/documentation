@@ -6,9 +6,11 @@ Theme Manager
 
 We distribute themes as :file:`.hct` files. These are just simply ZIP archives that you can extract manually and install into your `config folder <settings.html#config-files>`_. Some themes can be found `here <http://dl.hexchat.net/themes/>`_.
 
-The theme manager is a simple external application, which is included with the `installer <http://hexchat.net/downloads.html>`_ on Windows and `buildable <building.html#building-theme-manager>`_ on Unix, that helps install themes.
+On unix for example you can extract these with this command while HexChat is closed:
 
-.. image:: _static/img/appearance.png
+    unzip ~/Downloads/monokai.hct -d ~/.config/hexchat
+
+The theme manager is a simple external application, which is included with the `installer <http://hexchat.net/downloads.html>`_ on Windows and `buildable <building.html#building-theme-manager>`_ on Unix, that helps install themes.
 
 .. note::
 	.NET 4 is required to run the theme manager; You can download it from `Microsoft's site <http://www.microsoft.com/en-us/download/details.aspx?id=17113>`_.
