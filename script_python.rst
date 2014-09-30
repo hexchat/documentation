@@ -107,7 +107,7 @@ Text Formatting
 - Color: '\\003'
 - Hidden: '\\010'
 - Underline: '\\037'
-- Original Color: '\\017'
+- Original Attributes: '\\017'
 - Reverse Color: '\\026'
 - Beep: '\\007'
 - Italics: '\\035' (2.10.0+)
