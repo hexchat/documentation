@@ -4,7 +4,7 @@ Appearance
 Theme Manager
 -------------
 
-We distribute themes as :file:`.hct` files. These are just simply ZIP archives that you can extract manually and install into your `config folder <settings.html#config-files>`_. Some themes can be found `here <http://dl.hexchat.net/themes/>`_.
+We distribute themes as :file:`.hct` files. These are just simply ZIP archives that you can *extract* manually into your `config folder <settings.html#config-files>`_ with HexChat closed. Some themes can be found `here <http://dl.hexchat.net/themes/>`_.
 
 On unix for example you can extract these with this command while HexChat is closed:
 
