@@ -39,7 +39,7 @@ Text events control the look of every event you see. They can be customized in :
 - **%I** Italic text (2.10.0+)
 - **%H** Hide text
 - **%O** Normal text
-- **$t** Text separator
+- **$t** Text separator (tab character)
 - **$aXXX** Ascii value
 - **$<num>** Event information
 
