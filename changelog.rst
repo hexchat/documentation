@@ -1,13 +1,6 @@
 HexChat ChangeLog
 =================
 
-2.12.0 (TBD)
-------------
-
-- enable logging by default
-- improve parsing commands for url handlers
-- stop installer overwriting custom gtk themes on Windows
-
 2.10.1 (2014-07-28)
 ------------
 
