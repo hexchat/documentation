@@ -527,7 +527,7 @@ want to change its default value (:data:`PRI_NORM`).
 word and word\_eol
 ^^^^^^^^^^^^^^^^^^
 
-These parameters, when available in a callback, are lists of strings
+These parameters, when available in a command or server callback, are lists of strings
 which contain the parameters the user entered for the particular
 command. For example, if you executed:
 
@@ -541,6 +541,20 @@ command. For example, if you executed:
 -  **word\_eol[1]** is ``NICK Hi there!``
 -  **word\_eol[2]** is ``Hi there!``
 -  **word\_eol[3]** is ``there!``
+
+These parameters are also used in print events. When created by these events
+they have a completely different meaning though. Text events (:menuselection:`Settings --> Text events`)
+have numbered arguements associated with them, these apply to the item in the **word** list.
+For example on a "Channel Message" event:
+
+ [23:29:26] <@Nick> hello everyone
+
+- **word[0]** is ``Nick``
+- **word[1]** is ``hello everyone``
+- **word[2]** is ``@``
+- **word_eol[0]** is ``Nick hello everyone @``
+- **word_eol[1]** is ``hello everyone @``
+- **word_eol[2]** is ``@`` 
 
 .. function:: hook_command(name, callback[, userdata=None, priority=PRI_NORM, help=None])
 
