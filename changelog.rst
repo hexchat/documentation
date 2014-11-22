@@ -1,8 +1,23 @@
 HexChat ChangeLog
 =================
 
+2.10.2 (2014-11-25)
+-------------------
+
+- verify hostnames of certificates
+- use more secure openssl options (No SSLv2/3)
+- detect utf8 urls in chat
+- fix using multiple client certs at the same time
+- fix checking for Perl on some distros
+- fix friends list not properly updating
+- fix building with format-security
+- fix more non-ascii path issues on Windows
+- fix opening utf8 urls on Windows and OSX
+- update deps on Windows
+- update translations
+
 2.10.1 (2014-07-28)
-------------
+-------------------
 
 - add configure check for python 3.4
 - improve spell check handling apostrophes
