@@ -299,7 +299,7 @@ Information retreiving functions
 
 	.. code-block:: python
 
-	   if hexchat.get_info("server") == 'freenode':
+	   if hexchat.get_info("network") == 'freenode':
 		   hexchat.prnt('connected!')
 
 	You can also get the format of Text Events by using *event_text* and the event:
