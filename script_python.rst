@@ -646,6 +646,8 @@ For example on a "Channel Message" event:
 	``NOTICE``, ``PART``, a server numeric, etc. Parameters ``userdata`` and
 	``priority`` have their meanings explained above.
 
+	You can hook the special event "RAW LINE" to capture all server events.
+
 	:returns: New Hook Handler
 
 	.. code-block:: python
