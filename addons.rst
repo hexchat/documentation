@@ -36,6 +36,9 @@ Adds FiSH encryption support.  You set a password for a conversation/channel, an
 
 Then you let your fellow chatters know this password. Once they also set the password on their sides, they'll receive messages decrypted and send them encrypted, too.
 
+You can remove the key with:
+
+:command:`/delkey #channel`
 
 Update Checker
 --------------
