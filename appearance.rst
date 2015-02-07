@@ -79,13 +79,26 @@ Gtk Theme
 ~~~~~~~~~
 
 To customize more than just text color such as the window borders you must install a gtk theme.
+Here are some simple instructions for using them on Windows.
 
-You can place a *gtkrc* file in *<installdir>\\etc\\gtk-2.0* or save it as *%USERPROFILE%\\.gtkrc-2.0*
+The only requirement for themes on Windows is that they are for gtk2 and they use the Pixbuf engine. Themes
+requiring other engines will work but not look correct. HexChat has also only shipped this engine
+since 2.10.0.
 
-The latter will not be overwritten ever but will affect all gtk applications. Eitherway you **must**
-make sure during installation to uncheck *Gtk Theme* to not overwrite the global theme or mess up the user theme.
+Before starting you need to install HexChat with the *Gtk theme* option unchecked. This will avoid
+the installer modifying your theme or it conflicting with your theme.
 
-As of 2.10.0 we ship the Pixbuf/Pixmap theming engine on Windows required by many custom themes, 2.9.6 does not so themes may not look correct.
+Themes can be either installed globally (changing all gtk2 applications) or to HexChat specifically.
+The latter requires write permissions to HexChat's install dir (i.e. in Program Files). Global themes
+are set in *%USERPROFILE%\\.gtkrc-2.0* but will not be covered here.
+
+This example will use the `Vertex theme <https://github.com/horst3180/Vertex-theme>`_.
+Which contains an unoffensive dark theme and *mostly* uses the Pixbuf engine. Zips are on the releases page.
+
+1. Create the directory *<installdir>\\share\\themes\\vertex\\gtk-2.0*
+2. Extract contents of *vertex-gtk\\gtk-2.0-dark\\* into this directory.
+3. Create the file *<installdir>\\etc\\gtkrc* (with no file extension!)
+4. Edit it and add *gtk-theme-name = "vertex"*
 
 Buttons, Menus, and Popups
 --------------------------
