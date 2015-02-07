@@ -89,7 +89,7 @@ Before starting you need to install HexChat with the *Gtk theme* option unchecke
 the installer modifying your theme or it conflicting with your theme.
 
 Themes can be either installed globally (changing all gtk2 applications) or to HexChat specifically.
-The latter requires write permissions to HexChat's install dir (i.e. in Program Files). Global themes
+The latter requires write permissions to HexChat's install dir (e.g. in Program Files). Global themes
 are set in *%USERPROFILE%\\.gtkrc-2.0* but will not be covered here.
 
 This example will use the `Vertex theme <https://github.com/horst3180/Vertex-theme>`_.
