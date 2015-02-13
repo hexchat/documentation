@@ -15,7 +15,7 @@ Download and install (in their default install paths):
 -  `7-Zip <http://7-zip.org/>`_
 -  `gendef <https://dl.hexchat.net/gtk-win32/gendef-20111031.7z>`_ (extract to *C:\\mozilla-build*)
 -  `msgfmt <https://dl.hexchat.net/gtk-win32/msgfmt-0.18.1.7z>`_ (extract to *C:\\mozilla-build*)
--  `WinSparkle <https://dl.hexchat.net/misc/WinSparkle.7z>`_ (extract to *C:\\mozilla-build*) 
+-  `WinSparkle <https://dl.hexchat.net/gtk-win32/WinSparkle-20150212.7z>`_ (extract to *C:\\mozilla-build*) 
 
 
 Source code
