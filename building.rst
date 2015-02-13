@@ -11,10 +11,11 @@ Download and install (in their default install paths):
 
 -  `Visual Studio 2013 Express for Windows Desktop <http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express>`_
 -  `Inno Setup 5.5 Unicode <http://www.jrsoftware.org/isdl.php>`_
--  `Inno Download Plugin <http://dl.hexchat.net/misc/idpsetup-1.1.2.exe>`_
+-  `Inno Download Plugin <https://dl.hexchat.net/misc/idpsetup-1.1.2.exe>`_
 -  `7-Zip <http://7-zip.org/>`_
--  `gendef <http://dl.hexchat.net/gtk-win32/gendef-20111031.7z>`_ (extract to *c:\\mozilla-build*)
--  `msgfmt <http://dl.hexchat.net/gtk-win32/msgfmt-0.18.1.7z>`_ (extract to *c:\\mozilla-build*)
+-  `gendef <https://dl.hexchat.net/gtk-win32/gendef-20111031.7z>`_ (extract to *C:\\mozilla-build*)
+-  `msgfmt <https://dl.hexchat.net/gtk-win32/msgfmt-0.18.1.7z>`_ (extract to *C:\\mozilla-build*)
+-  `WinSparkle <https://dl.hexchat.net/misc/WinSparkle.7z>`_ (extract to *C:\\mozilla-build*) 
 
 
 Source code
@@ -36,8 +37,8 @@ with the *YourDepsPath* property. Download:
 -  `GTK+ x86 bundle`_
 -  `GTK+ x64 bundle`_
 
-.. _GTK+ x86 bundle: http://dl.hexchat.net/gtk-win32/vc12/x86/gtk-Win32.7z
-.. _GTK+ x64 bundle: http://dl.hexchat.net/gtk-win32/vc12/x64/gtk-x64.7z
+.. _GTK+ x86 bundle: https://dl.hexchat.net/gtk-win32/vc12/x86/gtk-Win32.7z
+.. _GTK+ x64 bundle: https://dl.hexchat.net/gtk-win32/vc12/x64/gtk-x64.7z
 
 Extract them to *win32* and *x64* in *YourDepsPath*.
 
@@ -51,15 +52,15 @@ You can skip this step, but then you won't be able to generate the
 installer.
 Download:
 
--  Perl_ 5.20 x86 (install to *c:\\mozilla-build\\perl-5.20\\Win32*)
--  Python_ 2.7 x86 (install to *c:\\mozilla-build\\python-2.7\\Win32*)
--  Python_ 3.4 x86 (install to *c:\\mozilla-build\\python-3.4\\Win32*)
+-  Perl_ 5.20 x86 (install to *C:\\mozilla-build\\perl-5.20\\Win32*)
+-  Python_ 2.7 x86 (install to *C:\\mozilla-build\\python-2.7\\Win32*)
+-  Python_ 3.4 x86 (install to *C:\\mozilla-build\\python-3.4\\Win32*)
 
--  Perl_ 5.20 x64 (install to *c:\\mozilla-build\\perl-5.20\\x64*)
--  Python_ 2.7 x64 (install to *c:\\mozilla-build\\python-2.7\\x64*)
--  Python_ 3.4 x64 (install to *c:\\mozilla-build\\python-3.4\\x64*)
+-  Perl_ 5.20 x64 (install to *C:\\mozilla-build\\perl-5.20\\x64*)
+-  Python_ 2.7 x64 (install to *C:\\mozilla-build\\python-2.7\\x64*)
+-  Python_ 3.4 x64 (install to *C:\\mozilla-build\\python-3.4\\x64*)
 
-.. _Perl: http://dl.hexchat.net/misc/perl/
+.. _Perl: https://dl.hexchat.net/misc/perl/
 .. _Python: http://www.python.org/download/
 
 You can use other paths, but then you must update the related properties
