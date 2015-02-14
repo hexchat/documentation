@@ -98,7 +98,7 @@ Which contains an unoffensive dark theme and *mostly* uses the Pixbuf engine. Zi
 1. Create the directory *<installdir>\\share\\themes\\vertex\\gtk-2.0*
 2. Extract contents of *vertex-gtk\\gtk-2.0-dark\\* into this directory.
 3. Create the file *<installdir>\\etc\\gtkrc* (with no file extension!)
-4. Edit it and add *gtk-theme-name = "vertex"*
+4. Edit it and add ``gtk-theme-name = "vertex"``
 
 Buttons, Menus, and Popups
 --------------------------
