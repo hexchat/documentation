@@ -565,7 +565,8 @@ For example on a "Channel Message" event:
 	which will be shown when ``/help name`` is executed.
 	
 	You may also hook an empty string to capture every message a user sends,
-	either when they hit enter or use ``/say``.
+	either when they hit enter or use ``/say``. If you start the name with a
+	period it will not show up in ``/help``.
 
 	:returns: New Hook Handler
 
