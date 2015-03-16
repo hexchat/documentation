@@ -13,9 +13,9 @@ Download and install (in their default install paths):
 -  `Inno Setup 5.5 Unicode <http://www.jrsoftware.org/isdl.php>`_
 -  `Inno Download Plugin <https://dl.hexchat.net/misc/idpsetup-1.1.2.exe>`_
 -  `7-Zip <http://7-zip.org/>`_
--  `gendef <https://dl.hexchat.net/gtk-win32/gendef-20111031.7z>`_ (extract to *C:\\mozilla-build*)
--  `msgfmt <https://dl.hexchat.net/gtk-win32/msgfmt-0.18.1.7z>`_ (extract to *C:\\mozilla-build*)
--  `WinSparkle <https://dl.hexchat.net/gtk-win32/WinSparkle-20150212.7z>`_ (extract to *C:\\mozilla-build*) 
+-  `gendef <https://dl.hexchat.net/gtk-win32/gendef-20111031.7z>`_ (extract to *C:\\gtk-build*)
+-  `msgfmt <https://dl.hexchat.net/gtk-win32/msgfmt-0.18.1.7z>`_ (extract to *C:\\gtk-build*)
+-  `WinSparkle <https://dl.hexchat.net/gtk-win32/WinSparkle-20150212.7z>`_ (extract to *C:\\gtk-build*)
 
 
 Source code
@@ -30,7 +30,7 @@ now.
 GTK+
 ~~~~
 
-Create a folder for GTK+, referred to as *YourDepsPath* from now (*C:\\mozilla-build\\hexchat\\gtk* by default).
+Create a folder for GTK+, referred to as *YourDepsPath* from now (*C:\\gtk-build\\gtk* by default).
 Specify the absolute path to *YourDepsPath* in *win32\\hexchat.props*
 with the *YourDepsPath* property. Download:
 
@@ -52,13 +52,13 @@ You can skip this step, but then you won't be able to generate the
 installer.
 Download:
 
--  Perl_ 5.20 x86 (install to *C:\\mozilla-build\\perl-5.20\\Win32*)
--  Python_ 2.7 x86 (install to *C:\\mozilla-build\\python-2.7\\Win32*)
--  Python_ 3.4 x86 (install to *C:\\mozilla-build\\python-3.4\\Win32*)
+-  Perl_ 5.20 x86 (install to *C:\\gtk-build\\perl-5.20\\Win32*)
+-  Python_ 2.7 x86 (install to *C:\\gtk-build\\python-2.7\\Win32*)
+-  Python_ 3.4 x86 (install to *C:\\gtk-build\\python-3.4\\Win32*)
 
--  Perl_ 5.20 x64 (install to *C:\\mozilla-build\\perl-5.20\\x64*)
--  Python_ 2.7 x64 (install to *C:\\mozilla-build\\python-2.7\\x64*)
--  Python_ 3.4 x64 (install to *C:\\mozilla-build\\python-3.4\\x64*)
+-  Perl_ 5.20 x64 (install to *C:\\gtk-build\\perl-5.20\\x64*)
+-  Python_ 2.7 x64 (install to *C:\\gtk-build\\python-2.7\\x64*)
+-  Python_ 3.4 x64 (install to *C:\\gtk-build\\python-3.4\\x64*)
 
 .. _Perl: https://dl.hexchat.net/misc/perl/
 .. _Python: http://www.python.org/download/
