@@ -100,11 +100,16 @@ Set Command
 
 The set command can be used to change options. The usage is:
 
-:command:`/set option_name <number|string>`
+:command:`/set option_name [number|string]`
 
 Togglable options take *1* for on and *0* for off but as an alternative you can type:
 
 :command:`/set toggle_option on`
+
+If no value is given it will show the current value of a setting. You can also use wildcards
+to find or show multiple values for example
+
+:command:`/set gui_*`
 
 Some options such as *gui_tray* require running this after changing:
 
