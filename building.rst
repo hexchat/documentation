@@ -162,7 +162,7 @@ Once everything is set up we can build hexchat:
 .. code-block:: bash
 
 	git clone https://github.com/hexchat/hexchat.git && cd hexchat
-	./autogen.sh --prefix=$PREFIX
+	./autogen.sh --prefix=$JHBUILD_PREFIX
 	make && make install
 	hexchat
 
