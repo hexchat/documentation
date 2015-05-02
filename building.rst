@@ -107,7 +107,6 @@ basically:
 	git clone https://github.com/hexchat/hexchat.git
 	cd hexchat
 	./autogen.sh
-	./configure
 	make
 	sudo make install
 
@@ -163,7 +162,7 @@ Once everything is set up we can build hexchat:
 .. code-block:: bash
 
 	git clone https://github.com/hexchat/hexchat.git && cd hexchat
-	./autogen.sh && ./configure --prefix=$PREFIX
+	./autogen.sh --prefix=$PREFIX
 	make && make install
 	hexchat
 
