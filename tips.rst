@@ -119,7 +119,7 @@ Once a marker line is "reset" it does not instantly get created at the bottom it
 Tor
 ---
 
-1. Find a network that allows tor (most don't). Example: `freenode`_
+1. Find a network that allows tor (most don't). Example: `freenode`_ (NOTE: Freenode has removed tor support)
 2. Get tor working. Refer to the tutorial from official tor website (instructions for `Windows <http://www.torproject.org.in/docs/tor-doc-windows.html.en>`_ and `Linux <http://www.torproject.org.in/docs/debian.html.en>`_). For windows -  Browser bundle is an easy way to test.
 3. Set up proxy in :menuselection:`Settings --> Preferences --> Network Setup`. Example (with defaults):
 
