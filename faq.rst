@@ -72,7 +72,7 @@ How do I change what browser is opened?
 
       ``gvfs-mime --set x-scheme-handler/http firefox.desktop``
 
-    Don't forget to do the same for *https*.
+    Don't forget to do the same for *https* and run this as your user.
 
     Now upon launching it will use the *Exec* line in their desktop file replacing *%u* with the url.
     If you get a blank window this is where the problem is.
