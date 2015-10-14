@@ -9,13 +9,13 @@ Software
 
 Download and install (in their default install paths):
 
--  `Visual Studio 2013 Express for Windows Desktop <http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express>`_
+-  `Visual Studio 2015 Community <https://www.visualstudio.com/products/visual-studio-community-vs>`_
 -  `Inno Setup 5.5 Unicode <http://www.jrsoftware.org/isdl.php>`_
 -  `Inno Download Plugin <https://dl.hexchat.net/misc/idpsetup-1.1.2.exe>`_
 -  `7-Zip <http://7-zip.org/>`_
 -  `gendef <https://dl.hexchat.net/gtk-win32/gendef-20111031.7z>`_ (extract to *C:\\gtk-build*)
 -  `msgfmt <https://dl.hexchat.net/gtk-win32/msgfmt-0.18.1.7z>`_ (extract to *C:\\gtk-build*)
--  `WinSparkle <https://dl.hexchat.net/gtk-win32/WinSparkle-20150212.7z>`_ (extract to *C:\\gtk-build*)
+-  `WinSparkle <https://dl.hexchat.net/gtk-win32/WinSparkle-20151011.7z>`_ (extract to *C:\\gtk-build*)
 
 
 Source code
@@ -37,8 +37,8 @@ with the *YourDepsPath* property. Download:
 -  `GTK+ x86 bundle`_
 -  `GTK+ x64 bundle`_
 
-.. _GTK+ x86 bundle: https://dl.hexchat.net/gtk-win32/vc12/x86/gtk-Win32.7z
-.. _GTK+ x64 bundle: https://dl.hexchat.net/gtk-win32/vc12/x64/gtk-x64.7z
+.. _GTK+ x86 bundle: https://dl.hexchat.net/gtk-win32/vc14/x86/gtk-Win32.7z
+.. _GTK+ x64 bundle: https://dl.hexchat.net/gtk-win32/vc14/x64/gtk-x64.7z
 
 Extract them to *win32* and *x64* in *YourDepsPath*.
 
