@@ -10,10 +10,7 @@ On unix for example you can extract these with this command while HexChat is clo
 
     unzip ~/Downloads/monokai.hct -d ~/.config/hexchat
 
-The theme manager is a simple external application, which is included with the `installer <https://hexchat.github.io/downloads.html>`_ on Windows and `buildable <building.html#building-theme-manager>`_ on Unix, that helps install themes.
-
-.. note::
-	.NET 4 is required to run the theme manager; You can download it from `Microsoft's site <http://www.microsoft.com/en-us/download/details.aspx?id=17113>`_.
+The theme manager is a optional external application, which is included with the `installer <https://hexchat.github.io/downloads.html>`_ on Windows and `buildable <building.html#building-theme-manager>`_ on Unix, that simply helps install themes.
 
 Theming
 -------
