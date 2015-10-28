@@ -94,7 +94,7 @@ if you get an error.
 
 Most package-managers can get the dependencies for you:
 
-- yum: yum-builddep hexchat
+- dnf: dnf-builddep hexchat
 - apt: apt-get build-dep hexchat && apt-get install build-essential
 - apt (Older Ubuntu): apt-get build-dep xchat && apt-get install libnotify-dev libproxy-dev libpci-dev libcanberra-dev build-essential
 
