@@ -42,9 +42,9 @@ by right-clicking its name in the channel switcher and by toggling "Autojoin" on
 How do I auto-reconnect after my computer wakes up from being in sleep/hibernate mode?
 --------------------------------------------------------------------------------------
 
-Try the following command from a chat window:
+Try the following command from a chat window (time is in seconds):
 
-     /set net_ping_timeout 31
+     /set net_ping_timeout 60
 
 Why are channels joined before identifying?
 -------------------------------------------
