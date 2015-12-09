@@ -3,9 +3,11 @@ sudo: false
 language: python
 python:
   - "2.7"
-cache: pip
+cache:
+  pip: true
+  custom_install: true
 # command to install dependencies
-install: pip install --user --upgrade Sphinx
+install: pip install --upgrade Sphinx
 # command to run tests
 script: sphinx-build -n -b html -d _build/doctrees . _build/html
 # Flags used here, not in `make html`:
