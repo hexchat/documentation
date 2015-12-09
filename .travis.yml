@@ -5,7 +5,7 @@ python:
   - "2.7"
 cache: pip
 # command to install dependencies
-install: "pip install -q Sphinx==1.2.0 --use-mirrors"
+install: pip install --user --upgrade Sphinx
 # command to run tests
 script: sphinx-build -n -b html -d _build/doctrees . _build/html
 # Flags used here, not in `make html`:
