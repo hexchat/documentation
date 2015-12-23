@@ -802,7 +802,8 @@ functions as explained below, or trough the :func:`get_list` function, as explai
 
 .. function:: find_context(server=None, channel=None)
 
-	Finds a context based on a channel and servername.
+	Finds a context based on a channel and servername or if no parameters are given returns
+	the current (front) context.
 
 	:keyword server: if None only looks for channel name
 	:keyword channel: if None looks for front context of given server
