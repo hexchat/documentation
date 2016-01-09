@@ -26,9 +26,6 @@ Usage
 
 To use script you must open cmd (Win+R, type cmd), navigate to directory where you pasted cpan.bat. Type *cpan.bat x86* if you're using 32bit Hexchat & Perl or *cpan.bat x64* for 64bit version. After that you can use all cpan commands.
 
-
-
-
 Old depreciated method
 ----------------------
 
@@ -57,7 +54,7 @@ Type:
 
 .. code-block:: none
 
- mkdir perl; cd perl
+    mkdir perl; cd perl
 
 (we will work in *perl* directory).
 
@@ -72,8 +69,8 @@ In this guide we will build Net::Telnet module. So we are downloading it and ext
 
 .. code-block:: none
 
- wget http://search.cpan.org/CPAN/authors/id/J/JR/JROGERS/Net-Telnet-3.03.tar.gz
- tar -zxvf Net-Telnet-3.03.tar.gz
+    wget http://search.cpan.org/CPAN/authors/id/J/JR/JROGERS/Net-Telnet-3.03.tar.gz
+    tar -zxvf Net-Telnet-3.03.tar.gz
 
 Type *cd Net-Telnet-3.03* and we can start building.
 
@@ -89,7 +86,7 @@ Fist thing we must do is to configure module and point it to our Perl installati
 
 .. code-block:: none
 
- c:/perl/bin/perl.exe Makefile.pl
+    c:/perl/bin/perl.exe Makefile.pl
 
 Note: It really depends if it is Makefile.pl or Build.pl, just check in folder and read README.
 
@@ -97,26 +94,26 @@ You should get something like this:
 
 .. code-block:: none
 
- Checking if your kit is complete...
- Looks good
- Writing Makefile for Net::Telnet
- Writing MYMETA.yml and MYMETA.json
+    Checking if your kit is complete...
+    Looks good
+    Writing Makefile for Net::Telnet
+    Writing MYMETA.yml and MYMETA.json
 
 It means that module was properly configured. Now we can move to compilation which can be done using:
 
 .. code-block:: none
 
- nmake
+    nmake
 
 After it we can install module using:
 
 .. code-block:: none
 
- nmake install
+    nmake install
 
 Now if you didn't get any error you should have Perl module installed and it can be used with Perl script in Hexchat.
 
 Whole operation should look like this:
 
 .. image:: _static/img/perlmodules_terminal.png
-   :align: center
+    :align: center

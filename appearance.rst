@@ -42,7 +42,8 @@ Text events control the look of every event you see. They can be customized in :
 - **$<num>** Event information
 
 .. note::
-	Always hit enter after editing a field.
+
+    Always hit enter after editing a field.
 
 Icons
 ~~~~~

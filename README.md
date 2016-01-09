@@ -12,3 +12,26 @@
 * Run `make html` to build the HTML files
 * Run the Python webserver to test your changes: `make server`
   (http://localhost:8000/)
+
+
+## Conventions
+
+* 4 Spaces are used for indentation.
+* Ordered or unordered lists use visual indentation, where any non-list
+  subelement would use an indentation of a multiple of 4 again.
+
+Example:
+
+```rest
+- a list item
+- a list item
+  with a visually indented continuation
+- a list item with a sub-list
+  
+  - that is also visually indented
+- a list item with a code block
+
+    .. code-block:: none
+
+        that is not visually indented
+```

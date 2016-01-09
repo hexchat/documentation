@@ -10,7 +10,8 @@ Config files are stored as plaintext files (which shouldn't be edited by hand). 
 - Unix: :file:`~/.config/hexchat`
 
 .. note::
-   Type the path into your file browser to expand them into a full directory.
+
+    Type the path into your file browser to expand them into a full directory.
 
 Custom directories can be set with the `-d` or `--cfgdir` command line argument.
 
@@ -49,8 +50,9 @@ Ticking *Auto connect to this network at startup* combined with *Favorite channe
 
 The password fields allow you to login to a password protected server or services. They take the syntax *username:password* or just the password if username has been set as mentioned above.
 
-.. SEEALSO::
-	See the `FAQ <faq.html#why-does-hexchat-join-channels-before-identifying>`_ if you have trouble identifying before join.
+.. seealso::
+
+    See the `FAQ <faq.html#why-does-hexchat-join-channels-before-identifying>`_ if you have trouble identifying before join.
 
 Channel Options
 ---------------
@@ -68,13 +70,14 @@ There are two types of keyboard shortcuts in HexChat hardcoded ones which can be
 Url Handlers
 ~~~~~~~~~~~~
 
-Url handlers add alternative browsers to you your right click menu on urls (they do not set the default). They take the syntax:
+Url handlers add alternative browsers to you your right click menu on urls (they do not set the default). They take the syntax::
 
-	!program %s or !C:/PROGRA~1/program/program.exe %s
+    !program %s or !C:/PROGRA~1/program/program.exe %s
 
 .. note::
-	If HexChat does not find the executable it will not add it to the menu.
-	The command MUST use unix style slashes and does not handle spaces at all.
+
+    If HexChat does not find the executable it will not add it to the menu.
+    The command MUST use unix style slashes and does not handle spaces at all.
 
 Auto Replace
 ~~~~~~~~~~~~
@@ -83,7 +86,7 @@ Located in :menuselection:`Settings --> Auto Replace` this setting allows you to
 
 For Example:
 
-	text: -->  replace: %C8→%O
+    text: -->  replace: %C8→%O
 
 This will replace that arrow with a green unicode arrow upon pressing enter or space. The keys that check for replace are defined in :menuselection:`Settings --> Keyboard Shortcuts`. A trick to avoid replacing it :kbd:`Shift-Space` since that is not defined by default.
 
@@ -93,7 +96,8 @@ CTCP Replies
 Custom CTCP replies can be set in :menuselection:`Settings --> CTCP Replies` and accept the same format as `User Commands <commands.html#user-commands>`_ with the addition of *%s* for the nick replying to.
 
 .. note::
-   To hide the default VERSION reply you must :command:`/set irc_hide_version on`
+
+    To hide the default VERSION reply you must :command:`/set irc_hide_version on`
 
 Set Command
 -----------
