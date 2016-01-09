@@ -759,7 +759,7 @@ You can use pluginpref to easily store and retrieve settings.
 
 	:returns: String or Integer of stored setting or None if it does not exist.
 
-	.. Note:: Strings of numbers are always returned as Integers.
+	.. Note:: Strings of numbers and booleans are always returned as Integers.
 
 	.. versionadded:: 0.9
 
