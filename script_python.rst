@@ -59,7 +59,7 @@ The Python plugin comes with a :command:`py` command that takes these arguments.
 
 .. option:: exec <command>
 
-	Execute given Python command interactively. For example:
+	Execute given Python command interactively. For example::
 
 	 /py exec import hexchat; print(hexchat.get_info('channel'))
 
@@ -529,7 +529,7 @@ word and word\_eol
 
 These parameters, when available in a command or server callback, are lists of strings
 which contain the parameters the user entered for the particular
-command. For example, if you executed:
+command. For example, if you executed::
 
  /command NICK Hi there!
 
