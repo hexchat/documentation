@@ -103,14 +103,14 @@ called.
 Text Formatting
 ---------------
 
-- Bold: '\\002'
-- Color: '\\003'
-- Hidden: '\\010'
-- Underline: '\\037'
-- Original Attributes: '\\017'
-- Reverse Color: '\\026'
-- Beep: '\\007'
-- Italics: '\\035' (2.10.0+)
+- Bold: ``'\\002'``
+- Color: ``'\\003'``
+- Hidden: ``'\\010'``
+- Underline: ``'\\037'``
+- Original Attributes: ``'\\017'``
+- Reverse Color: ``'\\026'``
+- Beep: ``'\\007'``
+- Italics: ``'\\035'`` (2.10.0+)
 
 For example this will print underlined red text:
 
