@@ -117,6 +117,9 @@ Some options such as *gui_tray* require running this after changing:
 
 This can be avoided by using the preferences window instead, which is recommended, also using the gui will warn if a setting requires restart.
 
+
+.. _settings_list:
+
 List of Settings
 ----------------
 

@@ -59,7 +59,7 @@ The Python plugin comes with a :command:`py` command that takes these arguments.
 
 .. option:: exec <command>
 
-	Execute given Python command interactively. For example:
+	Execute given Python command interactively. For example::
 
 	 /py exec import hexchat; print(hexchat.get_info('channel'))
 
@@ -103,14 +103,14 @@ called.
 Text Formatting
 ---------------
 
-- Bold: '\\002'
-- Color: '\\003'
-- Hidden: '\\010'
-- Underline: '\\037'
-- Original Attributes: '\\017'
-- Reverse Color: '\\026'
-- Beep: '\\007'
-- Italics: '\\035' (2.10.0+)
+- Bold: ``'\\002'``
+- Color: ``'\\003'``
+- Hidden: ``'\\010'``
+- Underline: ``'\\037'``
+- Original Attributes: ``'\\017'``
+- Reverse Color: ``'\\026'``
+- Beep: ``'\\007'``
+- Italics: ``'\\035'`` (2.10.0+)
 
 For example this will print underlined red text:
 
@@ -213,7 +213,7 @@ Generic functions
 	above.
 
 	This function is badly named because ``"print"`` is a reserved keyword
-	of the Python language.
+	of the Python language until Python 3.
 
 .. function:: emit_print(event_name, *args)
 
@@ -226,17 +226,19 @@ Generic functions
 
 		hexchat.emit_print("Channel Message", "John", "Hi there", "@")
 
-	With plugin version 1.0+ this function takes Keywords for certain `Attributes` such as *time*
+	With plugin version 1.0+ this function takes keywords for certain attributes such as *time*.
 
 .. function:: command(string)
 
-	Execute the given command in the current `context`. This has the same
+	Execute the given command in the current *context*. This has the same
 	results as executing a command in the HexChat window, but notice that
 	the ``/`` prefix is not used. Here is an example:
 
 	.. code-block:: python
 
 	   hexchat.command("server irc.openprojects.net")
+
+    A list of commands is provided here: :ref:`commands_list`.
 
 .. function:: nickcmp(s1, s2)
 
@@ -291,9 +293,9 @@ Information retreiving functions
 	-  **server:** Current server name (what the server claims to be) or
 	   None if you are not connected.
 	-  **topic:** Current channel topic.
+	-  **version:** HexChat version number.
 	-  **win\_status:** Returns status of window: 'active', 'hidden', or
 	   'normal'.
-	-  **version:** HexChat version number.
 
 	Example:
 
@@ -317,10 +319,12 @@ Information retreiving functions
 
 	   print("Current preferred nick: " + hexchat.get_prefs("irc_nick1"))
 
-	And on top of that there are a few special preferences:
+	A list of settings is provided here: :ref:`settings_list`.
 
-	- id (unique server id)
-	- state_cursor (location of cursor in input box)
+	On top of that there are a few special preferences:
+
+	- **id**: unique server id
+	- **state_cursor**: location of cursor in input box
 
 
 .. function:: get_list(type)
@@ -529,7 +533,7 @@ word and word\_eol
 
 These parameters, when available in a command or server callback, are lists of strings
 which contain the parameters the user entered for the particular
-command. For example, if you executed:
+command. For example, if you executed::
 
  /command NICK Hi there!
 
@@ -755,7 +759,7 @@ You can use pluginpref to easily store and retrieve settings.
 
 	:returns: String or Integer of stored setting or None if it does not exist.
 
-	.. Note:: Strings of numbers are always returned as Integers.
+	.. Note:: Strings of numbers and booleans are always returned as Integers.
 
 	.. versionadded:: 0.9
 
