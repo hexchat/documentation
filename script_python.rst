@@ -213,7 +213,7 @@ Generic functions
 	above.
 
 	This function is badly named because ``"print"`` is a reserved keyword
-	of the Python language.
+	of the Python language until Python 3.
 
 .. function:: emit_print(event_name, *args)
 
@@ -226,11 +226,11 @@ Generic functions
 
 		hexchat.emit_print("Channel Message", "John", "Hi there", "@")
 
-	With plugin version 1.0+ this function takes Keywords for certain `Attributes` such as *time*
+	With plugin version 1.0+ this function takes keywords for certain attributes such as *time*.
 
 .. function:: command(string)
 
-	Execute the given command in the current `context`. This has the same
+	Execute the given command in the current *context*. This has the same
 	results as executing a command in the HexChat window, but notice that
 	the ``/`` prefix is not used. Here is an example:
 
