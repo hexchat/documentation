@@ -321,10 +321,10 @@ Information retreiving functions
 
 	A list of settings is provided here: :ref:`settings_list`.
 
-	And on top of that there are a few special preferences:
+	On top of that there are a few special preferences:
 
-	- id (unique server id)
-	- state_cursor (location of cursor in input box)
+	- **id**: unique server id
+	- **state_cursor**: location of cursor in input box
 
 
 .. function:: get_list(type)
