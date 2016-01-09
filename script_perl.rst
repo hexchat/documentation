@@ -14,39 +14,39 @@ Constants
 Priorities
 ~~~~~~~~~~
 
--  **HexChat::PRI_HIGHEST**
--  **HexChat::PRI_HIGH**
--  **HexChat::PRI_NORM**
--  **HexChat::PRI_LOW**
--  **HexChat::PRI_LOWEST**
+- **HexChat::PRI_HIGHEST**
+- **HexChat::PRI_HIGH**
+- **HexChat::PRI_NORM**
+- **HexChat::PRI_LOW**
+- **HexChat::PRI_LOWEST**
 
 Return values
 ~~~~~~~~~~~~~
 
--  **HexChat::EAT_NONE** - pass the event along
--  **HexChat::EAT_HEXCHAT** - don't let HexChat see this event
--  **HexChat::EAT_PLUGIN** - don't let other scripts and plugins see
-   this event but HexChat will still see it
--  **HexChat::EAT_ALL** - don't let anything else see this event
+- **HexChat::EAT_NONE** - pass the event along
+- **HexChat::EAT_HEXCHAT** - don't let HexChat see this event
+- **HexChat::EAT_PLUGIN** - don't let other scripts and plugins see
+  this event but HexChat will still see it
+- **HexChat::EAT_ALL** - don't let anything else see this event
 
 Timer and fd hooks
 ^^^^^^^^^^^^^^^^^^
 
--  **HexChat::KEEP** - keep the timer going or hook watching the
-   handle
--  **HexChat::REMOVE** - remove the timer or hook watching the handle
+- **HexChat::KEEP** - keep the timer going or hook watching the
+  handle
+- **HexChat::REMOVE** - remove the timer or hook watching the handle
 
 hook\_fd flags
 ~~~~~~~~~~~~~~
 
--  **HexChat::FD_READ** - invoke the callback when the handle is ready
-   for reading
--  **HexChat::FD_WRITE** - invoke the callback when the handle is
-   ready for writing
--  **HexChat::FD_EXCEPTION** - invoke the callback if an exception
-   occurs
--  **HexChat::FD_NOTSOCKET** - indicate that the handle being hooked
-   is not a socket
+- **HexChat::FD_READ** - invoke the callback when the handle is ready
+  for reading
+- **HexChat::FD_WRITE** - invoke the callback when the handle is
+  ready for writing
+- **HexChat::FD_EXCEPTION** - invoke the callback if an exception
+  occurs
+- **HexChat::FD_NOTSOCKET** - indicate that the handle being hooked
+  is not a socket
 
 Exports
 ~~~~~~~
@@ -66,12 +66,12 @@ Functions
 HexChat::register( $name, $version, [$description,[$callback]] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  ``$name`` - The name of this script
--  ``$version`` - This script's version
--  ``$description`` - A description for this script
--  ``$callback`` - This is a function that will be called when the is
-   script unloaded. This can be either a reference to a function or an
-   anonymous sub reference.
+- ``$name`` - The name of this script
+- ``$version`` - This script's version
+- ``$description`` - A description for this script
+- ``$callback`` - This is a function that will be called when the is
+  script unloaded. This can be either a reference to a function or an
+  anonymous sub reference.
 
 This is the first thing to call in every script.
 
@@ -94,20 +94,20 @@ doesn't currently exist then a new one is created. ``hook_print`` can be
 used to intercept any of the events listed in *Setttings* ``->`` *Text
 Events*. ``hook_timer`` can be used to create a new timer
 
--  **$message** - server message to hook such as PRIVMSG
--  **$command** - command to intercept, without the leading /
--  **$event** - one of the events listed in *Settings* ``->`` *Text
-   Events*
--  **$timeout** - timeout in milliseconds
--  **$handle** - the I/O handle you want to monitor with hook\_fd.
-   This must be something that has a fileno. See perldoc -f fileno or
-   `fileno <http://perldoc.perl.org/functions/fileno.html>`_
--  **$callback** - callback function, this is called whenever the
-   hooked event is trigged, the following are the conditions that will
-   trigger the different hooks. This can be either a reference to a
-   function or an anonymous sub reference.
--  **\%options** - a hash reference containing addional options for
-   the hooks
+- **$message** - server message to hook such as PRIVMSG
+- **$command** - command to intercept, without the leading /
+- **$event** - one of the events listed in *Settings* ``->`` *Text
+  Events*
+- **$timeout** - timeout in milliseconds
+- **$handle** - the I/O handle you want to monitor with hook\_fd.
+  This must be something that has a fileno. See perldoc -f fileno or
+  `fileno <http://perldoc.perl.org/functions/fileno.html>`_
+- **$callback** - callback function, this is called whenever the
+  hooked event is trigged, the following are the conditions that will
+  trigger the different hooks. This can be either a reference to a
+  function or an anonymous sub reference.
+- **\%options** - a hash reference containing addional options for
+  the hooks
 
 Valid keys for %options:
 
@@ -178,43 +178,43 @@ Callback Arguments
 All callback functions will receive their arguments in ``@_`` like every
 other Perl subroutine.
 
--  Server and command callbacks
+- Server and command callbacks
 
-   ``$_[0]`` - array reference containing the IRC message or command and
-   arguments broken into words example:
-   /command arg1 arg2 arg3
+  ``$_[0]`` - array reference containing the IRC message or command and
+  arguments broken into words example:
+  /command arg1 arg2 arg3
 
-   -  ``$_[0][0]`` - command
-   -  ``$_[0][1]`` - arg1
-   -  ``$_[0][2]`` - arg2
-   -  ``$_[0][3]`` - arg3
+  - ``$_[0][0]`` - command
+  - ``$_[0][1]`` - arg1
+  - ``$_[0][2]`` - arg2
+  - ``$_[0][3]`` - arg3
 
-   ``$_[1]`` - array reference containing the Nth word to the last word
-   example:
-   /command arg1 arg2 arg3
+  ``$_[1]`` - array reference containing the Nth word to the last word
+  example:
+  /command arg1 arg2 arg3
 
-   -  ``$_[1][0]`` - command arg1 arg2 arg3
-   -  ``$_[1][1]`` - arg1 arg2 arg3
-   -  ``$_[1][2]`` - arg2 arg3
-   -  ``$_[1][3]`` - arg3
+  - ``$_[1][0]`` - command arg1 arg2 arg3
+  - ``$_[1][1]`` - arg1 arg2 arg3
+  - ``$_[1][2]`` - arg2 arg3
+  - ``$_[1][3]`` - arg3
 
-   ``$_[2]`` - the data that was passed to the hook function
+  ``$_[2]`` - the data that was passed to the hook function
 
--  Print callbacks
+- Print callbacks
 
-   ``$_[0]`` - array reference containing the values for the text event,
-   see *Settings* ``->`` *Text Events*
-   ``$_[1]`` - the data that was passed to the hook function
+  ``$_[0]`` - array reference containing the values for the text event,
+  see *Settings* ``->`` *Text Events*
+  ``$_[1]`` - the data that was passed to the hook function
 
--  Timer callbacks
+- Timer callbacks
 
-   ``$_[0]`` - the data that was passed to the hook function
+  ``$_[0]`` - the data that was passed to the hook function
 
--  fd callbacks
+- fd callbacks
 
-   ``$_[0]`` - the handle that was passed to hook\_fd ``$_[1]`` - flags
-   indicating why the callback was called ``$_[2]`` - the data that was
-   passed to the hook function
+  ``$_[0]`` - the handle that was passed to hook\_fd ``$_[1]`` - flags
+  indicating why the callback was called ``$_[2]`` - the data that was
+  passed to the hook function
 
 Callback return values
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -266,8 +266,8 @@ Events*, these additional events can be used.
 HexChat::unhook( $hook )
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **$hook** - the hook that was previously returned by one of the
-   ``HexChat::hook_*`` functions
+- **$hook** - the hook that was previously returned by one of the
+  ``HexChat::hook_*`` functions
 
 This function is used to removed a hook previously added with one of the
 ``HexChat::hook_*`` functions.
@@ -278,13 +278,13 @@ when the hook was added.
 HexChat::print( $text | \@lines, [$channel,[$server]] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **$text** - the text to print
--  **\@lines** - array reference containing lines of text to be
-   printed all the elements will be joined together before printing
--  **$channel** - channel or tab with the given name where ``$text``
-   will be printed
--  **$server** - specifies that the text will be printed in a channel
-   or tab that is associated with ``$server``
+- **$text** - the text to print
+- **\@lines** - array reference containing lines of text to be
+  printed all the elements will be joined together before printing
+- **$channel** - channel or tab with the given name where ``$text``
+  will be printed
+- **$server** - specifies that the text will be printed in a channel
+  or tab that is associated with ``$server``
 
 The first argument can either be a string or an array reference of
 strings. Either or both of ``$channel`` and ``$server`` can be ``undef``.
@@ -299,21 +299,21 @@ find\_context.
 HexChat::printf( $format, LIST )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **$format** - a format string, see "perldoc -f
-   `sprintf <http://perldoc.perl.org/functions/sprintf.html>`_" for
-   further details
--  **LIST** - list of values for the format fields
+- **$format** - a format string, see "perldoc -f
+  `sprintf <http://perldoc.perl.org/functions/sprintf.html>`_" for
+  further details
+- **LIST** - list of values for the format fields
 
 HexChat::command( $command | \@commands, [$channel,[$server]] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **$command** - the command to execute, without the leading /
--  **\@commands** - array reference containing a list of commands to
-   execute
--  **$channel** - channel or tab with the given name where
-   ``$command`` will be executed
--  **$server** - specifies that the command will be executed in a
-   channel or tab that is associated with ``$server``
+- **$command** - the command to execute, without the leading /
+- **\@commands** - array reference containing a list of commands to
+  execute
+- **$channel** - channel or tab with the given name where
+  ``$command`` will be executed
+- **$server** - specifies that the command will be executed in a
+  channel or tab that is associated with ``$server``
 
 The first argument can either be a string or an array reference of
 strings. Either or both of ``$channel`` and ``$server`` can be ``undef``.
@@ -328,16 +328,16 @@ as find\_context.
 HexChat::commandf( $format, LIST )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **$format** - a format string, see "perldoc -f
-   `sprintf <http://perldoc.perl.org/functions/sprintf.html>`_" for
-   further details
--  **LIST** - list of values for the format fields
+- **$format** - a format string, see "perldoc -f
+  `sprintf <http://perldoc.perl.org/functions/sprintf.html>`_" for
+  further details
+- **LIST** - list of values for the format fields
 
 HexChat::find_context( [$channel, [$server]] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **$channel** - name of a channel
--  **$server** - name of a server
+- **$channel** - name of a channel
+- **$server** - name of a server
 
 Either or both of ``$channel`` and ``$server`` can be ``undef``. Calling
 ``HexChat::find_context()`` is the same as calling
@@ -361,11 +361,11 @@ Returns the current context.
 HexChat::set_context( $context | $channel,[$server] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **$context** - context value as returned from ``get_context``,
-   ``find_context`` or one of the fields in the list of hashrefs
-   returned by ``list_get``
--  **$channel** - name of a channel you want to switch context to
--  **$server** - name of a server you want to switch context to
+- **$context** - context value as returned from ``get_context``,
+  ``find_context`` or one of the fields in the list of hashrefs
+  returned by ``list_get``
+- **$channel** - name of a channel you want to switch context to
+- **$server** - name of a server you want to switch context to
 
 See ``find_context`` for more details on ``$channel`` and ``$server``.
 
@@ -374,7 +374,7 @@ Returns true on success, false on failure.
 HexChat::get_info( $id )
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **$id** - one of the following case sensitive values
+- **$id** - one of the following case sensitive values
 
 +-------------------------+---------------------------------------------------------------------------------------------------------------------+-----------------------+
 | ID                      | Return value                                                                                                        | Associated Command(s) |
@@ -440,8 +440,8 @@ to change the value for a particular ID.
 HexChat::get_prefs( $name )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **$name** - name of a HexChat setting (available through the /set
-   command)
+- **$name** - name of a HexChat setting (available through the /set
+  command)
 
 This function provides a way to retrieve HexChat's setting information.
 
@@ -450,10 +450,10 @@ Returns ``undef`` if there is no setting called called ``$name``.
 HexChat::emit_print( $event, LIST )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **$event** - name from the Event column in *Settings* ``->`` *Text
-   Events*
--  **LIST** - this depends on the Description column on the bottom of
-   *Settings* ``->`` *Text Events*
+- **$event** - name from the Event column in *Settings* ``->`` *Text
+  Events*
+- **LIST** - this depends on the Description column on the bottom of
+  *Settings* ``->`` *Text Events*
 
 This functions is used to generate one of the events listed under
 *Settings* ``->`` *Text Events*.
@@ -467,15 +467,15 @@ Returns true on success, false on failure.
 HexChat::send_modes( $target | \@targets, $sign, $mode, [ $modes_per_line ] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **$target** - a single nick to set the mode on
--  **\@targets** - an array reference of the nicks to set the mode
-   on
--  **$sign** - the mode sign, either '+' or '-'
--  **$mode** - the mode character such as 'o' and 'v', this can only
-   be one character long
--  **$modes_per_line** - an optional argument maximum number of modes
-   to send per at once, pass 0 use the current server's maximum
-   (default)
+- **$target** - a single nick to set the mode on
+- **\@targets** - an array reference of the nicks to set the mode
+  on
+- **$sign** - the mode sign, either '+' or '-'
+- **$mode** - the mode character such as 'o' and 'v', this can only
+  be one character long
+- **$modes_per_line** - an optional argument maximum number of modes
+  to send per at once, pass 0 use the current server's maximum
+  (default)
 
 Send multiple mode changes for the current channel. It may send multiple
 MODE lines if the request doesn't fit on one.
@@ -484,26 +484,26 @@ Example:
 
 .. code-block:: perl
 
-   use strict;
-   use warnings;
-   use HexChat qw(:all);
+    use strict;
+    use warnings;
+    use HexChat qw(:all);
 
-   hook_command( "MODES", sub {
-      my (undef, $who, $sign, $mode) = @{$_[0]};
-      my @targets = split /,/, $who;
-      if( @targets > 1 ) {
-         send_modes( \@targets, $sign, $mode, 1 );
-      } else {
-         send_modes( $who, $sign, $mode );
-      }
-      return EAT_HEXCHAT;
-   });
+    hook_command( "MODES", sub {
+        my (undef, $who, $sign, $mode) = @{$_[0]};
+        my @targets = split /,/, $who;
+        if( @targets > 1 ) {
+           send_modes( \@targets, $sign, $mode, 1 );
+        } else {
+           send_modes( $who, $sign, $mode );
+        }
+        return EAT_HEXCHAT;
+    });
 
 HexChat::nickcmp( $nick1, $nick2 )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **$nick1, $nick2** - the two nicks or channel names that are to be
-   compared
+- **$nick1, $nick2** - the two nicks or channel names that are to be
+  compared
 
 The comparsion is based on the current server. Either an
 `RFC1459 <http://www.ietf.org/rfc/rfc1459.txt>`_ compliant string
@@ -517,8 +517,8 @@ is found respectively, to be less than, to match, or be greater than
 HexChat::get_list( $name )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **$name** - name of the list, one of the following: "channels",
-   "dcc", "ignore", "notify", "users"
+- **$name** - name of the list, one of the following: "channels",
+  "dcc", "ignore", "notify", "users"
 
 This function will return a list of hash references. The hash references
 will have different keys depend on the list. An empty list is returned
@@ -761,8 +761,8 @@ more details.
 HexChat::user_info( [$nick] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **$nick** - the nick to look for, if this is not given your own
-   nick will be used as default
+- **$nick** - the nick to look for, if this is not given your own
+  nick will be used as default
 
 This function is mainly intended to be used as a shortcut for when you
 need to retrieve some information about only one user in a channel.
@@ -774,10 +774,10 @@ reference containing the same keys as those in the "users" list of
 HexChat::context_info( [$context] )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **$context** - context returned from ``get_context``,
-   ``find_context`` and ``get_list``, this is the context that you want
-   infomation about. If this is omitted, it will default to current
-   context.
+- **$context** - context returned from ``get_context``,
+  ``find_context`` and ``get_list``, this is the context that you want
+  infomation about. If this is omitted, it will default to current
+  context.
 
 This function will return the information normally retrieved with
 ``get_info``, except this is for the context that is passed in. The
@@ -791,17 +791,17 @@ Example:
 
 .. code-block:: perl
 
-   use strict;
-   use warnings;
-   use HexChat qw(:all); # imports all the functions documented on this page
+    use strict;
+    use warnings;
+    use HexChat qw(:all); # imports all the functions documented on this page
 
-   register( "User Count", "0.1",
-      "Print out the number of users on the current channel" );
-   hook_command( "UCOUNT", \&display_count );
-   sub display_count {
-      prnt "There are " . context_info()->{users} . " users in this channel.";
-      return EAT_HEXCHAT;
-   }
+    register( "User Count", "0.1",
+       "Print out the number of users on the current channel" );
+    hook_command( "UCOUNT", \&display_count );
+    sub display_count {
+        prnt "There are " . context_info()->{users} . " users in this channel.";
+        return EAT_HEXCHAT;
+    }
 
 HexChat::plugin_pref_set( $setting, $value )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -834,7 +834,7 @@ Returns a hashref of all stored settings or an empty hashref on failure.
 HexChat::strip_code( $string )
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **$string** - string to remove codes from
+- **$string** - string to remove codes from
 
 This function will remove bold, color, beep, reset, reverse and
 underline codes from ``$string``. It will also remove ANSI escape codes
@@ -850,41 +850,41 @@ Asynchronous DNS resolution with hook\_fd
 
 .. code-block:: perl
 
-   use strict;
-   use warnings;
-   use HexChat qw(:all);
-   use Net::DNS;
+    use strict;
+    use warnings;
+    use HexChat qw(:all);
+    use Net::DNS;
 
-   hook_command( "BGDNS", sub {
-      my $host = $_[0][1];
-      my $resolver = Net::DNS::Resolver->new;
-      my $sock = $resolver->bgsend( $host );
+    hook_command( "BGDNS", sub {
+        my $host = $_[0][1];
+        my $resolver = Net::DNS::Resolver->new;
+        my $sock = $resolver->bgsend( $host );
 
-      hook_fd( $sock, sub {
-         my $ready_sock = $_[0];
-         my $packet = $resolver->bgread( $ready_sock );
+        hook_fd( $sock, sub {
+            my $ready_sock = $_[0];
+            my $packet = $resolver->bgread( $ready_sock );
 
-         if( $packet->authority && (my @answers = $packet->answer ) ) {
+            if( $packet->authority && (my @answers = $packet->answer ) ) {
 
-            if( @answers ) {
-               prnt "$host:";
-               my $padding = " " x (length( $host ) + 2);
-               for my $answer ( @answers ) {
-                  prnt $padding . $answer->rdatastr . ' ' . $answer->type;
-               }
+                if( @answers ) {
+                    prnt "$host:";
+                    my $padding = " " x (length( $host ) + 2);
+                    for my $answer ( @answers ) {
+                        prnt $padding . $answer->rdatastr . ' ' . $answer->type;
+                    }
+                }
+            } else {
+                prnt "Unable to resolve $host";
             }
-         } else {
-            prnt "Unable to resolve $host";
-         }
 
-         return REMOVE;
-      },
-      {
-         flags => FD_READ,
-      });
+            return REMOVE;
+        },
+        {
+            flags => FD_READ,
+        });
 
-      return EAT_HEXCHAT;
-   });
+        return EAT_HEXCHAT;
+    });
 
 Contact Information
 -------------------

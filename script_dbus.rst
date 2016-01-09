@@ -15,299 +15,299 @@ more complex usage it's better to get your own remote object. Using
 Available methods on *org.hexchat.connection* interface:
 --------------------------------------------------------
 
--  "Connect"
+- "Connect"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*: filename
-      -  gchar\*: name
-      -  gchar\*: description
-      -  gchar\*: version
+    - gchar\*: filename
+    - gchar\*: name
+    - gchar\*: description
+    - gchar\*: version
 
-   -  Returns:
+  - Returns:
 
-      -  gchar\*: Your own object's path.
+    - gchar\*: Your own object's path.
 
--  "Disconnect"
+- "Disconnect"
 
-   -  No parameter, no return value. It frees your remote object.
+  - No parameter, no return value. It frees your remote object.
 
 Available methods on *org.hexchat.plugin* interface:
 ----------------------------------------------------
 
--  "Command"
+- "Command"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*: the command name without the "/". (e.g. "nick pseudo")
+    - gchar\*: the command name without the "/". (e.g. "nick pseudo")
 
--  "Print"
+- "Print"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*: text to print on the HexChat window.
+    - gchar\*: text to print on the HexChat window.
 
--  "FindContext"
+- "FindContext"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*: the server name. Can be NULL.
-      -  gchar\*: the channel name. Can be NULL.
+    - gchar\*: the server name. Can be NULL.
+    - gchar\*: the channel name. Can be NULL.
 
-   -  Returns:
+  - Returns:
 
-      -  guint: context ID.
+    - guint: context ID.
 
--  "GetContext"
+- "GetContext"
 
-   -  Returns:
+  - Returns:
 
-      -  guint: current context's ID.
+    - guint: current context's ID.
 
--  "SetContext"
+- "SetContext"
 
-   -  Parameters:
+  - Parameters:
 
-      -  guint: context ID to switch, returned by "FindContext" or
-         "GetContext"
+    - guint: context ID to switch, returned by "FindContext" or
+      "GetContext"
 
-   -  Returns:
+  - Returns:
 
-      -  gboolean:
+    - gboolean:
 
-         -  1: Success.
-         -  0: Failure.
+      - 1: Success.
+      - 0: Failure.
 
--  "GetInfo"
+- "GetInfo"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*: ID of the information you want.
+    - gchar\*: ID of the information you want.
 
-   -  Returns:
+  - Returns:
 
-      -  gchar\*: information you requested.
+    - gchar\*: information you requested.
 
--  "GetPrefs"
+- "GetPrefs"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*: Setting name required.
+    - gchar\*: Setting name required.
 
-   -  Returns:
+  - Returns:
 
-      -  int:
+    - int:
 
-         -  0: Failed.
-         -  1: Returned a string.
-         -  2: Returned an integer.
-         -  3: Returned a boolean.
+      - 0: Failed.
+      - 1: Returned a string.
+      - 2: Returned an integer.
+      - 3: Returned a boolean.
 
-      -  gchar\*: the information requested if it's a string.
-      -  int: the information requested if it's a integer or boolean.
+    - gchar\*: the information requested if it's a string.
+    - int: the information requested if it's a integer or boolean.
 
--  "HookCommand"
+- "HookCommand"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*: Name of the command (without the forward slash).
-      -  int: Priority of this command.
-      -  gchar\*: String of text to display when the user executes /help
-         for this command. May be NULL if you're lazy.
-      -  int: Value to returns when the command is catched. See
-         HEXCHAT\_EAT\_\*.
+    - gchar\*: Name of the command (without the forward slash).
+    - int: Priority of this command.
+    - gchar\*: String of text to display when the user executes /help
+      for this command. May be NULL if you're lazy.
+    - int: Value to returns when the command is catched. See
+      HEXCHAT\_EAT\_\*.
 
-   -  Returns:
+  - Returns:
 
-      -  guint: The ID of the hook.
+    - guint: The ID of the hook.
 
--  "HookServer"
+- "HookServer"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*: Name of the server event.
-      -  int: Priority of this command.
-      -  int: Value to returns when the command is catched. See
-         HEXCHAT\_EAT\_\*.
+    - gchar\*: Name of the server event.
+    - int: Priority of this command.
+    - int: Value to returns when the command is catched. See
+      HEXCHAT\_EAT\_\*.
 
-   -  Returns:
+  - Returns:
 
-      -  guint: The ID of the hook.
+    - guint: The ID of the hook.
 
--  "HookPrint"
+- "HookPrint"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*: Name of the print event.
-      -  int: Priority of this command.
-      -  int: Value to returns when the command is catched. See
-         HEXCHAT\_EAT\_\*.
+    - gchar\*: Name of the print event.
+    - int: Priority of this command.
+    - int: Value to returns when the command is catched. See
+      HEXCHAT\_EAT\_\*.
 
-   -  Returns:
+  - Returns:
 
-      -  guint: The ID of the hook.
+    - guint: The ID of the hook.
 
--  "Unhook"
+- "Unhook"
 
-   -  Parameters:
+  - Parameters:
 
-      -  guint: ID of the hook to unhook. (the return value of
-         "HookCommand", "HookServer" or "HookPrint")
+    - guint: ID of the hook to unhook. (the return value of
+      "HookCommand", "HookServer" or "HookPrint")
 
--  "ListGet"
+- "ListGet"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*: The list name.
+    - gchar\*: The list name.
 
-   -  Returns:
+  - Returns:
 
-      -  guint: List ID.
+    - guint: List ID.
 
--  "ListNext"
+- "ListNext"
 
-   -  Parameters:
+  - Parameters:
 
-      -  guint: List ID returned by "ListGet".
+    - guint: List ID returned by "ListGet".
 
-   -  Returns:
+  - Returns:
 
-      -  gboolean: says if there is no more item in the list.
+    - gboolean: says if there is no more item in the list.
 
--  "ListStr"
+- "ListStr"
 
-   -  Parameters:
+  - Parameters:
 
-      -  guint: List ID returned by "ListGet".
-      -  gchar\*: Name of the information needed.
+    - guint: List ID returned by "ListGet".
+    - gchar\*: Name of the information needed.
 
-   -  Returns:
+  - Returns:
 
-      -  gchar\*: The information requested.
+    - gchar\*: The information requested.
 
 Warning: "context" attribute of "channels" list should be get with
 "ListInt"
 
--  "ListInt"
+- "ListInt"
 
-   -  Parameters:
+  - Parameters:
 
-      -  guint: List ID returned by "ListGet".
-      -  gchar\*: Name of the information needed.
+    - guint: List ID returned by "ListGet".
+    - gchar\*: Name of the information needed.
 
-   -  Returns:
+  - Returns:
 
-      -  guint: The information requested.
+    - guint: The information requested.
 
--  "ListTime"
+- "ListTime"
 
-   -  Parameters:
+  - Parameters:
 
-      -  guint: List ID returned by "ListGet".
-      -  gchar\*: Name of the information needed.
+    - guint: List ID returned by "ListGet".
+    - gchar\*: Name of the information needed.
 
-   -  Returns:
+  - Returns:
 
-      -  guint64: The information requested.
+    - guint64: The information requested.
 
--  "ListFields"
+- "ListFields"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*: The list name.
+    - gchar\*: The list name.
 
-   -  Returns:
+  - Returns:
 
-      -  gchar\*\*: information names in this list.
+    - gchar\*\*: information names in this list.
 
--  "ListFree"
+- "ListFree"
 
-   -  Parameters:
+  - Parameters:
 
-      -  guint: List ID returned by "ListGet".
+    - guint: List ID returned by "ListGet".
 
--  "EmitPrint"
+- "EmitPrint"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*: Text event to print.
-      -  gchar\*\*: NULL terminated array of string.
+    - gchar\*: Text event to print.
+    - gchar\*\*: NULL terminated array of string.
 
-   -  Returns:
+  - Returns:
 
-      -  gboolean:
+    - gboolean:
 
-         -  1: Success.
-         -  0: Failure.
+      - 1: Success.
+      - 0: Failure.
 
--  "Nickcmp"
+- "Nickcmp"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*: String to compare.
-      -  gchar\*: String to compare.
+    - gchar\*: String to compare.
+    - gchar\*: String to compare.
 
-   -  Returns:
+  - Returns:
 
-      -  int: An integer less than, equal to, or greater than zero if s1
-         is found, respectively, to be less than, to match, or be
-         greater than s2.
+    - int: An integer less than, equal to, or greater than zero if s1
+      is found, respectively, to be less than, to match, or be
+      greater than s2.
 
--  "Strip"
+- "Strip"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*: String to strip.
-      -  int: Length of the string (or -1 for NULL terminated).
-      -  int: Bit-field of flags:
+    - gchar\*: String to strip.
+    - int: Length of the string (or -1 for NULL terminated).
+    - int: Bit-field of flags:
 
-         -  0: Strip mIRC colors.
-         -  1: Strip text attributes.
+      - 0: Strip mIRC colors.
+      - 1: Strip text attributes.
 
-   -  Returns:
+  - Returns:
 
-      -  gchar\*: stripped string.
+    - gchar\*: stripped string.
 
--  "SendModes"
+- "SendModes"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*\*: NULL terminated array of targets (strings). The
-         names of people whom the action will be performed on.
-      -  int: Maximum modes to send per line.
-      -  gchar: Mode sign, '-' or '+'.
-      -  gchar: Mode char, e.g. 'o' for Ops.
+    - gchar\*\*: NULL terminated array of targets (strings). The
+      names of people whom the action will be performed on.
+    - int: Maximum modes to send per line.
+    - gchar: Mode sign, '-' or '+'.
+    - gchar: Mode char, e.g. 'o' for Ops.
 
 Available signals:
 ------------------
 
--  "ServerSignal"
+- "ServerSignal"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*\*: word returned by HexChat.
-      -  gchar\*\*: word\_eol returned by HexChat.
-      -  guint: the ID of the hook (the return value of "HookServer").
-      -  guint: the ID of the context where the event come from.
+    - gchar\*\*: word returned by HexChat.
+    - gchar\*\*: word\_eol returned by HexChat.
+    - guint: the ID of the hook (the return value of "HookServer").
+    - guint: the ID of the context where the event come from.
 
--  "CommandSignal"
+- "CommandSignal"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*\*: word returned by HexChat.
-      -  gchar\*\*: word\_eol returned by HexChat.
-      -  guint: the ID of the hook (the return value of "HookCommand").
-      -  guint: the ID of the context where the event come from.
+    - gchar\*\*: word returned by HexChat.
+    - gchar\*\*: word\_eol returned by HexChat.
+    - guint: the ID of the hook (the return value of "HookCommand").
+    - guint: the ID of the context where the event come from.
 
--  "PrintSignal"
+- "PrintSignal"
 
-   -  Parameters:
+  - Parameters:
 
-      -  gchar\*\*: word returned by HexChat.
-      -  guint: the ID of the hook (the return value of "HookPrint").
-      -  guint: the ID of the context where the event come from.
+    - gchar\*\*: word returned by HexChat.
+    - guint: the ID of the hook (the return value of "HookPrint").
+    - guint: the ID of the context where the event come from.
 
--  "UnloadSignal"
+- "UnloadSignal"
 
-   -  Emitted when the user asks to unload your program. Please exit(0);
-      when received!
+  - Emitted when the user asks to unload your program. Please exit(0);
+    when received!

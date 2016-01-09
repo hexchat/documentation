@@ -9,13 +9,13 @@ Software
 
 Download and install (in their default install paths):
 
--  `Visual Studio 2015 Community <https://www.visualstudio.com/products/visual-studio-community-vs>`_
--  `Inno Setup 5.5 Unicode <http://www.jrsoftware.org/isdl.php>`_
--  `Inno Download Plugin <https://dl.hexchat.net/misc/idpsetup-1.1.2.exe>`_
--  `7-Zip <http://7-zip.org/>`_
--  `gendef <https://dl.hexchat.net/gtk-win32/gendef-20111031.7z>`_ (extract to *C:\\gtk-build*)
--  `msgfmt <https://dl.hexchat.net/gtk-win32/msgfmt-0.18.1.7z>`_ (extract to *C:\\gtk-build*)
--  `WinSparkle <https://dl.hexchat.net/gtk-win32/WinSparkle-20151011.7z>`_ (extract to *C:\\gtk-build*)
+- `Visual Studio 2015 Community <https://www.visualstudio.com/products/visual-studio-community-vs>`_
+- `Inno Setup 5.5 Unicode <http://www.jrsoftware.org/isdl.php>`_
+- `Inno Download Plugin <https://dl.hexchat.net/misc/idpsetup-1.1.2.exe>`_
+- `7-Zip <http://7-zip.org/>`_
+- `gendef <https://dl.hexchat.net/gtk-win32/gendef-20111031.7z>`_ (extract to *C:\\gtk-build*)
+- `msgfmt <https://dl.hexchat.net/gtk-win32/msgfmt-0.18.1.7z>`_ (extract to *C:\\gtk-build*)
+- `WinSparkle <https://dl.hexchat.net/gtk-win32/WinSparkle-20151011.7z>`_ (extract to *C:\\gtk-build*)
 
 
 Source code
@@ -34,8 +34,8 @@ Create a folder for GTK+, referred to as *YourDepsPath* from now (*C:\\gtk-build
 Specify the absolute path to *YourDepsPath* in *win32\\hexchat.props*
 with the *YourDepsPath* property. Download:
 
--  `GTK+ x86 bundle`_
--  `GTK+ x64 bundle`_
+- `GTK+ x86 bundle`_
+- `GTK+ x64 bundle`_
 
 .. _GTK+ x86 bundle: https://dl.hexchat.net/gtk-win32/vc14/x86/gtk-Win32.7z
 .. _GTK+ x64 bundle: https://dl.hexchat.net/gtk-win32/vc14/x64/gtk-x64.7z
@@ -43,7 +43,8 @@ with the *YourDepsPath* property. Download:
 Extract them to *win32* and *x64* in *YourDepsPath*.
 
 .. SEEALSO::
-   If you would like to build GTK+ yourself, read this `guide <http://hexchat.github.io/gtk-win32/>`_.
+
+    If you would like to build GTK+ yourself, read this `guide <http://hexchat.github.io/gtk-win32/>`_.
 
 Language interfaces
 ~~~~~~~~~~~~~~~~~~~
@@ -71,7 +72,7 @@ Building
 
 Open PowerShell as administrator and run::
 
-	Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 - If you're on 32-bit Windows, this is *C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe*
 - If you're on 64-bit Windows, this is *C:\\Windows\\SysWOW64\\WindowsPowerShell\\v1.0\\powershell.exe* (notice that this is the 32-bit PowerShell executable)
@@ -104,11 +105,11 @@ basically:
 
 .. code-block:: bash
 
-	git clone https://github.com/hexchat/hexchat.git
-	cd hexchat
-	./autogen.sh
-	make
-	sudo make install
+    git clone https://github.com/hexchat/hexchat.git
+    cd hexchat
+    ./autogen.sh
+    make
+    sudo make install
 
 This will compile with defaults. See ``./configure --help`` for more info
 about flags.
@@ -120,8 +121,8 @@ The theme manager isn't built by default on Unix. To do so get hexchat's source 
 
 .. code-block:: bash
 
-	./configure --with-theme-manager
-	make && sudo make install
+    ./configure --with-theme-manager
+    make && sudo make install
 
 OS X
 ----
@@ -136,12 +137,12 @@ Homebrew_, then do the following:
 
 .. code-block:: bash
 
-	brew install hexchat --with-python
-	# or to build directly from git:
-	# brew install --HEAD hexchat --with-python
-	
-	# then launch it
-	/usr/local/bin/hexchat
+    brew install hexchat --with-python
+    # or to build directly from git:
+    # brew install --HEAD hexchat --with-python
+
+    # then launch it
+    /usr/local/bin/hexchat
 
 .. _Homebrew: http://brew.sh/
 
@@ -153,18 +154,19 @@ It can be more hands on and complex than the automated Homebrew method.
 
 1. Follow the instructions on Gnome's site for `Building on OSX`_
 
-.. Note::
-	Some of these builds may fail and require dropping to a shell to fix them.
-	Most are trivial but the packages are always changing so you are on your own.
+.. note::
+
+    Some of these builds may fail and require dropping to a shell to fix them.
+    Most are trivial but the packages are always changing so you are on your own.
 
 Once everything is set up we can build hexchat:
 
 .. code-block:: bash
 
-	git clone https://github.com/hexchat/hexchat.git && cd hexchat
-	./autogen.sh --prefix=$JHBUILD_PREFIX
-	make && make install
-	hexchat
+    git clone https://github.com/hexchat/hexchat.git && cd hexchat
+    ./autogen.sh --prefix=$JHBUILD_PREFIX
+    make && make install
+    hexchat
 
 If you want to make the HexChat.app bundle it will take some more work.
 
@@ -177,7 +179,7 @@ If you want to make the HexChat.app bundle it will take some more work.
 
 .. code-block:: bash
 
-	cd osx && ./makebundle.sh
+    cd osx && ./makebundle.sh
 
 .. _Building on OSX: https://wiki.gnome.org/Projects/GTK%2B/OSX/Building
 .. _Bundling on OSX: https://wiki.gnome.org/Projects/GTK%2B/OSX/Bundling

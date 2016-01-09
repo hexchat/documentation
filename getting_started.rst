@@ -22,9 +22,9 @@ After you named it, click *Edit...* and specify the details of your
 connection. You need at least the following information to join to a
 certain group of people:
 
--  server address
--  server port
--  channel name
+- server address
+- server port
+- channel name
 
 You can see an example below:
 
@@ -56,14 +56,14 @@ Frequently Asked Questions
 --------------------------
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
 
-   faq
+    faq
 
 Changelog
 ---------
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
 
-   changelog
+    changelog

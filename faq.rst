@@ -24,7 +24,7 @@ many options have changed and you may encounter some oddities migrating.
   4. Rename ``%APPDATA%\HexChat\xchatlogs`` to ``%APPDATA%\HexChat\logs``
   5. Move all your 3rd party addons (plugins/scripts) to ``%APPDATA%\HexChat\addons``
   6. Move all your client certs to ``%APPDATA%\HexChat\certs``
-  
+
 The server list format also changed, instead of a giant autojoin list formatted ``J=chan1,chan2 key1,key2``
 it is now formatted on seperate lines ``J=chan1,key1\nJ=chan2,key2``
 
@@ -44,7 +44,7 @@ How do I auto-reconnect after my computer wakes up from being in sleep/hibernate
 
 Try the following command from a chat window (time is in seconds):
 
-     /set net_ping_timeout 60
+    /set net_ping_timeout 60
 
 Why are channels joined before identifying?
 -------------------------------------------
@@ -62,20 +62,22 @@ How do I change what browser is opened?
 ---------------------------------------
 
 - Windows:
-    :menuselection:`Control Panel --> Default Programs`
+
+  :menuselection:`Control Panel --> Default Programs`
 
 - Unix:
-    - Gnome 3: :menuselection:`System Settings --> Details --> Default Applications`
-    - Other DE's have their own settings that may or may not work.
 
-    If these do not work or you do not use a DE use the command :command:`gvfs-mime` which may need to be installed:
+  - Gnome 3: :menuselection:`System Settings --> Details --> Default Applications`
+  - Other DE's have their own settings that may or may not work.
 
-      ``gvfs-mime --set x-scheme-handler/http firefox.desktop``
+  If these do not work or you do not use a DE use the command :command:`gvfs-mime` which may need to be installed::
 
-    Don't forget to do the same for *https* and run this as your user.
+      gvfs-mime --set x-scheme-handler/http firefox.desktop
 
-    Now upon launching it will use the *Exec* line in their desktop file replacing *%u* with the url.
-    If you get a blank window this is where the problem is.
+  Don't forget to do the same for *https* and run this as your user.
+
+  Now upon launching it will use the *Exec* line in their desktop file replacing *%u* with the url.
+  If you get a blank window this is where the problem is.
 
 Alternatively you can add a `Url Handler <settings.html#url-handlers>`_
 
@@ -102,7 +104,7 @@ change the default:
 
     %C18%H<%H$4$1%H>%H%O$t$2
 
-To
+to
 
     %C18%H<%H$4$3$1%H>%H%O$t$2
 
@@ -122,10 +124,10 @@ How do I set different ban types?
    /set irc\_ban\_type bantype sets the default ban type to use for
    all bans. The different types are:
 
-   -  0 = \*!\ *@*.host
-   -  1 = \*!\*\@domain
-   -  2 = \*!\ *user\@*.host
-   -  3 = \*!\*user\@domain
+   - 0 = \*!\ *@*.host
+   - 1 = \*!\*\@domain
+   - 2 = \*!\ *user\@*.host
+   - 3 = \*!\*user\@domain
 
 Why does the timestamp overlap some nicknames?
 ----------------------------------------------
@@ -145,7 +147,7 @@ immediately, a restart may be needed.
 How do I hide join and part messages?
 -------------------------------------
 
-To disable joins and parts from being displayed in all channels check 'Hide join and part messages' under 
+To disable joins and parts from being displayed in all channels check 'Hide join and part messages' under
 :menuselection:`Settings -> Preferences -> Chatting -> General` (Advanced pre-2.9.6)'.
 
 Then all channels you join **after** setting this will start with "Show
@@ -184,18 +186,18 @@ How do I execute multiple commands in one line?
 
 There are a few ways to do this:
 
--  If this is during connection the network list (Ctrl+s) has a 'connect commands'
-   section as well as most login types you would need.
+- If this is during connection the network list (Ctrl+s) has a 'connect commands'
+  section as well as most login types you would need.
 
--  /LOAD -e <textfile>, where <textfile> is a file in your config dir
-   containing commands on each line.
+- /LOAD -e <textfile>, where <textfile> is a file in your config dir
+  containing commands on each line.
 
--  Separate your commands with CTRL-SHIFT-u-a. This will appear as a
-   little box with numbers on it (or an invisible character).
+- Separate your commands with CTRL-SHIFT-u-a. This will appear as a
+  little box with numbers on it (or an invisible character).
 
--  You can create two UserCommands, with the same name, and then execute
-   the UserCommand. It will be executed in the same order as it's
-   written in the UserCommands GUI.
+- You can create two UserCommands, with the same name, and then execute
+  the UserCommand. It will be executed in the same order as it's
+  written in the UserCommands GUI.
 
 
 I get this error: "Unknown file type abc.yz. Maybe you need to install the Perl or Python plugin?"
@@ -251,11 +253,11 @@ To see the various launch options such as setting configdir or minimize level ru
 Where are the log files saved to?
 ---------------------------------
 
--  Unix
+- Unix
 
     ~/.config/hexchat/logs
 
--  Windows
+- Windows
 
     %APPDATA%\\HexChat\\logs
 
@@ -340,6 +342,6 @@ but there are some simple guidelines of what the network SHOULD have.
 - Doesn't block large groups of users.
 
 You should make a pull request on `GitHub <https://github.com/hexchat/hexchat/pulls>`_ if you
-want the quickest results, the list is stored in *src/common/servlist.c*. You should include an 
+want the quickest results, the list is stored in *src/common/servlist.c*. You should include an
 SSL server if supported but you should not include IPv6 only servers and mark SASL as default if supported.
 Follow the syntax of other networks in the file.

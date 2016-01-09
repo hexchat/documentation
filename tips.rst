@@ -17,7 +17,8 @@ If you want to have spelling, do the following:
 2. Specify the languages you wish to have spelling for in :menuselection:`Settings --> Preferences --> Interface --> Input box`. You need to specify their language codes, see :file:`%LOCALAPPDATA%\\enchant\\myspell` for hints. By default, HexChat uses the LC_ALL environmental variable, or if it's unset, it falls back to en_US.
 
 .. note::
-	For portable installs, you can use the :file:`share\\myspell\\dicts` subfolder instead of :file:`%LOCALAPPDATA%\\enchant\\myspell` (both will work, but the former one can be carried on a pendrive unlike the latter one).
+
+    For portable installs, you can use the :file:`share\\myspell\\dicts` subfolder instead of :file:`%LOCALAPPDATA%\\enchant\\myspell` (both will work, but the former one can be carried on a pendrive unlike the latter one).
 
 Unix
 ~~~~
@@ -37,9 +38,9 @@ You can also use a batch file to affect only HexChat:
 
 .. code-block:: bat
 
-	@echo off
-	set LC_ALL=en
-	start hexchat.exe
+    @echo off
+    set LC_ALL=en
+    start hexchat.exe
 
 This sets the language to English. You may use *fr* for French, *de* for German, etc. Save the code above as :file:`run.bat`, and copy it to the HexChat install folder. You can then start HexChat in the desired language by running the batch file.
 
