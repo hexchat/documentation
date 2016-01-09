@@ -238,7 +238,7 @@ Generic functions
 
 	   hexchat.command("server irc.openprojects.net")
 
-    A list of commands is provided here: :ref:`commands_list`.
+	A list of commands is provided here: :ref:`commands_list`.
 
 .. function:: nickcmp(s1, s2)
 
