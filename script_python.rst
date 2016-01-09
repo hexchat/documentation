@@ -238,6 +238,8 @@ Generic functions
 
 	   hexchat.command("server irc.openprojects.net")
 
+    A list of commands is provided here: :ref:`commands_list`.
+
 .. function:: nickcmp(s1, s2)
 
 	This function will do an RFC1459 compliant string comparison
@@ -291,9 +293,9 @@ Information retreiving functions
 	-  **server:** Current server name (what the server claims to be) or
 	   None if you are not connected.
 	-  **topic:** Current channel topic.
+	-  **version:** HexChat version number.
 	-  **win\_status:** Returns status of window: 'active', 'hidden', or
 	   'normal'.
-	-  **version:** HexChat version number.
 
 	Example:
 
@@ -316,6 +318,8 @@ Information retreiving functions
 	.. code-block:: python
 
 	   print("Current preferred nick: " + hexchat.get_prefs("irc_nick1"))
+
+	A list of settings is provided here: :ref:`settings_list`.
 
 	And on top of that there are a few special preferences:
 
