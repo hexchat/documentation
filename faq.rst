@@ -70,11 +70,11 @@ How do I change what browser is opened?
   - Gnome 3: :menuselection:`System Settings --> Details --> Default Applications`
   - Other DE's have their own settings that may or may not work.
 
-  If these do not work or you do not use a DE use the command :command:`gvfs-mime` which may need to be installed::
+  If these do not work or you do not use a DE run the command :command:`xdg-mime`
+  (which may need to be installed) as your user::
 
-      gvfs-mime --set x-scheme-handler/http firefox.desktop
-
-  Don't forget to do the same for *https* and run this as your user.
+      xdg-mime default firefox.desktop x-scheme-handler/http
+      xdg-mime default firefox.desktop x-scheme-handler/https
 
   Now upon launching it will use the *Exec* line in their desktop file replacing *%u* with the url.
   If you get a blank window this is where the problem is.
