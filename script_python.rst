@@ -269,7 +269,7 @@ Generic functions
         print(text)
         print(hexchat.strip(text, len(text), 1)) # Bold uncolored text
 
-Information retreiving functions
+Information retrieving functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. function:: get_info(type)
