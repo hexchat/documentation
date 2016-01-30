@@ -548,7 +548,7 @@ command. For example, if you executed::
 
 These parameters are also used in print events. When created by these events
 they have a completely different meaning though. Text events (:menuselection:`Settings --> Text events`)
-have numbered arguements associated with them, these apply to the item in the **word** list.
+have numbered arguments associated with them, these apply to the item in the **word** list.
 For example on a "Channel Message" event:
 
     [23:29:26] <@Nick> hello everyone
