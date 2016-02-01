@@ -245,7 +245,7 @@ Generic functions
     This function will do an RFC1459 compliant string comparison
     and is useful to compare channels and nicknames.
 
-    :returns: Returns 0 if they match and less than or greater than 0 if s1 is less than or greather than s2
+    :returns: Returns 0 if they match and less than or greater than 0 if s1 is respectively less than or greater than s2
 
     .. code-block:: python
 
