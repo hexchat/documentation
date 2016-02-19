@@ -338,7 +338,7 @@ but there are some simple guidelines of what the network SHOULD have.
 
 - A maintained website listing servers.
 - Has been around for a while.
-- A decent amount of active users.
+- A decent amount of active users (100+).
 - Doesn't block large groups of users.
 
 You should make a pull request on `GitHub <https://github.com/hexchat/hexchat/pulls>`_ if you
