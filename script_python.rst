@@ -708,7 +708,7 @@ For example on a "Channel Message" event:
         myhook = hexchat.hook_timer(5000, timeout_cb)
         hexchat.hook_command("STOP", stop_cb)
 
-    If you return a true value from the callback, the timer will be keeped,
+    If you return a true value from the callback, the timer will be kept,
     otherwise it is removed.
 
 .. function:: hook_unload(callback[, userdata=None])
