@@ -55,11 +55,11 @@ Download:
 
 -  Perl_ 5.20 x86 (install to *C:\\gtk-build\\perl-5.20\\Win32*)
 -  Python_ 2.7 x86 (install to *C:\\gtk-build\\python-2.7\\Win32*)
--  Python_ 3.4 x86 (install to *C:\\gtk-build\\python-3.4\\Win32*)
+-  Python_ 3.5 x86 (install to *C:\\gtk-build\\python-3.5\\Win32*)
 
 -  Perl_ 5.20 x64 (install to *C:\\gtk-build\\perl-5.20\\x64*)
 -  Python_ 2.7 x64 (install to *C:\\gtk-build\\python-2.7\\x64*)
--  Python_ 3.4 x64 (install to *C:\\gtk-build\\python-3.4\\x64*)
+-  Python_ 3.5 x64 (install to *C:\\gtk-build\\python-3.5\\x64*)
 
 .. _Perl: https://dl.hexchat.net/misc/perl/
 .. _Python: http://www.python.org/download/
