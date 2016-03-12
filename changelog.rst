@@ -1,6 +1,94 @@
 HexChat ChangeLog
 =================
 
+2.12.0 (2016-03-12)
+-------------------
+
+- add support for native Windows 8+ spell check
+- add support for native Windows 8.1+ and OSX notifications
+- add support for IRCv3.2
+
+  - add cap 3.2
+  - add sasl 3.2
+  - add chghost
+  - add cap-notify
+
+- add support for twitch.tv/membership cap
+- add support for SNI (Server Name Indication)
+- add ability to do DnD reordering in some settings dialogs
+- add option to disable middle-click closing tabs
+- rewrite sysinfo plugin
+
+  - add support for OSX
+  - add multi-gpu info on win32
+  - add hdd info on win32
+  - add ability to print single peice of info
+  - change formatting, unified across platforms
+  - fix handling unsupported CPU arch on unix
+
+- rewrite identd plugin
+
+  - add support for unix
+  - add ability to change port
+  - fix handling multiple connections
+  - fix threading issues
+
+- rewrite update plugin
+
+  - fix locking up UI during check
+  - show graphical dialog on update
+  - host update file on https://dl.hexchat.net
+
+- rewrite checksum plugin
+
+  - fix support for very large files
+  - remove openssl dependency
+
+- remove DH-{AES,BLOWFISH} mechanisms (insecure)
+- remove "IRC" encoding, replaced with UTF-8
+- remove "System Default" encoding, replaced with UTF-8
+- remove configure option to disable ipv6
+- remove msproxy and socks5 library support (unused)
+- change tab-complete to favor other user nicks over own
+- change url detection to support unicode
+- change decoding to not attempt ISO-8859-1 fixing corruption
+- change pluginpref to escape values
+- change installer on Windows to not overwrite gtkrc file
+- minor changes to icons
+- fix numerous crashes (but not #600)
+
+  - fix crash on printing very long lines
+  - fix crash on failing to open log file
+  - fix crash when using unsorted userlist
+  - fix crash when timestamp format set to nothing
+  - fix crash when tab-completeing long strings
+  - fix crash with long values in pluginpref API
+  - fix various other unsafe string handling throughout
+
+- fix poor performance with nick indent enabled
+- fix UTF-8 text in winamp plugin
+- fix fishlim plugin handling networks with server-time
+- fix logging hostname of users in new queries
+- fix Key Press event sending non-UTF-8 text to plugins
+- fix VERSION response on windows 10 
+- fix get_info('win_ptr') from python
+- fix running portable-mode from another directory
+- fix duplicate timestamps on selection
+- fix --cfgdir argument
+- fix mode-button text being cut off
+- fix scrollback timestamps with server-time
+- fix url handler accepting quoted paths with spaces
+- fix using correct encoding when jumping networks
+- improve DCC handling large files
+- improve python detection in configure
+- improve scrollback file handling (corruption, line endings)
+- improve building in cygwin
+- improve build options on unix to be more secure
+- update to VS 2015 on windows
+- update deps on windows (openssl, python 3.5, etc)
+- update translations
+- update network list
+
 2.10.2 (2014-11-25)
 -------------------
 
