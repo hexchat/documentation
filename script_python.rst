@@ -570,8 +570,7 @@ For example on a "Channel Message" event:
     with a period it will not show up in ``/help`` though.
 
     You may also hook an empty string to capture every message a user sends,
-    either when they hit enter or use ``/say``. If you start the name with a
-    period it will not show up in ``/help``.
+    either when they hit enter or use ``/say``.
 
     :returns: New Hook Handler
 
