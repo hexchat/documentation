@@ -566,7 +566,8 @@ For example on a "Channel Message" event:
     that everytime you type ``/name ...``, ``callback`` will be called.
     Parameters ``userdata`` and ``priority`` have their meanings explained
     above, and the parameter help, if given, allows you to pass a help text
-    which will be shown when ``/help name`` is executed.
+    which will be shown when ``/help name`` is executed. If the command starts
+    with a period it will not show up in ``/help`` though.
 
     You may also hook an empty string to capture every message a user sends,
     either when they hit enter or use ``/say``. If you start the name with a
