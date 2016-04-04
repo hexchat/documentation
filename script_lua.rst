@@ -20,38 +20,41 @@ Commands
 
 .. program:: lua
 
-.. option:: load <filename>
+.. option:: /lua load <filename>
+.. option:: /load <filename>
 
 Loads a script with the given filename. ``/load`` will only load files
 ending in ``.lua`` and ``.luac``.
 
-.. option:: unload <filename>
+.. option:: /lua unload <filename>
+.. option:: /unload <filename>
 
 Unloads a script with the given filename.
 
-.. option:: reload <filename>`
+.. option:: /reload <filename>`
+.. option:: /lua reload <filename>`
 
 Reloads a script with the given filename.
 
-.. option:: list
+.. option:: /lua list
 
 Lists loaded Lua scripts.
 
-.. option:: exec <code>
+.. option:: /lua exec <code>
 
 Executes given code in the interpreter.
 
-.. option:: console
+.. option:: /lua console
 
 Opens an interactive console. Messages to that tab are intercepted and
 interpreted as code.
 
-.. option:: inject <filename> <code>
+.. option:: /lua inject <filename> <code>
 
 Executes given code in the context of a given script (which has to be
 loaded).
 
-.. option:: reset
+.. option:: /lua reset
 
 Reloads the interpreter (but not the scripts).
 
@@ -73,7 +76,7 @@ unloaded immediately.
 hexchat.command(cmd)
 ^^^^^^^^^^^^^^^^^^^^
 
-Executes the string the command ``cmd`` in the current context, as if
+Executes the command ``cmd`` in the current context, as if
 ``/cmd`` was typed by the user.
 
 hexchat.print(...)
@@ -126,7 +129,7 @@ determining the information you want. It can be one of the following
  ID                   Return value
 ==================== ====================================================================================================
  away                 Away reason or ``nil`` if you are not away
- channel              Current contexts name
+ channel              Current context's name
  charset              Character set used in the current context
  configdir            HexChat config directory, e.g. ``/home/user/.config/hexchat``
  event_text <name>    Text event format string for ``<name>``
@@ -160,39 +163,39 @@ the following fashion:
 List of possible values of ``list``, along with respective keys:
 
 +--------------+--------------------------------------------------------------------+
-| "channels"   | list of channels, querys and their servers                         |
+| ``channels`` | List of channels, queries and their servers                        |
 +--------------+--------------------------------------------------------------------+
 | Name         | Description                                                        |
 +==============+====================================================================+
-| channel      | Channel or query name                                              |
+| channel      | Tab name                                                           |
 +--------------+--------------------------------------------------------------------+
-| channelkey   | Channels key or ``nil``                                            |
+| channelkey   | Channel's key or ``nil``                                           |
 +--------------+--------------------------------------------------------------------+
-| chantypes    | Channel types e.g. “#!&”                                           |
+| chantypes    | Channel types, e.g. ``#!&``                                        |
 +--------------+--------------------------------------------------------------------+
-| context      | ``context`` object                                                 |
+| context      | Tab's context object                                               |
 +--------------+--------------------------------------------------------------------+
-| flags        | - 0 = Connected                                                    |
-|              | - 1 = Connecting                                                   |
-|              | - 2 = Marked away                                                  |
-|              | - 3 = End of MOTD                                                  |
-|              | - 4 = Has WHOX                                                     |
-|              | - 5 = Has IDMSG                                                    |
-|              | - 6 = Hide Join/Parts                                              |
-|              | - 7 = Hide Join/Parts unset                                        |
-|              | - 8 = Beep on Message                                              |
-|              | - 9 = Beep on Message unset                                        |
-|              | - 10 = <unused>                                                    |
-|              | - 11 = Logging                                                     |
-|              | - 12 = Logging unset                                               |
-|              | - 13 = Scrollback                                                  |
-|              | - 14 = Scrollback unset                                            |
-|              | - 15 = Strip colors                                                |
-|              | - 16 = Strip colors unset                                          |
-|              | - 17 = Flash tray                                                  |
-|              | - 18 = Flash tray unset                                            |
-|              | - 19 = Flash taskbar                                               |
-|              | - 20 = Flash taskbar unset                                         |
+| flags        | - 2^0 = Connected                                                  |
+|              | - 2^1 = Connecting                                                 |
+|              | - 2^2 = Marked away                                                |
+|              | - 2^3 = End of MOTD                                                |
+|              | - 2^4 = Has WHOX                                                   |
+|              | - 2^5 = Has IDMSG                                                  |
+|              | - 2^6 = Hide Join/Parts                                            |
+|              | - 2^7 = Hide Join/Parts unset                                      |
+|              | - 2^8 = Beep on Message                                            |
+|              | - 2^9 = Beep on Message unset                                      |
+|              | - 2^10 = <unused>                                                  |
+|              | - 2^11 = Logging                                                   |
+|              | - 2^12 = Logging unset                                             |
+|              | - 2^13 = Scrollback                                                |
+|              | - 2^14 = Scrollback unset                                          |
+|              | - 2^15 = Strip colors                                              |
+|              | - 2^16 = Strip colors unset                                        |
+|              | - 2^17 = Flash tray                                                |
+|              | - 2^18 = Flash tray unset                                          |
+|              | - 2^19 = Flash taskbar                                             |
+|              | - 2^20 = Flash taskbar unset                                       |
 +--------------+--------------------------------------------------------------------+
 | id           | Unique server ID                                                   |
 +--------------+--------------------------------------------------------------------+
@@ -200,11 +203,11 @@ List of possible values of ``list``, along with respective keys:
 +--------------+--------------------------------------------------------------------+
 | maxmodes     | Maximum modes per line                                             |
 +--------------+--------------------------------------------------------------------+
-| network      | Maximum modes per line                                             |
+| network      | Network name                                                       |
 +--------------+--------------------------------------------------------------------+
-| nickprefixes | Nickname prefixes e.g. “@+”                                        |
+| nickprefixes | Nickname prefixes, e.g. ``@+``                                     |
 +--------------+--------------------------------------------------------------------+
-| nickmodes    | Nickname mode chars e.g. “ov”                                      |
+| nickmodes    | Nickname mode chars, e.g. ``ov``                                   |
 +--------------+--------------------------------------------------------------------+
 | queue        | Number of bytes in the send-queue                                  |
 +--------------+--------------------------------------------------------------------+
@@ -221,7 +224,7 @@ List of possible values of ``list``, along with respective keys:
 
 
 +------------+----------------------------------------------------------------------+
-| "dcc"      | list of DCC file transfers                                           |
+| ``dcc``    | List of DCC file transfers                                           |
 +------------+----------------------------------------------------------------------+
 | Name       | Description                                                          |
 +============+======================================================================+
@@ -263,36 +266,41 @@ List of possible values of ``list``, along with respective keys:
 +------------+----------------------------------------------------------------------+
 
 
-+----------+----------------------------------------------+
-| "ignore" | current ignore list                          |
-+----------+----------------------------------------------+
-| Name     | Description                                  |
-+==========+==============================================+
-| mask     | Ignore mask. .e.g. \*\!\*\@\*.aol.com        |
-+----------+----------------------------------------------+
-| flags    | - 0 = Private                                |
-|          | - 1 = Notice                                 |
-|          | - 2 = Channel                                |
-|          | - 3 = CTCP                                   |
-|          | - 4 = Invite                                 |
-|          | - 5 = Unignore                               |
-|          | - 6 = NoSave                                 |
-|          | - 7 = DCC                                    |
-+----------+----------------------------------------------+
++------------+----------------------------------------------+
+| ``ignore`` | Current ignore list                          |
++------------+----------------------------------------------+
+| Name       | Description                                  |
++============+==============================================+
+| mask       | Ignore mask, .e.g. ``\*\!\*\@\*.aol.com``    |
++------------+----------------------------------------------+
+| flags      | - 2^0 = Private                              |
+|            | - 2^1 = Notice                               |
+|            | - 2^2 = Channel                              |
+|            | - 2^3 = CTCP                                 |
+|            | - 2^4 = Invite                               |
+|            | - 2^5 = Unignore                             |
+|            | - 2^6 = NoSave                               |
+|            | - 2^7 = DCC                                  |
++------------+----------------------------------------------+
 
 
-======== ====================================================================
-"notify" list of people on notify
--------- --------------------------------------------------------------------
-Name     Description
-======== ====================================================================
-networks Networks to which this nick applies. Comma separated. May be ``nil``
-nick     Nickname
-flags    Bit field of flags. 0=Is online.
-on       Time when user came online.
-off      Time when user went offline.
-seen     Time when user the user was last verified still online.
-======== ====================================================================
++------------+----------------------------------------------------------------------+
+| ``notify`` | List of people on notify                                             |
++------------+----------------------------------------------------------------------+
+| Name       | Description                                                          |
++============+======================================================================+
+| networks   | Networks to which this nick applies. Comma separated. May be ``nil`` |
++------------+----------------------------------------------------------------------+
+| nick       | Nickname                                                             |
++------------+----------------------------------------------------------------------+
+| flags      | Bit field of flags. 0=Is online.                                     |
++------------+----------------------------------------------------------------------+
+| on         | Unix timestamp of when user came online.                             |
++------------+----------------------------------------------------------------------+
+| off        | Unix timestamp of when user went offline.                            |
++------------+----------------------------------------------------------------------+
+| seen       | Unix timestamp of when user the user was last verified still online. |
++------------+----------------------------------------------------------------------+
 
 hexchat.props
 ^^^^^^^^^^^^^
@@ -308,7 +316,7 @@ hexchat.prefs
 
 You can access HexChat's settings via this pseudo-table, see ``/set``
 for a list of keys. Note that you cannot modify the table. Instead,
-you should use ``hexchat.command"/set -quiet <key> <value>"``
+you should use ``hexchat.command("/set -quiet <key> <value>")``
 
 Hooks
 ~~~~~
@@ -351,7 +359,7 @@ entered. ``help`` is the helptext for the ``/help`` command. Returns a
 hook object. The callback receives an array of words, and an array of
 word\_eols as arguments.
 
-If ``command`` is nil, then non-command text is hooked instead,
+If ``command`` is nil, then all non-command text is hooked instead,
 including ``/say``.
 
 hexchat.hook_print(event, callback[, priority])
@@ -365,7 +373,7 @@ There are also a few extra events you can hook using this function:
 
 * ``Open Context`` - Emitted when a new context is created.
 * ``Close Context`` - Emitted when a context is closed.
-*  ``Focus Tab`` - Emitted when a tab is brought to the front.
+* ``Focus Tab`` - Emitted when a tab is brought to the front.
 * ``Focus Window`` - Emitted when a toplevel window is focused, or the main tab-window is focused by the window manager.
 * ``DCC Chat Text`` - Emitted when some text from a DCC Chat arrives. It provides these elements in the word list:
     * Address
@@ -392,8 +400,8 @@ hexchat.hook_timer(interval, callback)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Hooks the function ``callback`` to be executed after ``inverval``
-milliseconds. Returns a hook object. If the callback returns a truthy
-value, it is scheduled to happen after the same preiod of time.
+milliseconds. Returns a hook object. As long as the callback returns a
+truthy value, it is scheduled to happen after the same preiod of time.
 
 hexchat.hook_unload(callback)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -435,7 +443,7 @@ returns nil.
 ctx:set() and hexchat.set_context(ctx)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Makes ``ctx`` the "current" context. All ``hexchat.*`` will be using
+Makes ``ctx`` the "current" context. All ``hexchat.*`` functions will be using
 this context. This setting only persists within one event. Next time any
 of the callbacks is called, the current context will be set to the
 actual one. Returns a boolean indicating whether the context was
