@@ -137,9 +137,9 @@ Homebrew_, then do the following:
 
 .. code-block:: bash
 
-    brew install hexchat --with-python
+    brew install homebrew-gui/hexchat --with-python
     # or to build directly from git:
-    # brew install --HEAD hexchat --with-python
+    # brew install homebrew-gui/hexchat --HEAD --with-python
 
     # then launch it
     /usr/local/bin/hexchat
