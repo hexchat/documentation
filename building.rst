@@ -95,9 +95,9 @@ if you get an error.
 
 Most package-managers can get the dependencies for you:
 
-- dnf: dnf-builddep hexchat
-- apt: apt-get build-dep hexchat && apt-get install build-essential
-- apt (Older Ubuntu): apt-get install  automake autoconf-archive imagemagick intltool libcanberra-dev libdbus-glib-1-dev libglib2.0-dev libgtk2.0-dev libnotify-dev libpci-dev libperl-dev libproxy-dev libssl-dev libtool python-dev build-essential
+- dnf: dnf-builddep hexchat && dnf install luajit-devel
+- apt: apt-get build-dep hexchat && apt-get install build-essential libluajit-5.1-dev
+- apt (Older Ubuntu): apt-get install  automake autoconf-archive imagemagick intltool libcanberra-dev libdbus-glib-1-dev libglib2.0-dev libgtk2.0-dev libnotify-dev libpci-dev libperl-dev libproxy-dev libssl-dev libtool libluajit-5.1-dev python-dev build-essential
 
 HexChat has its source code hosted using `Git <http://git-scm.com/>`_, so you have to install Git as
 well. When it's ready, you can start the actual compilation, which is
