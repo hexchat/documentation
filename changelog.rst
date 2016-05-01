@@ -1,6 +1,33 @@
 HexChat ChangeLog
 =================
 
+2.12.1 (2016-05-01)
+-------------------
+
+- add lua plugin
+- change desktop file to open urls in existing instance on Unix
+- misc chanopt fixes
+
+  - fix not being saved properly
+  - fix values other than 0/1/2 being set
+  - fix flags in plugin API
+
+- misc identd fixes
+
+  - fix ipv6 support on Windows
+  - fix respecting USE_GLOBAL network flag
+  - fix connections not always closed
+  - add responses for INVALID-PORT and NO-USER
+
+- misc challengeauth fixes
+
+  - fix lower casing username
+  - don't respond to challenge notices when disabled
+
+- re-add support for old versions of libnotify
+- bundle luajit and lgi on Windows
+- update network list
+
 2.12.0 (2016-03-12)
 -------------------
 
