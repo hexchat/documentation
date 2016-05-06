@@ -1,6 +1,11 @@
 HexChat ChangeLog
 =================
 
+2.12.1-2 (2016-05-06)
+---------------------
+
+- fix crash in dependencies on Windows (no HexChat changes)
+
 2.12.1 (2016-05-01)
 -------------------
 
