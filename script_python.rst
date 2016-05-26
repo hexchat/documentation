@@ -288,8 +288,9 @@ Information retrieving functions
     - **inputbox:** Contents of inputbox.
     - **network:** Current network name or None.
     - **nick:** Your current nick name.
-    - **nickserv:** Current networks nickserv password or None.
+    - **nickserv:** Current networks password or None (**password** is the same with clearer name).
     - **modes:** Current channel modes or None.
+    - **password:** Current networks password or None.
     - **server:** Current server name (what the server claims to be) or
       None if you are not connected.
     - **topic:** Current channel topic.
