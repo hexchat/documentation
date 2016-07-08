@@ -93,7 +93,7 @@ are set in *%USERPROFILE%\\.gtkrc-2.0* but will not be covered here.
 This example will use the `Vertex theme <https://github.com/horst3180/Vertex-theme>`_.
 Which contains an unoffensive dark theme and *mostly* uses the Pixbuf engine. Zips are on the releases page.
 
-*<installdir>* refers to the full path where HexChat is installed which by default is *C:\\Program Files\\HexChat*.
+Note that *<installdir>* refers to the full path where HexChat is installed which by default is *C:\\Program Files\\HexChat*. Also these directories may need to be created.
 
 1. Create the directory *<installdir>\\share\\themes\\vertex\\gtk-2.0*
 2. Extract contents of *vertex-gtk\\gtk-2.0-dark\\* into this directory.
