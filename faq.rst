@@ -4,8 +4,8 @@ Frequently Asked Questions
 How do I migrate my settings from XChat?
 ----------------------------------------
 
-It is recommend to just start with fresh settings as the format and names of
-many options have changed and you may encounter some oddities migrating.
+.. Caution:: This is generally not recommended. Some issues that may arise are
+   mentioned here: https://github.com/hexchat/hexchat/pull/1794#issuecomment-240102695
 
 - Unix
 
