@@ -81,10 +81,8 @@ Here are some simple instructions for using them on Windows.
 
 The only requirement for themes on Windows is that they are for gtk2 and they use the Pixbuf engine. Themes
 requiring other engines will work but not look correct. HexChat has also only shipped this engine
-since 2.10.0.
-
-Before starting you need to install HexChat with the *Gtk theme* option unchecked. This will avoid
-the installer modifying your theme or it conflicting with your theme.
+since 2.10.0. If you use < 2.12.0 you need to install HexChat with the *Gtk theme* option unchecked as this will
+avoid the installer overwriting it on updates.
 
 Themes can be either installed globally (changing all gtk2 applications) or to HexChat specifically.
 The latter requires write permissions to HexChat's install dir (e.g. in Program Files). Global themes
