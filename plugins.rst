@@ -148,6 +148,8 @@ types of lists and fields available are:
 +--------------+--------------------------------------------------------------------+--------+
 | channelkey   | Channels key or NULL (2.9.6+)                                      | string |
 +--------------+--------------------------------------------------------------------+--------+
+| chanmodes    | Channel modes e.g. "beI,k,l" (2.12.2+)                             | string |
++--------------+--------------------------------------------------------------------+--------+
 | chantypes    | Channel types e.g. “#!&”                                           | string |
 +--------------+--------------------------------------------------------------------+--------+
 | context      | (hexchat_context \*) pointer. Can be used with hexchat_set_context | string |

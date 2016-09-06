@@ -362,6 +362,7 @@ their servers. The following attributes are available in each list item:
 
 - **channel:** Channel or query name.
 - **channelkey:** Channel key. (2.9.6+)
+- **chanmodes:** Channel modes e.g. beI,k,l. (2.12.2+)
 - **chantypes:** Channel types e.g. #!&.
 - **context:** A context object, giving access to that channel/server.
 - **id:** Unique server id.
