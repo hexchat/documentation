@@ -234,6 +234,7 @@ startup:
 
 -  <config>/addons/\*.pl Perl scripts
 -  <config>/addons/\*.py Python scripts
+-  <config>/addons/\*.lua Lua scripts
 -  <config>/addons/\*.dll Plugins (Windows)
 -  <config>/addons/\*.so Plugins (Unix)
 
