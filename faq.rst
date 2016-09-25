@@ -262,6 +262,15 @@ Where are the log files saved to?
 
     %APPDATA%\\HexChat\\logs
 
+Why do config files and logs appear as a single line?
+-----------------------------------------------------
+
+HexChat supports many platforms and to be consistent it uses
+`Unix line endings <https://en.wikipedia.org/wiki/Newline>`_.
+
+This is normally not a problem at all but Microsoft Notepad does not
+support these so they are rendered as a single line. Any other editor should support them.
+
 How do I rotate log files every so often?
 -----------------------------------------
 
