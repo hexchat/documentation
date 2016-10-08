@@ -1,7 +1,7 @@
 HexChat ChangeLog
 =================
 
-2.12.2 (2016-09-08)
+2.12.2 (2016-10-08)
 -------------------
 
 - fix input box theme with Adwaita 3.20
