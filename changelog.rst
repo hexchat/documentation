@@ -1,6 +1,38 @@
 HexChat ChangeLog
 =================
 
+2.12.2 (2016-09-08)
+-------------------
+
+- fix input box theme with Adwaita 3.20
+- fix return value of hexchat_pluginpref_get_int()
+- fix tab color changing when print events are eaten
+- fix building against openssl 1.1.x
+- fix network name not being sanitized for scrollback files
+- fix building sysinfo on OS X <= 10.9
+- fix resume with DCC GET
+- fix possible assertion when decoding incoming text
+- add "chanmodes" to channel list in plugin api
+- lua:
+
+  - add automatic return and = handling in console
+  - fix pluginpref usage
+
+- fishlim:
+
+  - fix saving nicks containing [ or ]
+  - add commands: /topic+, /msg+, and /notice+
+  - add support for /me
+  - add /keyx command to do DH1080 key exchanges
+
+- improve effiency of various timers
+- reduce updates of user count in titlebar/userlist
+- download extra redist for perl on Windows
+- update appdata file
+- update translations
+- update dependencies on Windows
+
+
 2.12.1-2 (2016-05-06)
 ---------------------
 
