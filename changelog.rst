@@ -25,7 +25,7 @@ HexChat ChangeLog
   - add support for /me
   - add /keyx command to do DH1080 key exchanges
 
-- improve effiency of various timers
+- improve efficiency of various timers
 - reduce updates of user count in titlebar/userlist
 - download extra redist for perl on Windows
 - update appdata file
