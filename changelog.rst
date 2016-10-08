@@ -12,6 +12,7 @@ HexChat ChangeLog
 - fix building sysinfo on OS X <= 10.9
 - fix resume with DCC GET
 - fix possible assertion when decoding incoming text
+- fix possible crashes when plugins modify the UI during context close
 - add "chanmodes" to channel list in plugin api
 - lua:
 
