@@ -76,7 +76,7 @@ An example of creating a cert on unix:
 
     openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout ~/.config/hexchat/certs/client.pem -out ~/.config/hexchat/certs/client.pem
 
-On networks that support it you can use SASL EXTERNAL in the network list. If a network does not support this but does support normal SASL such as freenode usually that would be the better option.
+On networks that support it you can use SASL EXTERNAL in the network list. If a network does not support this but does support normal SASL usually that would be the better option.
 
 Note on Custom Server Certificates
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
