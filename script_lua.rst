@@ -58,6 +58,51 @@ loaded).
 
 Reloads the interpreter (but not the scripts).
 
+Environment
+-----------
+
+The embedded Lua implementation is `LuaJIT`_ . LuaJIT by itself provides a
+few `extensions`_, such as the the ``bit`` and ``ffi`` modules. It
+generally follows Lua 5.1 and has a few backwards compatible additions from
+Lua 5.2, which are explained on the `extensions`_ page.
+``-DLUAJIT_ENABLE_LUA52COMPAT`` is not used.
+
+.. _LuaJIT: http://luajit.org/luajit.html
+.. _extensions: http://luajit.org/extensions.html
+
+Hexchat then provides the global ``hexchat`` table, which is described in
+detail in the :ref:`lua-API` section below.
+
+Additionally, the ``lgi`` module is available, which provides GObject-
+introspection, since it is used by Hexchat internally. For looking up
+mappings, the Python GObject Introspection API reference can be used, as it
+is very similar, if not the same.
+
+Examples for using the provided extensions:
+
+.. code-block:: lua
+
+    local ffi = require 'ffi'
+    local lgi = require 'lgi'
+    local GLib = lgi.require('GLib')
+
+.. hint::
+
+    BitOp Library
+        http://bitop.luajit.org/api.html
+    FFI Library
+        http://luajit.org/ext_ffi.html
+    LGI project page
+        https://github.com/pavouk/lgi
+    LGI User Guide
+        https://github.com/pavouk/lgi/blob/master/docs/guide.md
+    Gnome API Reference
+        https://developer.gnome.org/references
+    Python GObject Introspection API Reference
+        http://lazka.github.io/pgi-docs/index.html
+
+.. _lua-API:
+
 API
 ---
 
@@ -156,9 +201,9 @@ the following fashion:
 
 .. code-block:: lua
 
-     for chan in hexchat.iterate("channels") do
-         print(chan.server .. ": " .. chan.channel)
-     end
+    for chan in hexchat.iterate("channels") do
+        print(chan.server .. ": " .. chan.channel)
+    end
 
 List of possible values of ``list``, along with respective keys:
 
