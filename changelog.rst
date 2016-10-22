@@ -1,6 +1,16 @@
 HexChat ChangeLog
 =================
 
+2.12.3 (2016-10-22)
+-------------------
+
+- fix crash with bad translations
+- fix crash and leaks in mpcinfo plugin
+- add mhop command
+- change ping timeout to 60 by default
+- update translations
+
+
 2.12.2 (2016-10-08)
 -------------------
 
