@@ -71,7 +71,8 @@ The embedded Lua implementation is `LuaJIT`_ . LuaJIT by itself provides a
 few `extensions`_, such as the the ``bit`` and ``ffi`` modules. It
 generally follows Lua 5.1 and has a few backwards compatible additions from
 Lua 5.2, which are explained on the `extensions`_ page.
-``-DLUAJIT_ENABLE_LUA52COMPAT`` is not used.
+
+.. ``-DLUAJIT_ENABLE_LUA52COMPAT`` is not used.
 
 .. _LuaJIT: http://luajit.org/luajit.html
 .. _extensions: http://luajit.org/extensions.html
@@ -83,14 +84,6 @@ Additionally, the ``lgi`` module is available, which provides
 GObject-introspection, since it is used by Hexchat internally. For looking
 up mappings, the `Python GObject Introspection API reference <http://lazka.github.io/pgi-docs/index.html>`_
 can be used, as it is very similar.
-
-Examples for using the provided extensions:
-
-.. code-block:: lua
-
-    local ffi = require 'ffi'
-    local lgi = require 'lgi'
-    local GLib = lgi.require('GLib')
 
 References
 ~~~~~~~~~~
