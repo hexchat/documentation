@@ -17,7 +17,6 @@ HexChat ChangeLog
 - fix input box theme with Adwaita 3.20
 - fix return value of hexchat_pluginpref_get_int()
 - fix tab color changing when print events are eaten
-- fix building against openssl 1.1.x
 - fix network name not being sanitized for scrollback files
 - fix building sysinfo on OS X <= 10.9
 - fix resume with DCC GET
