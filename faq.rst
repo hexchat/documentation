@@ -49,7 +49,7 @@ Try the following command from a chat window (time is in seconds):
 Why are channels joined before identifying?
 -------------------------------------------
 
-There are 3 ways to authenticate before joining a channel, all are network dependant but nickserv is common:
+There are 3 ways to authenticate before joining a channel, all are network dependant but nickserv is common and SASL is the best:
 
 1. Use a Nickserv password and increase the delay before joining in :menuselection:`Settings --> Preferences --> Advanced`
 
