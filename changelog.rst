@@ -1,6 +1,16 @@
 HexChat ChangeLog
 =================
 
+2.12.4 (2016-12-10)
+-------------------
+
+- fix issue with timers causing ping timeouts
+- fix building against OpenSSL 1.1
+- fix /exec output printing invalid utf8
+- replace doat plugin with an internal command
+- change how tab colors interact with plugins
+
+
 2.12.3 (2016-10-22)
 -------------------
 
