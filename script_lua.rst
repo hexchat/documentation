@@ -79,6 +79,8 @@ hexchat.command(cmd)
 Executes the command ``cmd`` in the current context, as if
 ``/cmd`` was typed by the user.
 
+See ``/help`` for valid commands and their documentation.
+
 hexchat.print(...)
 ^^^^^^^^^^^^^^^^^^
 
@@ -340,7 +342,12 @@ hexchat.prefs
 
 You can access HexChat's settings via this pseudo-table, see ``/set``
 for a list of keys. Note that you cannot modify the table. Instead,
-you should use ``hexchat.command("/set -quiet <key> <value>")``
+you should use ``hexchat.command("set -quiet <key> <value>")``
+
+There are also these special preferences:
+
+- ``id`` - Unique server id
+- ``state_cursor`` - Location of cursor in input box
 
 Hooks
 ~~~~~
