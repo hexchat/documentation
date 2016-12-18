@@ -477,8 +477,10 @@ ctx:set() and hexchat.set_context(ctx)
 Makes ``ctx`` the "current" context. All ``hexchat.*`` functions will be using
 this context. This setting only persists within one event. Next time any
 of the callbacks is called, the current context will be set to the
-actual one. Returns a boolean indicating whether the context was
-successfully set.
+actual one.
+
+Returns a boolean indicating whether the context was successfully set. Failure
+will only occur if the context has been closed.
 
 ctx:find_context(server_name, channel_name)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -495,6 +497,8 @@ ctx:emit_print(event, ...)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Emits a text event into the given context. See ``hexchat.emit_print``.
+
+Returns a boolean indicating success.
 
 ctx:command(cmd)
 ^^^^^^^^^^^^^^^^
