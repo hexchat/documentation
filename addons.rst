@@ -5,17 +5,6 @@ HexChat ships with a handful of useful plugins that extend the functionality of 
 
 With the included scripting interfaces you can also use easier to create but equally powerful scripts in languages such as Python. These are loaded/unloaded in the same manner as plugins.
 
-Do At
------
-
-This plugin can be used to perform an arbitrary command on multiple channels or contexts. List can be specific to networks, or any context on a separate network. Usage:
-
-:command:`/doat [channel,list,/network] [command]`
-
-To change username on network FreeNode from some other network:
-
-:command:`/doat /FreeNode nick ANewNick`
-
 
 Exec
 ----
