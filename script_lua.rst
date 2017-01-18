@@ -61,7 +61,7 @@ Reloads the interpreter (but not the scripts).
 Environment
 -----------
 
-.. caution::
+.. note::
 
     This only *directly* applies to **Windows** since other platforms rely on
     the Lua version and libraries installed on your system. It is most
@@ -71,8 +71,6 @@ The embedded Lua implementation is `LuaJIT`_ . LuaJIT by itself provides a
 few `extensions`_, such as the the ``bit`` and ``ffi`` modules. It
 generally follows Lua 5.1 and has a few backwards compatible additions from
 Lua 5.2, which are explained on the `extensions`_ page.
-
-.. ``-DLUAJIT_ENABLE_LUA52COMPAT`` is not used.
 
 .. _LuaJIT: http://luajit.org/luajit.html
 .. _extensions: http://luajit.org/extensions.html
