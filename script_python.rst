@@ -688,7 +688,8 @@ For example on a "Channel Message" event:
 
     This function allows you to register a callback to be called every
     timeout milliseconds. Parameters userdata and priority have their
-    meanings explained above.
+    meanings explained above. If the callback returns ``True`` the timer
+    will repeat otherwise returning ``False`` will stop it.
 
     :returns: New Hook Handler
 
@@ -705,13 +706,10 @@ For example on a "Channel Message" event:
 
         def timeout_cb(userdata):
             print("Annoying message every 5 seconds! Type /STOP to stop it.")
-            return 1 # Keep the timeout going
+            return True # Keep the timeout going
 
         myhook = hexchat.hook_timer(5000, timeout_cb)
         hexchat.hook_command("STOP", stop_cb)
-
-    If you return a true value from the callback, the timer will be kept,
-    otherwise it is removed.
 
 .. function:: hook_unload(callback[, userdata=None])
 
