@@ -819,8 +819,8 @@ HexChat::plugin_pref_get( $setting )
 
 Returns the value of the specified setting or undef it is not found.
 
-HexChat::plugin_pref_del( $setting )
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+HexChat::plugin_pref_delete( $setting )
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - **$setting** - name of the setting you want to delete
 
