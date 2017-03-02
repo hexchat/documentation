@@ -703,6 +703,7 @@ For example on a "Channel Message" event:
                 hexchat.unhook(myhook)
                 myhook = None
                 print("Timeout removed!")
+            return hexchat.EAT_ALL
 
         def timeout_cb(userdata):
             print("Annoying message every 5 seconds! Type /STOP to stop it.")
