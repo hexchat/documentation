@@ -75,6 +75,11 @@ How do I change what browser is opened?
       gio mime x-scheme-handler/http firefox.desktop
       gio mime x-scheme-handler/https firefox.desktop
 
+  If you use an older distro that doesn't have the :command:`gio` you can install :command:`gvfs-mime`::
+  
+      gvfs-mime --set x-scheme-handler/http firefox.desktop
+      gvfs-mime --set x-scheme-handler/https firefox.desktop
+
   Now upon launching it will use the *Exec* line in their desktop file replacing *%u* with the url.
   If you get a blank window this is where the problem is.
 
