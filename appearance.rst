@@ -94,7 +94,7 @@ Which contains an unoffensive dark theme and *mostly* uses the Pixbuf engine. Zi
 Note that *<installdir>* refers to the full path where HexChat is installed which by default is *C:\\Program Files\\HexChat*. Also these directories may need to be created.
 
 1. Create the directory *<installdir>\\share\\themes\\vertex\\gtk-2.0*
-2. Extract contents of *vertex-gtk\\gtk-2.0-dark\\* into this directory.
+2. Extract contents of *vertex-them\\common\\gtk-2.0-dark\\* into this directory.
 3. Create an empty file at *<installdir>\\etc\\gtk-2.0\\gtkrc* (with no file extension!)
 4. Edit it and add ``gtk-theme-name = "vertex"``
 
