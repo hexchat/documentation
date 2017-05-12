@@ -19,6 +19,16 @@ If you want to have spelling, do the following:
 .. note::
 
     For portable installs, you can use the :file:`share\\myspell\\dicts` subfolder instead of :file:`%LOCALAPPDATA%\\enchant\\myspell` (both will work, but the former one can be carried on a pendrive unlike the latter one).
+    
+Windows 10
+~~~~~~~~~~
+
+HexChat comes with the spell check already installed, but installing dictionaries is slightly different.
+
+1. In Windows, go to Start -> Settings -> Time & Language -> Region & Language.
+2. Add a new language(s).
+3. Restart HexChat.
+
 
 Unix
 ~~~~
