@@ -131,3 +131,364 @@ Usermenu
 ~~~~~~~~
 
 In order to add custom entries to your menu you need to first enable the usermenu with the command :command:`/set gui_usermenu on` which may require a restart. Once this is enabled you can go to :menuselection:`Usermenu --> Edit this Menu` to add any `command <commands.html>`_  you would like. For menu entries it supports the same as `Userlist Popups <appearance.html#userlist-popup>`_.
+
+
+Appearance Hacking Guide
+------------------------
+
+Some information that might be of use if you are trying to customize your color
+scheme or create a new color theme.
+
+Color settings
+~~~~~~~~~~~~~~
+
+Color settings are stored in the ``~/.config/hexchat/`` directory by default on
+Unix systems. The color settings are controlled by two files: ``colors.conf``
+and ``pevents.conf``
+
+colors.conf
+-----------
+
+All of these colors can be seen by going to:
+  Settings->Preferences->Interface->Colors
+
+::
+
+  # 0 through 15 are fairly standardized
+  # Location: Text Colors in the UI
+  color_0 = cccc cccc cccc
+  <snip>
+  color_15 = 9595 9595 9595
+
+  # 16 through 31 are free to be completely customized
+  # Location: Text Colors in the UI
+  color_16 = cbcb 4b4b 1616
+  <snip>
+  color_31 = cbcb 4b4b 1616
+
+  # Location: Selected Text section
+  color_256: Foreground
+  color_257: Background
+
+  # Location: Text Colors section
+  color_258: Foreground
+  color_259: Background
+
+  # Location: Interface Colors section
+  color_260: Marker Line
+  color_261: New Data. Color for the channel name when new data has arrived
+  color_262: Highlight: Color for the channel name when a highlighted message in the channel.
+  color_263: New Message: Color for the channel name when new message in the channel
+  color_264: Away User
+  color_265: Spell Check: Color to indicate spell check issue
+
+
+pevents.conf
+------------
+
+This file corresponds to Settings->Text Events
+
+Add Notify
+
+Ban List
+
+Banned
+
+Beep
+
+Capability Acknowledgement
+
+Capability List
+
+Capability Request
+
+Change Nick
+
+Channel Action
+
+Channel Action Hilight
+
+Channel Ban
+
+Channel Creation
+
+Channel DeHalfOp
+
+Channel DeOp
+
+Channel DeVoice
+
+Channel Exempt
+
+Channel Half-Operator
+
+Channel INVITE
+
+Channel List
+
+Channel Message
+
+Channel Mode Generic
+
+Channel Modes
+
+Channel Msg Hilight
+  Color of a channel message when it is highlighted. For example when someone
+  sends a message with your nickname in the channel, it will have this color.
+
+Channel Notice
+
+Channel Operator
+
+Channel Quiet
+
+Channel Remove Exempt
+
+Channel Remove Invite
+
+Channel Remove Keyword
+
+Channel Remove Limit
+
+Channel Set Key
+
+Channel Set Limit
+
+Channel UnBan
+
+Channel UnQuiet
+
+Channel Url
+
+Channel Voice
+
+Connected
+
+Connecting
+
+Connection Failed
+
+CTCP Generic
+
+CTCP Generic to Channel
+
+CTCP Send
+
+CTCP Sound
+
+CTCP Sound to Channel
+
+DCC CHAT Abort
+
+DCC CHAT Connect
+
+DCC CHAT Failed
+
+DCC CHAT Offer
+
+DCC CHAT Offering
+
+DCC CHAT Reoffer
+
+DCC Conection Failed
+
+DCC Generic Offer
+
+DCC Header
+
+DCC Malformed
+
+DCC Offer
+
+DCC Offer Not Valid
+
+DCC RECV Abort
+
+DCC RECV Complete
+
+DCC RECV Connect
+
+DCC RECV Failed
+
+DCC RECV File Open Error
+
+DCC Rename
+
+DCC RESUME Request
+
+DCC SEND Abort
+
+DCC SEND Complete
+
+DCC SEND Connect
+
+DCC SEND Failed
+
+DCC SEND Offer
+
+DCC Stall
+
+DCC Timeout
+
+Delete Notify
+
+Disconnected
+
+Found IP
+
+Generic Message
+
+Ignore Add
+
+Ignore Changed
+
+Ignore Footer
+
+Ignore Header
+
+Ignore Remove
+
+Ignorelist Empty
+
+Invite
+
+Invited
+
+Join
+
+Keyword
+
+Kick
+
+Killed
+
+Message Send
+
+Motd
+
+MOTD Skipped
+
+Nick Clash
+
+Nick Erroneous
+
+Nick Failed
+
+No DCC
+
+No Running Process
+
+Notice
+
+Notice Send
+
+Notify Away
+
+Notify Back
+
+Notify Empty
+
+Notify Header
+
+Notify Number
+
+Notify Offline
+
+Notify Online
+
+Open Dialog
+
+Part
+
+Part with Reason
+
+Ping Reply
+
+Ping Timeout
+
+Private Action
+
+Private Action to Dialog
+
+Private Message
+
+Private Message to Dialog
+
+Process Already Running
+
+Quit
+
+Raw Modes
+
+Receive Wallops
+
+Resolving User
+
+SASL Authenticating
+
+SASL Response
+
+Server Connected
+
+Server Error
+
+Server Lookup
+
+Server Notice
+
+Server Text
+
+SSL Message
+
+Stop Connection
+
+Topic
+
+Topic Change
+
+Topic Creation
+
+Unknown Host
+
+User Limit
+
+Users On Channel
+
+WhoIs Authenticated
+
+WhoIs Away Line
+
+WhoIs Channel/Oper Line
+
+WhoIs End
+
+WhoIs Identified
+
+WhoIs Idle Line
+
+WhoIs Idle Line with Signon
+
+WhoIs Name Line
+
+WhoIs Real Host
+
+WhoIs Server Line
+
+WhoIs Special
+
+You Join
+
+You Kicked
+
+You Part
+
+You Part with Reason
+
+Your Action
+
+Your Invitation
+
+Your Message
+  Color for messages you send
+
+Your Nick Changing
