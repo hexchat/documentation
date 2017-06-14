@@ -95,9 +95,8 @@ if you get an error.
 
 Most package-managers can get the dependencies for you:
 
-- dnf: dnf-builddep hexchat
-- apt: apt-get build-dep hexchat && apt-get install build-essential autoconf-archive libluajit-5.1-dev
-- apt (Older Ubuntu): apt-get install  automake autoconf-archive imagemagick intltool libcanberra-dev libdbus-glib-1-dev libglib2.0-dev libgtk2.0-dev libnotify-dev libpci-dev libperl-dev libproxy-dev libssl-dev libtool libluajit-5.1-dev python-dev build-essential
+- dnf: dnf install meson 'dnf-command(builddep)' && dnf builddep hexchat
+- apt: apt install meson libcanberra-dev libdbus-glib-1-dev libglib2.0-dev libgtk2.0-dev libluajit-5.1-dev libnotify-dev libpci-dev libperl-dev libproxy-dev libssl-dev python3-dev
 
 HexChat has its source code hosted using `Git <http://git-scm.com/>`_, so you have to install Git as
 well. When it's ready, you can start the actual compilation, which is
@@ -107,11 +106,11 @@ basically:
 
     git clone https://github.com/hexchat/hexchat.git
     cd hexchat
-    ./autogen.sh
-    make
-    sudo make install
+    meson build
+    ninja -C build
+    sudo ninja -C build install
 
-This will compile with defaults. See ``./configure --help`` for more info
+This will compile with defaults. See ``mesonconf build`` for more info
 about flags.
 
 Building Theme Manager
@@ -121,8 +120,9 @@ The theme manager isn't built by default on Unix. To do so get hexchat's source 
 
 .. code-block:: bash
 
-    ./configure --with-theme-manager
-    make && sudo make install
+    mesonconf build -Dwith-theme-manager=true
+    ninja -C build
+    sudo ninja -C build install
 
 OS X
 ----
