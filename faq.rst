@@ -210,13 +210,11 @@ I get this error: "Unknown file type abc.yz. Maybe you need to install the Perl 
 If you get this error when trying to load a Perl or Python script, it
 means the plugin or language for running those scripts isn't loaded.
 
-On Unix:
-- Install the packages including these plugins (i.e. hexchat-perl) and perl.
-- When building yourself check ./configure output and install devel packages.
+- On Unix install the packages including these plugins (e.g. hexchat-perl) and perl.
 
-On Windows
-- Select the plugins in the installer.
-- Install the language linked on our downloads page.
+  - If you are missing Lua your distro may not have HexChat 2.12.1
+
+- On Windows elect the plugins in the installer.
 
 How do I play sound files on certain events?
 --------------------------------------------
