@@ -214,7 +214,7 @@ means the plugin or language for running those scripts isn't loaded.
 
   - If you are missing Lua your distro may not have HexChat 2.12.1
 
-- On Windows elect the plugins in the installer.
+- On Windows select the plugins in the installer.
 
 How do I play sound files on certain events?
 --------------------------------------------
