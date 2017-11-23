@@ -51,9 +51,8 @@ Why are channels joined before identifying?
 
 There are 3 ways to authenticate before joining a channel, all are network dependant but nickserv is common and SASL is the best (HexChats default network list tries to use the best method by default, don't change it):
 
-
 - Use SASL which can be enabled in :menuselection:`HexChat --> Network list --> Edit` (2.9.4+).
-   Your username must match your nickserv account, you can set it by unchecking *Use global user information*.
+  Note that your username must match your nickserv account, you can set it by unchecking *Use global user information*.
 
 - Use a Nickserv password and increase the delay before joining in :menuselection:`Settings --> Preferences --> Advanced`
 
