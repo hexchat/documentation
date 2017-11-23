@@ -49,14 +49,15 @@ Try the following command from a chat window (time is in seconds):
 Why are channels joined before identifying?
 -------------------------------------------
 
-There are 3 ways to authenticate before joining a channel, all are network dependant but nickserv is common and SASL is the best:
+There are 3 ways to authenticate before joining a channel, all are network dependant but nickserv is common and SASL is the best (HexChats default network list tries to use the best method by default, don't change it):
 
-1. Use a Nickserv password and increase the delay before joining in :menuselection:`Settings --> Preferences --> Advanced`
 
-2. Use SASL which can be enabled in :menuselection:`HexChat --> Network list --> Edit` (2.9.4+).
+- Use SASL which can be enabled in :menuselection:`HexChat --> Network list --> Edit` (2.9.4+).
    Your username must match your nickserv account, you can set it by unchecking *Use global user information*.
 
-3. Use a `client cert <tips.html#client-certificates>`_ which requires the most setup.
+- Use a Nickserv password and increase the delay before joining in :menuselection:`Settings --> Preferences --> Advanced`
+
+- Use a `client cert <tips.html#client-certificates>`_ which requires the most setup.
 
 How do I change what browser is opened?
 ---------------------------------------
