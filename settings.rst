@@ -8,6 +8,8 @@ Config files are stored as plaintext files (which shouldn't be edited by hand). 
 
 - Windows: :file:`%APPDATA%\\HexChat`
 - Unix: :file:`~/.config/hexchat`
+- Flatpak: :file:`~/.var/app/io.github.Hexchat/config/hexchat`
+- Snap: :file:`~/snap/hexchat/current/.config/hexchat`
 
 .. note::
 
