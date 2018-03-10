@@ -1,6 +1,35 @@
 HexChat ChangeLog
 =================
 
+2.14.0 (2018-03-10)
+-------------------
+
+- rewrite build system in `Meson <http://mesonbuild.com/>`_
+- replace ``intltool`` build depenency with ``gettext`` >= 0.19.6
+- rename data files to use *io.github.Hexchat* name
+- add option (``irc_reconnect_rejoin``) to disable auto-rejoin on reconnect
+- add ability to set custom tray icon separate of app icon
+- fix building against OpenSSL 1.1.0
+- fix Enchant 2.0+ support
+- fix input box theming with Adwaita-dark
+- fix custom sounds not respecting omit if away option
+- fix detecting if a tray doesn't exist on x11
+- fix cutting off ctcp text after ending ``\01``
+- fix /ignore not accepting full hosts
+- fix characters getting cut off when their width changes (on Unix)
+- fix various possible crashes
+- change preference window to be scroll-able
+- remove ctrl+w binding by default
+- remove mpcinfo plugin
+- doat: fix channels with ``/`` in them
+- fishlim: fix key exchange
+- fishlim: fix building against LibreSSL
+- sysinfo: fix pci.ids file not being found on some distros
+- sysinfo: make libpci optional
+- lua: avoid loading the same script multiple times
+- update translations
+- update libraries on Windows, including Python to 3.6
+
 2.12.4 (2016-12-10)
 -------------------
 
