@@ -14,7 +14,6 @@ Download and install (in their default install paths):
 - `Inno Download Plugin <https://dl.hexchat.net/misc/idpsetup-1.1.2.exe>`_
 - `7-Zip <http://7-zip.org/>`_
 - `gendef <https://dl.hexchat.net/gtk-win32/gendef-20111031.7z>`_ (extract to *C:\\gtk-build*)
-- `msgfmt <https://dl.hexchat.net/gtk-win32/msgfmt-0.18.1.7z>`_ (extract to *C:\\gtk-build*)
 - `WinSparkle <https://dl.hexchat.net/gtk-win32/WinSparkle-20151011.7z>`_ (extract to *C:\\gtk-build*)
 
 
@@ -34,17 +33,13 @@ Create a folder for GTK+, referred to as *YourDepsPath* from now (*C:\\gtk-build
 Specify the absolute path to *YourDepsPath* in *win32\\hexchat.props*
 with the *YourDepsPath* property. Download:
 
-- `GTK+ x86 bundle`_
-- `GTK+ x64 bundle`_
+- `GTK+ bundle <https://dl.hexchat.net/gtk>`_
 
-.. _GTK+ x86 bundle: https://dl.hexchat.net/gtk-win32/vc14/x86/gtk-Win32.7z
-.. _GTK+ x64 bundle: https://dl.hexchat.net/gtk-win32/vc14/x64/gtk-x64.7z
-
-Extract them to *win32* and *x64* in *YourDepsPath*.
+Extract them to *Win32* and *x64* in *YourDepsPath*.
 
 .. SEEALSO::
 
-    If you would like to build GTK+ yourself, read this `guide <http://hexchat.github.io/gtk-win32/>`_.
+    If you would like to build GTK+ yourself, see this `repo <https://github.com/wingtk/gvsbuild>`_.
 
 Language interfaces
 ~~~~~~~~~~~~~~~~~~~
@@ -55,11 +50,11 @@ Download:
 
 -  Perl_ 5.20 x86 (install to *C:\\gtk-build\\perl-5.20\\Win32*)
 -  Python_ 2.7 x86 (install to *C:\\gtk-build\\python-2.7\\Win32*)
--  Python_ 3.5 x86 (install to *C:\\gtk-build\\python-3.5\\Win32*)
+-  Python_ 3.6 x86 (install to *C:\\gtk-build\\python-3.5\\Win32*)
 
 -  Perl_ 5.20 x64 (install to *C:\\gtk-build\\perl-5.20\\x64*)
 -  Python_ 2.7 x64 (install to *C:\\gtk-build\\python-2.7\\x64*)
--  Python_ 3.5 x64 (install to *C:\\gtk-build\\python-3.5\\x64*)
+-  Python_ 3.6 x64 (install to *C:\\gtk-build\\python-3.5\\x64*)
 
 .. _Perl: https://dl.hexchat.net/misc/perl/
 .. _Python: http://www.python.org/download/
