@@ -68,6 +68,7 @@ HexChat comes with built in icons for the tray, user list, and channel tree (whi
 
 - Tray Icon
 
+  - tray_normal.png
   - tray_fileoffer.png
   - tray_highlight.png
   - tray_message.png
