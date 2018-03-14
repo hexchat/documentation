@@ -1,6 +1,12 @@
 HexChat ChangeLog
 =================
 
+2.14.1 (2018-03-13)
+
+- fix performance regression on Unix
+- fix building plugins with some compilers
+- add missing gtk pixbuf theme engine in Windows installer
+
 2.14.0 (2018-03-10)
 -------------------
 
