@@ -11,10 +11,10 @@ Download and install (in their default install paths):
 
 - `Visual Studio 2015 Community <https://www.visualstudio.com/products/visual-studio-community-vs>`_
 - `Inno Setup 5.5 Unicode <http://www.jrsoftware.org/isdl.php>`_
-- `Inno Download Plugin <https://dl.hexchat.net/misc/idpsetup-1.1.2.exe>`_
+- `Inno Download Plugin <https://dl.hexchat.net/misc/idpsetup-1.5.1.exe>`_
 - `7-Zip <http://7-zip.org/>`_
 - `gendef <https://dl.hexchat.net/gtk-win32/gendef-20111031.7z>`_ (extract to *C:\\gtk-build*)
-- `WinSparkle <https://dl.hexchat.net/gtk-win32/WinSparkle-20151011.7z>`_ (extract to *C:\\gtk-build*)
+- `WinSparkle <https://dl.hexchat.net/gtk-win32/WinSparkle-20151011.7z>`_ (extract to *C:\\gtk-build\\WinSparkle*)
 
 
 Source code
@@ -50,11 +50,11 @@ Download:
 
 -  Perl_ 5.20 x86 (install to *C:\\gtk-build\\perl-5.20\\Win32*)
 -  Python_ 2.7 x86 (install to *C:\\gtk-build\\python-2.7\\Win32*)
--  Python_ 3.6 x86 (install to *C:\\gtk-build\\python-3.5\\Win32*)
+-  Python_ 3.6 x86 (install to *C:\\gtk-build\\python-3.6\\Win32*)
 
 -  Perl_ 5.20 x64 (install to *C:\\gtk-build\\perl-5.20\\x64*)
 -  Python_ 2.7 x64 (install to *C:\\gtk-build\\python-2.7\\x64*)
--  Python_ 3.6 x64 (install to *C:\\gtk-build\\python-3.5\\x64*)
+-  Python_ 3.6 x64 (install to *C:\\gtk-build\\python-3.6\\x64*)
 
 .. _Perl: https://dl.hexchat.net/misc/perl/
 .. _Python: http://www.python.org/download/
