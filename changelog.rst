@@ -12,7 +12,7 @@ HexChat ChangeLog
 - fix not unminimizing when restoring from tray
 - fix translations containing invalid text events
 - fix server passwords starting with ``:``
-- update libraries on windows, fixing CVE-2018-15120
+- update libraries on windows, fixing CVE-2018-15120 (and emoji!)
 
 2.14.1 (2018-03-13)
 -------------------
