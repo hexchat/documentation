@@ -1,6 +1,19 @@
 HexChat ChangeLog
 =================
 
+2.14.2 (2018-08-29)
+-------------------
+
+- remove shift+click binding to close tabs
+- re-add option to build against legacy perl
+- add appstream metainfo for plugins
+- add build option to set perl binary
+- add option to build without appstream
+- fix not unminimizing when restoring from tray
+- fix translations containing invalid text events
+- fix server passwords starting with ``:``
+- update libraries on windows, fixing CVE-2018-15120
+
 2.14.1 (2018-03-13)
 -------------------
 
