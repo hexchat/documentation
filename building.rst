@@ -105,7 +105,7 @@ basically:
     ninja -C build
     sudo ninja -C build install
 
-This will compile with defaults. See ``mesonconf build`` for more info
+This will compile with defaults. See ``meson configure build`` for more info
 about flags.
 
 Building Theme Manager
@@ -115,7 +115,7 @@ The theme manager isn't built by default on Unix. To do so get hexchat's source 
 
 .. code-block:: bash
 
-    mesonconf build -Dwith-theme-manager=true
+    meson configure build -Dwith-theme-manager=true
     ninja -C build
     sudo ninja -C build install
 
