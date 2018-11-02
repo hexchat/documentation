@@ -107,6 +107,13 @@ feature ON or OFF. Every HexChat plugin must define an
 
             return 1;       /* return 1 for success */
     }
+    
+    int
+    hexchat_plugin_deinit (hexchat_plugin *plugin_handle)
+    {
+            hexchat_print (ph, "Unloading AutoOpPlugin");
+            return 1;       /* return 1 for success */
+    }
 
 What's *word* and *word\_eol*?
 ------------------------------
