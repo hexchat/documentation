@@ -90,8 +90,8 @@ if you get an error.
 
 Most package-managers can get the dependencies for you:
 
-- dnf: dnf install meson 'dnf-command(builddep)' && dnf builddep hexchat
-- apt: apt install meson libcanberra-dev libdbus-glib-1-dev libglib2.0-dev libgtk2.0-dev libluajit-5.1-dev libnotify-dev libpci-dev libperl-dev libproxy-dev libssl-dev python3-dev
+- dnf: dnf install meson 'dnf-command(builddep)' && dnf builddep hexchat && dnf install python3-cffi
+- apt: apt install meson libcanberra-dev libdbus-glib-1-dev libglib2.0-dev libgtk2.0-dev libluajit-5.1-dev libnotify-dev libpci-dev libperl-dev libproxy-dev libssl-dev python3-dev python3-cffi
 
 HexChat has its source code hosted using `Git <http://git-scm.com/>`_, so you have to install Git as
 well. When it's ready, you can start the actual compilation, which is
