@@ -7,6 +7,7 @@ Config Files
 Config files are stored as plaintext files (which shouldn't be edited by hand). They are located in:
 
 - Windows: :file:`%APPDATA%\\HexChat`
+- Microsoft Store: :file:`%LOCALAPPDATA%\\Packages\\39215TingPing.HexChat_fqe8h3fzrj50c\\LocalCache\\Roaming\\HexChat`
 - Unix: :file:`~/.config/hexchat`
 - Flatpak: :file:`~/.var/app/io.github.Hexchat/config/hexchat`
 - Snap: :file:`~/snap/hexchat/current/.config/hexchat`
