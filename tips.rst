@@ -31,10 +31,10 @@ To fix this we have to disable high-DPI scaling for HexChat.  See the section be
 
     .. image:: _static/img/fixblur_5.png
 
-Reinstalling from MSI
-~~~~~~~~~~~~~~~~~~~~~
+Installing Outside Of App Store
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This doesn't seem to work for the Windows 10 app store version of HexChat; you have to install the "Win7+" version from the downloads page (the "+" includes Windows 10).  Don't uninstall the old HexChat, do it after you've transferred your settings.  Anyway, download and run the "Win7+" installer.
+The above fix for blurry text doesn't seem to work on the app store version of HexChat; you'll have to install the "Win7+" version from the downloads page (the "+" includes Windows 10).  Don't uninstall the old HexChat, do it after you've transferred your settings.  Anyway, download and run the "Win7+" installer.
 
 Next, copy your settings from the app store version to the new installation.  First find your home directory; to do this, open a command prompt (you can hit the Windows key and type in "cmd" to search for it).  You should see something like `c:\\Users\\[something]`. That something is your home directory.
 
