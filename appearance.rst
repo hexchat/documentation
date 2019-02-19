@@ -99,6 +99,10 @@ Note that *<installdir>* refers to the full path where HexChat is installed whic
 3. Create an empty file at *<installdir>\\etc\\gtk-2.0\\gtkrc* (with no file extension!)
 4. Edit it and add ``gtk-theme-name = "vertex"``
 
+On Ubuntu, when installing Hexchat through snap won't inherit GTK theme from OS, 
+avoid snap method and prefer installing Hexchat using `apt-get install hexchat` method instead. The default <installdir> for GTK themes will be "~/.local/share/hexchat/", if it doesn't exist, create it.
+
+
 Buttons, Menus, and Popups
 --------------------------
 
