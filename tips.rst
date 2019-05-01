@@ -7,8 +7,6 @@ Spell Check
 Windows
 ~~~~~~~
 
-HexChat for Windows uses MySpell for spelling via the Enchant library. The required libraries are included in the installer, but the dictionaries are big so they are distributed in a separate archive. They're from Debian Lenny.
-
 .. image:: _static/img/tips_spellcheck.png
 
 If you want to have spelling, do the following:
