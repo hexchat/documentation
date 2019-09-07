@@ -122,29 +122,15 @@ The theme manager isn't built by default on Unix. To do so get hexchat's source 
 OS X
 ----
 
-Homebrew
-~~~~~~~~
+.. warning::
 
-HexChat can be installed via Homebrew. The Homebrew method is fairly
-simple and is automatically configured to support Python and Perl so that
-scripts can be loaded from ~/.config/hexchat/addons. First install
-Homebrew_, then do the following:
-
-.. code-block:: bash
-
-    brew install homebrew/gui/hexchat --with-python
-    # or to build directly from git:
-    # brew install homebrew/gui/hexchat --HEAD --with-python
-
-    # then launch it
-    /usr/local/bin/hexchat
-
-.. _Homebrew: http://brew.sh/
+    macOS is not officially supported, is not simple to build for, and the end result will not be great.
 
 JHBuild
 ~~~~~~~
 
-JHBuild is the alternative method. It uses the quartz backend as well as a more native theme.
+JHBuild allows you to build the entire stack required by HexChat.
+It uses the quartz backend as well as a more native theme.
 It can be more hands on and complex than the automated Homebrew method.
 
 1. Follow the instructions on Gnome's site for `Building on OSX`_
