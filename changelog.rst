@@ -1,6 +1,17 @@
 HexChat ChangeLog
 =================
 
+2.14.3 (2019-12-20)
+-------------------
+
+- fix various incorrect parsing of IRC messages relating to trailing parameters
+- fix SASL negotiation combined with multi-line cap
+- fix input box theming with Yaru theme
+- python: Work around Python 3.7 regression causing crash on unload
+- sysinfo: Add support for /etc/os-release
+- sysinfo: Ignore irrelevant mounts when calculating storage size
+
+
 2.14.2 (2018-08-29)
 -------------------
 
