@@ -42,7 +42,7 @@ by right-clicking its name in the channel switcher and by toggling "Autojoin" on
 How do I auto-reconnect after my computer wakes up from being in sleep/hibernate mode?
 --------------------------------------------------------------------------------------
 
-Try the following command from a chat window (time is in seconds):
+Try the following command from a chat window (time is in seconds)::
 
     /set net_ping_timeout 60
 
@@ -104,11 +104,11 @@ following:
 In the menus, open up :menuselection:`Settings --> Text Events`. Find the *Channel
 Message* event in the list. The $3 code can be inserted to print the
 user's mode-character (e.g. @ or +). For example, you might want to
-change the default:
+change the default::
 
     %C18%H<%H$4$1%H>%H%O$t$2
 
-to
+to::
 
     %C18%H<%H$4$3$1%H>%H%O$t$2
 
@@ -126,12 +126,12 @@ How do I set different ban types?
 3. Or set the default with:
 
    /set irc\_ban\_type bantype sets the default ban type to use for
-   all bans. The different types are:
+   all bans. The different types are::
 
-   - 0 = \*!\ *@*.host
-   - 1 = \*!\*\@domain
-   - 2 = \*!\ *user\@*.host
-   - 3 = \*!\*user\@domain
+     0 = *!*@*.host
+     1 = *!*@domain
+     2 = *!*user@*.host
+     3 = *!*user@domain
 
 Why does the timestamp overlap some nicknames?
 ----------------------------------------------
@@ -140,9 +140,9 @@ Some networks allow very long nicknames (up to 32 letters). It can be
 annoying to have the separator bar move too far to the right, just for
 one long nick. Therefore, it has a set limit for the distance it will
 move to the right. If you use a large font, you may need to adjust this
-distance. It is set in pixels, for example:
+distance. It is set in pixels, for example::
 
-    /set text\_max\_indent 320
+    /set text_max_indent 320
 
 Once you adjust this setting high enough, overlapping timestamps and
 nicknames should not occur. The adjustment will not take effect
@@ -249,20 +249,20 @@ minimizing to tray on exit go to :menuselection:`Settings --> Preferences --> Al
 How do I start HexChat with...?
 -------------------------------
 
-To see the various launch options such as setting configdir or minimize level run:
+To see the various launch options such as setting configdir or minimize level run::
 
     hexchat --help
 
 Where are the log files saved to?
 ---------------------------------
 
-- Unix
+- Unix::
 
     ~/.config/hexchat/logs
 
-- Windows
+- Windows::
 
-    %APPDATA%\\HexChat\\logs
+    %APPDATA%\HexChat\logs
 
 Why do config files and logs appear as a single line?
 -----------------------------------------------------
@@ -280,7 +280,7 @@ By default settings, no rotation occurs, your log files will just keep
 getting larger.
 
 Go to :menuselection:`Settings --> Preferences --> Logging` and change the
-log filename to any one of these:
+log filename to any one of these::
 
     %Y-%m-%d/%n-%c.log -> 2006-12-30/FreeNode-#channel.log
 
@@ -309,9 +309,9 @@ IRC terminology, might be afraid of their personal data. In order to avoid
 alienating such people, we decided to remove this setting from the Network
 List. Now you can access this setting under :menuselection:`Settings -->
 Preferences --> Advanced` instead, or if you prefer the command line, you can
-use the following command:
+use the following command::
 
-    /set irc\_real\_name Stewie Griffin
+    /set irc_real_name Stewie Griffin
 
 Why don't beep sound alerts work?
 ---------------------------------
