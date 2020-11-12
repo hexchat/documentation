@@ -13,7 +13,7 @@ Translation is handled by `Transifex <https://www.transifex.com/projects/p/hexch
 Documentation
 -------------
 
-For simple edits of the documentation just go to the page and click *Show/Edit on Github* on the left side, fork the repo, edit it, and submit a pull request.
+To edit the documentation go to the Documentation_ repository, fork it, edit it, and submit a pull request.
 
 For more complex additions I direct you to documentation for the projects we use:
 
@@ -22,6 +22,7 @@ For more complex additions I direct you to documentation for the projects we use
 - Github_ and ReadTheDocs_ for hosting.
 - Sphinx_ for generating the docs.
 
+.. _Documentation: https://github.com/hexchat/documentation
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
 .. _Sphinx: http://sphinx-doc.org/
 .. _ReadTheDocs: http://read-the-docs.readthedocs.org/en/latest/
