@@ -656,7 +656,7 @@ General Functions
 .. function:: int hexchat_emit_print_attrs (hexchat_plugin *ph, hexchat_event_attrs *attrs, const char *event_name, ...)
 
     Generates a print event. This is the same as
-    :func:`hexchat_emit_print` but it passes an :type:`hexchat_event_attrs *`
+    :func:`hexchat_emit_print` but it passes an :type:`hexchat_event_attrs`
     to hexchat with the print attributes.
 
 
@@ -1029,7 +1029,7 @@ Hook Functions
 
     Registers a function to trap any print events. This is the same as
     :func:`hexchat_hook_print` but the callback receives an
-    :type:`hexchat_event_attrs *` with attributes related to the print event.
+    :type:`hexchat_event_attrs` with attributes related to the print event.
 
     :param ph: Plugin handle (as given to `hexchat_plugin_init`).
     :param name: Name of the print event (as in *Text Events* window).
@@ -1080,7 +1080,7 @@ Hook Functions
     Registers a function to be called when a certain server
     event occurs. This is the same as
     :func:`hexchat_hook_server` but the callback receives an
-    :type:`hexchat_event_attrs *` with attributes related to the server event.
+    :type:`hexchat_event_attrs` with attributes related to the server event.
 
 
     :param ph: Plugin handle (as given to `hexchat_plugin_init`).
