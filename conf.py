@@ -145,7 +145,9 @@ html_use_smartypants = True
 
 # Sphinx will add "permalinks" for each heading and description environment
 # as paragraph signs that become visible when the mouse hovers over them.
-html_add_permalinks = True
+#	Changed in version 1.1 to take the text of the permalink, but defaults
+#	to paragraph symbol.
+#html_add_permalinks = True
 
 # Custom sidebar templates, maps document names to template names.
 #html_sidebars = {}
