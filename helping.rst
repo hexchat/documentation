@@ -22,6 +22,7 @@ For more complex additions I direct you to documentation for the projects we use
 - Github_ and ReadTheDocs_ for hosting.
 - Sphinx_ for generating the docs.
 
+.. _Documentation: https://github.com/hexchat/documentation
 .. _reStructuredText: http://docutils.sourceforge.net/rst.html
 .. _Sphinx: http://sphinx-doc.org/
 .. _ReadTheDocs: http://read-the-docs.readthedocs.org/en/latest/
