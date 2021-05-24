@@ -9,7 +9,7 @@ Software
 
 Download and install (in their default install paths):
 
-- `Visual Studio 2015 Community <https://www.visualstudio.com/products/visual-studio-community-vs>`_
+- `Visual Studio 2019 Community <https://www.visualstudio.com/products/visual-studio-community-vs>`_
 - `Inno Setup 5.5 Unicode <http://www.jrsoftware.org/isdl.php>`_
 - `Inno Download Plugin <https://dl.hexchat.net/misc/idpsetup-1.5.1.exe>`_
 - `7-Zip <http://7-zip.org/>`_
