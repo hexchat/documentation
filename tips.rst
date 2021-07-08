@@ -1,6 +1,55 @@
 Tips & Tricks
 =============
 
+Blurry Text
+-----------
+
+Some high-DPI devices running Windows may cause HexChat to display blurry text.  
+This is because Windows automatically increases font sizes to make text more readable
+on these devices.  Unfortunately this is feature isn't truly backwards compatible; if an app
+doesn't support font scaling than Windows will simply render the app bigger (and blurry).
+
+To fix this we have to disable high-DPI scaling for HexChat.  See the section below if you've instsalled the Windows 10 app store version of HexChat; you'll have to reinstall it.
+
+1. Open C:\\Program Files\\HexChat in explorer (or wherever you installed HexChat).  Right click on hexchat.exe and hit properties:
+
+    .. image:: _static/img/fixblur_1.png
+
+2. Next, go to the "Compatibility" tab:
+
+    .. image:: _static/img/fixblur_2.png
+
+3. Hit "Change High DPI Settings"
+
+    .. image:: _static/img/fixblur_3.png
+
+4. Check the "Override high DPI scaling behavior" checkbox.
+
+    .. image:: _static/img/fixblur_4.png
+
+5. And set the dropdown box to "Application"
+
+    .. image:: _static/img/fixblur_5.png
+
+Installing Outside Of App Store
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The above fix doesn't seem to work on the app store version of HexChat; you'll have to install the "Win7+" version from the downloads page (the "+" includes Windows 10).  Don't uninstall the old HexChat, do it after you've transferred your settings.  Anyway, download and run the "Win7+" installer.
+
+Next, copy your settings from the app store version to the new installation.  First find your home directory; to do this, open a command prompt (you can hit the Windows key and type in "cmd" to search for it).  You should see something like `c:\\Users\\[something]`. That something is your home directory.
+
+Now find the HexChat app's `config <settings.html#config-files>`_ directory.  It should be located somewhere like this:
+
+`[HOME DIRECTORY]\\AppData\\Local\\Packages\\39215TingPing.HexChat_fqe8h3fzrj50c\\LocalCache\\Roaming\\HexChat`
+
+Note that the folder `39215TingPing.HexChat_fqe8h3fzrj50c` might be in a different place (developers: check this).  You might have to hunt around for it; it should have `HexChat` somewhere in the name.
+
+Anyway, once you've found the config directory, copy its contents to:
+
+`[HOME DIRECTORY]\\AppData\\Roaming\\HexChat`
+
+Make sure the settings transferred correctly, and then you can uninstall the app store version.
+
 Spell Check
 -----------
 
