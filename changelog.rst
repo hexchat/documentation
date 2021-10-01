@@ -1,6 +1,23 @@
 HexChat ChangeLog
 =================
 
+2.16.0 (2021-10-01)
+-------------------
+
+- add support for IRCv3 SETNAME, invite-notify, account-tag, standard replies, and UTF8ONLY
+- add support for strikethrough formatting
+- update network list (including Libra.Chat as the default)
+- update OpenSSL on Windows
+- fix text clipping issues by respecting font line height
+- fix URLs not being escaped when opened
+- fix misc IRC message parsing issues
+- remove libnotify dependency on Linux, fixing hangs when notifications are shown
+- remove libproxy dependency on Linux
+- print ChanServ notices in the front tab by default
+- fishlim: add support for CBC mode
+- python: rewrite plugin in python with CFFI
+  This lowers memory usage and fixed conflicts with many C Python modules including pygobject
+
 2.14.3 (2019-12-20)
 -------------------
 
