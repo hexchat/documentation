@@ -6,7 +6,7 @@ HexChat ChangeLog
 
 - add support for IRCv3 SETNAME, invite-notify, account-tag, standard replies, and UTF8ONLY
 - add support for strikethrough formatting
-- update network list (including Libra.Chat as the default)
+- update network list (including Libera.Chat as the default)
 - update OpenSSL on Windows
 - fix text clipping issues by respecting font line height
 - fix URLs not being escaped when opened
