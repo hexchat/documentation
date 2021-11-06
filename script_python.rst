@@ -111,6 +111,7 @@ Text Formatting
 - Reverse Color: ``'\026'``
 - Beep: ``'\007'``
 - Italics: ``'\035'`` (2.10.0+)
+- Strikethrough: ``'\036'`` (2.16.0+)
 
 For example this will print underlined red text:
 
