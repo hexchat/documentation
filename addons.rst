@@ -11,7 +11,7 @@ A list of many existing addons can be found at `https://github.com/hexchat/hexch
 Exec
 ----
 
-The exec plugin provides the :command:`/exec` command for Windows, it is built in on Unix.
+The exec plugin provides the :command:`/exec` command for Windows. On Unix platforms there are built-in commands for this and this documentation does not apply to the behavior of those, see :command:`/help` for more information.
 
 With Exec you can perform commands as if you ran them in the command line. The output will be printed at once, in the end of execution. If the command takes more than 10 seconds to complete, it gets aborted to avoid locking down HexChat. Usage:
 
