@@ -243,8 +243,11 @@ startup:
 How do I minimize HexChat to the System Tray (Notification Area)?
 -----------------------------------------------------------------
 
-On both Unix and Windows there is an included tray plugin. To enable
-minimizing to tray on exit go to :menuselection:`Settings --> Preferences --> Alerts`.
+HexChat includes support for a tray icon which can be enabled in
+:menuselection:`Settings --> Preferences --> Alerts`.
+
+If that option does not appear then HexChat could not detect a usable tray.
+Some desktops such as GNOME require an `extension <https://extensions.gnome.org/extension/615/appindicator-support/>`_ for this.
 
 How do I start HexChat with...?
 -------------------------------
