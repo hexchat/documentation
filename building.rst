@@ -115,7 +115,7 @@ The theme manager isn't built by default on Unix. To do so get hexchat's source 
 
 .. code-block:: bash
 
-    meson configure build -Dwith-theme-manager=true
+    meson configure build -Dtheme-manager=true
     ninja -C build
     sudo ninja -C build install
 
