@@ -1,6 +1,17 @@
 HexChat ChangeLog
 =================
 
+2.16.1 (2022-02-12)
+-------------------
+
+- add ``-NOOVERRIDE`` flag to the ``GUI COLOR`` command
+- add ``-q`` (quiet) flag to ``EXECWRITE`` command
+- rename installed icon on Linux to match app-id (Fixes notification icon)
+- fix escaping already escaped URLs when opening them
+- fix Python scripts not being opened as UTF-8
+- fix ``TIMER`` command supporting decimals regardless of locale
+- fishlim: fix building with OpenSSL 3
+
 2.16.0 (2021-10-01)
 -------------------
 
