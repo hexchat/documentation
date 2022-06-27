@@ -90,7 +90,7 @@ Themes can be either installed globally (changing all gtk2 applications) or to H
 On Linux application specific themes would work by setting the ``GTK2_RC_FILES`` environment variable but
 that will not be shown here and the following example is for Windows.
 
-The latter requires write permissions to HexChat's install dir (e.g. in Program Files). Global themes
+Application specific themes on Windows requires write permissions to HexChat's install dir (e.g. in Program Files). Global themes
 are set in *%USERPROFILE%\\.gtkrc-2.0* but will not be covered here.
 
 This example will use the `Vertex theme <https://github.com/horst3180/Vertex-theme>`_.
