@@ -86,6 +86,10 @@ since 2.10.0. If you use < 2.12.0 you need to install HexChat with the *Gtk them
 avoid the installer overwriting it on updates.
 
 Themes can be either installed globally (changing all gtk2 applications) or to HexChat specifically.
+
+On Linux application specific themes would work by setting the ``GTK2_RC_FILES`` environment variable but
+that will not be shown here and the following example is for Windows.
+
 The latter requires write permissions to HexChat's install dir (e.g. in Program Files). Global themes
 are set in *%USERPROFILE%\\.gtkrc-2.0* but will not be covered here.
 
