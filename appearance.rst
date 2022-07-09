@@ -78,20 +78,19 @@ Gtk Theme
 ~~~~~~~~~
 
 To customize more than just text color such as the window borders you must install a gtk theme.
-Here are some simple instructions for using them on Windows.
+
+GTK themes can be either installed globally (changing all gtk2 applications) or to HexChat specifically.
+
+On Linux application specific themes would work by setting the ``GTK2_RC_FILES`` environment variable but
+that will not be shown here.
+
+On Windows application specific themes on Windows requires write permissions to HexChat's install dir (e.g. in Program Files). Global themes
+are set in *%USERPROFILE%\\.gtkrc-2.0* but will not be covered here.
 
 The only requirement for themes on Windows is that they are for gtk2 and they use the Pixbuf engine. Themes
 requiring other engines will work but not look correct. HexChat has also only shipped this engine
 since 2.10.0. If you use < 2.12.0 you need to install HexChat with the *Gtk theme* option unchecked as this will
 avoid the installer overwriting it on updates.
-
-Themes can be either installed globally (changing all gtk2 applications) or to HexChat specifically.
-
-On Linux application specific themes would work by setting the ``GTK2_RC_FILES`` environment variable but
-that will not be shown here and the following example is for Windows.
-
-Application specific themes on Windows requires write permissions to HexChat's install dir (e.g. in Program Files). Global themes
-are set in *%USERPROFILE%\\.gtkrc-2.0* but will not be covered here.
 
 This example will use the `Vertex theme <https://github.com/horst3180/Vertex-theme>`_.
 Which contains an unoffensive dark theme and *mostly* uses the Pixbuf engine. Zips are on the releases page.
