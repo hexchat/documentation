@@ -365,8 +365,8 @@ A portable install fails with "Missing VCRUNTIME140.dll"
 --------------------------------------------------------
 
 HexChat, being a C appliation, depends on Microsoft's Visual C++ Runtime. Normally the HexChat installer will
-install this runtime for you and functional as expected. However if you use the portable mode of the installer
-it cannot install system libraries (this allows running as an unprivelged user).
+install this runtime for you and function as expected. However if you use the portable mode of the installer
+it cannot install system libraries (this allows running as an unprivileged user).
 
 You can simply install it from Microsoft directly to solve this error:
 
