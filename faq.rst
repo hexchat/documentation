@@ -360,3 +360,16 @@ You should make a pull request on `GitHub <https://github.com/hexchat/hexchat/pu
 want the quickest results, the list is stored in *src/common/servlist.c*. You should include an
 SSL server if supported but you should not include IPv6 only servers and mark SASL as default if supported.
 Follow the syntax of other networks in the file.
+
+A portable install fails with "Missing VCRUNTIME140.dll"
+--------------------------------------------------------
+
+HexChat, being a C appliation, depends on Microsoft's Visual C++ Runtime. Normally the HexChat installer will
+install this runtime for you and functional as expected. However if you use the portable mode of the installer
+it cannot install system libraries (this allows running as an unprivelged user).
+
+You can simply install it from Microsoft directly to solve this error:
+
+- 32bit - https://aka.ms/vs/17/release/vc_redist.x86.exe
+- 64bit - https://aka.ms/vs/17/release/vc_redist.x64.exe
+
