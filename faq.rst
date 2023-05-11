@@ -373,3 +373,9 @@ You can simply install it from Microsoft directly to solve this error:
 - 32bit - https://aka.ms/vs/17/release/vc_redist.x86.exe
 - 64bit - https://aka.ms/vs/17/release/vc_redist.x64.exe
 
+
+What does the Safe Mode start menu entry do?
+--------------------------------------------
+
+This launches HexChat with the ``--no-auto`` and ``--no-plugins`` options. This can bypass any issues you have
+with a problematic plugin or auto-connecting network.
