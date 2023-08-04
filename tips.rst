@@ -136,17 +136,19 @@ Once a marker line is "reset" it does not instantly get created at the bottom it
 Tor
 ---
 
-1. Find a network that allows tor (most don't). Example: `freenode`_
-2. Get tor working. Refer to the tutorial from official tor website (instructions for `Windows <http://www.torproject.org.in/docs/tor-doc-windows.html.en>`_ and `Linux <http://www.torproject.org.in/docs/debian.html.en>`_). For windows -  Browser bundle is an easy way to test.
-3. Set up proxy in :menuselection:`Settings --> Preferences --> Network Setup`. Example (with defaults):
+1. Find if the network you wish to connect to allows connections from the Onion Network (check their official website and the Message of The Day).
+2. Get Tor working. Refer to the tutorials from the `official Tor support center <https://support.torproject.org/>`_.
+3. Set up proxy in :menuselection:`Settings --> Preferences --> Network Setup`.
+
+Example (with defaults):
 
 .. image:: _static/img/tips_tor_1.png
 
-4. Setup the network in :menuselection:`HexChat --> Network List`. (Note: use the updated information from `freenode`_'s site.) Example:
+4. Setup the network in :menuselection:`HexChat --> Network List`. (Note: use only the updated information from the official website of the IRC network you wish to connect to)
+
+Example:
 
 .. image:: _static/img/tips_tor_2.png
-
-.. _freenode: http://freenode.net/news/tor-online
 
 Twitch
 ------
