@@ -1,6 +1,28 @@
 HexChat ChangeLog
 =================
 
+2.16.2 (2023-02-07)
+-------------------
+
+- change ``/server`` to use TLS by default, use ``-insecure`` or the ``-`` prefix on the port to disable
+- change preferences dialog to be modal
+- add support for the ``extended-monitor`` capability
+- add support for ``SCRAM`` SASL mechanisms
+- add option to hide nick from window title
+- increase max server password length to 1024
+- fix some detecting some URLs causing a crash
+- fix long SASL auth strings not being split
+- fix ``PROTOCOL_NAMESX`` support and only use it when not using ``multi-prefix``
+- fix dialog topic not being updated with ``CHGHOST``
+- fix notify.conf being reversed when saved
+- lua: fix crash when using pluginprefs
+- python: fix API break in ``hook_timer()``
+- python: fix timers that unhook themselves
+- checksum: Various improvements including not blocking the UI
+- win32: Add installer options to control start menu, desktop, and quick launch shortcuts
+- win32: Update python3 to 3.8
+- win32: Remove python2
+
 2.16.1 (2022-02-12)
 -------------------
 
