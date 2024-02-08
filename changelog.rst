@@ -1,7 +1,7 @@
 HexChat ChangeLog
 =================
 
-2.16.2 (2023-02-07)
+2.16.2 (2024-02-07)
 -------------------
 
 - change ``/server`` to use TLS by default, use ``-insecure`` or the ``-`` prefix on the port to disable
